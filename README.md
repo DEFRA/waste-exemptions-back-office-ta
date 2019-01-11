@@ -1,6 +1,6 @@
 # Waste Exemptions Back Office (TA)
 
-[![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c55dc26cbfffc87c5172/maintainability)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office-ta/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/c55dc26cbfffc87c5172/test_coverage)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office-ta/test_coverage) [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
 If your business produces waste or emissions that pollute you may require an environmental permit. However you may also be able to get an exemption if your business activities are considered to be easily controlled and only create low risks of pollution.
 
