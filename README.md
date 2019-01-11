@@ -19,7 +19,7 @@ You'll need [Ruby 2.4.2](https://www.ruby-lang.org/en/) installed plus the [Bund
 First clone the repository and then drop into your new local repo
 
 ```bash
-git clone https://github.com/defra/waste-exemptions-front-office.git && cd waste-exemptions-front-office
+git clone https://github.com/defra/waste-exemptions-back-office-ta.git && cd waste-exemptions-back-office-ta
 ```
 
 Next download and install the dependencies
@@ -37,7 +37,7 @@ Download the Vagrant project and create the VM using the instructions in its REA
 However, if you intend to work with the app locally (as opposed to on the Vagrant instance) and just use the box for dependencies, you'll need to:
 
 - Log in into the Vagrant instance
-- Using `ps ax`, identify the pid of the running front office app
+- Using `ps ax`, identify the pid of the running back office app
 - Kill it using `kill [pid id]`
 - Exit the vagrant instance
 
