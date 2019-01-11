@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  host: <%= ENV["PG_HOST"] || "localhost" %>
+  port: <%= ENV["PG_PORT"] || 5432 %>
+  user: <%= ENV["PG_USERNAME"] || "vagrant" %>
+  password: <%= ENV["PG_PASSWORD"] || "vagrant" %>
+
+development:
+  <<: *default
+  database: waste_exemptions_development
+
+test:
+  <<: *default
+  database: waste_exemptions_test
+  min_messages: WARNING
+
+production:
+  <<: *default
+  database: <%= ENV["PG_PROD_DATABASE"] || "waste_exemptions" %>
