@@ -35,6 +35,10 @@ gem "turbolinks"
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 
+# Use Devise for user authentication
+gem "devise", ">= 4.4.3"
+gem "devise_invitable", "~> 1.7.0"
+
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
@@ -43,7 +47,7 @@ gem "waste_exemptions_engine",
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 
-group :development, :production do
+group :production do
   # Web application server that replaces webrick. It handles HTTP requests,
   # manages processes and resources, and enables administration, monitoring
   # and problem diagnosis. It is used in production because it gives us an ability
