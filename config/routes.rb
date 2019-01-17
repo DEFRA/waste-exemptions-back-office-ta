@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   mount WasteExemptionsEngine::Engine => "/"
 
   root "dashboards#index"
+
+  devise_for :users
 end
