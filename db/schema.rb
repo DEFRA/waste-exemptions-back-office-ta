@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190108153452) do
+ActiveRecord::Schema.define(version: 20190116160355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 20190108153452) do
     t.text    "description"
     t.text    "guidance"
   end
+
+  create_table "people", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "person_type"
+    t.integer  "registration_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "people", ["registration_id"], name: "index_people_on_registration_id", using: :btree
 
   create_table "registration_exemptions", force: :cascade do |t|
     t.string   "state"
@@ -115,6 +126,17 @@ ActiveRecord::Schema.define(version: 20190108153452) do
 
   add_index "transient_addresses", ["transient_registration_id"], name: "index_transient_addresses_on_transient_registration_id", using: :btree
 
+  create_table "transient_people", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "person_type"
+    t.integer  "transient_registration_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "transient_people", ["transient_registration_id"], name: "index_transient_people_on_transient_registration_id", using: :btree
+
   create_table "transient_registration_exemptions", force: :cascade do |t|
     t.string   "state"
     t.date     "registered_on"
@@ -163,5 +185,7 @@ ActiveRecord::Schema.define(version: 20190108153452) do
   add_index "transient_registrations", ["token"], name: "index_transient_registrations_on_token", unique: true, using: :btree
 
   add_foreign_key "addresses", "registrations"
+  add_foreign_key "people", "registrations"
   add_foreign_key "transient_addresses", "transient_registrations"
+  add_foreign_key "transient_people", "transient_registrations"
 end
