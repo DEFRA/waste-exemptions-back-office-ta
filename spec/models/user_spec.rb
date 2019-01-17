@@ -3,6 +3,24 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
+  describe "#role" do
+    context "when the role is in the allowed list" do
+      let(:user) { build(:user, role: "system") }
+
+      it "should be valid" do
+        expect(user).to be_valid
+      end
+    end
+
+    context "when the role is not in the allowed list" do
+      let(:user) { build(:user, role: "foo") }
+
+      it "should not be valid" do
+        expect(user).to_not be_valid
+      end
+    end
+  end
+
   describe "#password" do
     context "when the user's password meets the requirements" do
       let(:user) { build(:user, password: "Secret123") }

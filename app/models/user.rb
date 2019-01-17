@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
+  ROLES = %w[system
+             super_agent
+             admin_agent
+             data_agent
+             user].freeze
+
   devise :database_authenticatable,
          :invitable,
          :lockable,
@@ -18,6 +24,7 @@ class User < ActiveRecord::Base
   end
 
   # Validations
+  validates :role, inclusion: { in: ROLES }
   validates :password, presence: true, length: { in: 8..128 }
   validate :password_must_have_lowercase_uppercase_and_numeric
 
