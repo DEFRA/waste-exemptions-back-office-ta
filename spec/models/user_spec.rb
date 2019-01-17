@@ -70,4 +70,22 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe "role_is?" do
+    let(:user) { build(:user, role: "system") }
+
+    context "when the user has the same role" do
+      it "should return true" do
+        role = user.role
+        expect(user.role_is?(role)).to eq(true)
+      end
+    end
+
+    context "when the user has a different role" do
+      it "should return false" do
+        role = "data_agent"
+        expect(user.role_is?(role)).to eq(false)
+      end
+    end
+  end
 end

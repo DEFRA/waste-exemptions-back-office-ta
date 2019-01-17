@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
              data_agent
              user].freeze
 
+  def role_is?(target_role)
+    role == target_role.to_s
+  end
+
   devise :database_authenticatable,
          :invitable,
          :lockable,
