@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   ROLES = %w[system
              super_agent
              admin_agent
-             data_agent
-             user].freeze
+             data_agent].freeze
 
   def role_is?(target_role)
     role == target_role.to_s
