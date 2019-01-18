@@ -3,7 +3,7 @@
 class SearchService
   def initialize; end
 
-  def search
-    WasteExemptionsEngine::Registration.all
+  def search(page)
+    WasteExemptionsEngine::Registration.all.page(page)
   end
 end

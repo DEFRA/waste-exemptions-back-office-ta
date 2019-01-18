@@ -8,7 +8,8 @@ RSpec.describe "Dashboards", type: :request do
       before do
         sign_in(create(:user))
         # Stub the service to reduce database hits
-        allow_any_instance_of(SearchService).to receive(:search).and_return([])
+        results = Kaminari.paginate_array([]).page(1)
+        allow_any_instance_of(SearchService).to receive(:search).and_return(results)
       end
 
       it "renders the index template" do
@@ -32,7 +33,8 @@ RSpec.describe "Dashboards", type: :request do
         let(:registration) { build(:registration) }
 
         before do
-          allow_any_instance_of(SearchService).to receive(:search).and_return([registration])
+          results = Kaminari.paginate_array([registration]).page(1)
+          allow_any_instance_of(SearchService).to receive(:search).and_return(results)
         end
 
         it "lists the registrations" do

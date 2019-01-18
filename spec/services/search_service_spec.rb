@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe SearchService do
   let(:results) do
     service = SearchService.new
-    service.search
+    service.search(1)
   end
 
   let(:registration) { create(:registration) }

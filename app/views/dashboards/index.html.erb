@@ -17,14 +17,30 @@
   </div>
 </div>
 
-<div class="grid-row">
-  <div class="column-full">
-    <% if @registrations.present? %>
+<% if @registrations.present? %>
+  <div class="grid-row">
+    <div class="column-full">
       <% @registrations.each do |reg| %>
         <%= reg.reference %>
       <% end %>
-    <% else %>
-      <%= t(".no_results") %>
-    <% end %>
+    </div>
   </div>
-</div>
+
+  <div class="grid-row">
+    <div class="column-full">
+      <nav role="navigation" class="pagination" aria-label="Pagination">
+        <div class="pagination__summary">
+          <%= page_entries_info @registrations, entry_name: "item" %>
+        </div>
+        <%= paginate @registrations %>
+      </nav>
+    </div>
+  </div>
+
+<% else %>
+  <div class="grid-row">
+    <div class="column-full">
+      <%= t(".no_results") %>
+    </div>
+  </div>
+<% end %>
