@@ -35,6 +35,9 @@ gem "turbolinks"
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 
+# Use CanCanCan for user roles and permissions
+gem "cancancan", "~> 2.0"
+
 # Use Devise for user authentication
 gem "devise", ">= 4.4.3"
 gem "devise_invitable", "~> 1.7.0"

@@ -66,6 +66,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.1.2)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     database_cleaner (1.7.0)
@@ -295,6 +296,7 @@ PLATFORMS
 DEPENDENCIES
   airbrake (= 5.8.1)
   byebug
+  cancancan (~> 2.0)
   database_cleaner
   defra_ruby_style
   devise (>= 4.4.3)
