@@ -2,4 +2,7 @@ en:
   dashboards:
     index:
       title: "Waste exemptions dashboard"
+      user_info:
+        signed_in_user: "Signed in as %{email}."
+        sign_out_link: "Sign out"
       heading: "Waste exemptions dashboard"

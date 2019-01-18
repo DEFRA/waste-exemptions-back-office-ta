@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190108153452) do
+ActiveRecord::Schema.define(version: 20190116160355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 20190108153452) do
     t.text    "description"
     t.text    "guidance"
   end
+
+  create_table "people", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "person_type"
+    t.integer  "registration_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "people", ["registration_id"], name: "index_people_on_registration_id", using: :btree
 
   create_table "registration_exemptions", force: :cascade do |t|
     t.string   "state"
@@ -115,6 +126,17 @@ ActiveRecord::Schema.define(version: 20190108153452) do
 
   add_index "transient_addresses", ["transient_registration_id"], name: "index_transient_addresses_on_transient_registration_id", using: :btree
 
+  create_table "transient_people", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "person_type"
+    t.integer  "transient_registration_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "transient_people", ["transient_registration_id"], name: "index_transient_people_on_transient_registration_id", using: :btree
+
   create_table "transient_registration_exemptions", force: :cascade do |t|
     t.string   "state"
     t.date     "registered_on"
@@ -162,6 +184,33 @@ ActiveRecord::Schema.define(version: 20190108153452) do
   add_index "transient_registrations", ["reference"], name: "index_transient_registrations_on_reference", unique: true, using: :btree
   add_index "transient_registrations", ["token"], name: "index_transient_registrations_on_token", unique: true, using: :btree
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer  "invitation_limit"
+    t.integer  "invited_by_id"
+    t.string   "invited_by_type"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.string   "session_token"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+
   add_foreign_key "addresses", "registrations"
+  add_foreign_key "people", "registrations"
   add_foreign_key "transient_addresses", "transient_registrations"
+  add_foreign_key "transient_people", "transient_registrations"
 end
