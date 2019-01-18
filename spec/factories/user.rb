@@ -8,5 +8,21 @@ FactoryBot.define do
 
     role { "system" }
     password { "Secret123" }
+
+    trait :system do
+      role { "system" }
+    end
+
+    trait :super_agent do
+      role { "super_agent" }
+    end
+
+    trait :admin_agent do
+      role { "admin_agent" }
+    end
+
+    trait :data_agent do
+      role { "data_agent" }
+    end
   end
 end
