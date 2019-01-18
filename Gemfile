@@ -42,6 +42,9 @@ gem "cancancan", "~> 2.0"
 gem "devise", ">= 4.4.3"
 gem "devise_invitable", "~> 1.7.0"
 
+# Use Kaminari for pagination
+gem "kaminari", "~> 1.1"
+
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
