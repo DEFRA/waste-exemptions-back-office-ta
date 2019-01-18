@@ -2,10 +2,21 @@
 
 WasteExemptionsEngine::Engine.load_seed
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+def find_or_create_user(email, role)
+  User.find_or_create_by(email: email) do |user|
+    user.role = role
+    user.password = ENV["DEFAULT_PASSWORD"] || "Secret123"
+  end
+end
+
+def seed_users
+  seeds = JSON.parse(File.read("#{Rails.root}/db/seeds/users.json"))
+  users = seeds["users"]
+
+  users.each do |user|
+    find_or_create_user(user["email"], user["role"])
+  end
+end
+
+# Only seed if not running in production or we specifically require it, eg. for Heroku
+seed_users if !Rails.env.production? || ENV["ALLOW_SEED"]
