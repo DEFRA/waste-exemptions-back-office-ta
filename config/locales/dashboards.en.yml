@@ -6,3 +6,4 @@ en:
         signed_in_user: "Signed in as %{email}."
         sign_out_link: "Sign out"
       heading: "Waste exemptions dashboard"
+      no_results: "No results"

@@ -16,3 +16,15 @@
     </h1>
   </div>
 </div>
+
+<div class="grid-row">
+  <div class="column-full">
+    <% if @registrations.present? %>
+      <% @registrations.each do |reg| %>
+        <%= reg.reference %>
+      <% end %>
+    <% else %>
+      <%= t(".no_results") %>
+    <% end %>
+  </div>
+</div>

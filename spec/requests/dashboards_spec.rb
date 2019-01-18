@@ -5,7 +5,11 @@ require "rails_helper"
 RSpec.describe "Dashboards", type: :request do
   describe "/" do
     context "when a valid user is signed in" do
-      before { sign_in(create(:user)) }
+      before do
+        sign_in(create(:user))
+        # Stub the service to reduce database hits
+        allow_any_instance_of(SearchService).to receive(:search).and_return([])
+      end
 
       it "renders the index template" do
         get "/"
@@ -15,6 +19,26 @@ RSpec.describe "Dashboards", type: :request do
       it "returns a 200 response" do
         get "/"
         expect(response).to have_http_status(200)
+      end
+
+      context "when there are no matching registrations" do
+        it "says there are no results" do
+          get "/"
+          expect(response.body).to include("No results")
+        end
+      end
+
+      context "when there are matching registrations" do
+        let(:registration) { build(:registration) }
+
+        before do
+          allow_any_instance_of(SearchService).to receive(:search).and_return([registration])
+        end
+
+        it "lists the registrations" do
+          get "/"
+          expect(response.body).to include(registration.reference)
+        end
       end
     end
 
