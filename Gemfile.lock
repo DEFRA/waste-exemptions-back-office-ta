@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: db51f8cdc20cde86ba8f59f3924e3f700308220d
+  revision: 88cbe0c4488e2fa501faba2400b03f7b787100be
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -14,6 +14,7 @@ GIT
       rest-client (~> 2.0)
       uk_postcode
       validates_email_format_of
+      wicked_pdf
 
 GEM
   remote: https://rubygems.org/
@@ -66,7 +67,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (10.0.2)
-    cancancan (2.1.2)
+    cancancan (2.3.0)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     database_cleaner (1.7.0)
@@ -225,7 +226,7 @@ GEM
     rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
-    rspec-rails (3.8.1)
+    rspec-rails (3.8.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -301,6 +302,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    wicked_pdf (1.1.0)
 
 PLATFORMS
   ruby
