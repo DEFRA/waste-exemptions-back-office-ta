@@ -37,7 +37,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+  config.action_view.raise_on_missing_translations = true
 
   # The rails web console allows you to execute arbitrary code on the server. By
   # default, only requests coming from IPv4 and IPv6 localhosts are allowed.
