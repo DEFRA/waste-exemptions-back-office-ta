@@ -15,13 +15,6 @@
       <p><%= t(".password_reset_paragraph_1") %> <%= link_to t(".password_reset_link_text"), new_password_path(resource_name) %>.</p>
     </div>
   </details>
-
-  <details>
-    <summary><span class="summary"><%= t(".unknown_email_summary") %></span></summary>
-    <div class="panel panel-border-narrow">
-      <p><%= t(".unknown_email_paragraph_1") %></p>
-    </div>
-  </details>
 <% end %>
 
 <% if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
