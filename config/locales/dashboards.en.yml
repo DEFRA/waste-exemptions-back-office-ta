@@ -2,6 +2,19 @@ en:
   dashboards:
     index:
       title: "Waste exemptions dashboard"
+      search:
+        paragraph_1: "You can search for a registration by:"
+        searchable_attributes:
+          - "site postcode"
+          - "registration reference number"
+          - "business or partner name"
+          - "applicant name"
+          - "applicant email"
+          - "contact name"
+          - "contact email"
+        label: "Search for registrations"
+        placeholder: "Enter your search term here"
+        submit: "Search"
       user_info:
         signed_in_user: "Signed in as %{email}."
         sign_out_link: "Sign out"

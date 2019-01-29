@@ -2,7 +2,7 @@
 
 class DashboardsController < ApplicationController
   def index
-    @term = nil
+    @term = params[:term]
     @registrations = matching_registrations(params[:page])
   end
 

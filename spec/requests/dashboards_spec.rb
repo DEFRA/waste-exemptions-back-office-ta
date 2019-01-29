@@ -22,14 +22,14 @@ RSpec.describe "Dashboards", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      context "when there are no matching registrations" do
+      context "when no registrations match the term" do
         it "says there are no results" do
-          get "/"
+          get "/", term: "foo"
           expect(response.body).to include("No results")
         end
       end
 
-      context "when there are matching registrations" do
+      context "when registrations match the term" do
         let(:registration) { build(:registration) }
 
         before do
@@ -38,7 +38,7 @@ RSpec.describe "Dashboards", type: :request do
         end
 
         it "lists the registrations" do
-          get "/"
+          get "/", term: "foo"
           expect(response.body).to include(registration.reference)
         end
       end
