@@ -23,12 +23,14 @@ en:
         labels:
           operator_name: "Business name"
           reference: "Reference number"
-          postcode: "Site address"
+          address: "Site address"
           grid_reference: "Site grid reference"
           applicant: "Applicant"
           contact: "Contact"
           partners: "Partners"
           actions: "Actions"
+        info:
+          no_site_address: "No site address or grid reference added"
         actions:
           edit:
             link_text: "Edit"

@@ -58,16 +58,23 @@
       </div>
       <div class="column-one-quarter">
         <ul class="registration-details">
-          <% if registration.site_address.postcode.present? %>
+          <% if registration.site_address.present? %>
+            <% if registration.site_address.postcode.present? %>
+            <li>
+              <span><%= t(".results.labels.address") %></span>
+              <%= registration.site_address.postcode %>
+            </li>
+            <% end %>
+            <% if registration.site_address.grid_reference.present? %>
+            <li>
+              <span><%= t(".results.labels.grid_reference") %></span>
+              <%= registration.site_address.grid_reference %>
+            </li>
+            <% end %>
+          <% else %>
           <li>
-            <span><%= t(".results.labels.postcode") %></span>
-            <%= registration.site_address.postcode %>
-          </li>
-          <% end %>
-          <% if registration.site_address.grid_reference.present? %>
-          <li>
-            <span><%= t(".results.labels.grid_reference") %></span>
-            <%= registration.site_address.grid_reference %>
+            <span><%= t(".results.labels.address") %></span>
+            <%= t(".results.info.no_site_address") %>
           </li>
           <% end %>
         </ul>
