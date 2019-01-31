@@ -2,6 +2,13 @@
 
 class DashboardsController < ApplicationController
   def index
-    @registrations = WasteExemptionsEngine::Registration.all
+    @term = params[:term]
+    @registrations = matching_registrations(params[:page])
+  end
+
+  private
+
+  def matching_registrations(page)
+    SearchService.new.search(@term, page)
   end
 end
