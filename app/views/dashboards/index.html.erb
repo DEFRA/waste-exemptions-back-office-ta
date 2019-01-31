@@ -16,3 +16,49 @@
     </h1>
   </div>
 </div>
+
+<div class="grid-row">
+  <div class="column-full">
+    <p><%= t(".search.paragraph_1") %></p>
+    <ul class="list list-bullet">
+      <% t(".search.searchable_attributes").each do |attribute| %>
+        <li><%= attribute %></li>
+      <% end %>
+    </ul>
+
+    <div class="form-group">
+      <%= form_tag(root_path, method: :get) do %>
+        <%= label_tag :term, t(".search.label"), class: "form-label visually-hidden" %>
+        <%= text_field_tag :term, @term, placeholder: t(".search.placeholder"), class: "form-control" %>
+        <%= submit_tag t(".search.submit"), class: "button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if @registrations.present? %>
+  <div class="grid-row">
+    <div class="column-full">
+      <% @registrations.each do |reg| %>
+        <%= reg.reference %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-full">
+      <nav role="navigation" class="pagination" aria-label="Pagination">
+        <div class="pagination__summary">
+          <%= page_entries_info @registrations, entry_name: "item" %>
+        </div>
+        <%= paginate @registrations %>
+      </nav>
+    </div>
+  </div>
+<% elsif @term.present? %>
+  <div class="grid-row">
+    <div class="column-full">
+      <%= t(".no_results") %>
+    </div>
+  </div>
+<% end %>
