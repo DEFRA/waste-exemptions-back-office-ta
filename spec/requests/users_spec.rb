@@ -32,6 +32,18 @@ RSpec.describe "Users", type: :request do
       end
     end
 
+    context "when a non-system user is signed in" do
+      let(:user) { create(:user, :data_agent) }
+      before(:each) do
+        sign_in(user)
+      end
+
+      it "redirects to the permissions error page" do
+        get "/users"
+        expect(response).to redirect_to("/pages/permission")
+      end
+    end
+
     context "when no user is signed in" do
       it "redirects the user to the sign in page" do
         get "/users"

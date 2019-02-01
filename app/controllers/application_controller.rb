@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 
   helper WasteExemptionsEngine::ApplicationHelper
 
+  rescue_from CanCan::AccessDenied do
+    redirect_to "/pages/permission"
+  end
+
   # http://jacopretorius.net/2014/01/force-page-to-reload-on-browser-back-in-rails.html
   def back_button_cache_buster
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
