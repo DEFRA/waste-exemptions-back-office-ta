@@ -17,6 +17,7 @@
             <th><%= t(".user_list.th.email") %></th>
             <th><%= t(".user_list.th.role") %></th>
             <th><%= t(".user_list.th.status") %></th>
+            <th><%= t(".user_list.th.actions") %></th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +31,28 @@
               </td>
               <td>
                 <%= t(".user_list.statuses.enabled") %>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <%= link_to "#" do %>
+                      <%= t(".user_list.actions.change_role.link_text") %>
+                      <span class="visually-hidden">
+                       <%= t(".user_list.actions.change_role.visually_hidden_text",
+                             email: user.email) %>
+                     </span>
+                   <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "#" do %>
+                      <%= t(".user_list.actions.disable.link_text") %>
+                      <span class="visually-hidden">
+                       <%= t(".user_list.actions.disable.visually_hidden_text",
+                             email: user.email) %>
+                     </span>
+                   <% end %>
+                  </li>
+                </ul>
               </td>
             </tr>
           <% end %>
