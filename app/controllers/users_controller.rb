@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   def index
     authorize! :read, current_user
-    @users = list_of_users
+    @users = list_of_users.page params[:page]
   end
 
   private
