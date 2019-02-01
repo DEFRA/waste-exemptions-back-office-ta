@@ -1,2 +1,7 @@
 en:
   global_proposition_header: Waste exemptions back office
+  layouts:
+    application:
+      menu:
+        dashboard: "Dashboard"
+        users: "Manage users"
