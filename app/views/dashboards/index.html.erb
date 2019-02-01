@@ -62,7 +62,11 @@
             <% if registration.site_address.postcode.present? %>
             <li>
               <span><%= t(".results.labels.address") %></span>
-              <%= registration.site_address.postcode %>
+              <ul>
+                <% displayable_address(registration.site_address).each do |address_line| %>
+                  <li><%= address_line %></li>
+                <% end %>
+              </ul>
             </li>
             <% end %>
             <% if registration.site_address.grid_reference.present? %>
