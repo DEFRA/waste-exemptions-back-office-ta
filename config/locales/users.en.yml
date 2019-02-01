@@ -7,3 +7,8 @@ en:
         th:
           email: "User email"
           role: "Role"
+        roles:
+          system: "system user"
+          super_agent: "super agent"
+          admin_agent: "admin agent"
+          data_agent: "data agent"
