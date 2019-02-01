@@ -109,54 +109,56 @@
       </div>
       <div class="column-one-quarter">
         <ul class="registration-details">
-          <span><%= t(".results.labels.actions") %></span>
-          <ul>
-            <li>
-              <%= link_to "#" do %>
-                <%= t(".results.actions.edit.link_text") %>
-                <span class="visually-hidden">
-                 <%= t(".results.actions.edit.visually_hidden_text",
-                       name: registration.operator_name) %>
-               </span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <%= t(".results.actions.deregister.link_text") %>
-                <span class="visually-hidden">
-                 <%= t(".results.actions.deregister.visually_hidden_text",
-                       name: registration.operator_name) %>
-               </span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <%= t(".results.actions.resume.link_text") %>
-                <span class="visually-hidden">
-                 <%= t(".results.actions.resume.visually_hidden_text",
-                       name: registration.operator_name) %>
-               </span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <%= t(".results.actions.change_ad.link_text") %>
-                <span class="visually-hidden">
-                 <%= t(".results.actions.change_ad.visually_hidden_text",
-                       name: registration.operator_name) %>
-               </span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <%= t(".results.actions.confirmation_letter.link_text") %>
-                <span class="visually-hidden">
-                 <%= t(".results.actions.confirmation_letter.visually_hidden_text",
-                       name: registration.operator_name) %>
-               </span>
-              <% end %>
-            </li>
-          </ul>
+          <li>
+            <span><%= t(".results.labels.actions") %></span>
+            <ul>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.edit.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.edit.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.deregister.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.deregister.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.resume.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.resume.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.change_ad.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.change_ad.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.confirmation_letter.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.confirmation_letter.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

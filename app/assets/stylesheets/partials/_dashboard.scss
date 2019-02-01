@@ -10,6 +10,10 @@
 
 .registration-list .registration-details li {
   padding-bottom: 1em;
+
+  ul li {
+    padding-bottom: 0;
+  }
 }
 
 @media (min-width: 642px) {
