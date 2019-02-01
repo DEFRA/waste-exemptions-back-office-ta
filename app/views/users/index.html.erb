@@ -16,6 +16,7 @@
           <tr>
             <th><%= t(".user_list.th.email") %></th>
             <th><%= t(".user_list.th.role") %></th>
+            <th><%= t(".user_list.th.status") %></th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
               </td>
               <td>
                 <%= t(".user_list.roles.#{user.role}") %>
+              </td>
+              <td>
+                <%= t(".user_list.statuses.enabled") %>
               </td>
             </tr>
           <% end %>
