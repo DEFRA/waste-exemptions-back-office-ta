@@ -1,0 +1,30 @@
+en:
+  users:
+    index:
+      title: "Manage back office users"
+      heading: "Manage back office users"
+      invite_user_link_text: "Invite a new user"
+      user_list:
+        th:
+          email: "User email"
+          role: "Role"
+          status: "Status"
+          actions: "Actions"
+        roles:
+          system: "system user"
+          super_agent: "super agent"
+          admin_agent: "admin agent"
+          data_agent: "data agent"
+        statuses:
+          enabled: "enabled"
+          disabled: "disabled"
+        actions:
+          change_role:
+            link_text: "Change role"
+            visually_hidden_text: " of %{email}"
+          disable:
+            link_text: "Disable"
+            visually_hidden_text: " %{email}"
+          enable:
+            link_text: "Enable"
+            visually_hidden_text: " %{email}"

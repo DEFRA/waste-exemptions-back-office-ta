@@ -1,0 +1,81 @@
+<div class="grid-row">
+  <div class="column-full">
+    <%= render("waste_exemptions_engine/shared/back", back_path: root_path) %>
+
+    <h1 class="heading-large">
+      <%= t(".heading") %>
+    </h1>
+  </div>
+</div>
+
+<div class="grid-row">
+  <div class="column-full">
+    <p><%= link_to t(".invite_user_link_text"), "#" %></p>
+  </div>
+</div>
+
+
+<% if @users.present? %>
+  <div class="grid-row">
+    <div class="column-full">
+      <table>
+        <thead>
+          <tr>
+            <th><%= t(".user_list.th.email") %></th>
+            <th><%= t(".user_list.th.role") %></th>
+            <th><%= t(".user_list.th.status") %></th>
+            <th><%= t(".user_list.th.actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= user.email %>
+              </td>
+              <td>
+                <%= t(".user_list.roles.#{user.role}") %>
+              </td>
+              <td>
+                <%= t(".user_list.statuses.enabled") %>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <%= link_to "#" do %>
+                      <%= t(".user_list.actions.change_role.link_text") %>
+                      <span class="visually-hidden">
+                       <%= t(".user_list.actions.change_role.visually_hidden_text",
+                             email: user.email) %>
+                     </span>
+                   <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "#" do %>
+                      <%= t(".user_list.actions.disable.link_text") %>
+                      <span class="visually-hidden">
+                       <%= t(".user_list.actions.disable.visually_hidden_text",
+                             email: user.email) %>
+                     </span>
+                   <% end %>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-full">
+      <nav role="navigation" class="pagination" aria-label="Pagination">
+        <div class="pagination__summary">
+          <%= page_entries_info @users, entry_name: "item" %>
+        </div>
+        <%= paginate @users %>
+      </nav>
+    </div>
+  </div>
+<% end %>
