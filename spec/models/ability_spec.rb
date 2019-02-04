@@ -48,4 +48,12 @@ RSpec.describe Ability, type: :model do
 
     include_examples "data_agent examples"
   end
+
+  context "when the user account is inactive" do
+    let(:user) { build(:user, :data_agent, :inactive) }
+
+    it "should not be able to use the back office" do
+      should_not be_able_to(:use_back_office, :all)
+    end
+  end
 end

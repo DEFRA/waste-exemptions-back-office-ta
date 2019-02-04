@@ -4,6 +4,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    return unless user.active?
+
     permissions_for_system_user if user.role_is?(:system)
     permissions_for_super_agent if user.role_is?(:super_agent)
     permissions_for_admin_agent if user.role_is?(:admin_agent)
@@ -38,6 +40,7 @@ class Ability
   end
 
   def permissions_for_data_agent
+    can :use_back_office, :all
     can :read, WasteExemptionsEngine::Registration
     can :export, WasteExemptionsEngine::Registration
   end
