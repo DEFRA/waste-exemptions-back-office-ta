@@ -37,24 +37,132 @@
 </div>
 
 <% if @registrations.present? %>
-  <div class="grid-row">
-    <div class="column-full">
-      <% @registrations.each do |reg| %>
-        <%= reg.reference %>
-      <% end %>
+  <% @registrations.each do |registration| %>
+    <div class="grid-row registration-list" id="<%= registration.reference %>">
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <div class="column-one-quarter">
+        <ul class="registration-details">
+          <% if registration.operator_name.present? %>
+          <li>
+            <span><%= t(".results.labels.operator_name") %></span>
+            <%= registration.operator_name %>
+          </li>
+          <% end %>
+          <% if registration.reference.present? %>
+          <li>
+            <span><%= t(".results.labels.reference") %></span>
+            <%= registration.reference %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="column-one-quarter">
+        <ul class="registration-details">
+          <% if registration.site_address.present? %>
+            <% if registration.site_address.postcode.present? %>
+            <li>
+              <span><%= t(".results.labels.address") %></span>
+              <ul>
+                <% displayable_address(registration.site_address).each do |address_line| %>
+                  <li><%= address_line %></li>
+                <% end %>
+              </ul>
+            </li>
+            <% end %>
+            <% if registration.site_address.grid_reference.present? %>
+            <li>
+              <span><%= t(".results.labels.grid_reference") %></span>
+              <%= registration.site_address.grid_reference %>
+            </li>
+            <% end %>
+          <% else %>
+          <li>
+            <span><%= t(".results.labels.address") %></span>
+            <%= t(".results.info.no_site_address") %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="column-one-quarter">
+        <ul class="registration-details">
+          <% if registration.applicant_first_name.present? %>
+          <li>
+            <span><%= t(".results.labels.applicant") %></span>
+            <%= registration.applicant_first_name %> <%= registration.applicant_last_name %>
+          </li>
+          <% end %>
+          <% if registration.contact_first_name.present? %>
+          <li>
+            <span><%= t(".results.labels.contact") %></span>
+            <%= registration.contact_first_name %> <%= registration.contact_last_name %>
+          </li>
+          <% end %>
+          <% if registration.people.present? && registration.business_type == "partnership" %>
+          <li>
+            <span><%= t(".results.labels.partners") %></span>
+            <% registration.people.each do |partner| %>
+              <%= partner.first_name %> <%= partner.last_name %>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="column-one-quarter">
+        <ul class="registration-details">
+          <li>
+            <span><%= t(".results.labels.actions") %></span>
+            <ul>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.edit.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.edit.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.deregister.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.deregister.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.resume.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.resume.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.change_ad.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.change_ad.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <%= t(".results.actions.confirmation_letter.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.confirmation_letter.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-
-  <div class="grid-row">
-    <div class="column-full">
-      <nav role="navigation" class="pagination" aria-label="Pagination">
-        <div class="pagination__summary">
-          <%= page_entries_info @registrations, entry_name: "item" %>
-        </div>
-        <%= paginate @registrations %>
-      </nav>
-    </div>
-  </div>
+  <% end %>
 <% elsif @term.present? %>
   <div class="grid-row">
     <div class="column-full">

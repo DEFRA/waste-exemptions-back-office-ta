@@ -1,0 +1,28 @@
+.user-info {
+  border-top: 10px solid $govuk-blue;
+  h2 {
+    margin-top: 1em;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+.registration-list .registration-details li {
+  padding-bottom: 1em;
+
+  ul li {
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 642px) {
+  .registration-list .registration-details li:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.registration-list span {
+  display: block;
+  font-weight: bold;
+}
