@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     role == target_role.to_s
   end
 
+  def active?
+    active == true
+  end
+
   devise :database_authenticatable,
          :invitable,
          :lockable,
