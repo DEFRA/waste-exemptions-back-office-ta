@@ -89,6 +89,24 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "activate" do
+    let(:user) { build(:user, :inactive) }
+
+    it "makes the user active" do
+      user.activate!
+      expect(user.active?).to eq(true)
+    end
+  end
+
+  describe "deactivate" do
+    let(:user) { build(:user) }
+
+    it "makes the user inactive" do
+      user.deactivate!
+      expect(user.active?).to eq(false)
+    end
+  end
+
   describe "role_is?" do
     let(:user) { build(:user, role: "system") }
 
