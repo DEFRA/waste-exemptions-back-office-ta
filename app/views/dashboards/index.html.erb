@@ -113,7 +113,7 @@
             <span><%= t(".results.labels.actions") %></span>
             <ul>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to "#", id: "edit_#{registration.reference}" do %>
                   <%= t(".results.actions.edit.link_text") %>
                   <span class="visually-hidden">
                    <%= t(".results.actions.edit.visually_hidden_text",
@@ -122,7 +122,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to "#", id: "deregister_#{registration.reference}" do %>
                   <%= t(".results.actions.deregister.link_text") %>
                   <span class="visually-hidden">
                    <%= t(".results.actions.deregister.visually_hidden_text",
@@ -131,7 +131,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to "#", id: "resume_#{registration.reference}" do %>
                   <%= t(".results.actions.resume.link_text") %>
                   <span class="visually-hidden">
                    <%= t(".results.actions.resume.visually_hidden_text",
@@ -140,7 +140,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to "#", id: "change_ad_#{registration.reference}" do %>
                   <%= t(".results.actions.change_ad.link_text") %>
                   <span class="visually-hidden">
                    <%= t(".results.actions.change_ad.visually_hidden_text",
@@ -149,7 +149,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to "#", id: "confirmation_letter_#{registration.reference}" do %>
                   <%= t(".results.actions.confirmation_letter.link_text") %>
                   <span class="visually-hidden">
                    <%= t(".results.actions.confirmation_letter.visually_hidden_text",
