@@ -13,6 +13,15 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
       end
     end
 
+    context "when a deactivated user is signed in" do
+      before { sign_in(create(:user, :inactive)) }
+
+      it "redirects to the deactivated page" do
+        get "/start/new"
+        expect(response).to redirect_to("/pages/deactivated")
+      end
+    end
+
     context "when a valid user is not signed in" do
       before { sign_out(create(:user)) }
 
