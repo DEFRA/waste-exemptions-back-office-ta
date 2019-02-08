@@ -4,6 +4,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    return if user.blank?
+
     assign_permissions_based_on_role(user) if user.active?
   end
 
