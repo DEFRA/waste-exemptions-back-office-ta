@@ -100,9 +100,11 @@
           <% if registration.people.present? && registration.business_type == "partnership" %>
           <li>
             <span><%= t(".results.labels.partners") %></span>
-            <% registration.people.each do |partner| %>
-              <%= partner.first_name %> <%= partner.last_name %>
-            <% end %>
+            <ul>
+              <% registration.people.each do |partner| %>
+                <li><%= partner.first_name %> <%= partner.last_name %></li>
+              <% end %>
+            </ul>
           </li>
           <% end %>
         </ul>
