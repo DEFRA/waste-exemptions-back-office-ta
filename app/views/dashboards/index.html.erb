@@ -165,6 +165,17 @@
       </div>
     </div>
   <% end %>
+
+  <div class="grid-row">
+    <div class="column-full">
+      <nav role="navigation" class="pagination" aria-label="Pagination">
+        <div class="pagination__summary">
+          <%= page_entries_info @registrations, entry_name: "item" %>
+        </div>
+        <%= paginate @registrations %>
+      </nav>
+    </div>
+  </div>
 <% elsif @term.present? %>
   <div class="grid-row">
     <div class="column-full">
