@@ -16,8 +16,8 @@ en:
           admin_agent: "admin agent"
           data_agent: "data agent"
         statuses:
-          enabled: "enabled"
-          disabled: "disabled"
+          active: "active"
+          deactivated: "deactivated"
         actions:
           change_role:
             link_text: "Change role"
