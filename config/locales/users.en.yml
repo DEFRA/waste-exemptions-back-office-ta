@@ -22,11 +22,11 @@ en:
           change_role:
             link_text: "Change role"
             visually_hidden_text: " of %{email}"
-          disable:
-            link_text: "Disable"
+          deactivate:
+            link_text: "Deactivate"
             visually_hidden_text: " %{email}"
-          enable:
-            link_text: "Enable"
+          activate:
+            link_text: "Activate"
             visually_hidden_text: " %{email}"
   activerecord:
     errors:
