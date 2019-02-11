@@ -38,6 +38,10 @@ module WasteExemptionsBackOffice
       "#{html_tag}".html_safe
     }
 
+    # Paths
+    config.front_office_url = ENV["FRONT_OFFICE_URL"] || "http://localhost:3001"
+    config.back_office_url = ENV["BACK_OFFICE_URL"] || "http://localhost:8001"
+
     # Addressbase facade config
     config.addressbase_url = ENV["ADDRESSBASE_URL"] || "http://localhost:9002"
 
@@ -46,6 +50,9 @@ module WasteExemptionsBackOffice
     config.companies_house_api_key = ENV["COMPANIES_HOUSE_API_KEY"]
 
     config.years_before_expiry = ENV["YEARS_BEFORE_EXPIRY"] || 3
+
+    # Emails
+    config.email_test_address = ENV["EMAIL_TEST_ADDRESS"]
 
     # Version info
     config.application_name = "waste-exemptions-back-office-ta"
