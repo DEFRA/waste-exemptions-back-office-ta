@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: e1da867cd25fb1e537a89caac296c0480d1e6e3b
-  branch: feature/auth
+  revision: 185c48d32d80867570d3afbc9ab4d89dd15ed6e1
+  branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
@@ -178,7 +178,7 @@ GEM
       rack
       rake (>= 0.8.1)
     pg (0.18.4)
-    phonelib (0.6.28)
+    phonelib (0.6.29)
     powerpack (0.1.2)
     public_suffix (3.0.3)
     rack (1.6.11)
