@@ -27,6 +27,18 @@ RSpec.describe "User Activations", type: :request do
         end
       end
     end
+
+    context "when a non-system user is signed in" do
+      let(:user) { create(:user, :data_agent) }
+      before(:each) do
+        sign_in(user)
+      end
+
+      it "redirects to the permissions error page" do
+        get "/users/activate/#{inactive_user.id}"
+        expect(response).to redirect_to("/pages/permission")
+      end
+    end
   end
 
   describe "GET /users/deactivate/:id" do

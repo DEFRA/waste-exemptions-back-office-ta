@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UserActivationsController < ApplicationController
+  before_action :authorize
+
   def activate_form
     assign_user(params[:id])
     redirect_to users_url if @user.active?
@@ -24,6 +26,10 @@ class UserActivationsController < ApplicationController
   end
 
   private
+
+  def authorize
+    authorize! :activate_or_deactivate, current_user
+  end
 
   def assign_user(id)
     @user = User.find(id)
