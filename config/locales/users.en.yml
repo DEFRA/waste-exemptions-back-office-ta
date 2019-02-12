@@ -18,6 +18,7 @@ en:
         statuses:
           active: "active"
           deactivated: "deactivated"
+          invited: "invitation sent"
         actions:
           change_role:
             link_text: "Change role"
