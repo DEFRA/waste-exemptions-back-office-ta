@@ -15,19 +15,31 @@ RSpec.describe "User Invitations", type: :request do
         expect(response).to render_template(:new)
       end
     end
-  end
 
-  describe "POST /users/invitation" do
-    context "when a system user is signed in" do
-      let(:user) { create(:user, :system) }
+    context "when a non-system user is signed in" do
+      let(:user) { create(:user, :data_agent) }
       before(:each) do
         sign_in(user)
       end
 
-      let(:email) { attributes_for(:user)[:email] }
-      let(:role) { attributes_for(:user)[:role] }
-      let(:params) do
-        { user: { email: email, role: role } }
+      it "redirects to the permissions error page" do
+        get "/users/invitation/new"
+        expect(response).to redirect_to("/pages/permission")
+      end
+    end
+  end
+
+  describe "POST /users/invitation" do
+    let(:email) { attributes_for(:user)[:email] }
+    let(:role) { attributes_for(:user)[:role] }
+    let(:params) do
+      { user: { email: email, role: role } }
+    end
+
+    context "when a system user is signed in" do
+      let(:user) { create(:user, :system) }
+      before(:each) do
+        sign_in(user)
       end
 
       it "redirects to the root path" do
@@ -45,6 +57,18 @@ RSpec.describe "User Invitations", type: :request do
       it "assigns the correct role to the user" do
         post "/users/invitation", params
         expect(User.find_by(email: email).role).to eq(role)
+      end
+    end
+
+    context "when a non-system user is signed in" do
+      let(:user) { create(:user, :data_agent) }
+      before(:each) do
+        sign_in(user)
+      end
+
+      it "redirects to the permissions error page" do
+        post "/users/invitation", params
+        expect(response).to redirect_to("/pages/permission")
       end
     end
   end
