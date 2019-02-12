@@ -21,6 +21,11 @@ en:
         heading: "Invite a new user"
         email_label: "Email"
         submit_button: "Send invitation"
+      edit:
+        heading: "Accept your invitation"
+        password_label: "Password"
+        password_confirmation_label: "Confirm password"
+        submit_button: "Create account"
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
