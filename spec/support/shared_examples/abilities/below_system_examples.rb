@@ -13,7 +13,7 @@ RSpec.shared_examples "below system examples" do
     should_not be_able_to(:change_role, user)
   end
 
-  it "should not be able to enable or disable a user" do
-    should_not be_able_to(:enable_or_disable, user)
+  it "should not be able to activate or deactivate a user" do
+    should_not be_able_to(:activate_or_deactivate, user)
   end
 end
