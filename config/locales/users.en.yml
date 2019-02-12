@@ -36,6 +36,7 @@ en:
             email:
               blank: "Enter an email address"
               invalid: "Enter a valid email address - there’s a mistake in that one"
+              taken: "There is already a user with this email"
             password:
               blank: "You must enter a password"
               too_short: "The password must be at least 8 characters long"
