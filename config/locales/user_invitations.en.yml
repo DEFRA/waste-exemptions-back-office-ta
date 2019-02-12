@@ -16,6 +16,8 @@ en:
     edit:
       title: "Accept your invitation"
       heading: "Accept your invitation"
+      paragraph_1: "You need to set a password to finish creating your account."
       password_label: "Password"
+      password_hint: "Must be at least 8 characters long and include uppercase letters, lowercase letters and numbers"
       password_confirmation_label: "Confirm password"
       submit_button: "Create account"
