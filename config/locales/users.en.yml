@@ -33,6 +33,9 @@ en:
       models:
         user:
           attributes:
+            email:
+              blank: "Enter an email address"
+              invalid: "Enter a valid email address - there’s a mistake in that one"
             password:
               blank: "You must enter a password"
               too_short: "The password must be at least 8 characters long"

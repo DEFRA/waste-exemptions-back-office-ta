@@ -16,6 +16,11 @@ en:
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
+    invitations:
+      new:
+        heading: "Invite a new user"
+        email_label: "Email"
+        submit_button: "Send invitation"
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
