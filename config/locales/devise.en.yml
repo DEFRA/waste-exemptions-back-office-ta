@@ -20,6 +20,13 @@ en:
       new:
         heading: "Invite a new user"
         email_label: "Email"
+        roles:
+          legend: "Select a role"
+          options:
+            system: "System user"
+            super_agent: "Super agent"
+            admin_agent: "Admin agent"
+            data_agent: "Data agent"
         submit_button: "Send invitation"
       edit:
         heading: "Accept your invitation"

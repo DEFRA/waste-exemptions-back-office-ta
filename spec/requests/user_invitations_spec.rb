@@ -24,8 +24,10 @@ RSpec.describe "User Invitations", type: :request do
         sign_in(user)
       end
 
+      let(:email) { attributes_for(:user)[:email] }
+      let(:role) { attributes_for(:user)[:role] }
       let(:params) do
-        { user: { email: attributes_for(:user)[:email] } }
+        { user: { email: email, role: role } }
       end
 
       it "redirects to the root path" do
@@ -38,6 +40,11 @@ RSpec.describe "User Invitations", type: :request do
 
         post "/users/invitation", params
         expect(User.count).to eq(old_user_count + 1)
+      end
+
+      it "assigns the correct role to the user" do
+        post "/users/invitation", params
+        expect(User.find_by(email: email).role).to eq(role)
       end
     end
   end
