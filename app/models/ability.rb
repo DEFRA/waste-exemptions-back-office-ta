@@ -22,7 +22,7 @@ class Ability
     can :invite, User
     can :read, User
     can :change_role, User
-    can :enable_or_disable, User
+    can :activate_or_deactivate, User
 
     permissions_for_super_agent
   end
