@@ -19,9 +19,10 @@ en:
     invitations:
       new:
         heading: "Invite a new user"
+        paragraph_1: "We'll email this person an invitation. Unaccepted invitations expire after 2 weeks."
         email_label: "Email"
         roles:
-          legend: "Select a role"
+          legend: "Select a role:"
           options:
             system: "System user"
             super_agent: "Super agent"
