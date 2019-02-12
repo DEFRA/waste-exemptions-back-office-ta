@@ -16,24 +16,6 @@ en:
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
-    invitations:
-      new:
-        heading: "Invite a new user"
-        paragraph_1: "We'll email this person an invitation. Unaccepted invitations expire after 2 weeks."
-        email_label: "Email"
-        roles:
-          legend: "Select a role:"
-          options:
-            system: "System user"
-            super_agent: "Super agent"
-            admin_agent: "Admin agent"
-            data_agent: "Data agent"
-        submit_button: "Send invitation"
-      edit:
-        heading: "Accept your invitation"
-        password_label: "Password"
-        password_confirmation_label: "Confirm password"
-        submit_button: "Create account"
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"

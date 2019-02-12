@@ -1,0 +1,21 @@
+en:
+  user_invitations:
+    new:
+      title: "Invite a new user"
+      heading: "Invite a new user"
+      paragraph_1: "We'll email this person an invitation. Unaccepted invitations expire after 2 weeks."
+      email_label: "Email"
+      roles:
+        legend: "Select a role:"
+        options:
+          system: "System user"
+          super_agent: "Super agent"
+          admin_agent: "Admin agent"
+          data_agent: "Data agent"
+      submit_button: "Send invitation"
+    edit:
+      title: "Accept your invitation"
+      heading: "Accept your invitation"
+      password_label: "Password"
+      password_confirmation_label: "Confirm password"
+      submit_button: "Create account"
