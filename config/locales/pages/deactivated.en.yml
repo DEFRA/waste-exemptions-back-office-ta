@@ -4,3 +4,4 @@ en:
       title: "Your account has been deactivated"
       heading: "Your account has been deactivated"
       text: "You cannot use the Waste Exemptions Back Office unless your account is active. If you believe you should have access, contact an NCCC system user."
+      sign_out_link: "Sign out"
