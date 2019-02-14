@@ -17,8 +17,7 @@
 # In production when we run rake tasks it's in an environment where environment
 # variables have not been  set. As such we need a way to disable using airbrake
 # unless we actually need it.
-use_airbrake = ENV["USE_AIRBRAKE"] == "true" ? true : false
-if use_airbrake
+if ENV["USE_AIRBRAKE"] == "true"
   Airbrake.configure do |c|
     # By default, it is set to airbrake.io As we use our own hosted instance of
     # Errbit we need to set this value
