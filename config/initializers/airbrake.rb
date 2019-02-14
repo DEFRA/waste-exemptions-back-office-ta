@@ -9,50 +9,61 @@
 #
 # Configuration details:
 # https://github.com/airbrake/airbrake-ruby#configuration
-Airbrake.configure do |c|
-  # By default, it is set to airbrake.io As we use our own hosted instance of
-  # Errbit we need to set this value
-  c.host = ENV["AIRBRAKE_HOST"]
-  # You must set both project_id & project_key. To find your project_id and
-  # project_key navigate to your project's General Settings and copy the values
-  # from the right sidebar.
-  # https://github.com/airbrake/airbrake-ruby#project_id--project_key
-  c.project_id = 1
-  c.project_key = ENV["AIRBRAKE_BO_PROJECT_KEY"]
 
-  # Configures the root directory of your project. Expects a String or a
-  # Pathname, which represents the path to your project. Providing this option
-  # helps us to filter out repetitive data from backtrace frames and link to
-  # GitHub files from our dashboard.
-  # https://github.com/airbrake/airbrake-ruby#root_directory
-  c.root_directory = Rails.root
+# Unfortunately the airbrake initializer errors if project_key is not set. The
+# problem is that the initializer is fired in scenarios where we are not
+# actually using the app, for example when running a rake task.
+#
+# In production when we run rake tasks it's in an environment where environment
+# variables have not been  set. As such we need a way to disable using airbrake
+# unless we actually need it.
+use_airbrake = ENV["USE_AIRBRAKE"] == "true" ? true : false
+if use_airbrake
+  Airbrake.configure do |c|
+    # By default, it is set to airbrake.io As we use our own hosted instance of
+    # Errbit we need to set this value
+    c.host = ENV["AIRBRAKE_HOST"]
+    # You must set both project_id & project_key. To find your project_id and
+    # project_key navigate to your project's General Settings and copy the values
+    # from the right sidebar.
+    # https://github.com/airbrake/airbrake-ruby#project_id--project_key
+    c.project_id = 1
+    c.project_key = ENV["AIRBRAKE_BO_PROJECT_KEY"]
 
-  # By default, Airbrake Ruby outputs to STDOUT. In Rails apps it makes sense to
-  # use the Rails' logger.
-  # https://github.com/airbrake/airbrake-ruby#logger
-  c.logger = Rails.logger
+    # Configures the root directory of your project. Expects a String or a
+    # Pathname, which represents the path to your project. Providing this option
+    # helps us to filter out repetitive data from backtrace frames and link to
+    # GitHub files from our dashboard.
+    # https://github.com/airbrake/airbrake-ruby#root_directory
+    c.root_directory = Rails.root
 
-  # Configures the environment the application is running in. Helps the Airbrake
-  # dashboard to distinguish between exceptions occurring in different
-  # environments.
-  # NOTE: This option must be set in order to make the 'ignore_environments'
-  # option work.
-  # https://github.com/airbrake/airbrake-ruby#environment
-  c.environment = Rails.env
+    # By default, Airbrake Ruby outputs to STDOUT. In Rails apps it makes sense to
+    # use the Rails' logger.
+    # https://github.com/airbrake/airbrake-ruby#logger
+    c.logger = Rails.logger
 
-  # Setting this option allows Airbrake to filter exceptions occurring in
-  # unwanted environments such as :test.
-  # NOTE: This option *does not* work if you don't set the 'environment' option.
-  # https://github.com/airbrake/airbrake-ruby#ignore_environments
-  c.ignore_environments = %w(test)
+    # Configures the environment the application is running in. Helps the Airbrake
+    # dashboard to distinguish between exceptions occurring in different
+    # environments.
+    # NOTE: This option must be set in order to make the 'ignore_environments'
+    # option work.
+    # https://github.com/airbrake/airbrake-ruby#environment
+    c.environment = Rails.env
 
-  # A list of parameters that should be filtered out of what is sent to
-  # Airbrake. By default, all "password" attributes will have their contents
-  # replaced.
-  # https://github.com/airbrake/airbrake-ruby#blacklist_keys
-  c.blacklist_keys = [/password/i, /authorization/i]
+    # Setting this option allows Airbrake to filter exceptions occurring in
+    # unwanted environments such as :test.
+    # NOTE: This option *does not* work if you don't set the 'environment' option.
+    # https://github.com/airbrake/airbrake-ruby#ignore_environments
+    c.ignore_environments = %w(test)
 
-  # Alternatively, you can integrate with Rails' filter_parameters.
-  # Read more: https://goo.gl/gqQ1xS
-  # c.blacklist_keys = Rails.application.config.filter_parameters
+    # A list of parameters that should be filtered out of what is sent to
+    # Airbrake. By default, all "password" attributes will have their contents
+    # replaced.
+    # https://github.com/airbrake/airbrake-ruby#blacklist_keys
+    c.blacklist_keys = [/password/i, /authorization/i]
+
+    # Alternatively, you can integrate with Rails' filter_parameters.
+    # Read more: https://goo.gl/gqQ1xS
+    # c.blacklist_keys = Rails.application.config.filter_parameters
+  end
 end
