@@ -1,0 +1,13 @@
+en:
+  devise:
+    mailer:
+      invitation_instructions:
+        subject: "Create a Waste Exemptions back office account"
+        paragraph_1: "Hello %{email}"
+        paragraph_2: "You have been invited to set up a back office account for the Waste Exemptions service (%{url}). To accept this invitation, use the link below."
+        accept: "Accept invitation"
+        paragraph_3: "This invitation will expire on %{due_date}."
+        paragraph_4: "If you don't want to set up an account, please ignore this email."
+  time:
+    formats:
+      accept_until_format: "%e %B %Y at %l:%M%P"
