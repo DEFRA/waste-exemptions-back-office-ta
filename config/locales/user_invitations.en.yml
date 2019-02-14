@@ -3,7 +3,7 @@ en:
     new:
       title: "Invite a new user"
       heading: "Invite a new user"
-      paragraph_1: "We'll email this person an invitation. Unaccepted invitations expire after 2 weeks."
+      paragraph_1: "To invite a new user, enter their email address and select a role. Invitations expire after 2 weeks."
       email_label: "Email"
       roles:
         legend: "Select a role:"
@@ -14,10 +14,10 @@ en:
           data_agent: "Data agent"
       submit_button: "Send invitation"
     edit:
-      title: "Accept your invitation"
-      heading: "Accept your invitation"
-      paragraph_1: "You need to set a password to finish creating your account."
+      title: "Create a new back office account"
+      heading: "Create a new back office account"
+      paragraph_1: "To finish setting up your account, you need to create a password."
       password_label: "Password"
-      password_hint: "Must be at least 8 characters long and include uppercase letters, lowercase letters and numbers"
+      password_hint: "Password must be 8 characters long and a mix of numbers, lower and upper case letters"
       password_confirmation_label: "Confirm password"
       submit_button: "Create account"
