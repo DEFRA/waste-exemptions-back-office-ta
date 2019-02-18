@@ -1,6 +1,6 @@
 # Waste Exemptions Back Office (TA)
 
-[![Build Status](https://travis-ci.org/DEFRA/waste-exemptions-back-office-ta.svg?branch=master)](https://travis-ci.org/DEFRA/waste-exemptions-back-office-ta)
+[![Build Status](https://travis-ci.com/DEFRA/waste-exemptions-back-office-ta.svg?branch=master)](https://travis-ci.org/DEFRA/waste-exemptions-back-office-ta)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c55dc26cbfffc87c5172/maintainability)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office-ta/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c55dc26cbfffc87c5172/test_coverage)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office-ta/test_coverage)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
