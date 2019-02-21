@@ -8,6 +8,9 @@ class UserRolesController < ApplicationController
   end
 
   def update
+    assign_user(params[:id])
+    @user.change_role!(params[:user][:role])
+
     redirect_to users_url
   end
 
