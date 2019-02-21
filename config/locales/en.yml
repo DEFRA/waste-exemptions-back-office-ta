@@ -5,3 +5,12 @@ en:
       menu:
         dashboard: "Dashboard"
         users: "Manage users"
+  shared:
+    select_role:
+      roles:
+        legend: "Select a role:"
+        options:
+          system: "System user"
+          super_agent: "Super agent"
+          admin_agent: "Admin agent"
+          data_agent: "Data agent"
