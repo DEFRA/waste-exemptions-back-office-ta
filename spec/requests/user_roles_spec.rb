@@ -16,6 +16,18 @@ RSpec.describe "User Roles", type: :request do
         expect(response).to render_template(:edit)
       end
     end
+
+    context "when a non-system user is signed in" do
+      let(:user) { create(:user, :data_agent) }
+      before(:each) do
+        sign_in(user)
+      end
+
+      it "redirects to the permissions error page" do
+        get "/users/role/#{role_change_user.id}"
+        expect(response).to redirect_to("/pages/permission")
+      end
+    end
   end
 
   describe "POST /users/role" do
@@ -27,6 +39,18 @@ RSpec.describe "User Roles", type: :request do
       it "redirects to the user list" do
         post "/users/role/#{role_change_user.id}"
         expect(response).to redirect_to(users_path)
+      end
+    end
+
+    context "when a non-system user is signed in" do
+      let(:user) { create(:user, :data_agent) }
+      before(:each) do
+        sign_in(user)
+      end
+
+      it "redirects to the permissions error page" do
+        post "/users/role/#{role_change_user.id}"
+        expect(response).to redirect_to("/pages/permission")
       end
     end
   end
