@@ -3,7 +3,9 @@
 class UserRolesController < ApplicationController
   before_action :authorize
 
-  def edit; end
+  def edit
+    assign_user(params[:id])
+  end
 
   def update
     redirect_to users_url
@@ -13,5 +15,9 @@ class UserRolesController < ApplicationController
 
   def authorize
     authorize! :change_role, current_user
+  end
+
+  def assign_user(id)
+    @user = User.find(id)
   end
 end
