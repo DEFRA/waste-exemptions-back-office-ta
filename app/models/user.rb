@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
     update!(active: false)
   end
 
-  def change_role!(new_role)
-    update!(role: new_role)
+  def change_role(new_role)
+    update(role: new_role)
   end
 
   devise :database_authenticatable,
