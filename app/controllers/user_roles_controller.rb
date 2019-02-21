@@ -9,9 +9,12 @@ class UserRolesController < ApplicationController
 
   def update
     assign_user(params[:id])
-    @user.change_role!(params[:user][:role])
 
-    redirect_to users_url
+    if @user.change_role(params.dig(:user, :role))
+      redirect_to users_url
+    else
+      render :edit
+    end
   end
 
   private
@@ -22,5 +25,6 @@ class UserRolesController < ApplicationController
 
   def assign_user(id)
     @user = User.find(id)
+    @old_role = User.find(@user.id).role
   end
 end
