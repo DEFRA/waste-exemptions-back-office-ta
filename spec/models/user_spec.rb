@@ -124,4 +124,21 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe "change_role" do
+    let(:user) { build(:user, :data_agent) }
+
+    it "should update the user's role" do
+      new_role = "admin_agent"
+      user.change_role!(new_role)
+
+      expect(user.role).to eq(new_role)
+    end
+
+    context "when the new role is invalid" do
+      it "should raise an error" do
+        expect { user.change_role!("foo") }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+  end
 end
