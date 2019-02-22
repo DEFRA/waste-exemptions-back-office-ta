@@ -1,0 +1,105 @@
+<h2 class="heading-medium">
+  <%= t(".heading.#{address.address_type}") %>
+</h2>
+
+<% if address.grid_reference.present? %>
+  <p>
+    <%= address.grid_reference %>
+  </p>
+<% end %>
+
+<% if address.organisation.present? %>
+  <ul>
+    <% displayable_address(address).each do |line| %>
+      <li>
+        <%= line %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if address.description.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.description") %>
+  </h3>
+  <p>
+    <%= address.description %>
+  </p>
+<% end %>
+
+<% if address.mode.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.mode") %>
+  </h3>
+  <p>
+    <%= address.mode %>
+  </p>
+<% end %>
+
+<% if address.x.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.x") %>
+  </h3>
+  <p>
+    <%= address.x %>
+  </p>
+<% end %>
+
+<% if address.y.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.y") %>
+  </h3>
+  <p>
+    <%= address.y %>
+  </p>
+<% end %>
+
+<% if address.coordinate_system.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.coordinate_system") %>
+  </h3>
+  <p>
+    <%= address.coordinate_system %>
+  </p>
+<% end %>
+
+<% if address.blpu_state_code.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.blpu_state_code") %>
+  </h3>
+  <p>
+    <%= address.blpu_state_code %>
+  </p>
+<% end %>
+
+<% if address.postal_address_code.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.postal_address_code") %>
+  </h3>
+  <p>
+    <%= address.postal_address_code %>
+  </p>
+<% end %>
+
+<% if address.logical_status_code.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.logical_status_code") %>
+  </h3>
+  <p>
+    <%= address.logical_status_code %>
+  </p>
+<% end %><% if address.source_data_type.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.source_data_type") %>
+  </h3>
+  <p>
+    <%= address.source_data_type %>
+  </p>
+<% end %><% if address.country_iso.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.country_iso") %>
+  </h3>
+  <p>
+    <%= address.country_iso %>
+  </p>
+<% end %>

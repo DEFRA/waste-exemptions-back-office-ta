@@ -181,6 +181,20 @@
       </p>
     <% end %>
 
+    <% if resource.respond_to?(:addresses) %>
+      <% resource.addresses.each do |address| %>
+        <%= render("shared/resource_address",
+                   address: address) %>
+      <% end %>
+    <% end %>
+
+    <% if resource.respond_to?(:transient_addresses) %>
+      <% resource.transient_addresses.each do |address| %>
+        <%= render("shared/resource_address",
+                   address: address) %>
+      <% end %>
+    <% end %>
+
     <h2 class="heading-medium">
       <%= t(".subheadings.people") %>
     </h2>
