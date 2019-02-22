@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   get "/users", to: "users#index", as: :users
 
+  get "/users/role/:id", to: "user_roles#edit", as: :user_role_form
+  post "/users/role/:id", to: "user_roles#update", as: :user_role
+
   get "/users/activate/:id", to: "user_activations#activate_form", as: :activate_user_form
   get "/users/deactivate/:id", to: "user_activations#deactivate_form", as: :deactivate_user_form
   post "/users/activate/:id", to: "user_activations#activate", as: :activate_user
