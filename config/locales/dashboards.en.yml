@@ -2,6 +2,7 @@ en:
   dashboards:
     index:
       title: "Waste exemptions dashboard"
+      new_registration_link: "Start a new registration"
       search:
         paragraph_1: "You can search for a registration by:"
         searchable_attributes:

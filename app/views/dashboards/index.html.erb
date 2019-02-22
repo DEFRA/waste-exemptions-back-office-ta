@@ -19,6 +19,8 @@
 
 <div class="grid-row">
   <div class="column-full">
+    <p><%= link_to t(".new_registration_link"), WasteExemptionsEngine::Engine.routes.url_helpers.new_start_form_path(:new) %></p>
+
     <p><%= t(".search.paragraph_1") %></p>
     <ul class="list list-bullet">
       <% t(".search.searchable_attributes").each do |attribute| %>
