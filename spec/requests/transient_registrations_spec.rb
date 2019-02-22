@@ -15,6 +15,11 @@ RSpec.describe "TransientRegistrations", type: :request do
         get "/transient-registrations/#{transient_registration.id}"
         expect(response).to render_template(:show)
       end
+
+      it "includes the correct reference" do
+        get "/transient-registrations/#{transient_registration.id}"
+        expect(response.body).to include(transient_registration.reference)
+      end
     end
   end
 end
