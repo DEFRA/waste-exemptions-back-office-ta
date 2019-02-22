@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # Registration management
 
   resources :registrations, only: :show
+  resources :transient_registrations, only: :show, path: "/transient-registrations"
 
   # Engine
 
