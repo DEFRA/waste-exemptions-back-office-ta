@@ -21,5 +21,14 @@ RSpec.describe "TransientRegistrations", type: :request do
         expect(response.body).to include(transient_registration.reference)
       end
     end
+
+    context "when a valid user is not signed in" do
+      before { sign_out(create(:user)) }
+
+      it "redirects to the sign-in page" do
+        get "/transient-registrations/#{transient_registration.id}"
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end

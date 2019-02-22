@@ -21,5 +21,14 @@ RSpec.describe "Registrations", type: :request do
         expect(response.body).to include(registration.reference)
       end
     end
+
+    context "when a valid user is not signed in" do
+      before { sign_out(create(:user)) }
+
+      it "redirects to the sign-in page" do
+        get "/registrations/#{registration.id}"
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end
