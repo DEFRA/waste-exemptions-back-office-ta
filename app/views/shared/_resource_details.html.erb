@@ -1,5 +1,14 @@
 <div class="grid-row">
   <div class="column-full">
+    <% if resource.respond_to?(:workflow_state) && resource.workflow_state.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.workflow_state") %>
+      </h3>
+      <p>
+        <%= resource.workflow_state %>
+      </p>
+    <% end %>
+
     <% if resource.reference.present? %>
       <h3 class="heading-small">
         <%= t(".labels.reference") %>

@@ -8,6 +8,7 @@ en:
         exemptions: "Exemptions"
         people: "People"
       labels:
+        workflow_state: "Workflow state"
         reference: "Reference"
         location: "Location"
         applicant_first_name: "Applicant first name"
