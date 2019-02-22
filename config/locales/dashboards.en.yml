@@ -16,7 +16,10 @@ en:
         placeholder: "Enter your search term here"
         submit: "Search"
       user_info:
-        signed_in_user: "Signed in as %{email}."
+        heading: "Current user"
+        signed_in_user: "Signed in as"
+        new_registration_link: "Start a new registration"
+        change_password_link: "Change password"
         sign_out_link: "Sign out"
       heading: "Waste exemptions dashboard"
       results:
