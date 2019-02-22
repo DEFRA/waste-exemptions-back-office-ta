@@ -1,0 +1,25 @@
+<% resource_exemptions.each do |re| %>
+  <h3 class="heading-small">
+    <%= re.exemption.code%> &mdash; <%= re.exemption.summary %>
+  </h3>
+  <ul class="list list-bullet">
+    <% if re.state.present? %>
+    <li>
+      <%= t(".labels.state") %>
+      <%= re.state %>
+    </li>
+    <% end %>
+    <% if re.registered_on.present? %>
+    <li>
+      <%= t(".labels.registered_on") %>
+      <%= re.registered_on %>
+    </li>
+    <% end %>
+    <% if re.expires_on.present? %>
+    <li>
+      <%= t(".labels.expires_on") %>
+      <%= re.expires_on %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>

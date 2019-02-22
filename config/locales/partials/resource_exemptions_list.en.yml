@@ -1,0 +1,7 @@
+en:
+  shared:
+    resource_exemptions_list:
+      labels:
+        state: "Status:"
+        registered_on: "Registered on"
+        expires_on: "Expires on"

@@ -5,6 +5,7 @@ en:
         applicant: "Applicant details"
         contact: "Contact details"
         farm: "Farm details"
+        exemptions: "Exemptions"
       labels:
         reference: "Reference"
         location: "Location"
@@ -23,3 +24,4 @@ en:
         on_a_farm: "On a farm?"
         is_a_farmer: "Is a farmer?"
         submitted_at: "Submitted at"
+      no_exemptions: "No exemptions"

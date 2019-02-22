@@ -164,5 +164,22 @@
         <%= resource.is_a_farmer %>
       </p>
     <% end %>
+
+    <h2 class="heading-medium">
+      <%= t(".subheadings.exemptions") %>
+    </h2>
+
+    <% if resource.respond_to?(:registration_exemptions) && resource.registration_exemptions.present? %>
+      <%= render("shared/resource_exemptions_list",
+                 resource_exemptions: @resource.registration_exemptions) %>
+    <% elsif resource.respond_to?(:transient_registration_exemptions) && resource.transient_registration_exemptions.present? %>
+      <%= render("shared/resource_exemptions_list",
+                 resource_exemptions: @resource.transient_registration_exemptions) %>
+    <% else %>
+      <p>
+        <%= t(".no_exemptions") %>
+      </p>
+    <% end %>
+
   </div>
 </div>
