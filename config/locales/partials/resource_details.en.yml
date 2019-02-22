@@ -1,5 +1,25 @@
 en:
   shared:
     resource_details:
+      subheadings:
+        applicant: "Applicant details"
+        contact: "Contact details"
+        farm: "Farm details"
       labels:
         reference: "Reference"
+        location: "Location"
+        applicant_first_name: "Applicant first name"
+        applicant_last_name: "Applicant last name"
+        applicant_phone: "Applicant phone"
+        applicant_email: "Applicant email"
+        business_type: "Business type"
+        operator_name: "Operator name"
+        company_no: "Company number"
+        contact_first_name: "Contact first name"
+        contact_last_name: "Contact last name"
+        contact_position: "Contact position"
+        contact_phone: "Contact phone"
+        contact_email: "Contact email"
+        on_a_farm: "On a farm?"
+        is_a_farmer: "Is a farmer?"
+        submitted_at: "Submitted at"

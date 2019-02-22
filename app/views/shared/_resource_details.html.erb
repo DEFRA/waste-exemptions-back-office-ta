@@ -1,11 +1,167 @@
 <div class="grid-row">
   <div class="column-full">
-    <% if resource.reference? %>
-      <h2 class="heading-medium">
+    <% if resource.reference.present? %>
+      <h3 class="heading-small">
         <%= t(".labels.reference") %>
-      </h2>
+      </h3>
       <p>
         <%= resource.reference %>
+      </p>
+    <% end %>
+
+    <% if resource.location.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.location") %>
+      </h3>
+      <p>
+        <%= resource.location %>
+      </p>
+    <% end %>
+
+    <% if resource.business_type.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.business_type") %>
+      </h3>
+      <p>
+        <%= resource.business_type %>
+      </p>
+    <% end %>
+
+    <% if resource.operator_name.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.operator_name") %>
+      </h3>
+      <p>
+        <%= resource.operator_name %>
+      </p>
+    <% end %>
+
+    <% if resource.company_no.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.company_no") %>
+      </h3>
+      <p>
+        <%= resource.company_no %>
+      </p>
+    <% end %>
+
+    <% if resource.has_attribute?(:submitted_at) && resource.submitted_at.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.submitted_at") %>
+      </h3>
+      <p>
+        <%= resource.submitted_at %>
+      </p>
+    <% end %>
+
+    <h2 class="heading-medium">
+      <%= t(".subheadings.applicant") %>
+    </h2>
+
+    <% if resource.applicant_first_name.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.applicant_first_name") %>
+      </h3>
+      <p>
+        <%= resource.applicant_first_name %>
+      </p>
+    <% end %>
+
+    <% if resource.applicant_last_name.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.applicant_last_name") %>
+      </h3>
+      <p>
+        <%= resource.applicant_last_name %>
+      </p>
+    <% end %>
+
+    <% if resource.applicant_phone.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.applicant_phone") %>
+      </h3>
+      <p>
+        <%= resource.applicant_phone %>
+      </p>
+    <% end %>
+
+    <% if resource.applicant_email.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.applicant_email") %>
+      </h3>
+      <p>
+        <%= resource.applicant_email %>
+      </p>
+    <% end %>
+
+    <h2 class="heading-medium">
+      <%= t(".subheadings.contact") %>
+    </h2>
+
+    <% if resource.contact_first_name.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.contact_first_name") %>
+      </h3>
+      <p>
+        <%= resource.contact_first_name %>
+      </p>
+    <% end %>
+
+    <% if resource.contact_last_name.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.contact_last_name") %>
+      </h3>
+      <p>
+        <%= resource.contact_last_name %>
+      </p>
+    <% end %>
+
+    <% if resource.contact_position.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.contact_position") %>
+      </h3>
+      <p>
+        <%= resource.contact_position %>
+      </p>
+    <% end %>
+
+    <% if resource.contact_phone.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.contact_phone") %>
+      </h3>
+      <p>
+        <%= resource.contact_phone %>
+      </p>
+    <% end %>
+
+    <% if resource.contact_email.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.contact_email") %>
+      </h3>
+      <p>
+        <%= resource.contact_email %>
+      </p>
+    <% end %>
+
+    <h2 class="heading-medium">
+      <%= t(".subheadings.farm") %>
+    </h2>
+
+    <% unless resource.on_a_farm.nil? %>
+      <h3 class="heading-small">
+        <%= t(".labels.on_a_farm") %>
+      </h3>
+      <p>
+        <%= resource.on_a_farm %>
+      </p>
+    <% end %>
+
+    <% unless resource.is_a_farmer.nil? %>
+      <h3 class="heading-small">
+        <%= t(".labels.is_a_farmer") %>
+      </h3>
+      <p>
+        <%= resource.is_a_farmer %>
       </p>
     <% end %>
   </div>
