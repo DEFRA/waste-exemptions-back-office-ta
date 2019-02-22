@@ -1,0 +1,5 @@
+en:
+  shared:
+    resource_details:
+      labels:
+        reference: "Reference"

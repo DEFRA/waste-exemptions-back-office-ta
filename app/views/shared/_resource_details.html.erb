@@ -1,0 +1,12 @@
+<div class="grid-row">
+  <div class="column-full">
+    <% if resource.reference? %>
+      <h2 class="heading-medium">
+        <%= t(".labels.reference") %>
+      </h2>
+      <p>
+        <%= resource.reference %>
+      </p>
+    <% end %>
+  </div>
+</div>
