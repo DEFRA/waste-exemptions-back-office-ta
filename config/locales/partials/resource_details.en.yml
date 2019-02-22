@@ -7,6 +7,7 @@ en:
         farm: "Farm details"
         exemptions: "Exemptions"
         people: "People"
+        actions: "Actions"
       labels:
         workflow_state: "Workflow state"
         reference: "Reference"
@@ -26,5 +27,11 @@ en:
         on_a_farm: "On a farm?"
         is_a_farmer: "Is a farmer?"
         submitted_at: "Submitted at"
+      actions:
+        edit: "Edit"
+        deregister: "Deregister"
+        resume: "Resume"
+        change_ad: "Change AD classification"
+        confirmation_letter: "View confirmation letter"
       no_exemptions: "No exemptions"
       no_people: "No people"
