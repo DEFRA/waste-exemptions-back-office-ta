@@ -2,14 +2,14 @@
 
 class RegistrationsController < ApplicationController
   def show
-    find_resource(params[:id])
+    find_resource(params[:reference])
     authorize
   end
 
   private
 
-  def find_resource(id)
-    @resource = WasteExemptionsEngine::Registration.find(id)
+  def find_resource(reference)
+    @resource = WasteExemptionsEngine::Registration.find_by(reference: reference)
   end
 
   def authorize

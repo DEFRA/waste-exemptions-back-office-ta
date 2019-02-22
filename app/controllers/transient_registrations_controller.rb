@@ -2,14 +2,14 @@
 
 class TransientRegistrationsController < ApplicationController
   def show
-    find_resource(params[:id])
+    find_resource(params[:reference])
     authorize
   end
 
   private
 
-  def find_resource(id)
-    @resource = WasteExemptionsEngine::TransientRegistration.find(id)
+  def find_resource(reference)
+    @resource = WasteExemptionsEngine::TransientRegistration.find_by(reference: reference)
   end
 
   def authorize
