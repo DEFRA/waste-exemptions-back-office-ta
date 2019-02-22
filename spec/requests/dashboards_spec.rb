@@ -30,7 +30,7 @@ RSpec.describe "Dashboards", type: :request do
       end
 
       context "when registrations match the term" do
-        let(:registration) { build(:registration) }
+        let(:registration) { create(:registration) }
 
         before do
           results = Kaminari.paginate_array([registration]).page(1)

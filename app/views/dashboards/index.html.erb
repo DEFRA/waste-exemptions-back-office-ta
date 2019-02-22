@@ -115,6 +115,15 @@
             <span><%= t(".results.labels.actions") %></span>
             <ul>
               <li>
+                <%= link_to registration_path(registration), id: "view_#{registration.reference}" do %>
+                  <%= t(".results.actions.view.link_text") %>
+                  <span class="visually-hidden">
+                   <%= t(".results.actions.view.visually_hidden_text",
+                         name: registration.operator_name) %>
+                 </span>
+                <% end %>
+              </li>
+              <li>
                 <%= link_to "#", id: "edit_#{registration.reference}" do %>
                   <%= t(".results.actions.edit.link_text") %>
                   <span class="visually-hidden">
