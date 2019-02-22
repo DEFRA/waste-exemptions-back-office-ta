@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   root "dashboards#index"
 
+  # User management
+
   devise_for :users,
              controllers: { invitations: "user_invitations", sessions: "sessions" },
              path: "/users",
@@ -17,6 +19,12 @@ Rails.application.routes.draw do
   get "/users/deactivate/:id", to: "user_activations#deactivate_form", as: :deactivate_user_form
   post "/users/activate/:id", to: "user_activations#activate", as: :activate_user
   post "/users/deactivate/:id", to: "user_activations#deactivate", as: :deactivate_user
+
+  # Registration management
+
+  resources :registrations, only: :show
+
+  # Engine
 
   mount WasteExemptionsEngine::Engine => "/"
 end
