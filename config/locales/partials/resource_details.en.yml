@@ -6,6 +6,7 @@ en:
         contact: "Contact details"
         farm: "Farm details"
         exemptions: "Exemptions"
+        people: "People"
       labels:
         reference: "Reference"
         location: "Location"
@@ -25,3 +26,4 @@ en:
         is_a_farmer: "Is a farmer?"
         submitted_at: "Submitted at"
       no_exemptions: "No exemptions"
+      no_people: "No people"

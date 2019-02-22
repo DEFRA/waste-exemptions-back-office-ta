@@ -181,5 +181,21 @@
       </p>
     <% end %>
 
+    <h2 class="heading-medium">
+      <%= t(".subheadings.people") %>
+    </h2>
+
+    <% if resource.respond_to?(:people) && resource.people.present? %>
+      <%= render("shared/resource_people_list",
+                 resource_people: @resource.people) %>
+    <% elsif resource.respond_to?(:transient_people) && resource.transient_people.present? %>
+      <%= render("shared/resource_people_list",
+                 resource_people: @resource.transient_people) %>
+    <% else %>
+      <p>
+        <%= t(".no_people") %>
+      </p>
+    <% end %>
+
   </div>
 </div>
