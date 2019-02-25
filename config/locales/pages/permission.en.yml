@@ -1,0 +1,6 @@
+en:
+  pages:
+    permission:
+      title: "Permissions error"
+      heading: "Your account does not have permission"
+      text: "Your account type doesn't have permission to perform this action. If you believe you should have access, contact an NCCC system user."
