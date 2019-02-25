@@ -1,0 +1,11 @@
+en:
+  user_roles:
+    edit:
+      title: "Change a user's role"
+      heading: "Change a user's role"
+      paragraph_1:
+        system: "%{email} is currently a system user."
+        super_agent: "%{email} is currently a super agent."
+        admin_agent: "%{email} is currently an admin agent."
+        data_agent: "%{email} is currently a data agent."
+      submit_button: "Change role"

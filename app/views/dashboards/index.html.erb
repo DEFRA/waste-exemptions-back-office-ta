@@ -1,16 +1,5 @@
 <div class="grid-row">
   <div class="column-full">
-    <div id="user-status">
-      <p>
-        <%= t(".user_info.signed_in_user", email: current_user.email) %>
-        <%= link_to t(".user_info.sign_out_link"), destroy_user_session_path %>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="grid-row">
-  <div class="column-full">
     <h1 class="heading-large">
       <%= t(".heading") %>
     </h1>
@@ -18,7 +7,7 @@
 </div>
 
 <div class="grid-row">
-  <div class="column-full">
+  <div class="column-two-thirds">
     <p><%= t(".search.paragraph_1") %></p>
     <ul class="list list-bullet">
       <% t(".search.searchable_attributes").each do |attribute| %>
@@ -32,6 +21,21 @@
         <%= text_field_tag :term, @term, placeholder: t(".search.placeholder"), class: "form-control" %>
         <%= submit_tag t(".search.submit"), class: "button" %>
       <% end %>
+    </div>
+  </div>
+
+  <div class="column-one-third">
+    <div class="user-info">
+      <h2 class="heading-medium">
+        <%= t(".user_info.heading") %>
+      </h2>
+      <p>
+        <%= t(".user_info.signed_in_user") %>
+        <span><%= current_user.email %></span>
+      </p>
+      <p><%= link_to t(".user_info.new_registration_link"), WasteExemptionsEngine::Engine.routes.url_helpers.new_start_form_path(:new) %></p>
+      <p><%= link_to t(".user_info.change_password_link"), edit_user_password_path %></p>
+      <p><%= link_to t(".user_info.sign_out_link"), destroy_user_session_path, class: "button" %></p>
     </div>
   </div>
 </div>
