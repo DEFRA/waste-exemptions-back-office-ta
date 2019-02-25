@@ -25,13 +25,15 @@
           <div class="form-group">
             <div class="multiple-choice">
               <%= radio_button_tag :filter,
-                                   :registrations %>
+                                   :registrations,
+                                   preselect_registrations_radio_button? %>
               <%= label_tag "filter_registrations",
                             t(".search.filters.registrations") %>
             </div>
             <div class="multiple-choice">
               <%= radio_button_tag :filter,
-                                   :transient_registrations %>
+                                   :transient_registrations,
+                                   preselect_transient_registrations_radio_button? %>
               <%= label_tag "filter_transient_registrations",
                             t(".search.filters.transient_registrations") %>
             </div>

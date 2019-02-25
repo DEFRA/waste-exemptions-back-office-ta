@@ -3,6 +3,7 @@
 class DashboardsController < ApplicationController
   def index
     @term = params[:term]
+    @filter = params[:filter].to_sym if params[:filter].present?
     @results = matching_results(params[:page])
   end
 
