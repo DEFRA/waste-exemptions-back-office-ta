@@ -14,6 +14,9 @@ en:
           - "contact email"
         label: "Search for registrations"
         placeholder: "Enter your search term here"
+        filters:
+          registrations: "Submitted"
+          transient_registrations: "Not yet submitted"
         submit: "Search"
       user_info:
         heading: "Current user"

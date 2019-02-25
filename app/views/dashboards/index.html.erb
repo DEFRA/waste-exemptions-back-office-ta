@@ -20,6 +20,23 @@
         <%= label_tag :term, t(".search.label"), class: "form-label visually-hidden" %>
         <%= text_field_tag :term, @term, placeholder: t(".search.placeholder"), class: "form-control" %>
         <%= submit_tag t(".search.submit"), class: "button" %>
+
+        <div class="filters">
+          <div class="form-group">
+            <div class="multiple-choice">
+              <%= radio_button_tag :filter,
+                                   :registrations %>
+              <%= label_tag "filter_registrations",
+                            t(".search.filters.registrations") %>
+            </div>
+            <div class="multiple-choice">
+              <%= radio_button_tag :filter,
+                                   :transient_registrations %>
+              <%= label_tag "filter_transient_registrations",
+                            t(".search.filters.transient_registrations") %>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
