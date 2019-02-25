@@ -6,8 +6,6 @@ require_dependency WasteExemptionsEngine::Engine.config.root
 
 module WasteExemptionsEngine
   class Person
-    scope :search_for_name, lambda { |term|
-      where("UPPER(CONCAT(first_name, ' ', last_name)) LIKE ?", "%#{term&.upcase}%")
-    }
+    include CanBeSearchedLikePerson
   end
 end
