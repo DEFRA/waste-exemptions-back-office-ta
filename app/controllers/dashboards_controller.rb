@@ -10,6 +10,6 @@ class DashboardsController < ApplicationController
   private
 
   def matching_results(page)
-    SearchService.new.search(@term, page)
+    SearchService.new.search(@term, @filter, page)
   end
 end
