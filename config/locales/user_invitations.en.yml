@@ -5,13 +5,6 @@ en:
       heading: "Invite a new user"
       paragraph_1: "To invite a new user, enter their email address and select a role. Invitations expire after 2 weeks."
       email_label: "Email"
-      roles:
-        legend: "Select a role:"
-        options:
-          system: "System user"
-          super_agent: "Super agent"
-          admin_agent: "Admin agent"
-          data_agent: "Data agent"
       submit_button: "Send invitation"
     edit:
       title: "Create a new back office account"

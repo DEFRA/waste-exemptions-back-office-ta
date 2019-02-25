@@ -2,6 +2,16 @@ en:
   global_proposition_header: Waste exemptions back office
   layouts:
     application:
+      feedback_url: https://www.gov.uk/done/register-waste-exemption
       menu:
         dashboard: "Dashboard"
         users: "Manage users"
+  shared:
+    select_role:
+      roles:
+        legend: "Select a role:"
+        options:
+          system: "System user"
+          super_agent: "Super agent"
+          admin_agent: "Admin agent"
+          data_agent: "Data agent"

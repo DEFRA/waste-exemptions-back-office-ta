@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 6772516458184c055410261d40a4d725531bf303
+  revision: 735a03f25d635d71b4774ae0e143055da9ae62a3
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -91,10 +91,10 @@ GEM
     docile (1.3.1)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.6.0)
-    dotenv-rails (2.6.0)
-      dotenv (= 2.6.0)
-      railties (>= 3.2, < 6.0)
+    dotenv (2.7.1)
+    dotenv-rails (2.7.1)
+      dotenv (= 2.7.1)
+      railties (>= 3.2, < 6.1)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_bot (5.0.0)
@@ -178,6 +178,7 @@ GEM
       rack
       rake (>= 0.8.1)
     pg (0.18.4)
+    pgreset (0.1.1)
     phonelib (0.6.29)
     powerpack (0.1.2)
     public_suffix (3.0.3)
@@ -328,6 +329,7 @@ DEPENDENCIES
   kaminari (~> 1.1)
   passenger (~> 5.0, >= 5.0.30)
   pg (~> 0.18.4)
+  pgreset
   rails (= 4.2.11)
   rspec-rails (~> 3.8)
   sass-rails (~> 5.0)
@@ -344,4 +346,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.17.1
+   1.17.3
