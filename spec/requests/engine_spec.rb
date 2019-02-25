@@ -5,11 +5,20 @@ require "rails_helper"
 RSpec.describe "Waste Exemptions Engine", type: :request do
   describe "/start/new" do
     context "when a valid user is signed in" do
-      before { sign_in(create(:user)) }
+      before { sign_in(create(:user, :admin_agent)) }
 
       it "returns a 200 response" do
         get "/start/new"
         expect(response).to have_http_status(200)
+      end
+    end
+
+    context "when a data_agent is signed in" do
+      before { sign_in(create(:user, :data_agent)) }
+
+      it "redirects to the sign-in page" do
+        get "/start/new"
+        expect(response).to redirect_to("/pages/permission")
       end
     end
 

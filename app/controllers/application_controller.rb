@@ -18,7 +18,13 @@ class ApplicationController < ActionController::Base
     return if skip_auth_on_this_controller?
 
     authenticate_user!
-    redirect_to "/pages/deactivated" if current_user_cannot_use_back_office?
+
+    if current_user_cannot_use_back_office?
+      redirect_to "/pages/deactivated"
+      return
+    end
+
+    authorize_engine_access
   end
 
   # http://jacopretorius.net/2014/01/force-page-to-reload-on-browser-back-in-rails.html
@@ -42,5 +48,12 @@ class ApplicationController < ActionController::Base
     return false if current_user.blank?
 
     cannot? :use_back_office, :all
+  end
+
+  def authorize_engine_access
+    controller = params[:controller]
+    return unless controller.include?("waste_exemptions_engine")
+
+    authorize! :create, WasteExemptionsEngine::Registration.new
   end
 end
