@@ -24,6 +24,10 @@ gem "govuk_template", "~> 0.23"
 gem "jquery-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 0.18.4"
+# Automatically kills connections to Postgres when running rake tasks that
+# involve a database drop. Stops the error
+# PG::ObjectInUse: ERROR:  database "wex_db" is being accessed by other users
+gem "pgreset"
 # Bundle edge Rails instead: gem "rails', github: 'rails/rails'
 gem "rails", "4.2.11"
 # Use SCSS for stylesheets
