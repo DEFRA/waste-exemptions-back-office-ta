@@ -3,12 +3,12 @@
 class DashboardsController < ApplicationController
   def index
     @term = params[:term]
-    @registrations = matching_registrations(params[:page])
+    @results = matching_results(params[:page])
   end
 
   private
 
-  def matching_registrations(page)
+  def matching_results(page)
     SearchService.new.search(@term, page)
   end
 end

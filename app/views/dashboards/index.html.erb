@@ -40,18 +40,18 @@
   </div>
 </div>
 
-<% if @registrations.present? %>
-  <% @registrations.each do |registration| %>
-    <%= render("shared/search_result", result: registration) %>
+<% if @results.present? %>
+  <% @results.each do |result| %>
+    <%= render("shared/search_result", result: result) %>
   <% end %>
 
   <div class="grid-row">
     <div class="column-full">
       <nav role="navigation" class="pagination" aria-label="Pagination">
         <div class="pagination__summary">
-          <%= page_entries_info @registrations, entry_name: "item" %>
+          <%= page_entries_info @results, entry_name: "item" %>
         </div>
-        <%= paginate @registrations %>
+        <%= paginate @results %>
       </nav>
     </div>
   </div>
