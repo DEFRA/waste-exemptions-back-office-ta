@@ -10,4 +10,10 @@ module DashboardsHelper
   def preselect_transient_registrations_radio_button?
     @filter == :transient_registrations
   end
+
+  def status_tag_for(result)
+    return :transient if result.is_a?(WasteExemptionsEngine::TransientRegistration)
+
+    :active
+  end
 end

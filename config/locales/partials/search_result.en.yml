@@ -2,6 +2,7 @@ en:
   shared:
     search_result:
       labels:
+        status: "Status"
         operator_name: "Business name"
         reference: "Reference number"
         address: "Site address"
@@ -10,6 +11,9 @@ en:
         contact: "Contact"
         partners: "Partners"
         actions: "Actions"
+      statuses:
+        active: "active"
+        transient: "not yet submitted"
       info:
         no_site_address: "No site address or grid reference added"
       actions:

@@ -2,6 +2,10 @@
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
   <div class="column-one-quarter">
     <ul class="registration-details">
+      <li>
+        <span><%= t(".labels.status") %></span>
+        <span class="<%= "status-tag status-tag-#{status_tag_for(result)}" %>"><%= t(".statuses.#{status_tag_for(result)}") %></span>
+      </li>
       <% if result.operator_name.present? %>
       <li>
         <span><%= t(".labels.operator_name") %></span>
