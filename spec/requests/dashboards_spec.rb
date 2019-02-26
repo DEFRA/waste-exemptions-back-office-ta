@@ -22,6 +22,13 @@ RSpec.describe "Dashboards", type: :request do
         expect(response).to have_http_status(200)
       end
 
+      context "when there is a term, a filter and a page" do
+        it "calls a SearchService with the correct params" do
+          expect_any_instance_of(SearchService).to receive(:search).with("foo", :registrations, "2")
+          get "/", term: "foo", filter: "registrations", page: "2"
+        end
+      end
+
       context "when the SearchService does not return results" do
         it "says there are no results" do
           get "/", term: "foo"
