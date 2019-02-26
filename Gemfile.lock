@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: e2dbe217824628ffe497434002e348934c54dadc
-  branch: feature/transient-aliases
+  revision: 537848d63f231e9344aef5b28c70feffbfddf59c
+  branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
