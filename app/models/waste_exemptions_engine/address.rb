@@ -4,6 +4,6 @@ require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptio
 
 module WasteExemptionsEngine
   class Address
-    include WasteExemptionsEngine::CanBeSearchedLikeAddress
+    include CanBeSearchedLikeAddress
   end
 end
