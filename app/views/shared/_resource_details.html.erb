@@ -151,15 +151,6 @@
         <% end %>
       </tbody>
     </table>
-
-    <% if resource.business_type.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.business_type") %>
-      </h3>
-      <p>
-        <%= resource.business_type %>
-      </p>
-    <% end %>
   </div>
 </div>
 <div class="grid-row">
@@ -196,10 +187,6 @@
   </div>
 
   <div class="column-one-third">
-    <h2 class="heading-medium">
-      <%= t(".subheadings.farm") %>
-    </h2>
-
     <% unless resource.on_a_farm.nil? %>
       <h3 class="heading-small">
         <%= t(".labels.on_a_farm") %>
@@ -215,6 +202,15 @@
       </h3>
       <p>
         <%= resource.is_a_farmer %>
+      </p>
+    <% end %>
+
+    <% if resource.business_type.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.business_type") %>
+      </h3>
+      <p>
+        <%= resource.business_type %>
       </p>
     <% end %>
 

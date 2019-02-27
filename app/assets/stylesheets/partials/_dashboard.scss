@@ -47,20 +47,36 @@
 
 // STATUS TAGS
 .govuk-tag {
-  font-family: "nta", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #005ea5;
+  color: #ffffff;
+  display: inline-block;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.25;
-  display: inline-block;
-  padding: 4px 8px;
-  padding-bottom: 1px;
+  letter-spacing: 1px;
   outline: 2px solid transparent;
   outline-offset: -2px;
-  color: #ffffff;
-  background-color: #005ea5;
-  letter-spacing: 1px;
+  padding: 4px 8px 1px;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.govuk-tag-active {
+  @extend .govuk-tag;
+  background-color: #85994b;
+}
+
+.govuk-tag-ceased {
+  @extend .govuk-tag;
+  background-color: #d53880;
+}
+
+.govuk-tag-revoked {
+  @extend .govuk-tag;
+  background-color: #b10e1e;
+}
+
+.govuk-tag-expired {
+  @extend .govuk-tag;
+  background-color: #bfc1c3;
 }
