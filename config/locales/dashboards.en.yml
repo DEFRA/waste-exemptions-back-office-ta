@@ -14,6 +14,9 @@ en:
           - "contact email"
         label: "Search for registrations"
         placeholder: "Enter your search term here"
+        filters:
+          registrations: "Submitted"
+          transient_registrations: "Not yet submitted"
         submit: "Search"
       user_info:
         heading: "Current user"
@@ -22,32 +25,4 @@ en:
         change_password_link: "Change password"
         sign_out_link: "Sign out"
       heading: "Waste exemptions dashboard"
-      results:
-        labels:
-          operator_name: "Business name"
-          reference: "Reference number"
-          address: "Site address"
-          grid_reference: "Site grid reference"
-          applicant: "Applicant"
-          contact: "Contact"
-          partners: "Partners"
-          actions: "Actions"
-        info:
-          no_site_address: "No site address or grid reference added"
-        actions:
-          edit:
-            link_text: "Edit"
-            visually_hidden_text: "registration %{name}"
-          deregister:
-            link_text: "Deregister"
-            visually_hidden_text: "%{name}"
-          resume:
-            link_text: "Resume"
-            visually_hidden_text: "registering %{name}"
-          change_ad:
-            link_text: "Change AD classification"
-            visually_hidden_text: "for %{name}"
-          confirmation_letter:
-            link_text: "View confirmation letter"
-            visually_hidden_text: "for %{name}"
       no_results: "No results"

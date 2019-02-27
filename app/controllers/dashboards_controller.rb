@@ -3,12 +3,13 @@
 class DashboardsController < ApplicationController
   def index
     @term = params[:term]
-    @registrations = matching_registrations(params[:page])
+    @filter = params[:filter].to_sym if params[:filter].present?
+    @results = matching_results(params[:page])
   end
 
   private
 
-  def matching_registrations(page)
-    SearchService.new.search(@term, page)
+  def matching_results(page)
+    SearchService.new.search(@term, @filter, page)
   end
 end

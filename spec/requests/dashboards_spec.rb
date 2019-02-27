@@ -22,14 +22,21 @@ RSpec.describe "Dashboards", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      context "when no registrations match the term" do
+      context "when there is a term, a filter and a page" do
+        it "calls a SearchService with the correct params" do
+          expect_any_instance_of(SearchService).to receive(:search).with("foo", :registrations, "2")
+          get "/", term: "foo", filter: "registrations", page: "2"
+        end
+      end
+
+      context "when the SearchService does not return results" do
         it "says there are no results" do
           get "/", term: "foo"
           expect(response.body).to include("No results")
         end
       end
 
-      context "when registrations match the term" do
+      context "when the SearchService returns results" do
         let(:registration) { build(:registration) }
 
         before do
@@ -37,7 +44,7 @@ RSpec.describe "Dashboards", type: :request do
           allow_any_instance_of(SearchService).to receive(:search).and_return(results)
         end
 
-        it "lists the registrations" do
+        it "lists the results" do
           get "/", term: "foo"
           expect(response.body).to include(registration.reference)
         end

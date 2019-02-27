@@ -4,10 +4,6 @@ require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptio
 
 module WasteExemptionsEngine
   class Address
-    scope :search_for_postcode, lambda { |term|
-      where("UPPER(postcode) LIKE ?", "%#{term&.upcase}%")
-    }
-
-    scope :site, -> { where(address_type: 3) }
+    include CanBeSearchedLikeAddress
   end
 end
