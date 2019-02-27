@@ -1,6 +1,16 @@
-<h2 class="heading-medium">
+<div class="column-one-third">
+  <h2 class="heading-medium">
   <%= t(".heading.#{address.address_type}") %>
 </h2>
+
+<% if address.mode.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.mode") %>
+  </h3>
+  <p>
+    <%= address.mode %>
+  </p>
+<% end %>
 
 <% if address.grid_reference.present? %>
   <p>
@@ -24,15 +34,6 @@
   </h3>
   <p>
     <%= address.description %>
-  </p>
-<% end %>
-
-<% if address.mode.present? %>
-  <h3 class="heading-small">
-    <%= t(".labels.mode") %>
-  </h3>
-  <p>
-    <%= address.mode %>
   </p>
 <% end %>
 
@@ -88,14 +89,18 @@
   <p>
     <%= address.logical_status_code %>
   </p>
-<% end %><% if address.source_data_type.present? %>
+<% end %>
+
+<% if address.source_data_type.present? %>
   <h3 class="heading-small">
     <%= t(".labels.source_data_type") %>
   </h3>
   <p>
     <%= address.source_data_type %>
   </p>
-<% end %><% if address.country_iso.present? %>
+<% end %>
+
+<% if address.country_iso.present? %>
   <h3 class="heading-small">
     <%= t(".labels.country_iso") %>
   </h3>
@@ -103,3 +108,4 @@
     <%= address.country_iso %>
   </p>
 <% end %>
+</div>

@@ -26,3 +26,41 @@
   display: block;
   font-weight: bold;
 }
+
+
+.action-boxout {
+  background-color: #f8f8f8;
+  padding: 10px;
+  li {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// TABLE CAPTION
+.govuk-table__caption {
+  font-size: 24px;
+  font-weight: 800
+}
+
+// STATUS TAGS
+.govuk-tag {
+  font-family: "nta", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.25;
+  display: inline-block;
+  padding: 4px 8px;
+  padding-bottom: 1px;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  color: #ffffff;
+  background-color: #005ea5;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+}

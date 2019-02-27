@@ -1,25 +1,20 @@
 <% resource_exemptions.each do |re| %>
-  <h3 class="heading-small">
-    <%= re.exemption.code%> &mdash; <%= re.exemption.summary %>
-  </h3>
-  <ul class="list list-bullet">
-    <% if re.state.present? %>
-    <li>
-      <%= t(".labels.state") %>
-      <%= re.state %>
-    </li>
-    <% end %>
-    <% if re.registered_on.present? %>
-    <li>
-      <%= t(".labels.registered_on") %>
-      <%= re.registered_on %>
-    </li>
-    <% end %>
-    <% if re.expires_on.present? %>
-    <li>
-      <%= t(".labels.expires_on") %>
-      <%= re.expires_on %>
-    </li>
-    <% end %>
-  </ul>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><%= re.exemption.code%> &mdash; <%= re.exemption.summary %></td>
+      <td class="govuk-table__cell">
+        <% if re.registered_on.present? %>
+          <%= re.registered_on %>
+        <% end %>
+      </td>
+       <td class="govuk-table__cell">
+        <% if re.expires_on.present? %>
+          <%= re.expires_on %>
+        <% end %>
+       </td>
+       <td class="govuk-table__cell">
+        <% if re.state.present? %>
+          <strong class="govuk-tag"><%= re.state %></strong>
+        <% end %>
+      </td>
+    </tr>
 <% end %>

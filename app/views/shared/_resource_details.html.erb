@@ -1,68 +1,5 @@
 <div class="grid-row">
-  <div class="column-full">
-    <% if resource.respond_to?(:workflow_state) && resource.workflow_state.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.workflow_state") %>
-      </h3>
-      <p>
-        <%= resource.workflow_state %>
-      </p>
-    <% end %>
-
-    <% if resource.reference.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.reference") %>
-      </h3>
-      <p>
-        <%= resource.reference %>
-      </p>
-    <% end %>
-
-    <% if resource.location.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.location") %>
-      </h3>
-      <p>
-        <%= resource.location %>
-      </p>
-    <% end %>
-
-    <% if resource.business_type.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.business_type") %>
-      </h3>
-      <p>
-        <%= resource.business_type %>
-      </p>
-    <% end %>
-
-    <% if resource.operator_name.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.operator_name") %>
-      </h3>
-      <p>
-        <%= resource.operator_name %>
-      </p>
-    <% end %>
-
-    <% if resource.company_no.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.company_no") %>
-      </h3>
-      <p>
-        <%= resource.company_no %>
-      </p>
-    <% end %>
-
-    <% if resource.has_attribute?(:submitted_at) && resource.submitted_at.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.submitted_at") %>
-      </h3>
-      <p>
-        <%= resource.submitted_at %>
-      </p>
-    <% end %>
-
+  <div class="column-one-third">
     <h2 class="heading-medium">
       <%= t(".subheadings.applicant") %>
     </h2>
@@ -99,11 +36,15 @@
         <%= t(".labels.applicant_email") %>
       </h3>
       <p>
-        <%= resource.applicant_email %>
+        <a href="<%= resource.applicant_email %>">
+          <%= resource.applicant_email %>
+        </a>
       </p>
     <% end %>
 
-    <h2 class="heading-medium">
+  </div>
+  <div class="column-one-third">
+     <h2 class="heading-medium">
       <%= t(".subheadings.contact") %>
     </h2>
 
@@ -115,22 +56,12 @@
         <%= resource.contact_first_name %>
       </p>
     <% end %>
-
     <% if resource.contact_last_name.present? %>
       <h3 class="heading-small">
         <%= t(".labels.contact_last_name") %>
       </h3>
       <p>
         <%= resource.contact_last_name %>
-      </p>
-    <% end %>
-
-    <% if resource.contact_position.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.contact_position") %>
-      </h3>
-      <p>
-        <%= resource.contact_position %>
       </p>
     <% end %>
 
@@ -148,10 +79,123 @@
         <%= t(".labels.contact_email") %>
       </h3>
       <p>
-        <%= resource.contact_email %>
+        <a href="mailto: <%= resource.contact_email %>">
+          <%= resource.contact_email %>
+        </a>
       </p>
     <% end %>
 
+    <% if resource.contact_position.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.contact_position") %>
+      </h3>
+      <p>
+        <%= resource.contact_position %>
+      </p>
+    <% end %>
+    
+  </div>
+  <div class="column-one-third">
+    <h2 class="heading-medium">
+      <%= t(".subheadings.actions") %>
+      <% if resource.reference.present? %>
+      for <%= resource.reference %>
+      <% end %>
+    </h2>
+    <div class="action-boxout">
+      <ul>
+        <li>
+          <%= link_to t(".actions.resume"), "#" %>
+        </li>
+        <li>
+          <%= link_to t(".actions.edit"), "#" %>
+        </li>
+        <li>
+          <%= link_to t(".actions.deregister"), "#" %>
+        </li>
+        <li>
+          <%= link_to t(".actions.change_ad"), "#" %>
+        </li>
+        <li>
+          <%= link_to t(".actions.confirmation_letter"), "#" %>
+        </li>
+      </ul>
+    </div>
+<!-- /boxout -->
+  </div>
+</div>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<div class="grid-row">
+  <div class="column-full">
+    <table class="govuk-table">
+      <caption class="govuk-table__caption">Waste exemption details</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">Exemption</th>
+          <th class="govuk-table__header" scope="col">Registered</th>
+          <th class="govuk-table__header" scope="col">Expires</th>
+          <th class="govuk-table__header" scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <% if resource.respond_to?(:registration_exemptions) && resource.registration_exemptions.present? %>
+          <%= render("shared/resource_exemptions_list",
+                     resource_exemptions: @resource.registration_exemptions) %>
+        <% elsif resource.respond_to?(:transient_registration_exemptions) && resource.transient_registration_exemptions.present? %>
+          <%= render("shared/resource_exemptions_list",
+                     resource_exemptions: @resource.transient_registration_exemptions) %>
+        <% else %>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="4"><%= t(".no_exemptions") %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <% if resource.business_type.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.business_type") %>
+      </h3>
+      <p>
+        <%= resource.business_type %>
+      </p>
+    <% end %>
+  </div>
+</div>
+<div class="grid-row">
+      <% if resource.respond_to?(:addresses) %>
+      <% resource.addresses.each do |address| %>
+        <%= render("shared/resource_address",
+                   address: address) %>
+      <% end %>
+    <% end %>
+
+    <% if resource.respond_to?(:transient_addresses) %>
+      <% resource.transient_addresses.each do |address| %>
+        <%= render("shared/resource_address",
+                   address: address) %>
+      <% end %>
+    <% end %>
+</div>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<div class="grid-row">
+  <div class="column-one-third">
+    <% if resource.respond_to?(:people) && resource.people.present? %>
+      <h2 class="heading-medium">
+        <%= t(".subheadings.people") %>
+      </h2>
+        <%= render("shared/resource_people_list",
+                   resource_people: @resource.people) %>
+      <% elsif resource.respond_to?(:transient_people) && resource.transient_people.present? %>
+      <h2 class="heading-medium">
+        <%= t(".subheadings.people") %>
+      </h2>
+        <%= render("shared/resource_people_list",
+                   resource_people: @resource.transient_people) %>
+    <% end %>
+  </div>
+
+  <div class="column-one-third">
     <h2 class="heading-medium">
       <%= t(".subheadings.farm") %>
     </h2>
@@ -174,73 +218,22 @@
       </p>
     <% end %>
 
-    <h2 class="heading-medium">
-      <%= t(".subheadings.exemptions") %>
-    </h2>
-
-    <% if resource.respond_to?(:registration_exemptions) && resource.registration_exemptions.present? %>
-      <%= render("shared/resource_exemptions_list",
-                 resource_exemptions: @resource.registration_exemptions) %>
-    <% elsif resource.respond_to?(:transient_registration_exemptions) && resource.transient_registration_exemptions.present? %>
-      <%= render("shared/resource_exemptions_list",
-                 resource_exemptions: @resource.transient_registration_exemptions) %>
-    <% else %>
+    <% if resource.location.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.location") %>
+      </h3>
       <p>
-        <%= t(".no_exemptions") %>
+        <%= resource.location %>
       </p>
     <% end %>
 
-    <% if resource.respond_to?(:addresses) %>
-      <% resource.addresses.each do |address| %>
-        <%= render("shared/resource_address",
-                   address: address) %>
-      <% end %>
-    <% end %>
-
-    <% if resource.respond_to?(:transient_addresses) %>
-      <% resource.transient_addresses.each do |address| %>
-        <%= render("shared/resource_address",
-                   address: address) %>
-      <% end %>
-    <% end %>
-
-    <h2 class="heading-medium">
-      <%= t(".subheadings.people") %>
-    </h2>
-
-    <% if resource.respond_to?(:people) && resource.people.present? %>
-      <%= render("shared/resource_people_list",
-                 resource_people: @resource.people) %>
-    <% elsif resource.respond_to?(:transient_people) && resource.transient_people.present? %>
-      <%= render("shared/resource_people_list",
-                 resource_people: @resource.transient_people) %>
-    <% else %>
+    <% if resource.company_no.present? %>
+      <h3 class="heading-small">
+        <%= t(".labels.company_no") %>
+      </h3>
       <p>
-        <%= t(".no_people") %>
+        <%= resource.company_no %>
       </p>
     <% end %>
-
-    <h2 class="heading-medium">
-      <%= t(".subheadings.actions") %>
-    </h2>
-
-    <ul>
-      <li>
-        <%= link_to t(".actions.edit"), "#" %>
-      </li>
-      <li>
-        <%= link_to t(".actions.deregister"), "#" %>
-      </li>
-      <li>
-        <%= link_to t(".actions.resume"), "#" %>
-      </li>
-      <li>
-        <%= link_to t(".actions.change_ad"), "#" %>
-      </li>
-      <li>
-        <%= link_to t(".actions.confirmation_letter"), "#" %>
-      </li>
-    </ul>
-
   </div>
 </div>
