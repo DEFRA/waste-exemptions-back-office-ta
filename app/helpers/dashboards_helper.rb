@@ -26,4 +26,8 @@ module DashboardsHelper
       "#"
     end
   end
+
+  def result_name_for_visually_hidden_text(result)
+    result.operator_name || result.reference || "new registration"
+  end
 end

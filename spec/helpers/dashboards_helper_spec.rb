@@ -94,4 +94,36 @@ RSpec.describe DashboardsHelper, type: :helper do
       end
     end
   end
+
+  describe "result_name_for_visually_hidden_text" do
+    let(:result) { build(:transient_registration) }
+
+    context "when the result has an operator_name" do
+      before { result.operator_name = "Foo" }
+
+      it "returns the operator_name" do
+        expect(helper.result_name_for_visually_hidden_text(result)).to eq(result.operator_name)
+      end
+    end
+
+    context "when the result has no operator_name" do
+      before { result.operator_name = nil }
+
+      context "when the result has a reference" do
+        before { result.reference = "WEX123456" }
+
+        it "returns the reference" do
+          expect(helper.result_name_for_visually_hidden_text(result)).to eq(result.reference)
+        end
+      end
+
+      context "when the result has no reference" do
+        before { result.reference = nil }
+
+        it "returns 'new registration'" do
+          expect(helper.result_name_for_visually_hidden_text(result)).to eq("new registration")
+        end
+      end
+    end
+  end
 end
