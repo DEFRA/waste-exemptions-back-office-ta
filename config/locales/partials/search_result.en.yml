@@ -17,6 +17,9 @@ en:
       info:
         no_site_address: "No site address or grid reference added"
       actions:
+        view:
+          link_text: "View details"
+          visually_hidden_text: "of %{name}"
         edit:
           link_text: "Edit"
           visually_hidden_text: "registration %{name}"

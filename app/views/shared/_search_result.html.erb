@@ -78,6 +78,15 @@
       <li>
         <span><%= t(".labels.actions") %></span>
         <ul>
+          <li>
+            <%= link_to view_link_for(result), id: "view_#{result.reference}" do %>
+              <%= t(".actions.view.link_text") %>
+              <span class="visually-hidden">
+               <%= t(".actions.view.visually_hidden_text",
+                     name: result.operator_name) %>
+             </span>
+            <% end %>
+          </li>
           <% if result.is_a?(WasteExemptionsEngine::Registration) %>
           <li>
             <%= link_to "#", id: "edit_#{result.reference}" do %>

@@ -16,4 +16,14 @@ module DashboardsHelper
 
     :active
   end
+
+  def view_link_for(result)
+    if result.is_a?(WasteExemptionsEngine::Registration)
+      registration_path(result)
+    elsif result.is_a?(WasteExemptionsEngine::TransientRegistration)
+      transient_registration_path(result)
+    else
+      "#"
+    end
+  end
 end
