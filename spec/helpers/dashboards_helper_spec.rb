@@ -74,7 +74,7 @@ RSpec.describe DashboardsHelper, type: :helper do
       let(:result) { create(:registration) }
 
       it "returns the correct path" do
-        expect(helper.view_link_for(result)).to eq(registration_path(result))
+        expect(helper.view_link_for(result)).to eq(registration_path(result.reference))
       end
     end
 
@@ -82,7 +82,7 @@ RSpec.describe DashboardsHelper, type: :helper do
       let(:result) { create(:transient_registration) }
 
       it "returns the correct path" do
-        expect(helper.view_link_for(result)).to eq(transient_registration_path(result))
+        expect(helper.view_link_for(result)).to eq(transient_registration_path(result.reference))
       end
     end
 

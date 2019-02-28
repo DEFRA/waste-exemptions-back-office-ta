@@ -19,9 +19,9 @@ module DashboardsHelper
 
   def view_link_for(result)
     if result.is_a?(WasteExemptionsEngine::Registration)
-      registration_path(result)
+      registration_path(result.reference)
     elsif result.is_a?(WasteExemptionsEngine::TransientRegistration)
-      transient_registration_path(result)
+      transient_registration_path(result.reference)
     else
       "#"
     end
