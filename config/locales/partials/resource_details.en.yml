@@ -27,6 +27,25 @@ en:
         on_a_farm: "On a farm?"
         is_a_farmer: "Is a farmer?"
         submitted_at: "Submitted at"
+      values:
+        business_type:
+          charity: "Charity or trust"
+          limitedCompany: "Limited company"
+          limitedLiabilityPartnership: "Limited liability partnership"
+          localAuthority: "Local authority or public body"
+          partnership: "Partnership"
+          soleTrader: "Individual or sole trader"
+        is_a_farmer:
+          "true": "Yes"
+          "false": "No"
+        location:
+          england: "England"
+          northern_ireland: "Northern Ireland"
+          scotland: "Scotland"
+          wales: "Wales"
+        on_a_farm:
+          "true": "Yes"
+          "false": "No"
       actions:
         edit: "Edit"
         deregister: "Deregister"
