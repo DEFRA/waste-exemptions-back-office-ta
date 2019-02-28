@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class TransientRegistrationsController < ApplicationController
+  helper RegistrationsHelper
+
   def show
     find_resource(params[:reference])
     authorize

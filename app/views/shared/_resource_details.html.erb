@@ -4,42 +4,46 @@
       <%= t(".subheadings.applicant") %>
     </h2>
 
-    <% if resource.applicant_first_name.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.applicant_first_name") %>
-      </h3>
-      <p>
-        <%= resource.applicant_first_name %>
-      </p>
-    <% end %>
+    <% if applicant_data_present?(resource) %>
+      <% if resource.applicant_first_name.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.applicant_first_name") %>
+        </h3>
+        <p>
+          <%= resource.applicant_first_name %>
+        </p>
+      <% end %>
 
-    <% if resource.applicant_last_name.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.applicant_last_name") %>
-      </h3>
-      <p>
-        <%= resource.applicant_last_name %>
-      </p>
-    <% end %>
+      <% if resource.applicant_last_name.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.applicant_last_name") %>
+        </h3>
+        <p>
+          <%= resource.applicant_last_name %>
+        </p>
+      <% end %>
 
-    <% if resource.applicant_phone.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.applicant_phone") %>
-      </h3>
-      <p>
-        <%= resource.applicant_phone %>
-      </p>
-    <% end %>
+      <% if resource.applicant_phone.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.applicant_phone") %>
+        </h3>
+        <p>
+          <%= resource.applicant_phone %>
+        </p>
+      <% end %>
 
-    <% if resource.applicant_email.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.applicant_email") %>
-      </h3>
-      <p>
-        <a href="<%= resource.applicant_email %>">
-          <%= resource.applicant_email %>
-        </a>
-      </p>
+      <% if resource.applicant_email.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.applicant_email") %>
+        </h3>
+        <p>
+          <a href="<%= resource.applicant_email %>">
+            <%= resource.applicant_email %>
+          </a>
+        </p>
+      <% end %>
+    <% else %>
+      <%= t(".no_applicant_data") %>
     <% end %>
 
   </div>
@@ -48,50 +52,54 @@
       <%= t(".subheadings.contact") %>
     </h2>
 
-    <% if resource.contact_first_name.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.contact_first_name") %>
-      </h3>
-      <p>
-        <%= resource.contact_first_name %>
-      </p>
-    <% end %>
-    <% if resource.contact_last_name.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.contact_last_name") %>
-      </h3>
-      <p>
-        <%= resource.contact_last_name %>
-      </p>
-    <% end %>
+    <% if contact_data_present?(resource) %>
+      <% if resource.contact_first_name.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.contact_first_name") %>
+        </h3>
+        <p>
+          <%= resource.contact_first_name %>
+        </p>
+      <% end %>
+      <% if resource.contact_last_name.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.contact_last_name") %>
+        </h3>
+        <p>
+          <%= resource.contact_last_name %>
+        </p>
+      <% end %>
 
-    <% if resource.contact_phone.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.contact_phone") %>
-      </h3>
-      <p>
-        <%= resource.contact_phone %>
-      </p>
-    <% end %>
+      <% if resource.contact_phone.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.contact_phone") %>
+        </h3>
+        <p>
+          <%= resource.contact_phone %>
+        </p>
+      <% end %>
 
-    <% if resource.contact_email.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.contact_email") %>
-      </h3>
-      <p>
-        <a href="mailto: <%= resource.contact_email %>">
-          <%= resource.contact_email %>
-        </a>
-      </p>
-    <% end %>
+      <% if resource.contact_email.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.contact_email") %>
+        </h3>
+        <p>
+          <a href="mailto: <%= resource.contact_email %>">
+            <%= resource.contact_email %>
+          </a>
+        </p>
+      <% end %>
 
-    <% if resource.contact_position.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.contact_position") %>
-      </h3>
-      <p>
-        <%= resource.contact_position %>
-      </p>
+      <% if resource.contact_position.present? %>
+        <h3 class="heading-small">
+          <%= t(".labels.contact_position") %>
+        </h3>
+        <p>
+          <%= resource.contact_position %>
+        </p>
+      <% end %>
+    <% else %>
+      <%= t(".no_contact_data") %>
     <% end %>
 
   </div>
