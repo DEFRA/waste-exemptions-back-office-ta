@@ -112,21 +112,29 @@
     </h2>
     <div class="action-boxout">
       <ul>
-        <li>
-          <%= link_to t(".actions.resume"), "#" %>
-        </li>
+        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
         <li>
           <%= link_to t(".actions.edit"), "#" %>
         </li>
+        <% end %>
+        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
         <li>
           <%= link_to t(".actions.deregister"), "#" %>
         </li>
+        <% end %>
+        <% if resource.is_a?(WasteExemptionsEngine::TransientRegistration) %>
+        <li>
+          <%= link_to t(".actions.resume"), "#" %>
+        </li>
+        <% end %>
         <li>
           <%= link_to t(".actions.change_ad"), "#" %>
         </li>
+        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
         <li>
           <%= link_to t(".actions.confirmation_letter"), "#" %>
         </li>
+        <% end %>
       </ul>
     </div>
 <!-- /boxout -->
