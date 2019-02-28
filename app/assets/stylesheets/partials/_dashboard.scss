@@ -27,23 +27,6 @@
   font-weight: bold;
 }
 
-.action-boxout {
-  background-color: #f8f8f8;
-  padding: 10px;
-  li {
-    margin-bottom: 10px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-// TABLE CAPTION
-.govuk-table__caption {
-  font-size: 24px;
-  font-weight: 800
-}
-
 // TODO: Merge the status tags!
 
 // STATUS TAGS - REGISTRATION
