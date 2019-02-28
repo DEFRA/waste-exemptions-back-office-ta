@@ -135,12 +135,9 @@
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 <div class="grid-row">
   <div class="column-full">
-    <% if resource.respond_to?(:registration_exemptions) && resource.registration_exemptions.present? %>
+    <% if resource.registration_exemptions.present? %>
       <%= render("shared/resource_exemptions_list",
                  resource_exemptions: resource.registration_exemptions) %>
-    <% elsif resource.respond_to?(:transient_registration_exemptions) && resource.transient_registration_exemptions.present? %>
-      <%= render("shared/resource_exemptions_list",
-                 resource_exemptions: resource.transient_registration_exemptions) %>
     <% else %>
       <h2 class="heading-medium">
         <%= t(".subheadings.exemptions") %>
@@ -150,35 +147,20 @@
   </div>
 </div>
 <div class="grid-row">
-      <% if resource.respond_to?(:addresses) %>
-      <% resource.addresses.each do |address| %>
-        <%= render("shared/resource_address",
-                   address: address) %>
-      <% end %>
-    <% end %>
-
-    <% if resource.respond_to?(:transient_addresses) %>
-      <% resource.transient_addresses.each do |address| %>
-        <%= render("shared/resource_address",
-                   address: address) %>
-      <% end %>
-    <% end %>
+  <% resource.addresses.each do |address| %>
+    <%= render("shared/resource_address",
+               address: address) %>
+  <% end %>
 </div>
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 <div class="grid-row">
   <div class="column-one-third">
-    <% if resource.respond_to?(:people) && resource.people.present? %>
+    <% if resource.people.present? %>
       <h2 class="heading-medium">
         <%= t(".subheadings.people") %>
       </h2>
-        <%= render("shared/resource_people_list",
-                   resource_people: resource.people) %>
-      <% elsif resource.respond_to?(:transient_people) && resource.transient_people.present? %>
-      <h2 class="heading-medium">
-        <%= t(".subheadings.people") %>
-      </h2>
-        <%= render("shared/resource_people_list",
-                   resource_people: resource.transient_people) %>
+      <%= render("shared/resource_people_list",
+                 resource_people: resource.people) %>
     <% end %>
   </div>
 
