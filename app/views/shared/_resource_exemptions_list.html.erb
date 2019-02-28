@@ -1,4 +1,15 @@
-<% resource_exemptions.each do |re| %>
+<table class="govuk-table">
+  <caption class="govuk-table__caption"><%= t(".caption") %></caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.name") %></th>
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.registered_on") %></th>
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.expires_on") %></th>
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.state") %></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+  <% resource_exemptions.each do |re| %>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell"><%= re.exemption.code%> &mdash; <%= re.exemption.summary %></td>
       <td class="govuk-table__cell">
@@ -17,4 +28,6 @@
         <% end %>
       </td>
     </tr>
-<% end %>
+  <% end %>
+  </tbody>
+</table>
