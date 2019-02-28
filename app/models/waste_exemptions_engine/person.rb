@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-require_dependency WasteExemptionsEngine::Engine.config.root
-                                                .join("app", "models", "waste_exemptions_engine", "person.rb")
-                                                .to_s
+require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptions_engine", "person")
 
 module WasteExemptionsEngine
   class Person
-    scope :search_for_name, lambda { |term|
-      where("UPPER(CONCAT(first_name, ' ', last_name)) LIKE ?", "%#{term&.upcase}%")
-    }
+    include CanBeSearchedLikePerson
   end
 end

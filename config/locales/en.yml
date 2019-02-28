@@ -2,6 +2,7 @@ en:
   global_proposition_header: Waste exemptions back office
   layouts:
     application:
+      feedback_url: https://www.gov.uk/done/register-waste-exemption
       menu:
         dashboard: "Dashboard"
         users: "Manage users"
