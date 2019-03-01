@@ -4,7 +4,7 @@
     <ul class="registration-details">
       <li>
         <span><%= t(".labels.status") %></span>
-        <span class="<%= "status-tag status-tag-#{status_tag_for(result)}" %>"><%= t(".statuses.#{status_tag_for(result)}") %></span>
+        <span class="<%= "status-tag-#{status_tag_for(result)}" %>"><%= t(".statuses.#{status_tag_for(result)}") %></span>
       </li>
       <% if result.operator_name.present? %>
       <li>

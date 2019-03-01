@@ -24,7 +24,7 @@
        </td>
        <td class="govuk-table__cell">
         <% if re.state.present? %>
-          <strong class="govuk-tag"><%= re.state %></strong>
+          <span class="<%= "status-tag-#{re.state}" %>"><%= re.state %></span>
         <% end %>
       </td>
     </tr>

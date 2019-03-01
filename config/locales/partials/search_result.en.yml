@@ -13,7 +13,7 @@ en:
         actions: "Actions"
       statuses:
         active: "active"
-        transient: "not yet submitted"
+        pending: "not yet submitted"
       info:
         no_site_address: "No site address or grid reference added"
       actions:

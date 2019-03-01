@@ -55,8 +55,8 @@ RSpec.describe DashboardsHelper, type: :helper do
     context "when the result is a transient_registration" do
       let(:result) { build(:transient_registration) }
 
-      it "returns :transient" do
-        expect(helper.status_tag_for(result)).to eq(:transient)
+      it "returns :pending" do
+        expect(helper.status_tag_for(result)).to eq(:pending)
       end
     end
 
