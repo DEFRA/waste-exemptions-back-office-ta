@@ -155,9 +155,23 @@
   </div>
 </div>
 <div class="grid-row">
-  <% resource.addresses.each do |address| %>
-    <%= render("shared/resource_address",
-               address: address) %>
+  <% if resource.contact_address.present? %>
+    <div class="column-one-third">
+      <%= render("shared/resource_address",
+                 address: resource.contact_address) %>
+    </div>
+  <% end %>
+  <% if resource.operator_address.present? %>
+    <div class="column-one-third">
+      <%= render("shared/resource_address",
+                 address: resource.operator_address) %>
+    </div>
+  <% end %>
+  <% if resource.site_address.present? %>
+    <div class="column-one-third">
+      <%= render("shared/resource_address",
+                 address: resource.site_address) %>
+    </div>
   <% end %>
 </div>
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
