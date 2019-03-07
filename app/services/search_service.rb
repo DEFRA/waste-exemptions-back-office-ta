@@ -6,6 +6,8 @@ class SearchService
   def search(term, model, page)
     return Kaminari.paginate_array([]).page(page) if term.blank?
 
+    term = term.strip
+
     if model == :transient_registrations
       WasteExemptionsEngine::TransientRegistration.search_registration_and_relations(term).page(page)
     else
