@@ -26,9 +26,6 @@ en:
         resume:
           link_text: "Resume"
           visually_hidden_text: "registering %{name}"
-        change_ad:
-          link_text: "Change AD classification"
-          visually_hidden_text: "for %{name}"
         confirmation_letter:
           link_text: "View confirmation letter"
           visually_hidden_text: "for %{name}"
