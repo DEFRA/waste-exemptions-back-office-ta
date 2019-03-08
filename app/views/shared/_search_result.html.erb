@@ -21,8 +21,8 @@
     </ul>
   </div>
   <div class="column-one-quarter">
-    <ul class="registration-details">
-      <% if result.site_address.present? %>
+    <% if result.site_address.present? %>
+      <ul class="registration-details">
         <% if result.site_address.postcode.present? %>
         <li>
           <span><%= t(".labels.address") %></span>
@@ -39,13 +39,10 @@
           <%= result.site_address.grid_reference %>
         </li>
         <% end %>
-      <% else %>
-      <li>
-        <span><%= t(".labels.address") %></span>
-        <%= t(".info.no_site_address") %>
-      </li>
-      <% end %>
-    </ul>
+      </ul>
+    <% else %>
+      <br>
+    <% end %>
   </div>
   <div class="column-one-quarter">
     <ul class="registration-details">
