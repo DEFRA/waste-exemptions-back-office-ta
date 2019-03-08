@@ -42,6 +42,15 @@ RSpec.describe SearchService do
         expect(results).to_not include(other_transient_registration)
       end
     end
+
+    context "when the search term has excess whitespace" do
+      let(:term) { "  foo  " }
+
+      it "ignores the whitespace when searching" do
+        expect(WasteExemptionsEngine::Registration).to receive(:search_registration_and_relations).with("foo")
+        results
+      end
+    end
   end
 
   context "when no search term is provided" do

@@ -15,6 +15,7 @@ en:
         label: "Search for registrations"
         placeholder: "Enter your search term here"
         filters:
+          legend: "Filter your search"
           registrations: "Submitted"
           transient_registrations: "Not yet submitted"
         submit: "Search"
