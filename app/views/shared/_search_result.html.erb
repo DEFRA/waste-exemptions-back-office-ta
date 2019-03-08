@@ -108,15 +108,6 @@
             <% end %>
           </li>
           <% end %>
-          <li>
-            <%= link_to "#", id: "change_ad_#{result.reference}" do %>
-              <%= t(".actions.change_ad.link_text") %>
-              <span class="visually-hidden">
-               <%= t(".actions.change_ad.visually_hidden_text",
-                     name: result.operator_name) %>
-             </span>
-            <% end %>
-          </li>
           <% if result.is_a?(WasteExemptionsEngine::Registration) %>
           <li>
             <%= link_to "#", id: "confirmation_letter_#{result.reference}" do %>
