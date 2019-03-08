@@ -17,7 +17,7 @@
   </p>
 <% end %>
 
-<% if address.organisation.present? %>
+<% if address.postcode.present? %>
   <ul>
     <% displayable_address(address).each do |line| %>
       <li>
