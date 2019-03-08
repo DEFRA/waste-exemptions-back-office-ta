@@ -50,7 +50,6 @@ en:
         edit: "Edit"
         deregister: "Deregister"
         resume: "Resume"
-        change_ad: "Change AD classification"
         confirmation_letter: "View confirmation letter"
       no_applicant_data: "No applicant details"
       no_contact_data: "No contact details"
