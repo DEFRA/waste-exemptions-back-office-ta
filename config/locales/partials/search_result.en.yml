@@ -14,8 +14,6 @@ en:
       statuses:
         active: "active"
         transient: "not yet submitted"
-      info:
-        no_site_address: "No site address or grid reference added"
       actions:
         edit:
           link_text: "Edit"
