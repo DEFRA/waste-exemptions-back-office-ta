@@ -3,6 +3,28 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
+  describe "PaperTrail", versioning: true do
+    let(:user) { create(:user, :data_agent) }
+
+    it "has PaperTrail" do
+      expect(PaperTrail).to be_enabled
+    end
+
+    it "is versioned" do
+      expect(user).to be_versioned
+    end
+
+    it "creates a new version when it is updated" do
+      expect { user.update_attribute(:role, "admin_agent") }.to change { user.versions.count }.by(1)
+    end
+
+    it "stores the correct values when it is updated" do
+      user.update_attribute(:role, "admin_agent")
+      user.update_attribute(:role, "super_agent")
+      expect(user).to have_a_version_with(role: "admin_agent")
+    end
+  end
+
   describe "#role" do
     context "when the role is in the allowed list" do
       let(:user) { build(:user, role: "system") }
