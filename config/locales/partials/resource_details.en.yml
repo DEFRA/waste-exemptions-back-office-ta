@@ -6,7 +6,6 @@ en:
         contact: "Contact details"
         farm: "Farm details"
         exemptions: "Exemptions"
-        people: "People"
         actions: "Actions"
       labels:
         workflow_state: "Workflow state"
@@ -17,7 +16,9 @@ en:
         applicant_phone: "Applicant phone"
         applicant_email: "Applicant email"
         business_type: "Business type"
+        details: "Reporting information"
         operator_name: "Operator name"
+        people: "Partners"
         company_no: "Company number"
         contact_first_name: "Contact first name"
         contact_last_name: "Contact last name"

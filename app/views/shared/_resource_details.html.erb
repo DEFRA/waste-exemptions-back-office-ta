@@ -174,59 +174,75 @@
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 <div class="grid-row">
   <div class="column-one-third">
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          <%= t(".labels.details") %>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <% unless resource.on_a_farm.nil? %>
+          <h3 class="heading-small">
+            <%= t(".labels.on_a_farm") %>
+          </h3>
+          <p>
+            <%= t(".values.on_a_farm.#{resource.on_a_farm}") %>
+          </p>
+        <% end %>
+
+        <% unless resource.is_a_farmer.nil? %>
+          <h3 class="heading-small">
+            <%= t(".labels.is_a_farmer") %>
+          </h3>
+          <p>
+            <%= t(".values.is_a_farmer.#{resource.is_a_farmer}") %>
+          </p>
+        <% end %>
+
+        <% if resource.business_type.present? %>
+          <h3 class="heading-small">
+            <%= t(".labels.business_type") %>
+          </h3>
+          <p>
+            <%= t(".values.business_type.#{resource.business_type}") %>
+          </p>
+        <% end %>
+
+        <% if resource.location.present? %>
+          <h3 class="heading-small">
+            <%= t(".labels.location") %>
+          </h3>
+          <p>
+            <%= t(".values.location.#{resource.location}") %>
+          </p>
+        <% end %>
+
+        <% if resource.company_no.present? %>
+          <h3 class="heading-small">
+            <%= t(".labels.company_no") %>
+          </h3>
+          <p>
+            <%= resource.company_no %>
+          </p>
+        <% end %>
+      </div>
+    </details>
+  </div>
+  <div class="column-one-third">
     <% if resource.people.present? %>
-      <h2 class="heading-medium">
-        <%= t(".subheadings.people") %>
-      </h2>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          <%= t(".labels.people") %>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
       <%= render("shared/resource_people_list",
                  resource_people: resource.people) %>
-    <% end %>
-  </div>
+      </div>
+    </details>
 
-  <div class="column-one-third">
-    <% unless resource.on_a_farm.nil? %>
-      <h3 class="heading-small">
-        <%= t(".labels.on_a_farm") %>
-      </h3>
-      <p>
-        <%= t(".values.on_a_farm.#{resource.on_a_farm}") %>
-      </p>
-    <% end %>
-
-    <% unless resource.is_a_farmer.nil? %>
-      <h3 class="heading-small">
-        <%= t(".labels.is_a_farmer") %>
-      </h3>
-      <p>
-        <%= t(".values.is_a_farmer.#{resource.is_a_farmer}") %>
-      </p>
-    <% end %>
-
-    <% if resource.business_type.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.business_type") %>
-      </h3>
-      <p>
-        <%= t(".values.business_type.#{resource.business_type}") %>
-      </p>
-    <% end %>
-
-    <% if resource.location.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.location") %>
-      </h3>
-      <p>
-        <%= t(".values.location.#{resource.location}") %>
-      </p>
-    <% end %>
-
-    <% if resource.company_no.present? %>
-      <h3 class="heading-small">
-        <%= t(".labels.company_no") %>
-      </h3>
-      <p>
-        <%= resource.company_no %>
-      </p>
+      
     <% end %>
   </div>
 </div>

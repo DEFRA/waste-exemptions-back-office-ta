@@ -2,15 +2,6 @@
   <%= t(".heading.#{address.address_type}") %>
 </h2>
 
-<% if address.mode.present? %>
-  <h3 class="heading-small">
-    <%= t(".labels.mode") %>
-  </h3>
-  <p>
-    <%= address.mode %>
-  </p>
-<% end %>
-
 <% if address.grid_reference.present? %>
   <p>
     <%= address.grid_reference %>
@@ -25,6 +16,15 @@
       </li>
     <% end %>
   </ul>
+<% end %>
+
+<% if address.mode.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.mode") %>
+  </h3>
+  <p>
+    <%= address.mode %>
+  </p>
 <% end %>
 
 <% if address.description.present? %>
@@ -107,3 +107,5 @@
     <%= address.country_iso %>
   </p>
 <% end %>
+
+
