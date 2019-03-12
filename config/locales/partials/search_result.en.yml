@@ -14,8 +14,6 @@ en:
       statuses:
         active: "active"
         pending: "not yet submitted"
-      info:
-        no_site_address: "No site address or grid reference added"
       actions:
         view:
           link_text: "View details"
