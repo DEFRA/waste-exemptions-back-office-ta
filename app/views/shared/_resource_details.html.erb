@@ -228,8 +228,9 @@
       </div>
     </details>
   </div>
+
+  <% if resource.people.present? %>
   <div class="column-one-third">
-    <% if resource.people.present? %>
     <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -241,8 +242,6 @@
                  resource_people: resource.people) %>
       </div>
     </details>
-
-      
-    <% end %>
   </div>
+  <% end %>
 </div>
