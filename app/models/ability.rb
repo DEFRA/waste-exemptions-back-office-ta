@@ -46,6 +46,7 @@ class Ability
   def permissions_for_data_agent
     can :use_back_office, :all
     can :read, WasteExemptionsEngine::Registration
+    can :read, WasteExemptionsEngine::TransientRegistration
     can :export, WasteExemptionsEngine::Registration
   end
 end

@@ -37,7 +37,7 @@ RSpec.describe "Dashboards", type: :request do
       end
 
       context "when the SearchService returns results" do
-        let(:registration) { build(:registration) }
+        let(:registration) { create(:registration) }
 
         before do
           results = Kaminari.paginate_array([registration]).page(1)

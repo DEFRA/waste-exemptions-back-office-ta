@@ -1,0 +1,5 @@
+en:
+  transient_registrations:
+    show:
+      title: "In-progress registration details"
+      heading: "In-progress registration details for %{reference}"

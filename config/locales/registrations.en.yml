@@ -1,0 +1,5 @@
+en:
+  registrations:
+    show:
+      title: "Registration details"
+      heading: "Registration details for %{reference}"
