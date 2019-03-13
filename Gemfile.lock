@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 9e5c4f0412824b14a3ed83f177932cd84095bb36
+  revision: 64b6b361d170d5983b5ac7d4d93ce59585047d8f
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -69,7 +69,7 @@ GEM
     builder (3.2.3)
     byebug (11.0.0)
     cancancan (2.3.0)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     crass (1.0.4)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
