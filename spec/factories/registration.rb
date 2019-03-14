@@ -2,6 +2,16 @@
 
 FactoryBot.define do
   factory :registration, class: WasteExemptionsEngine::Registration do
+    location { "england" }
+    applicant_phone { "01234567890" }
+    contact_phone { "01234567890" }
+    business_type { "limitedCompany" }
+    company_no { "09360070" }
+    on_a_farm { true }
+    is_a_farmer { true }
+
+    exemptions { WasteExemptionsEngine::Exemption.first(2) }
+
     sequence :applicant_email do |n|
       "applicant#{n}@example.com"
     end
