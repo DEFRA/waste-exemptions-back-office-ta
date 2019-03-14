@@ -69,32 +69,6 @@ RSpec.describe DashboardsHelper, type: :helper do
     end
   end
 
-  describe "view_link_for" do
-    context "when the result is a registration" do
-      let(:result) { create(:registration) }
-
-      it "returns the correct path" do
-        expect(helper.view_link_for(result)).to eq(registration_path(result.reference))
-      end
-    end
-
-    context "when the result is a transient_registration" do
-      let(:result) { create(:transient_registration) }
-
-      it "returns the correct path" do
-        expect(helper.view_link_for(result)).to eq(transient_registration_path(result.reference))
-      end
-    end
-
-    context "when the result is not a registration or a transient_registration" do
-      let(:result) { nil }
-
-      it "returns the correct path" do
-        expect(helper.view_link_for(result)).to eq("#")
-      end
-    end
-  end
-
   describe "result_name_for_visually_hidden_text" do
     let(:result) { build(:transient_registration) }
 
