@@ -10,4 +10,12 @@ module PathsHelper
       "#"
     end
   end
+
+  def resume_link_for(resource)
+    return "#" unless resource.is_a?(WasteExemptionsEngine::TransientRegistration)
+
+    token = resource.token
+    path = "new_#{resource.workflow_state}_path".to_sym
+    WasteExemptionsEngine::Engine.routes.url_helpers.public_send(path, token)
+  end
 end

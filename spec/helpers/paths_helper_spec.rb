@@ -28,4 +28,23 @@ RSpec.describe PathsHelper, type: :helper do
       end
     end
   end
+
+  describe "resume_link_for" do
+    context "when the resource is a transient_registration" do
+      let(:resource) { create(:transient_registration) }
+
+      it "returns the correct path" do
+        path = WasteExemptionsEngine::Engine.routes.url_helpers.new_start_form_path(resource.token)
+        expect(helper.resume_link_for(resource)).to eq(path)
+      end
+    end
+
+    context "when the resource is not a transient_registration" do
+      let(:resource) { nil }
+
+      it "returns the correct path" do
+        expect(helper.resume_link_for(resource)).to eq("#")
+      end
+    end
+  end
 end
