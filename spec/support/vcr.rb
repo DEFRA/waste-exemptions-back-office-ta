@@ -14,12 +14,12 @@ VCR.configure do |c|
   c.default_cassette_options = { re_record_interval: 14.days }
 
   c.filter_sensitive_data("<AWS_DAILY_EXPORT_ACCESS_KEY_ID>") do
-    ENV['AWS_DAILY_EXPORT_ACCESS_KEY_ID']
+    ENV["AWS_DAILY_EXPORT_ACCESS_KEY_ID"]
   end
 
   c.filter_sensitive_data("<AWS_DAILY_EXPORT_SECRET_ACCESS_KEY>") do
-    ENV['AWS_DAILY_EXPORT_SECRET_ACCESS_KEY']
+    ENV["AWS_DAILY_EXPORT_SECRET_ACCESS_KEY"]
   end
 
-  c.filter_sensitive_data("<AWS_DAILY_EXPORT_BUCKET>") { ENV['AWS_DAILY_EXPORT_BUCKET'] }
+  c.filter_sensitive_data("<AWS_DAILY_EXPORT_BUCKET>") { ENV["AWS_DAILY_EXPORT_BUCKET"] }
 end
