@@ -67,9 +67,11 @@
 </div>
 
 <% if @results.present? %>
+  <div id="search-results">
   <% @results.each do |result| %>
     <%= render("shared/search_result", result: result) %>
   <% end %>
+  </div>
 
   <div class="grid-row">
     <div class="column-full">
