@@ -58,7 +58,6 @@ gem "aws-sdk-s3", "~> 1.31"
 # Used for auditing and version control
 gem "paper_trail", "~> 10.2.0"
 
-
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
