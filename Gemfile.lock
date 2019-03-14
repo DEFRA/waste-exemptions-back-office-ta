@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 61cd4272759171d1f680d0126c20e0b18473263b
+  revision: efc228ffb4db2699a4805d800224527527fdd603
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -11,7 +11,7 @@ GIT
       os_map_ref (~> 0.5)
       pg (~> 0.18.4)
       phonelib
-      rails (= 4.2.11)
+      rails (~> 4.2.11)
       rest-client (~> 2.0)
       uk_postcode
       validates_email_format_of
