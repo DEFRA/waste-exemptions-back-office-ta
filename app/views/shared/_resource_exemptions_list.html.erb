@@ -1,0 +1,33 @@
+<table class="govuk-table">
+  <caption class="govuk-table__caption"><%= t(".caption") %></caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.name") %></th>
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.registered_on") %></th>
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.expires_on") %></th>
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.state") %></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+  <% resource_exemptions.each do |re| %>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><%= re.exemption.code%> &mdash; <%= re.exemption.summary %></td>
+      <td class="govuk-table__cell">
+        <% if re.registered_on.present? %>
+          <%= re.registered_on %>
+        <% end %>
+      </td>
+       <td class="govuk-table__cell">
+        <% if re.expires_on.present? %>
+          <%= re.expires_on %>
+        <% end %>
+       </td>
+       <td class="govuk-table__cell">
+        <% if re.state.present? %>
+          <span class="<%= "status-tag-#{re.state}" %>"><%= re.state %></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

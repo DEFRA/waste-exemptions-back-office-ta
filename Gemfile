@@ -29,7 +29,7 @@ gem "pg", "~> 0.18.4"
 # PG::ObjectInUse: ERROR:  database "wex_db" is being accessed by other users
 gem "pgreset"
 # Bundle edge Rails instead: gem "rails', github: 'rails/rails'
-gem "rails", "4.2.11"
+gem "rails", "~> 4.2.11"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 # Automatically apply http headers that are related to security

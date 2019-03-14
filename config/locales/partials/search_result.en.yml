@@ -13,8 +13,11 @@ en:
         actions: "Actions"
       statuses:
         active: "active"
-        transient: "not yet submitted"
+        pending: "not yet submitted"
       actions:
+        view:
+          link_text: "View details"
+          visually_hidden_text: "of %{name}"
         edit:
           link_text: "Edit"
           visually_hidden_text: "registration %{name}"

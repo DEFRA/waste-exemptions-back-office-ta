@@ -1,0 +1,58 @@
+en:
+  shared:
+    resource_details:
+      subheadings:
+        applicant: "Applicant details"
+        contact: "Contact details"
+        farm: "Farm details"
+        exemptions: "Exemptions"
+        actions: "Actions"
+      labels:
+        workflow_state: "Workflow state"
+        reference: "Reference"
+        location: "Location"
+        applicant_first_name: "Applicant first name"
+        applicant_last_name: "Applicant last name"
+        applicant_phone: "Applicant phone"
+        applicant_email: "Applicant email"
+        business_type: "Business type"
+        details: "Reporting information"
+        operator_name: "Operator name"
+        people: "Partners"
+        company_no: "Company number"
+        contact_first_name: "Contact first name"
+        contact_last_name: "Contact last name"
+        contact_position: "Contact position"
+        contact_phone: "Contact phone"
+        contact_email: "Contact email"
+        on_a_farm: "On a farm?"
+        is_a_farmer: "Is a farmer?"
+        submitted_at: "Submitted at"
+      values:
+        business_type:
+          charity: "Charity or trust"
+          limitedCompany: "Limited company"
+          limitedLiabilityPartnership: "Limited liability partnership"
+          localAuthority: "Local authority or public body"
+          partnership: "Partnership"
+          soleTrader: "Individual or sole trader"
+        is_a_farmer:
+          "true": "Yes"
+          "false": "No"
+        location:
+          england: "England"
+          northern_ireland: "Northern Ireland"
+          scotland: "Scotland"
+          wales: "Wales"
+        on_a_farm:
+          "true": "Yes"
+          "false": "No"
+      actions:
+        edit: "Edit"
+        deregister: "Deregister"
+        resume: "Resume"
+        confirmation_letter: "View confirmation letter"
+      no_applicant_data: "No applicant details"
+      no_contact_data: "No contact details"
+      no_exemptions: "No exemptions"
+      no_people: "No people"

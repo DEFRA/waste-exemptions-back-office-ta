@@ -4,7 +4,7 @@
     <ul class="registration-details">
       <li>
         <span><%= t(".labels.status") %></span>
-        <span class="<%= "status-tag status-tag-#{status_tag_for(result)}" %>"><%= t(".statuses.#{status_tag_for(result)}") %></span>
+        <span class="<%= "status-tag-#{status_tag_for(result)}" %>"><%= t(".statuses.#{status_tag_for(result)}") %></span>
       </li>
       <% if result.operator_name.present? %>
       <li>
@@ -75,13 +75,22 @@
       <li>
         <span><%= t(".labels.actions") %></span>
         <ul>
+          <li>
+            <%= link_to view_link_for(result), id: "view_#{result.reference}" do %>
+              <%= t(".actions.view.link_text") %>
+              <span class="visually-hidden">
+               <%= t(".actions.view.visually_hidden_text",
+                     name: result_name_for_visually_hidden_text(result)) %>
+             </span>
+            <% end %>
+          </li>
           <% if result.is_a?(WasteExemptionsEngine::Registration) %>
           <li>
             <%= link_to "#", id: "edit_#{result.reference}" do %>
               <%= t(".actions.edit.link_text") %>
               <span class="visually-hidden">
                <%= t(".actions.edit.visually_hidden_text",
-                     name: result.operator_name) %>
+                     name: result_name_for_visually_hidden_text(result)) %>
              </span>
             <% end %>
           </li>
@@ -92,7 +101,7 @@
               <%= t(".actions.deregister.link_text") %>
               <span class="visually-hidden">
                <%= t(".actions.deregister.visually_hidden_text",
-                     name: result.operator_name) %>
+                     name: result_name_for_visually_hidden_text(result)) %>
              </span>
             <% end %>
           </li>
@@ -103,7 +112,7 @@
               <%= t(".actions.resume.link_text") %>
               <span class="visually-hidden">
                <%= t(".actions.resume.visually_hidden_text",
-                     name: result.operator_name) %>
+                     name: result_name_for_visually_hidden_text(result)) %>
              </span>
             <% end %>
           </li>
@@ -114,7 +123,7 @@
               <%= t(".actions.confirmation_letter.link_text") %>
               <span class="visually-hidden">
                <%= t(".actions.confirmation_letter.visually_hidden_text",
-                     name: result.operator_name) %>
+                     name: result_name_for_visually_hidden_text(result)) %>
              </span>
             <% end %>
           </li>

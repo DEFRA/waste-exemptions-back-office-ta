@@ -12,8 +12,22 @@ module DashboardsHelper
   end
 
   def status_tag_for(result)
-    return :transient if result.is_a?(WasteExemptionsEngine::TransientRegistration)
+    return :pending if result.is_a?(WasteExemptionsEngine::TransientRegistration)
 
     :active
+  end
+
+  def view_link_for(result)
+    if result.is_a?(WasteExemptionsEngine::Registration)
+      registration_path(result.reference)
+    elsif result.is_a?(WasteExemptionsEngine::TransientRegistration)
+      transient_registration_path(result.reference)
+    else
+      "#"
+    end
+  end
+
+  def result_name_for_visually_hidden_text(result)
+    result.operator_name || result.reference || "new registration"
   end
 end
