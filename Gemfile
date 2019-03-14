@@ -49,6 +49,12 @@ gem "devise_invitable", "~> 1.7.0"
 # Use Kaminari for pagination
 gem "kaminari", "~> 1.1"
 
+# Use Whenever to manage cron tasks
+gem "whenever", "~> 0.10.0"
+
+# Use the AWS SDK to interact with S3
+gem "aws-sdk-s3", "~> 1.31"
+
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
@@ -93,4 +99,10 @@ group :test do
   # Generates a test coverage report on every `bundle exec rspec` call. We use
   # the output to feed CodeClimate's stats and analysis
   gem "simplecov", require: false
+  # Use VCR to mock HTTP requests
+  gem "vcr", "~> 4.0"
+  gem "webmock", "~> 3.5"
+
+  # Allow automated testing of the whenever schedule
+  gem "whenever-test", "~> 1.0"
 end
