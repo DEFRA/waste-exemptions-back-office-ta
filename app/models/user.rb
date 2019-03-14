@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
+  has_paper_trail
+
   ROLES = %w[system
              super_agent
              admin_agent

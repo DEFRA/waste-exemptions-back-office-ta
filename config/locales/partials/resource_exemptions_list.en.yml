@@ -1,0 +1,9 @@
+en:
+  shared:
+    resource_exemptions_list:
+      caption: "Waste exemption details"
+      table_headings:
+        name: "Exemption"
+        registered_on: "Registered"
+        expires_on: "Expires"
+        state: "Status"

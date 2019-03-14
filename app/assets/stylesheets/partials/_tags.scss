@@ -1,0 +1,39 @@
+// STATUS TAGS for dashboard and registration details page
+// Taken from https://dwp-design-examples.herokuapp.com/example/tags
+span.status-tag {
+  color: $white;
+  display: inline-block;
+  font-family: 'nta', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.25;
+  padding: 5px 8px 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.status-tag-active {
+  @extend .status-tag;
+  background-color: $green;
+}
+
+.status-tag-ceased {
+  @extend .status-tag;
+  background-color: $orange;
+}
+
+.status-tag-expired {
+  @extend .status-tag;
+  background-color: $brown;
+}
+
+.status-tag-pending {
+  @extend .status-tag;
+  background-color: $govuk-blue;
+}
+
+.status-tag-revoked {
+  @extend .status-tag;
+  background-color: $mellow-red;
+}

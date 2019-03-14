@@ -55,8 +55,8 @@ RSpec.describe DashboardsHelper, type: :helper do
     context "when the result is a transient_registration" do
       let(:result) { build(:transient_registration) }
 
-      it "returns :transient" do
-        expect(helper.status_tag_for(result)).to eq(:transient)
+      it "returns :pending" do
+        expect(helper.status_tag_for(result)).to eq(:pending)
       end
     end
 
@@ -65,6 +65,64 @@ RSpec.describe DashboardsHelper, type: :helper do
 
       it "returns :active" do
         expect(helper.status_tag_for(result)).to eq(:active)
+      end
+    end
+  end
+
+  describe "view_link_for" do
+    context "when the result is a registration" do
+      let(:result) { create(:registration) }
+
+      it "returns the correct path" do
+        expect(helper.view_link_for(result)).to eq(registration_path(result.reference))
+      end
+    end
+
+    context "when the result is a transient_registration" do
+      let(:result) { create(:transient_registration) }
+
+      it "returns the correct path" do
+        expect(helper.view_link_for(result)).to eq(transient_registration_path(result.reference))
+      end
+    end
+
+    context "when the result is not a registration or a transient_registration" do
+      let(:result) { nil }
+
+      it "returns the correct path" do
+        expect(helper.view_link_for(result)).to eq("#")
+      end
+    end
+  end
+
+  describe "result_name_for_visually_hidden_text" do
+    let(:result) { build(:transient_registration) }
+
+    context "when the result has an operator_name" do
+      before { result.operator_name = "Foo" }
+
+      it "returns the operator_name" do
+        expect(helper.result_name_for_visually_hidden_text(result)).to eq(result.operator_name)
+      end
+    end
+
+    context "when the result has no operator_name" do
+      before { result.operator_name = nil }
+
+      context "when the result has a reference" do
+        before { result.reference = "WEX123456" }
+
+        it "returns the reference" do
+          expect(helper.result_name_for_visually_hidden_text(result)).to eq(result.reference)
+        end
+      end
+
+      context "when the result has no reference" do
+        before { result.reference = nil }
+
+        it "returns 'new registration'" do
+          expect(helper.result_name_for_visually_hidden_text(result)).to eq("new registration")
+        end
       end
     end
   end
