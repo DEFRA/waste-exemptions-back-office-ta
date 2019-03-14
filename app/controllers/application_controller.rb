@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_and_authorize_active_user
   before_action :back_button_cache_buster
+  before_action :set_paper_trail_whodunnit
 
   helper WasteExemptionsEngine::ApplicationHelper
 

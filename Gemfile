@@ -49,6 +49,9 @@ gem "devise_invitable", "~> 1.7.0"
 # Use Kaminari for pagination
 gem "kaminari", "~> 1.1"
 
+# Used for auditing and version control
+gem "paper_trail", "~> 10.2.0"
+
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
