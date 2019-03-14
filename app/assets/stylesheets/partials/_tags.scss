@@ -15,7 +15,7 @@ span.status-tag {
 
 .status-tag-active {
   @extend .status-tag;
-  background-color: $grass-green;
+  background-color: $green;
 }
 
 .status-tag-ceased {
