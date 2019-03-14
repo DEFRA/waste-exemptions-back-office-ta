@@ -108,7 +108,7 @@
           <% end %>
           <% if result.is_a?(WasteExemptionsEngine::TransientRegistration) %>
           <li>
-            <%= link_to "#", id: "resume_#{result.reference}" do %>
+            <%= link_to resume_link_for(result), id: "resume_#{result.reference}" do %>
               <%= t(".actions.resume.link_text") %>
               <span class="visually-hidden">
                <%= t(".actions.resume.visually_hidden_text",

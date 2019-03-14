@@ -124,7 +124,7 @@
         <% end %>
         <% if resource.is_a?(WasteExemptionsEngine::TransientRegistration) %>
         <li>
-          <%= link_to t(".actions.resume"), "#" %>
+          <%= link_to t(".actions.resume"), resume_link_for(resource) %>
         </li>
         <% end %>
         <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
