@@ -14,3 +14,8 @@
   font-size: 24px;
   font-weight: 800
 }
+
+// FORCE DATES TO BE ON SINGLE LINE
+td.date-nowrap {
+  white-space: nowrap;
+}
