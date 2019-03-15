@@ -10,5 +10,7 @@ module DefraRuby
     )
 
     EPR_EXPORT_S3_BUCKET = (ENV["AWS_DAILY_EXPORT_BUCKET"] || raise("Environment variable AWS_DAILY_EXPORT_BUCKET has not been set")).freeze
+
+    EPR_EXPORT_FILENAME = "waste_exemptions_epr_daily_full.csv"
   end
 end

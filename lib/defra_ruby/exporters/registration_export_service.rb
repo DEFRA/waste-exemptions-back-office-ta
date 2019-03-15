@@ -7,8 +7,6 @@ module DefraRuby
   module Exporters
     class RegistrationExportService
 
-      EPR_EXPORT_FILENAME = "waste_exemptions_epr_daily_full.csv"
-
       def epr_export
         file_path = full_path
         write_to_file(RegistrationEprExportReport, file_path)
