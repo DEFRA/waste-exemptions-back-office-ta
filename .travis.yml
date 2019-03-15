@@ -4,7 +4,6 @@ env:
     - AWS_DAILY_EXPORT_ACCESS_KEY_ID=keyid
     - AWS_DAILY_EXPORT_SECRET_ACCESS_KEY=secretkey
     - AWS_DAILY_EXPORT_BUCKET=daily-exports
-    - TRAVIS_DEBUG_MODE=true
 
 language: ruby
 rvm: 2.4.2
