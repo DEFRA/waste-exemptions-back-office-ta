@@ -22,7 +22,8 @@ RSpec.describe "Whenever schedule", vcr: true do
 
     # Making the instance_eval call appears to actually kick off the job and
     # therefore involves a hit on S3, hence we have mocked it using VCR
-    VCR.use_cassette("save_epr_export_to_s3") do
+    export_matcher = Helpers::VCR.export_matcher(ENV["AWS_DAILY_EXPORT_BUCKET"])
+    VCR.use_cassette("save_epr_export_to_s3", :match_requests_on => [:method, export_matcher]) do
       # Executes the actual ruby statement to make sure all constants and
       # methods exist:
       schedule.jobs[:runner].each { |job| instance_eval job[:task] }
