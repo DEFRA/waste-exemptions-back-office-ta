@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TransientRegistrationsController < ApplicationController
-  helper PathsHelper
+  helper ActionLinksHelper
   helper RegistrationsHelper
 
   def show

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DashboardsController < ApplicationController
-  helper PathsHelper
+  helper ActionLinksHelper
 
   def index
     @term = params[:term]

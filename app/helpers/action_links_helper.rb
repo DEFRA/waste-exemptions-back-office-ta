@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module PathsHelper
+module ActionLinksHelper
   def view_link_for(resource)
     if resource.is_a?(WasteExemptionsEngine::Registration)
       registration_path(resource.reference)

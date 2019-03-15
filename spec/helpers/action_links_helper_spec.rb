@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe PathsHelper, type: :helper do
+RSpec.describe ActionLinksHelper, type: :helper do
   describe "view_link_for" do
     context "when the resource is a registration" do
       let(:resource) { create(:registration) }
