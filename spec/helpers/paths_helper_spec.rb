@@ -77,4 +77,58 @@ RSpec.describe PathsHelper, type: :helper do
       end
     end
   end
+
+  describe "display_edit_link_for?" do
+    context "when the resource is a registration" do
+      let(:resource) { create(:registration) }
+
+      it "returns true" do
+        expect(helper.display_edit_link_for?(resource)).to eq(true)
+      end
+    end
+
+    context "when the resource is not a registration" do
+      let(:resource) { nil }
+
+      it "returns false" do
+        expect(helper.display_edit_link_for?(resource)).to eq(false)
+      end
+    end
+  end
+
+  describe "display_deregister_link_for?" do
+    context "when the resource is a registration" do
+      let(:resource) { create(:registration) }
+
+      it "returns true" do
+        expect(helper.display_deregister_link_for?(resource)).to eq(true)
+      end
+    end
+
+    context "when the resource is not a registration" do
+      let(:resource) { nil }
+
+      it "returns false" do
+        expect(helper.display_deregister_link_for?(resource)).to eq(false)
+      end
+    end
+  end
+
+  describe "display_confirmation_letter_link_for?" do
+    context "when the resource is a registration" do
+      let(:resource) { create(:registration) }
+
+      it "returns true" do
+        expect(helper.display_confirmation_letter_link_for?(resource)).to eq(true)
+      end
+    end
+
+    context "when the resource is not a registration" do
+      let(:resource) { nil }
+
+      it "returns false" do
+        expect(helper.display_confirmation_letter_link_for?(resource)).to eq(false)
+      end
+    end
+  end
 end

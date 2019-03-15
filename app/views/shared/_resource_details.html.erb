@@ -112,12 +112,12 @@
     </h2>
     <div class="action-boxout">
       <ul>
-        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
+        <% if display_edit_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.edit"), "#" %>
         </li>
         <% end %>
-        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
+        <% if display_deregister_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.deregister"), "#" %>
         </li>
@@ -127,7 +127,7 @@
           <%= link_to t(".actions.resume"), resume_link_for(resource) %>
         </li>
         <% end %>
-        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
+        <% if display_confirmation_letter_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.confirmation_letter"), "#" %>
         </li>

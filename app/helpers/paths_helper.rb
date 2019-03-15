@@ -24,4 +24,16 @@ module PathsHelper
 
     can?(:update, resource)
   end
+
+  def display_edit_link_for?(resource)
+    resource.is_a?(WasteExemptionsEngine::Registration)
+  end
+
+  def display_deregister_link_for?(resource)
+    resource.is_a?(WasteExemptionsEngine::Registration)
+  end
+
+  def display_confirmation_letter_link_for?(resource)
+    resource.is_a?(WasteExemptionsEngine::Registration)
+  end
 end
