@@ -11,6 +11,7 @@ module DefraRuby
         file_path = full_path(EPR_EXPORT_FILENAME)
         write_to_file(RegistrationEprExportReport, file_path)
         save_to_s3(:epr, file_path)
+        File.delete(file_path)
       end
 
       def write_to_file(report_class, file_path)
