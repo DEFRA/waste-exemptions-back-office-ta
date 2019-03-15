@@ -64,7 +64,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationExportService, vcr: true do
 
           subject.write_to_file(report_class, new_path)
           export_matcher = Helpers::VCR.export_matcher(ENV["AWS_DAILY_EXPORT_BUCKET"])
-          VCR.use_cassette("save_epr_export_to_s3", :match_requests_on => [:method, export_matcher]) do
+          VCR.use_cassette("save_epr_export_to_s3", match_requests_on: [:method, export_matcher]) do
             expect(subject.save_to_s3(:epr, new_path)).to eq(true)
           end
         end
