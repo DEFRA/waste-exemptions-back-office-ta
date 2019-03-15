@@ -8,7 +8,7 @@ module DefraRuby
     class RegistrationExportService
 
       def epr_export
-        file_path = full_path
+        file_path = full_path(EPR_EXPORT_FILENAME)
         write_to_file(RegistrationEprExportReport, file_path)
         save_to_s3(:epr, file_path)
       end
@@ -50,8 +50,8 @@ module DefraRuby
 
       private
 
-      def full_path
-        Rails.root.join "private", "exports", EPR_EXPORT_FILENAME
+      def full_path(file_name)
+        Rails.root.join "tmp", file_name
       end
 
       def export_bucket(export_type)
