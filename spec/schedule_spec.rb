@@ -10,11 +10,6 @@ require "whenever/test"
 # See https://github.com/rafaelsales/whenever-test for more details
 
 RSpec.describe "Whenever schedule", vcr: true do
-  before do
-    # Makes sure rake tasks are loaded so you can assert in rake jobs
-    load "Rakefile"
-  end
-
   it "makes sure 'runner' statements exist" do
     schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
 
@@ -28,5 +23,15 @@ RSpec.describe "Whenever schedule", vcr: true do
       # methods exist:
       schedule.jobs[:runner].each { |job| instance_eval job[:task] }
     end
+  end
+
+  it "takes the EPR execution time from the appropriate ENV variable" do
+    schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
+    job_details = schedule.jobs[:runner].first do |h| 
+      h[:task] == "DefraRuby::Exporters::RegistrationExportService.new.epr_export"
+    end
+
+    expect(job_details[:every][0]).to eq(:day)
+    expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])
   end
 end
