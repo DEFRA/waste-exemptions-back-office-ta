@@ -9,7 +9,7 @@ set :output, "/home/rails/waste-exemptions-back-office/shared/log/whenever_cron.
 set :job_template, "/bin/bash -l -c 'eval \"$(rbenv init -)\" && :job'"
 
 # Only one of the AWS app servers has a role of "db"
-# see https://gitlab.envage.co.uk/dst-south/waste-exemptions-deployment/blob/master/config/deploy.rb#L12
+# see https://gitlab-dev.aws-int.defra.cloud/open/rails-deployment/blob/master/config/deploy.rb#L69
 # so only creating cronjobs on that server, otherwise all jobs would be duplicated everyday!
 
 # This is the daily EPR export job. When run this will create a CSV export of
