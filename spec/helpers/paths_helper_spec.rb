@@ -47,4 +47,34 @@ RSpec.describe PathsHelper, type: :helper do
       end
     end
   end
+
+  describe "display_resume_link_for?" do
+    context "when the resource is a transient_registration" do
+      let(:resource) { create(:transient_registration) }
+
+      context "when the user has permission" do
+        before { allow(helper).to receive(:can?).and_return(true) }
+
+        it "returns true" do
+          expect(helper.display_resume_link_for?(resource)).to eq(true)
+        end
+      end
+
+      context "when the user does not have permission" do
+        before { allow(helper).to receive(:can?).and_return(false) }
+
+        it "returns false" do
+          expect(helper.display_resume_link_for?(resource)).to eq(false)
+        end
+      end
+    end
+
+    context "when the resource is not a transient_registration" do
+      let(:resource) { nil }
+
+      it "returns false" do
+        expect(helper.display_resume_link_for?(resource)).to eq(false)
+      end
+    end
+  end
 end

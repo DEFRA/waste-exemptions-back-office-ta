@@ -106,7 +106,7 @@
             <% end %>
           </li>
           <% end %>
-          <% if result.is_a?(WasteExemptionsEngine::TransientRegistration) && can?(:update, result) %>
+          <% if display_resume_link_for?(result) %>
           <li>
             <%= link_to resume_link_for(result), id: "resume_#{result.reference}" do %>
               <%= t(".actions.resume.link_text") %>

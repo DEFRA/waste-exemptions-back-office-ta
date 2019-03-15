@@ -122,7 +122,7 @@
           <%= link_to t(".actions.deregister"), "#" %>
         </li>
         <% end %>
-        <% if resource.is_a?(WasteExemptionsEngine::TransientRegistration) && can?(:update, resource) %>
+        <% if display_resume_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.resume"), resume_link_for(resource) %>
         </li>
