@@ -49,3 +49,6 @@ coverage
 # run in any given environment. Because it is environment dependent we don't
 # add it to source code.
 Passengerfile.json
+
+# Exported CSVs
+/private/exports/*.csv

@@ -112,22 +112,22 @@
     </h2>
     <div class="action-boxout">
       <ul>
-        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
+        <% if display_edit_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.edit"), "#" %>
         </li>
         <% end %>
-        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
+        <% if display_deregister_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.deregister"), "#" %>
         </li>
         <% end %>
-        <% if resource.is_a?(WasteExemptionsEngine::TransientRegistration) %>
+        <% if display_resume_link_for?(resource) %>
         <li>
-          <%= link_to t(".actions.resume"), "#" %>
+          <%= link_to t(".actions.resume"), resume_link_for(resource) %>
         </li>
         <% end %>
-        <% if resource.is_a?(WasteExemptionsEngine::Registration) %>
+        <% if display_confirmation_letter_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.confirmation_letter"), "#" %>
         </li>
@@ -223,6 +223,15 @@
           </h3>
           <p>
             <%= resource.company_no %>
+          </p>
+        <% end %>
+
+        <% if resource.respond_to?(:assistance_mode) %>
+          <h3 class="heading-small">
+            <%= t(".labels.assistance_mode") %>
+          </h3>
+          <p>
+            <%= t(".values.assistance_mode.#{resource.assistance_mode || "none"}") %>
           </p>
         <% end %>
       </div>

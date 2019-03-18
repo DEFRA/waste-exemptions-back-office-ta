@@ -1,4 +1,6 @@
-require File.expand_path('../boot', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path("boot", __dir__)
 
 require "rails"
 # Pick the frameworks you want:
@@ -31,11 +33,13 @@ module WasteExemptionsBackOffice
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.autoload_paths += %W[#{config.root}/lib/defra_ruby/exporters/]
+
     # Don't add field_with_errors div wrapper around fields with errors. When
     # rails does this it messes with the GOV.UK styling and causes checkboxes
     # and radio buttons to become invisible
     config.action_view.field_error_proc = proc { |html_tag, _instance|
-      "#{html_tag}".html_safe
+      html_tag.to_s.html_safe
     }
 
     # Paths
