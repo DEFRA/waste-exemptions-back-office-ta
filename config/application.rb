@@ -37,7 +37,7 @@ module WasteExemptionsBackOffice
     # rails does this it messes with the GOV.UK styling and causes checkboxes
     # and radio buttons to become invisible
     config.action_view.field_error_proc = proc { |html_tag, _instance|
-      "#{html_tag}".html_safe
+      html_tag.to_s.html_safe
     }
 
     # Paths
