@@ -27,6 +27,7 @@ en:
         contact_email: "Contact email"
         on_a_farm: "On a farm?"
         is_a_farmer: "Is a farmer?"
+        assistance_mode: "Assistance mode"
         submitted_at: "Submitted at"
       values:
         business_type:
@@ -47,6 +48,11 @@ en:
         on_a_farm:
           "true": "Yes"
           "false": "No"
+        assistance_mode:
+          admin_intervention: "Admin intervention"
+          full: "Fully assisted"
+          partial: "Partially assisted"
+          none: "Unassisted"
       actions:
         edit: "Edit"
         deregister: "Deregister"
