@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: f841b5b7757a1518db789475e09f74e86ede8248
+  revision: 71278fc07898a5beebf6e89c399aa7989e371414
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -83,7 +83,7 @@ GEM
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
-    byebug (11.0.0)
+    byebug (11.0.1)
     cancancan (2.3.0)
     chronic (0.10.2)
     concurrent-ruby (1.1.5)
@@ -92,7 +92,7 @@ GEM
     crass (1.0.4)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
-    defra_ruby_style (0.0.3)
+    defra_ruby_style (0.1.0)
       rubocop
     defra_ruby_validators (0.1.1)
       activemodel
@@ -204,7 +204,6 @@ GEM
     pg (0.18.4)
     pgreset (0.1.1)
     phonelib (0.6.30)
-    powerpack (0.1.2)
     psych (3.1.0)
     public_suffix (3.0.3)
     rack (1.6.11)
@@ -267,15 +266,14 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubocop (0.65.0)
+    rubocop (0.66.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
-      powerpack (~> 0.1)
       psych (>= 3.1.0)
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (~> 1.4.0)
+      unicode-display_width (>= 1.4.0, < 1.6)
     ruby-progressbar (1.10.0)
     safe_yaml (1.0.5)
     sass (3.7.3)
@@ -325,7 +323,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
-    unicode-display_width (1.4.1)
+    unicode-display_width (1.5.0)
     useragent (0.16.10)
     validates_email_format_of (1.6.3)
       i18n
@@ -345,7 +343,8 @@ GEM
       chronic (>= 0.6.3)
     whenever-test (1.0.1)
       whenever
-    wicked_pdf (1.1.0)
+    wicked_pdf (1.2.0)
+      activesupport
 
 PLATFORMS
   ruby

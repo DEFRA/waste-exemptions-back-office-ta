@@ -1,4 +1,6 @@
-require File.expand_path('../boot', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path("boot", __dir__)
 
 require "rails"
 # Pick the frameworks you want:
@@ -37,7 +39,7 @@ module WasteExemptionsBackOffice
     # rails does this it messes with the GOV.UK styling and causes checkboxes
     # and radio buttons to become invisible
     config.action_view.field_error_proc = proc { |html_tag, _instance|
-      "#{html_tag}".html_safe
+      html_tag.to_s.html_safe
     }
 
     # Paths
