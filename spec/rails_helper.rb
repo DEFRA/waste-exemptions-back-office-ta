@@ -4,6 +4,7 @@
 require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../config/environment", __dir__)
+Dir["./lib/defra_ruby/**/*.rb"].each { |file| require file }
 
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
@@ -54,4 +55,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Seed the test DB. This ensures the exemptions table contains all of the standard exemptions.
+  config.before(:suite) do
+    Rails.application.load_seed
+  end
 end
