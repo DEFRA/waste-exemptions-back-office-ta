@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RegistrationsController < ApplicationController
+  helper ActionLinksHelper
+
   def show
     find_resource(params[:reference])
     authorize

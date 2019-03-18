@@ -84,7 +84,7 @@
              </span>
             <% end %>
           </li>
-          <% if result.is_a?(WasteExemptionsEngine::Registration) %>
+          <% if display_edit_link_for?(result) %>
           <li>
             <%= link_to "#", id: "edit_#{result.reference}" do %>
               <%= t(".actions.edit.link_text") %>
@@ -95,7 +95,7 @@
             <% end %>
           </li>
           <% end %>
-          <% if result.is_a?(WasteExemptionsEngine::Registration) %>
+          <% if display_deregister_link_for?(result) %>
           <li>
             <%= link_to "#", id: "deregister_#{result.reference}" do %>
               <%= t(".actions.deregister.link_text") %>
@@ -106,9 +106,9 @@
             <% end %>
           </li>
           <% end %>
-          <% if result.is_a?(WasteExemptionsEngine::TransientRegistration) %>
+          <% if display_resume_link_for?(result) %>
           <li>
-            <%= link_to "#", id: "resume_#{result.reference}" do %>
+            <%= link_to resume_link_for(result), id: "resume_#{result.reference}" do %>
               <%= t(".actions.resume.link_text") %>
               <span class="visually-hidden">
                <%= t(".actions.resume.visually_hidden_text",
@@ -117,7 +117,7 @@
             <% end %>
           </li>
           <% end %>
-          <% if result.is_a?(WasteExemptionsEngine::Registration) %>
+          <% if display_confirmation_letter_link_for?(result) %>
           <li>
             <%= link_to "#", id: "confirmation_letter_#{result.reference}" do %>
               <%= t(".actions.confirmation_letter.link_text") %>

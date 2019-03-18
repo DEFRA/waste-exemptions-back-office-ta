@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class DashboardsController < ApplicationController
+  helper ActionLinksHelper
+
   def index
     @term = params[:term]
     @filter = params[:filter].to_sym if params[:filter].present?
