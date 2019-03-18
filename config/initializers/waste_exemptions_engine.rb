@@ -15,6 +15,9 @@ WasteExemptionsEngine.configure do |configuration|
   configuration.service_name = ENV["EMAIL_SERVICE_NAME"] || "Waste Exemptions Service"
   configuration.email_service_email = ENV["EMAIL_SERVICE_EMAIL"] || "wex-local@example.com"
 
+  # Assisted digital config
+  configuration.default_assistance_mode = "full"
+
   # PDF config
   configuration.use_xvfb_for_wickedpdf = ENV["USE_XVFB_FOR_WICKEDPDF"] || "true"
 end
