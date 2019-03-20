@@ -37,9 +37,12 @@ RSpec.describe "Whenever schedule", vcr: true do
   end
 
   it "allows the `whenever` command to be called without raising an error" do
-    _, stdout, stderr, wait_thr = Open3.popen3("bundle", "exec", "whenever")
+    stdin, stdout, stderr, wait_thr = Open3.popen3("bundle", "exec", "whenever")
     expect(stdout.read).to_not be_empty
     expect(stderr.read).to be_empty
     expect(wait_thr.value.success?).to eq(true)
+    stdin.close # stdin, stdout and stderr need to be closed explicitly.
+    stdout.close
+    stderr.close
   end
 end
