@@ -2,6 +2,7 @@
 
 require "rails_helper"
 require "whenever/test"
+require "open3"
 
 # This allows us to ensure that the schedules we have declared in whenever's
 # (https://github.com/javan/whenever) config/schedule.rb are valid.
@@ -33,5 +34,12 @@ RSpec.describe "Whenever schedule", vcr: true do
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])
+  end
+
+  it "allows the `whenever` command to be called without raising an error" do
+    _, stdout, stderr, wait_thr = Open3.popen3("bundle", "exec", "whenever")
+    expect(stdout.read).to_not be_empty
+    expect(stderr.read).to be_empty
+    expect(wait_thr.value.success?).to eq(true)
   end
 end
