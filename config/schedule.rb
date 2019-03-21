@@ -7,7 +7,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, "/home/rails/waste-exemptions-back-office/shared/log/whenever_cron.log"
+log_output_path = ENV["EXPORT_SERVICE_CRON_LOG_OUTPUT_PATH"] || "/srv/ruby/waste-exemptions-back-office/shared/log/"
+set :output, File.join(log_output_path, "whenever_cron.log")
 set :job_template, "/bin/bash -l -c 'eval \"$(rbenv init -)\" && :job'"
 
 # Only one of the AWS app servers has a role of "db"
