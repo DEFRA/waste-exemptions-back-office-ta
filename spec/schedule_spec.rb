@@ -36,6 +36,13 @@ RSpec.describe "Whenever schedule", vcr: true do
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])
   end
 
+  it "takes the cron log output path from the appropriate ENV variable" do
+    schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
+
+    expected_output_file = File.join(ENV["EXPORT_SERVICE_CRON_LOG_OUTPUT_PATH"], "whenever_cron.log")
+    expect(schedule.sets[:output]).to eq(expected_output_file)
+  end
+
   it "allows the `whenever` command to be called without raising an error" do
     stdin, stdout, stderr, wait_thr = Open3.popen3("bundle", "exec", "whenever")
     expect(stdout.read).to_not be_empty

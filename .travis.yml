@@ -5,6 +5,7 @@ env:
     - AWS_DAILY_EXPORT_SECRET_ACCESS_KEY=secretkey
     - AWS_DAILY_EXPORT_BUCKET=daily-exports
     - EXPORT_SERVICE_EPR_EXPORT_TIME="2:05"
+    - EXPORT_SERVICE_CRON_LOG_OUTPUT_PATH="/home/rails/waste-exemptions-back-office/shared/log/"
 
 language: ruby
 rvm: 2.4.2
