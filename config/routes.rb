@@ -25,6 +25,11 @@ Rails.application.routes.draw do
   resources :registrations, only: :show, param: :reference
   resources :transient_registrations, only: :show, param: :reference, path: "/transient-registrations"
 
+  # Dergister Exemptions
+
+  get "/registration-exemptions/deregister/:id", to: "deregister_exemptions#new", as: :deregister_exemptions_form
+  post "/registration-exemptions/deregister/:id", to: "deregister_exemptions#update", as: :deregister_exemptions
+
   # Engine
 
   mount WasteExemptionsEngine::Engine => "/"
