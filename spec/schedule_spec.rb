@@ -20,9 +20,7 @@ RSpec.describe "Whenever schedule", vcr: true do
 
   it "takes the EPR execution time from the appropriate ENV variable" do
     schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
-    job_details = schedule.jobs[:rake].first do |h|
-      h[:task] == "DefraRuby::Exporters::RegistrationExportService.new.epr_export"
-    end
+    job_details = schedule.jobs[:rake].first { |h| h[:task] == "defra_ruby_exporters:epr" }
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])
