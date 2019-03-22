@@ -9,9 +9,10 @@ module DefraRuby
 
       def epr_export
         file_path = full_path(EPR_EXPORT_FILENAME)
+        File.new(file_path, "wb")
         write_to_file(RegistrationEprExportReport, file_path)
         save_to_s3(:epr, file_path)
-        File.delete(file_path)
+        File.delete(file_path) if File.exist? file_path
       end
 
       def write_to_file(report_class, file_path)
@@ -67,7 +68,6 @@ module DefraRuby
 
         s3.bucket(aws_config[export_type][:bucket])
       end
-
     end
   end
 end
