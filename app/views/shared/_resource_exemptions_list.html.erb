@@ -6,6 +6,7 @@
       <th class="govuk-table__header" scope="col"><%= t(".table_headings.registered_on") %></th>
       <th class="govuk-table__header" scope="col"><%= t(".table_headings.expires_on") %></th>
       <th class="govuk-table__header" scope="col"><%= t(".table_headings.state") %></th>
+      <th class="govuk-table__header" scope="col"><%= t(".table_headings.action") %></th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -17,14 +18,19 @@
           <%= re.registered_on.to_formatted_s(:day_month_year) %>
         <% end %>
       </td>
-       <td class="govuk-table__cell date-nowrap">
+      <td class="govuk-table__cell date-nowrap">
         <% if re.expires_on.present? %>
           <%= re.expires_on.to_formatted_s(:day_month_year) %>
         <% end %>
-       </td>
-       <td class="govuk-table__cell">
+      </td>
+      <td class="govuk-table__cell">
         <% if re.state.present? %>
           <span class="<%= "status-tag-#{re.state}" %>"><%= re.state %></span>
+        <% end %>
+      </td>
+      <td class="govuk-table__cell">
+        <% if DeregistrationService.new(current_user, re).deregistration_allowed? %>
+          <a class="deregister-exemption-button" href="<%= deregister_exemptions_form_path(id: re.id) %>">Deregister</a>
         <% end %>
       </td>
     </tr>
