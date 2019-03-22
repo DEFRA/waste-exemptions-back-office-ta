@@ -19,5 +19,5 @@ set :job_template, "/bin/bash -l -c 'eval \"$(rbenv init -)\" && :job'"
 # all records and put this into an AWS S3 bucket from which Epimorphics (the
 # company that provides and maintains the EPR) will grab it
 every :day, at: (ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"] || "1:05"), roles: [:db] do
-  runner "DefraRuby::Exporters::RegistrationExportService.new.epr_export"
+  rake "defra_ruby_exporters:epr"
 end

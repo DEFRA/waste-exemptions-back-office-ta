@@ -11,10 +11,10 @@ require "open3"
 # See https://github.com/rafaelsales/whenever-test for more details
 
 RSpec.describe "Whenever schedule", vcr: true do
-  it "makes sure 'runner' statements exist" do
+  it "makes sure 'rake' statements exist" do
     schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
 
-    expect(schedule.jobs[:runner].count).to eq(1)
+    expect(schedule.jobs[:rake].count).to eq(1)
 
     # Making the instance_eval call appears to actually kick off the job and
     # therefore involves a hit on S3, hence we have mocked it using VCR
@@ -22,13 +22,18 @@ RSpec.describe "Whenever schedule", vcr: true do
     VCR.use_cassette("save_epr_export_to_s3", match_requests_on: [:method, export_matcher]) do
       # Executes the actual ruby statement to make sure all constants and
       # methods exist:
-      schedule.jobs[:runner].each { |job| instance_eval job[:task] }
+      schedule.jobs[:rake].each do |job|
+        Open3.popen3("bundle", "exec", "rake", job[:task]) do |_, _, stderr, wait_thr|
+          expect(stderr.read).to be_empty
+          expect(wait_thr.value.success?).to eq(true)
+        end
+      end
     end
   end
 
   it "takes the EPR execution time from the appropriate ENV variable" do
     schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
-    job_details = schedule.jobs[:runner].first do |h|
+    job_details = schedule.jobs[:rake].first do |h|
       h[:task] == "DefraRuby::Exporters::RegistrationExportService.new.epr_export"
     end
 
@@ -44,12 +49,10 @@ RSpec.describe "Whenever schedule", vcr: true do
   end
 
   it "allows the `whenever` command to be called without raising an error" do
-    stdin, stdout, stderr, wait_thr = Open3.popen3("bundle", "exec", "whenever")
-    expect(stdout.read).to_not be_empty
-    expect(stderr.read).to be_empty
-    expect(wait_thr.value.success?).to eq(true)
-    stdin.close # stdin, stdout and stderr need to be closed explicitly.
-    stdout.close
-    stderr.close
+    Open3.popen3("bundle", "exec", "whenever") do |_, stdout, stderr, wait_thr|
+      expect(stdout.read).to_not be_empty
+      expect(stderr.read).to be_empty
+      expect(wait_thr.value.success?).to eq(true)
+    end
   end
 end
