@@ -54,6 +54,8 @@ gem "whenever", "~> 0.10.0"
 
 # Use the AWS SDK to interact with S3
 gem "aws-sdk-s3", "~> 1.31"
+# Temporary fix to avoid the error spam coming from the AWS SDK
+gem "http-2"
 
 # Used for auditing and version control
 gem "paper_trail", "~> 10.2.0"
