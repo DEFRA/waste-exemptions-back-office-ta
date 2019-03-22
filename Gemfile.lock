@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 7b7db4f3cd72c1a64eb7205f460cd7df610c7e69
+  revision: 10598a1bf33769c43df1ff0ea939a681baff6c34
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -150,6 +150,7 @@ GEM
       activerecord (>= 3.0)
     hashdiff (0.3.8)
     high_voltage (3.1.0)
+    http-2 (0.10.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.5)
@@ -364,6 +365,7 @@ DEPENDENCIES
   github_changelog_generator
   govuk_elements_rails (~> 3.1)
   govuk_template (~> 0.23)
+  http-2
   jquery-rails
   kaminari (~> 1.1)
   paper_trail (~> 10.2.0)
