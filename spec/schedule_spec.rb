@@ -15,20 +15,7 @@ RSpec.describe "Whenever schedule", vcr: true do
     schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
 
     expect(schedule.jobs[:rake].count).to eq(1)
-
-    # Making the instance_eval call appears to actually kick off the job and
-    # therefore involves a hit on S3, hence we have mocked it using VCR
-    export_matcher = Helpers::VCR.export_matcher(ENV["AWS_DAILY_EXPORT_BUCKET"])
-    VCR.use_cassette("save_epr_export_to_s3", match_requests_on: [:method, export_matcher]) do
-      # Executes the actual ruby statement to make sure all constants and
-      # methods exist:
-      schedule.jobs[:rake].each do |job|
-        Open3.popen3("bundle", "exec", "rake", job[:task]) do |_, _, stderr, wait_thr|
-          expect(stderr.read).to be_empty
-          expect(wait_thr.value.success?).to eq(true)
-        end
-      end
-    end
+    expect(schedule.jobs[:rake].first[:task]).to eq("defra_ruby_exporters:epr")
   end
 
   it "takes the EPR execution time from the appropriate ENV variable" do
