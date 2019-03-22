@@ -1,0 +1,27 @@
+en:
+  deregister_exemptions:
+    new:
+      title: "Deregister Exemptions"
+      heading: "Deregister Exemption %{exemption_code} for Registration %{registration_reference}"
+      labels:
+        state_transition: "Deregistration Action"
+        state_transition_hint: "The action sets the state of the exemption regsitration."
+        message: "Deregistration Reason"
+        message_hint: "(Maximum: 500 characters) The message is stored in the database as a log of why this exemption is being deregistered."
+      options:
+        revoke: "Revoke"
+        cease: "Cease"
+      approve_button: "Deregister Exemption"
+  activemodel:
+    errors:
+      models:
+        deregister_exemptions_form: &deregister_exemptions_form
+          attributes:
+            message:
+              blank: "Please include a message explaining why this exemption is being deregistered"
+              too_long: "The message can not exceed 500 characters in length"
+            state_transition:
+              blank: "You must select one of the available deregistration actions"
+              inclusion: "You must select one of the available deregistration actions"
+        test/deregistration_message_validatable: *deregister_exemptions_form
+        test/deregistration_state_transition_validatable: *deregister_exemptions_form

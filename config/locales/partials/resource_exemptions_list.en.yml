@@ -7,3 +7,4 @@ en:
         registered_on: "Registered"
         expires_on: "Expires"
         state: "Status"
+        action: "Action"
