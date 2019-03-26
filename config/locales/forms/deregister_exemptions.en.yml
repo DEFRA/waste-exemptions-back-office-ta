@@ -5,7 +5,7 @@ en:
       heading: "Deregister Exemption %{exemption_code} for Registration %{registration_reference}"
       labels:
         state_transition: "Deregistration Action"
-        state_transition_hint: "The action sets the state of the exemption regsitration."
+        state_transition_hint: "The action sets the state of the exemption registration."
         message: "Deregistration Reason"
         message_hint: "(Maximum: 500 characters) The message is stored in the database as a log of why this exemption is being deregistered."
       options:

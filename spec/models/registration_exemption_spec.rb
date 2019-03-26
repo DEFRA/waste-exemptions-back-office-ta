@@ -17,10 +17,10 @@ RSpec.describe WasteExemptionsEngine::RegistrationExemption, type: :model do
         expect(permitted_states).to match_array(inactive_states)
       end
 
-      transitions.zip(inactive_states).each do |tansition, expected_state|
-        context "and the '#{tansition}' transition is executed" do
+      transitions.zip(inactive_states).each do |transition, expected_state|
+        context "and the '#{transition}' transition is executed" do
           it "reflects the correct state" do
-            expect { registration_exemption.send("#{tansition}!") }
+            expect { registration_exemption.send("#{transition}!") }
               .to change { registration_exemption.state }
               .from("active")
               .to(expected_state.to_s)

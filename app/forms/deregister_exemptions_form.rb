@@ -11,7 +11,7 @@ class DeregisterExemptionsForm
     valid?
   end
 
-  def state_tranistion_options
+  def state_transition_options
     DeregistrationStateTransitionValidator::VALID_TRANSITIONS
   end
 

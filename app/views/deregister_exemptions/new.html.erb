@@ -22,7 +22,7 @@
             <%= t(".labels.state_transition") %>
             <span class="form-hint"><%= t(".labels.state_transition_hint") %></span>
           <% end %>
-          <% @deregister_exemptions_form.state_tranistion_options.each do |state_transition| %>
+          <% @deregister_exemptions_form.state_transition_options.each do |state_transition| %>
             <div class="multiple-choice">
               <%= f.radio_button :state_transition, state_transition %>
               <%= f.label :state_transition, value: state_transition do %>
