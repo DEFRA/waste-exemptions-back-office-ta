@@ -3,6 +3,8 @@
 class DeregistrationService
   ALLOWED_ROLES = %w[system super_agent].freeze
 
+  attr_reader :registration_exemption
+
   def initialize(current_user, registration_exemption)
     @current_user = current_user
     @registration_exemption = registration_exemption

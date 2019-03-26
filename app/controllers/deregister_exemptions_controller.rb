@@ -16,8 +16,9 @@ class DeregisterExemptionsController < ApplicationController
 
     return handle_permission_denied unless deregistration_service.deregistration_allowed?
 
-    if @deregister_exemptions_form.submit(params[:deregister_exemptions_form])
-      process_form_submission(deregistration_service)
+    if @deregister_exemptions_form.submit(params[:deregister_exemptions_form], deregistration_service)
+      successful_redirection = WasteExemptionsEngine::ApplicationController::SUCCESSFUL_REDIRECTION_CODE
+      redirect_to registration_path(reference: @resource.registration.reference), status: successful_redirection
     else
       render :new
       false
@@ -33,12 +34,5 @@ class DeregisterExemptionsController < ApplicationController
   def handle_permission_denied
     unsuccessful_redirection = WasteExemptionsEngine::ApplicationController::UNSUCCESSFUL_REDIRECTION_CODE
     redirect_to "/pages/permission", status: unsuccessful_redirection
-  end
-
-  def process_form_submission(deregistration_service)
-    deregistration_service.deregister!(@deregister_exemptions_form.state_transition)
-    @resource.update_attributes(deregistration_message: @deregister_exemptions_form.message)
-    successful_redirection = WasteExemptionsEngine::ApplicationController::SUCCESSFUL_REDIRECTION_CODE
-    redirect_to registration_path(reference: @resource.registration.reference), status: successful_redirection
   end
 end
