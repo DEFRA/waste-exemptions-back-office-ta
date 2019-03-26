@@ -30,7 +30,8 @@ RSpec.describe DeregisterExemptionsForm, type: :model do
 
     context "when the form is not valid" do
       it "should not submit" do
-        expect(form.submit(state_transition: "deactivate", message: "X" * 501)).to eq(false)
+        expect(form.submit(state_transition: "deactivate", message: Helpers::TextGenerator.random_string(501)))
+          .to eq(false)
       end
     end
   end
