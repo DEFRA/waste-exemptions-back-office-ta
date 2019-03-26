@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class DeregistrationService
-  ALLOWED_ROLES = %w[system super_agent].freeze
 
   attr_reader :registration_exemption
 
@@ -10,12 +9,8 @@ class DeregistrationService
     @registration_exemption = registration_exemption
   end
 
-  def deregistration_allowed?
-    @registration_exemption.active? && ALLOWED_ROLES.include?(@current_user.role)
-  end
-
   def deregister!(state_transition)
-    return unless deregistration_allowed?
+    return unless @current_user.can?(:deregister, @registration_exemption)
 
     # Apply the new state via the AASM helper method.
     @registration_exemption.public_send("#{state_transition}!")
