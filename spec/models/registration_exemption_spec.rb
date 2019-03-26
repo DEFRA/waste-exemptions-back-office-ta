@@ -6,12 +6,16 @@ RSpec.describe WasteExemptionsEngine::RegistrationExemption, type: :model do
   subject(:registration_exemption) { build(:registration).registration_exemptions.first }
   let(:permitted_states) { registration_exemption.aasm.states(permitted: true).map(&:name) }
 
-  transitions = %i[cease revoke expire]
+  deregistration_states = %i[cease revoke]
+  transitions = deregistration_states + [:expire]
   inactive_states = %i[ceased revoked expired]
 
   describe "exemption state" do
     context "when the state is 'active'" do
-      before(:each) { registration_exemption.state = :active }
+      before(:each) do
+        registration_exemption.state = :active
+        registration_exemption.deregistered_on = nil
+      end
 
       it "can transition to any of the inactive states" do
         expect(permitted_states).to match_array(inactive_states)
@@ -24,6 +28,21 @@ RSpec.describe WasteExemptionsEngine::RegistrationExemption, type: :model do
               .to change { registration_exemption.state }
               .from("active")
               .to(expected_state.to_s)
+          end
+
+          if deregistration_states.include? transition
+            it "updates the deregistered_on time stamp" do
+              expect { registration_exemption.send("#{transition}!") }
+                .to change { registration_exemption.deregistered_on }
+                .from(nil)
+                .to(Date.today)
+            end
+          else
+            it "does not update the deregistered_on time stamp" do
+              expect { registration_exemption.send("#{transition}!") }
+                .to_not change { registration_exemption.deregistered_on }
+                .from(nil)
+            end
           end
         end
       end
