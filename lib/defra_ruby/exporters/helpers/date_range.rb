@@ -20,7 +20,7 @@ module DefraRuby
         # > ranges.last  == DateTime.new(2019, 03, 01)..DateTime.new(2019, 04, 30)
         def self.generate_date_ranges(open_date, close_date, range_months)
           # Make sure the open_date is before the close_date
-          open_date, close_date = close_date, open_date unless open_date <= close_date
+          open_date, close_date = [open_date, close_date].sort
           ranges = []
           date_range = create_date_range(initial_date(open_date), range_months)
           loop do
