@@ -24,8 +24,8 @@ module DefraRuby
           ranges = []
           date_range = create_date_range(initial_date(open_date), range_months)
           loop do
-            ranges << date_range if date_range.include?(open_date) || open_date < date_range.first
-            return ranges if date_range.include?(close_date)
+            ranges << date_range if date_in_or_before_range?(open_date, date_range)
+            return ranges if final_range?(close_date, date_range)
 
             date_range = create_date_range(date_range.last + 1.day, range_months)
           end
@@ -49,6 +49,14 @@ module DefraRuby
 
         private_class_method def self.create_date_range(start_date, num_months)
           start_date..(start_date + num_months.months - 1.day)
+        end
+
+        private_class_method def self.date_in_or_before_range?(date, range)
+          range.include?(date) || date < range.first
+        end
+
+        private_class_method def self.final_range?(end_date, range)
+          range.include?(end_date)
         end
       end
     end
