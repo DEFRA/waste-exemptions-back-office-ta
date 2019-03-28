@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   resources :registrations, only: :show, param: :reference
   resources :transient_registrations, only: :show, param: :reference, path: "/transient-registrations"
 
+  # Bulk Exports
+
+  get "/data-exports", to: "bulk_exports#show", as: :bulk_exports
+
   # Engine
 
   mount WasteExemptionsEngine::Engine => "/"
