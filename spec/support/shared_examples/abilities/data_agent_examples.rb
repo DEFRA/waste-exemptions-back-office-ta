@@ -13,7 +13,7 @@ RSpec.shared_examples "data_agent examples" do
     should be_able_to(:read, transient_registration)
   end
 
-  it "should be able to export registration data" do
-    should be_able_to(:export, registration)
+  it "should be able to view bulk exports" do
+    should be_able_to(:read, DefraRuby::Exporters::RegistrationBulkExportReport)
   end
 end

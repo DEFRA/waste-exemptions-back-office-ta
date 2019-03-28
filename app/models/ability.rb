@@ -47,6 +47,6 @@ class Ability
     can :use_back_office, :all
     can :read, WasteExemptionsEngine::Registration
     can :read, WasteExemptionsEngine::TransientRegistration
-    can :export, WasteExemptionsEngine::Registration
+    can :read, DefraRuby::Exporters::RegistrationBulkExportReport
   end
 end
