@@ -33,7 +33,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationEprExportReport do
 
   describe "#query" do
     context "when there are multiple registrations with multiple exemptions" do
-      let!(:registrations) do
+      let(:registrations) do
         [
           create(:registration, exemptions: WasteExemptionsEngine::Exemption.first(7)),
           create(:registration, exemptions: WasteExemptionsEngine::Exemption.first(3)),
