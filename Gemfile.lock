@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: a0d6c1ab5c72d9e532eccaf46a99393cd90933a4
+  revision: 81d68d8e1f60f63cbf7adfb2466c878aaeb60ece
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -65,8 +65,8 @@ GEM
     arel (6.0.4)
     ast (2.4.0)
     aws-eventstream (1.0.2)
-    aws-partitions (1.146.0)
-    aws-sdk-core (3.48.2)
+    aws-partitions (1.147.0)
+    aws-sdk-core (3.48.3)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
@@ -74,7 +74,7 @@ GEM
     aws-sdk-kms (1.16.0)
       aws-sdk-core (~> 3, >= 3.48.2)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.35.0)
+    aws-sdk-s3 (1.36.0)
       aws-sdk-core (~> 3, >= 3.48.2)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.0)
@@ -98,7 +98,7 @@ GEM
     defra_ruby_validators (0.1.1)
       activemodel
       rest-client (~> 2.0)
-    devise (4.6.1)
+    devise (4.6.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 6.0)
@@ -205,7 +205,7 @@ GEM
       rake (>= 0.8.1)
     pg (0.18.4)
     pgreset (0.1.1)
-    phonelib (0.6.30)
+    phonelib (0.6.31)
     psych (3.1.0)
     public_suffix (3.0.3)
     rack (1.6.11)
