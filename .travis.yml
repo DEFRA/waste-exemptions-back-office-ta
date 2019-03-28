@@ -4,6 +4,7 @@ env:
     - AWS_DAILY_EXPORT_ACCESS_KEY_ID=keyid
     - AWS_DAILY_EXPORT_SECRET_ACCESS_KEY=secretkey
     - AWS_DAILY_EXPORT_BUCKET=daily-exports
+    - AWS_REGION=eu-west-1
     - EXPORT_SERVICE_EPR_EXPORT_TIME="2:05"
     - EXPORT_SERVICE_CRON_LOG_OUTPUT_PATH="/home/rails/waste-exemptions-back-office/shared/log/"
 

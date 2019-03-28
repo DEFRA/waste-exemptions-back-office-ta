@@ -63,8 +63,7 @@ module DefraRuby
 
         s3 = Aws::S3::Resource.new(
           region: AWS_REGION,
-          credentials: aws_config[export_type][:credentials],
-          endpoint: "https://s3.#{AWS_REGION}.amazonaws.com"
+          credentials: aws_config[export_type][:credentials]
         )
 
         s3.bucket(aws_config[export_type][:bucket])
