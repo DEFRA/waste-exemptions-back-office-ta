@@ -111,3 +111,5 @@ group :test do
   # Allow automated testing of the whenever schedule
   gem "whenever-test", "~> 1.0"
 end
+
+gem "bullet", "~> 5.9"

@@ -60,4 +60,10 @@ RSpec.configure do |config|
   config.before(:suite) do
     Rails.application.load_seed
   end
+
+  config.before(:each) { Bullet.start_request }
+  config.after(:each) do
+    # Bullet.perform_out_of_channel_notifications
+    Bullet.end_request
+  end
 end
