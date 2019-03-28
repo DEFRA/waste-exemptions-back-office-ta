@@ -70,8 +70,17 @@ RSpec.describe DefraRuby::Exporters::RegistrationExportService, vcr: true do
             allow_playback_repeats: true
           )
 
-          VCR.insert_cassette("get_bulk_export_s3_bucket", allow_playback_repeats: true)
-          VCR.insert_cassette("clear_bulk_export_s3_bucket", allow_playback_repeats: true)
+          bulk_bucket_matcher = Helpers::VCR.export_bucket_matcher(ENV["AWS_BULK_EXPORT_BUCKET"])
+          VCR.insert_cassette(
+            "get_bulk_export_s3_bucket",
+            match_requests_on: [:method, bulk_bucket_matcher],
+            allow_playback_repeats: true
+          )
+          VCR.insert_cassette(
+            "clear_bulk_export_s3_bucket",
+            match_requests_on: [:method, bulk_bucket_matcher],
+            allow_playback_repeats: true
+          )
         end
         after(:context) do
           3.times { VCR.eject_cassette }
