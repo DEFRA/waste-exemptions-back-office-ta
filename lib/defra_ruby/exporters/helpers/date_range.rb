@@ -22,16 +22,12 @@ module DefraRuby
           # Make sure the open_date is before the close_date
           open_date, close_date = close_date, open_date unless open_date <= close_date
           ranges = []
-          initial_date = Date.new(open_date.year, BASE_MONTH, BASE_DAY)
-          # This is necessary if the base date changes to anything other than January 1st:
-          initial_date -= 1.year if open_date < initial_date
-          date_range = initial_date..(initial_date + range_months.months - 1.day)
+          date_range = create_date_range(initial_date(open_date), range_months)
           loop do
             ranges << date_range if date_range.include?(open_date) || open_date < date_range.first
             return ranges if date_range.include?(close_date)
 
-            range_start = date_range.last + 1.day
-            date_range = range_start..(range_start + range_months.months - 1.day)
+            date_range = create_date_range(date_range.last + 1.day, range_months)
           end
         end
 
@@ -42,6 +38,17 @@ module DefraRuby
         def self.parse_date_range_description(description)
           first_date, second_date = description.split("-")
           Date.parse(first_date)..Date.parse(second_date)
+        end
+
+        private_class_method def self.initial_date(open_date)
+          date = Date.new(open_date.year, BASE_MONTH, BASE_DAY)
+          # This is necessary if the base date changes to anything other than January 1st:
+          date -= 1.year if open_date < date
+          date
+        end
+
+        private_class_method def self.create_date_range(start_date, num_months)
+          start_date..(start_date + num_months.months - 1.day)
         end
       end
     end
