@@ -16,6 +16,8 @@ RSpec.describe DefraRuby::Exporters::Helpers::DateRange do
         end
 
         it "uses January 1st as a starting point" do
+          # This expectation is to ensure the test setup hasn't changed not an explicit expection
+          # of the method functionality. This is why it isn't in a separate test.
           expect(date_ranges.count).to eq(1)
           date_range = date_ranges.first
           expect(date_range.first).to eq(Date.new(2019, 1, 1))
@@ -31,6 +33,8 @@ RSpec.describe DefraRuby::Exporters::Helpers::DateRange do
         end
 
         it "defines the range as starting n months from January 1st" do
+          # This expectation is to ensure the test setup hasn't changed not an explicit expection
+          # of the method functionality. This is why it isn't in a separate test.
           expect(date_ranges.count).to eq(2)
           first_date_range = date_ranges.first
           expect(first_date_range.first).to eq(Date.new(2019, 3, 1))
