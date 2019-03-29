@@ -28,6 +28,12 @@ class User < ActiveRecord::Base
     update(role: new_role)
   end
 
+  def ability
+    @ability ||= Ability.new(self)
+  end
+
+  delegate :can?, :cannot?, to: :ability
+
   devise :database_authenticatable,
          :invitable,
          :lockable,

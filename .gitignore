@@ -10,7 +10,8 @@
 # Logs, temp and OS specific files #
 /log/*
 !/log/.keep
-/tmp
+/tmp/*
+!/tmp/.keep
 .DS_Store
 *.log
 .svn

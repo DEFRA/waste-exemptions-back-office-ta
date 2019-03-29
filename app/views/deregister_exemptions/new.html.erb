@@ -1,0 +1,63 @@
+<div class="grid-row">
+  <div class="column-full">
+    <%= render("waste_exemptions_engine/shared/back", back_path: registration_path(reference: @resource.registration.reference)) %>
+    <%= form_for(@deregister_exemptions_form, url: deregister_exemptions_form_path) do |f| %>
+      <%= render("waste_exemptions_engine/shared/errors", object: @deregister_exemptions_form) %>
+
+      <h1 class="heading-large">
+        <%= t(".heading", exemption_code: @resource.exemption.code, registration_reference: @resource.registration.reference) %>
+      </h1>
+
+      <% if @deregister_exemptions_form.errors[:state_transition].any? %>
+      <div class="form-group form-group-error">
+      <% else %>
+      <div class="form-group">
+      <% end %>
+        <fieldset id="state_transition">
+          <% if @deregister_exemptions_form.errors[:state_transition].any? %>
+          <span class="error-message"><%= @deregister_exemptions_form.errors[:state_transition].join(", ") %></span>
+          <% end %>
+
+          <%= f.label :state_transition, class: "form-label" do %>
+            <%= t(".labels.state_transition") %>
+            <span class="form-hint"><%= t(".labels.state_transition_hint") %></span>
+          <% end %>
+          <% @deregister_exemptions_form.state_transition_options.each do |state_transition| %>
+            <div class="multiple-choice">
+              <%= f.radio_button :state_transition, state_transition %>
+              <%= f.label :state_transition, value: state_transition do %>
+                <%= t(".options.#{state_transition}") %>
+              <% end %>
+            </div>
+          <% end %>
+        </fieldset>
+      </div>
+
+      <% if @deregister_exemptions_form.errors[:message].any? %>
+      <div class="form-group form-group-error">
+      <% else %>
+      <div class="form-group">
+      <% end %>
+        <fieldset id="message">
+          <% if @deregister_exemptions_form.errors[:message].any? %>
+            <span class="error-message"><%= @deregister_exemptions_form.errors[:message].join(", ") %></span>
+          <% end %>
+
+          <legend>
+            <%= t(".labels.message") %>
+            <span class="form-hint"><%= t(".labels.message_hint") %></span>
+          </legend>
+
+          <fieldset id="message">
+            <%= f.text_area :message, value: @deregister_exemptions_form.message, class: "form-control", rows: 4 %>
+          </fieldset>
+
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit t(".approve_button"), class: "button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

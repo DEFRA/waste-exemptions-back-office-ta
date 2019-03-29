@@ -30,7 +30,7 @@ class Ability
   def permissions_for_super_agent
     can :update, WasteExemptionsEngine::Registration
     can :deregister, WasteExemptionsEngine::Registration
-    can :deregister, WasteExemptionsEngine::RegistrationExemption
+    can :deregister, WasteExemptionsEngine::RegistrationExemption, &:active?
 
     permissions_for_admin_agent
   end
