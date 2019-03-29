@@ -1,22 +1,29 @@
 # frozen_string_literal: true
 
-module DefraRuby
-  module Exporters
-    def self.raise_missing_env_var(variable)
-      raise("Environment variable #{variable} has not been set")
-    end
+require_relative "../../lib/defra_ruby/exporters/configuration"
 
-    BATCH_SIZE = (ENV["EXPORT_SERVICE_BATCH_SIZE"] || 3000).to_i
+DefraRuby::Exporters.configure do |c|
+  def raise_missing_env_var(variable)
+    raise("Environment variable #{variable} has not been set")
+  end
 
-    AWS_REGION = (ENV["AWS_REGION"] || "eu-west-1")
+  c.batch_size = ENV["EXPORT_SERVICE_BATCH_SIZE"].to_i if ENV["EXPORT_SERVICE_BATCH_SIZE"].present?
+  c.aws_region = ENV["AWS_REGION"] if ENV["AWS_REGION"].present?
 
-    EPR_EXPORT_AWS_CREDENTIALS = Aws::Credentials.new(
-      (ENV["AWS_DAILY_EXPORT_ACCESS_KEY_ID"] || raise_missing_env_var("AWS_DAILY_EXPORT_ACCESS_KEY_ID")),
-      (ENV["AWS_DAILY_EXPORT_SECRET_ACCESS_KEY"] || raise_missing_env_var("AWS_DAILY_EXPORT_SECRET_ACCESS_KEY"))
-    )
+  c.epr_export_aws_credentials = Aws::Credentials.new(
+    (ENV["AWS_DAILY_EXPORT_ACCESS_KEY_ID"] || raise_missing_env_var("AWS_DAILY_EXPORT_ACCESS_KEY_ID")),
+    (ENV["AWS_DAILY_EXPORT_SECRET_ACCESS_KEY"] || raise_missing_env_var("AWS_DAILY_EXPORT_SECRET_ACCESS_KEY"))
+  )
+  c.epr_export_s3_bucket = (ENV["AWS_DAILY_EXPORT_BUCKET"] || raise_missing_env_var("AWS_DAILY_EXPORT_BUCKET"))
+  c.epr_export_filename = "waste_exemptions_epr_daily_full"
 
-    EPR_EXPORT_S3_BUCKET = (ENV["AWS_DAILY_EXPORT_BUCKET"] || raise_missing_env_var("AWS_DAILY_EXPORT_BUCKET"))
-
-    EPR_EXPORT_FILENAME = "waste_exemptions_epr_daily_full.csv"
+  c.bulk_export_aws_credentials = Aws::Credentials.new(
+    (ENV["AWS_BULK_EXPORT_ACCESS_KEY_ID"] || raise_missing_env_var("AWS_BULK_EXPORT_ACCESS_KEY_ID")),
+    (ENV["AWS_BULK_EXPORT_SECRET_ACCESS_KEY"] || raise_missing_env_var("AWS_BULK_EXPORT_SECRET_ACCESS_KEY"))
+  )
+  c.bulk_export_s3_bucket = (ENV["AWS_BULK_EXPORT_BUCKET"] || raise_missing_env_var("AWS_BULK_EXPORT_BUCKET"))
+  c.bulk_export_filename_base = "waste_exemptions_bulk_export"
+  if ENV["EXPORT_SERVICE_BULK_NUMBER_OF_MONTHS"].present?
+    c.bulk_export_number_of_months = ENV["EXPORT_SERVICE_BULK_NUMBER_OF_MONTHS"].to_i
   end
 end

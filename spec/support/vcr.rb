@@ -22,4 +22,14 @@ VCR.configure do |c|
   end
 
   c.filter_sensitive_data("<AWS_DAILY_EXPORT_BUCKET>") { ENV["AWS_DAILY_EXPORT_BUCKET"] }
+
+  c.filter_sensitive_data("<AWS_BULK_EXPORT_ACCESS_KEY_ID>") do
+    ENV["AWS_BULK_EXPORT_ACCESS_KEY_ID"]
+  end
+
+  c.filter_sensitive_data("<AWS_BULK_EXPORT_SECRET_ACCESS_KEY>") do
+    ENV["AWS_BULK_EXPORT_SECRET_ACCESS_KEY"]
+  end
+
+  c.filter_sensitive_data("<AWS_BULK_EXPORT_BUCKET>") { ENV["AWS_BULK_EXPORT_BUCKET"] }
 end
