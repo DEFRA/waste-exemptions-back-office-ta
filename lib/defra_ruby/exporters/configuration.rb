@@ -38,6 +38,15 @@ module DefraRuby
 
         raise "The following DefraRuby::Exporters configuration attributes are missing: #{missing_attributes}"
       end
+
+      def aws_config(export_type)
+        case export_type
+        when :epr
+          { credentials: epr_export_aws_credentials, bucket: epr_export_s3_bucket, region: aws_region }
+        when :bulk
+          { credentials: bulk_export_aws_credentials, bucket: bulk_export_s3_bucket, region: aws_region }
+        end
+      end
     end
   end
 end

@@ -101,17 +101,13 @@ module DefraRuby
       end
 
       private_class_method def self.export_bucket(export_type)
-        aws_config = {
-          epr: { credentials: config.epr_export_aws_credentials, bucket: config.epr_export_s3_bucket },
-          bulk: { credentials: config.bulk_export_aws_credentials, bucket: config.bulk_export_s3_bucket }
-        }
-
+        aws_config = config.aws_config(export_type)
         s3 = Aws::S3::Resource.new(
-          region: config.aws_region,
-          credentials: aws_config[export_type][:credentials]
+          region: aws_config[:region],
+          credentials: aws_config[:credentials]
         )
 
-        s3.bucket(aws_config[export_type][:bucket])
+        s3.bucket(aws_config[:bucket])
       end
     end
   end
