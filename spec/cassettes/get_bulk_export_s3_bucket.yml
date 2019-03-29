@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://s3.eu-west-1.amazonaws.com/<AWS_BULK_EXPORT_BUCKET>?encoding-type=url&versions
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - ''
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.48.2 ruby/2.4.2 x86_64-darwin18 aws-sdk-s3/1.34.0
+      Host:
+      - s3.eu-west-1.amazonaws.com
+      X-Amz-Date:
+      - 20190328T160845Z
+      X-Amz-Content-Sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=<AWS_BULK_EXPORT_ACCESS_KEY_ID>/20190328/eu-west-1/s3/aws4_request,
+        SignedHeaders=host;user-agent;x-amz-content-sha256;x-amz-date, Signature=7d1d5fb40d4cdb1a7493b5c83cf94f4d6666015b4ffbeef05efebab62ee96385
+      Content-Length:
+      - '0'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - x/JeftyUxkKvjJSeCAwVuhCSaUpVP+cLKotkvHYpq8bK8MXp7Md/aH0/Jpxhxbx8cVzT+aem2Nc=
+      X-Amz-Request-Id:
+      - C86894869002F583
+      Date:
+      - Thu, 28 Mar 2019 16:08:46 GMT
+      Content-Type:
+      - application/xml
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <ListVersionsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name><AWS_BULK_EXPORT_BUCKET></Name><Prefix></Prefix><KeyMarker></KeyMarker><VersionIdMarker></VersionIdMarker><MaxKeys>1000</MaxKeys><EncodingType>url</EncodingType><IsTruncated>false</IsTruncated><Version><Key>waste_exemptions_bulk_export_20190301-20190331.csv</Key><VersionId>null</VersionId><IsLatest>true</IsLatest><LastModified>2019-03-28T16:06:53.000Z</LastModified><ETag>&quot;ce0660c96f998021c02b06a0e86adfb5&quot;</ETag><Size>10150</Size><Owner><ID>03757718058ba82048847bbf13e0fe2a3a9cf0c119f2bf511c98f92ab2002dfc</ID><DisplayName>davidblackburn7</DisplayName></Owner><StorageClass>STANDARD</StorageClass></Version></ListVersionsResult>
+    http_version: 
+  recorded_at: Thu, 28 Mar 2019 16:08:45 GMT
+recorded_with: VCR 4.0.0
