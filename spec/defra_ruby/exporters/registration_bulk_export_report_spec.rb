@@ -80,7 +80,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
           end
         end
 
-        it "returns the correct number of records" do
+        it "returns all records" do
           expect(described_class.query.count).to eq(15)
         end
       end
@@ -94,7 +94,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
           Helpers::Registrations.cease(registrations[0])
         end
 
-        it "returns the correct number of records" do
+        it "returns all records" do
           expect(described_class.query.count).to eq(15)
         end
       end
@@ -108,7 +108,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
           Helpers::Registrations.expire(registrations[1])
         end
 
-        it "returns the correct number of records" do
+        it "returns all records" do
           expect(described_class.query.count).to eq(15)
         end
       end
@@ -123,7 +123,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
           Helpers::Registrations.expire(registrations[2])
         end
 
-        it "returns the correct number of records" do
+        it "returns all records" do
           expect(described_class.query.count).to eq(15)
         end
       end
@@ -135,7 +135,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
           end
         end
 
-        it "returns the correct number of records" do
+        it "returns all records" do
           expect(described_class.query.count).to eq(15)
         end
       end
@@ -152,7 +152,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
         Helpers::Registrations.activate(registrations[2], Date.new(2019, 3, 7))
       end
 
-      it "returns the correct number of records" do
+      it "returns all records" do
         expect(described_class.query(filter).count).to eq(15)
       end
     end
@@ -176,7 +176,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
         Helpers::Registrations.activate(registrations[2], Date.new(2019, 4, 7))
       end
 
-      it "returns the correct number of records" do
+      it "doesn't return any records" do
         expect(described_class.query(filter).count).to eq(0)
       end
     end

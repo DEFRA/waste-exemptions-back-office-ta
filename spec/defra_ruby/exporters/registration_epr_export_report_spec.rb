@@ -48,7 +48,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationEprExportReport do
           end
         end
 
-        it "returns the correct number of records" do
+        it "returns all records" do
           expect(described_class.query.count).to eq(15)
         end
       end
@@ -103,7 +103,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationEprExportReport do
           end
         end
 
-        it "returns the correct number of records" do
+        it "doesn't return any records" do
           expect(described_class.query.count).to eq(0)
         end
       end
