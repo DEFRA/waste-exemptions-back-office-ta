@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 require "csv"
-require_relative "registration_epr_export_report"
+require_relative "configuration"
 require_relative "bulk_export_file"
+require_relative "registration_bulk_export_report"
+require_relative "registration_epr_export_report"
+require_relative "helpers/date_range"
 
 module DefraRuby
   module Exporters
