@@ -16,13 +16,13 @@ module WasteExemptionsEngine
         event :cease do
           transitions from: :active,
                       to: :ceased,
-                      after: :deregister_exemption
+                      after: :update_deregistered_on
         end
 
         event :revoke do
           transitions from: :active,
                       to: :revoked,
-                      after: :deregister_exemption
+                      after: :update_deregistered_on
         end
 
         event :expire do
@@ -32,7 +32,7 @@ module WasteExemptionsEngine
       end
 
       # Transition effects
-      def deregister_exemption
+      def update_deregistered_on
         self.deregistered_on = Date.today
         save!
       end
