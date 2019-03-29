@@ -62,8 +62,5 @@ RSpec.configure do |config|
   end
 
   config.before(:each) { Bullet.start_request }
-  config.after(:each) do
-    # Bullet.perform_out_of_channel_notifications
-    Bullet.end_request
-  end
+  config.after(:each) { Bullet.end_request }
 end
