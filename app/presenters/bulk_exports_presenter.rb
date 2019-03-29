@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require_relative "../../lib/defra_ruby/exporters/helpers/date_range"
+require_relative "../../lib/defra_ruby/exporters/bulk_export_file"
+require_relative "../../lib/defra_ruby/exporters/registration_export_service"
+
 class BulkExportsPresenter
 
   attr_reader :links, :exported_at_message
