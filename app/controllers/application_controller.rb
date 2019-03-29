@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
   helper WasteExemptionsEngine::ApplicationHelper
 
   rescue_from CanCan::AccessDenied do
-    redirect_to "/pages/permission"
+    unsuccessful_redirection = WasteExemptionsEngine::ApplicationController::UNSUCCESSFUL_REDIRECTION_CODE
+    redirect_to "/pages/permission", status: unsuccessful_redirection
   end
 
   def authenticate_and_authorize_active_user
@@ -21,7 +22,8 @@ class ApplicationController < ActionController::Base
     authenticate_user!
 
     if current_user_cannot_use_back_office?
-      redirect_to "/pages/deactivated"
+      unsuccessful_redirection = WasteExemptionsEngine::ApplicationController::UNSUCCESSFUL_REDIRECTION_CODE
+      redirect_to "/pages/deactivated", status: unsuccessful_redirection
       return
     end
 
