@@ -12,7 +12,7 @@ module DefraRuby
     module RegistrationExportService
 
       def self.epr_export
-        config.ensure_valid
+        check_epr_exporter_can_execute
         file_path = full_path("#{config.epr_export_filename}.csv")
         File.new(file_path, "wb")
         write_to_file(RegistrationEprExportReport, file_path)
@@ -21,9 +21,10 @@ module DefraRuby
       end
 
       def self.bulk_export
-        config.ensure_valid
-        oldest = RegistrationEprExportReport.query.first.registered_on
-        newest = RegistrationEprExportReport.query.last.registered_on
+        check_bulk_exporter_can_execute
+
+        oldest = RegistrationBulkExportReport.query.first.registered_on
+        newest = RegistrationBulkExportReport.query.last.registered_on
         date_ranges = date_range_helper.generate_date_ranges(oldest, newest, config.bulk_export_number_of_months)
 
         # Clear the existing exports
@@ -97,6 +98,15 @@ module DefraRuby
 
       private_class_method def self.date_range_helper
         DefraRuby::Exporters::Helpers::DateRange
+      end
+
+      private_class_method def self.check_epr_exporter_can_execute
+        config.ensure_valid
+      end
+
+      private_class_method def self.check_bulk_exporter_can_execute
+        config.ensure_valid
+        raise "The bulk exporter needs at least one relevant record." if RegistrationBulkExportReport.query.count.zero?
       end
 
       private_class_method def self.full_path(file_name)
