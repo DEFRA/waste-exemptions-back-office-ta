@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190326133420) do
+ActiveRecord::Schema.define(version: 20190327134526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 20190326133420) do
   end
 
   add_index "addresses", ["registration_id"], name: "index_addresses_on_registration_id", using: :btree
+
+  create_table "defra_ruby_exporters_bulk_export_files", force: :cascade do |t|
+    t.string   "file_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "exemptions", force: :cascade do |t|
     t.integer "category"
