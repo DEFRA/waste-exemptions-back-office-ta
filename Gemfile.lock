@@ -84,6 +84,9 @@ GEM
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
+    bullet (5.9.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.0.1)
     cancancan (2.3.0)
     chronic (0.10.2)
@@ -326,6 +329,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.5)
     unicode-display_width (1.5.0)
+    uniform_notifier (1.12.1)
     useragent (0.16.10)
     validates_email_format_of (1.6.3)
       i18n
@@ -354,6 +358,7 @@ PLATFORMS
 DEPENDENCIES
   airbrake (= 5.8.1)
   aws-sdk-s3 (~> 1.31)
+  bullet (~> 5.9)
   byebug
   cancancan (~> 2.0)
   database_cleaner
