@@ -29,7 +29,7 @@
         <% end %>
       </td>
       <td class="govuk-table__cell">
-        <% if can? :dergister, re %>
+        <% if can? :deregister, re %>
           <a class="deregister-exemption-button" href="<%= deregister_exemptions_form_path(id: re.id) %>">Deregister</a>
         <% end %>
       </td>
