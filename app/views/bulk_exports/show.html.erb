@@ -6,16 +6,16 @@
       <%= t(".heading") %>
     </h1>
     <h4 class="heading-small">
-      <%= @exported_at_message %>
+      <%= @bulk_exports.exported_at_message %>
     </h4>
   </div>
 </div>
 
-<% if @bulk_export_links.any? %>
+<% if @bulk_exports.links.any? %>
 <div class="grid-row">
   <div class="column-full">
     <ul>
-      <% @bulk_export_links.each do |link_data| %>
+      <% @bulk_exports.links.each do |link_data| %>
       <li>
         <%= link_to link_data[:text], link_data[:url] %>
       </li>
