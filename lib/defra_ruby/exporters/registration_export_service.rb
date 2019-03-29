@@ -66,12 +66,12 @@ module DefraRuby
       end
 
       def self.save_to_s3(export_type, file_path)
-        Rails.logger.info "Started daily upload of #{file_path} to s3"
+        Rails.logger.info "Started upload of #{file_path} to s3"
 
         s3_object = export_bucket(export_type).object(File.basename(file_path))
         result = s3_object.upload_file(file_path, server_side_encryption: :AES256)
 
-        Rails.logger.info "Finished daily upload of #{file_path} to s3"
+        Rails.logger.info "Finished upload of #{file_path} to s3"
 
         result
       end
