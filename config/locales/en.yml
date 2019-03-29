@@ -6,6 +6,7 @@ en:
       menu:
         dashboard: "Dashboard"
         users: "Manage users"
+        exports: "Data exports"
   shared:
     select_role:
       roles:

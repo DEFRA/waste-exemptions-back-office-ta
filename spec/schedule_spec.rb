@@ -11,24 +11,33 @@ require "open3"
 # See https://github.com/rafaelsales/whenever-test for more details
 
 RSpec.describe "Whenever schedule", vcr: true do
-  it "makes sure 'rake' statements exist" do
-    schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
+  let(:schedule) { Whenever::Test::Schedule.new(file: "config/schedule.rb") }
 
-    expect(schedule.jobs[:rake].count).to eq(1)
-    expect(schedule.jobs[:rake].first[:task]).to eq("defra_ruby_exporters:epr")
+  it "makes sure 'rake' statements exist" do
+    rake_jobs = schedule.jobs[:rake]
+    expect(rake_jobs.count).to eq(2)
+
+    epr_jobs = rake_jobs.select { |j| j[:task] == "defra_ruby_exporters:epr" }
+    bulk_jobs = rake_jobs.select { |j| j[:task] == "defra_ruby_exporters:bulk" }
+    expect(epr_jobs.count).to eq(1)
+    expect(bulk_jobs.count).to eq(1)
   end
 
   it "takes the EPR execution time from the appropriate ENV variable" do
-    schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
-    job_details = schedule.jobs[:rake].first { |h| h[:task] == "defra_ruby_exporters:epr" }
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "defra_ruby_exporters:epr" }
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])
   end
 
-  it "takes the cron log output path from the appropriate ENV variable" do
-    schedule = Whenever::Test::Schedule.new(file: "config/schedule.rb")
+  it "takes the bulk export execution time and frequency from the appropriate ENV variables" do
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "defra_ruby_exporters:bulk" }
 
+    expect(job_details[:every][0]).to eq(ENV["EXPORT_SERVICE_BULK_EXPORT_FREQUENCY"].to_sym)
+    expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"])
+  end
+
+  it "takes the cron log output path from the appropriate ENV variable" do
     expected_output_file = File.join(ENV["EXPORT_SERVICE_CRON_LOG_OUTPUT_PATH"], "whenever_cron.log")
     expect(schedule.sets[:output]).to eq(expected_output_file)
   end
