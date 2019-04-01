@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../../lib/defra_ruby/exporters/registration_bulk_export_report"
+
 class Ability
   include CanCan::Ability
 

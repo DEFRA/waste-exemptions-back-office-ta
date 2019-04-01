@@ -3,7 +3,7 @@
 require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptions_engine", "transient_registration")
 
 module WasteExemptionsEngine
-  class TransientRegistration
+  class TransientRegistration < ActiveRecord::Base
     include CanBeSearchedLikeRegistration
 
     scope :search_for_site_address_postcode, lambda { |term|
