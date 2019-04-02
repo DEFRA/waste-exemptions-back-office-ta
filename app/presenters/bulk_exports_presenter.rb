@@ -16,9 +16,12 @@ class BulkExportsPresenter
   private
 
   def init_exported_at_message
-    export_executed_at = DefraRuby::Exporters::BulkExportFile.first&.created_at&.to_formatted_s(:time_day_month_year)
+    export_executed_at = DefraRuby::Exporters::BulkExportFile.first&.created_at
     msg = I18n.t("bulk_exports.show.not_yet_exported")
-    msg = I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at) if export_executed_at.present?
+    if export_executed_at.present?
+      export_executed_at = export_executed_at.to_formatted_s(:time_on_day_month_year).gsub("  ", " ")
+      msg = I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at)
+    end
     @exported_at_message = msg
   end
 
