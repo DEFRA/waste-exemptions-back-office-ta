@@ -32,8 +32,8 @@ RSpec.describe "Bulk Exports", type: :request do
 
     it "renders the timestamp in an accessible format" do
       get bulk_exports_path
-      # The format is "1 April 2019"
-      expect(response.body).to include("These files were created on #{Date.today.strftime('%-d %B %Y')}")
+      export_at_regex = /These files were created at \d{2}:\d{2} #{Date.today.strftime('%-d %B %Y')}/m
+      expect(response.body.scan(export_at_regex).count).to eq(1)
     end
 
     it "renders a link for each file" do

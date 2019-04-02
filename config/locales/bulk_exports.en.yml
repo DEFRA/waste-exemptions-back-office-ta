@@ -4,4 +4,4 @@ en:
       title: "Data Exports"
       heading: "Data Exports"
       not_yet_exported: "The files have not yet been generated"
-      exported_at:  "These files were created on %{export_executed_at}"
+      exported_at:  "These files were created at %{export_executed_at}"
