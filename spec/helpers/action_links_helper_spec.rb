@@ -2,7 +2,16 @@
 
 require "rails_helper"
 
+# Add #can? to the module so it can be stubbed in the tests
+module ActionLinksHelper
+  def can?(_action, _resource)
+    false
+  end
+end
+
 RSpec.describe ActionLinksHelper, type: :helper do
+  include Devise::Test::ControllerHelpers
+
   describe "view_link_for" do
     context "when the resource is a registration" do
       let(:resource) { create(:registration) }
@@ -97,11 +106,42 @@ RSpec.describe ActionLinksHelper, type: :helper do
   end
 
   describe "display_deregister_link_for?" do
-    context "when the resource is a registration" do
-      let(:resource) { create(:registration) }
+    context "when the resource is an active registration" do
+      let(:resource) do
+        registration = create(:registration)
+        registration.registration_exemptions.each do |re|
+          re.state = "active"
+          re.save!
+        end
+        registration
+      end
 
-      it "returns true" do
-        expect(helper.display_deregister_link_for?(resource)).to eq(true)
+      context "when the user has permission to deregister a registration" do
+        before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:deregister, resource).and_return(true) }
+
+        it "returns true" do
+          expect(helper.display_deregister_link_for?(resource)).to eq(true)
+        end
+      end
+
+      context "when the user does not have permission to deregister a registration" do
+        before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:deregister, resource).and_return(false) }
+
+        it "returns false" do
+          expect(helper.display_deregister_link_for?(resource)).to eq(false)
+        end
+      end
+    end
+
+    context "when the resource is an inactive registration" do
+      let(:resource) do
+        registration = create(:registration)
+        registration.registration_exemptions.each(&:revoke!)
+        registration
+      end
+
+      it "returns false" do
+        expect(helper.display_deregister_link_for?(resource)).to eq(false)
       end
     end
 
