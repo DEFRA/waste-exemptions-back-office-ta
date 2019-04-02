@@ -16,7 +16,7 @@ class BulkExportsPresenter
   private
 
   def init_exported_at_message
-    export_executed_at = DefraRuby::Exporters::BulkExportFile.first&.created_at
+    export_executed_at = DefraRuby::Exporters::BulkExportFile.first&.created_at&.to_formatted_s(:time_on_day_month_year)
     msg = I18n.t("bulk_exports.show.not_yet_exported")
     msg = I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at) if export_executed_at.present?
     @exported_at_message = msg
@@ -41,8 +41,8 @@ class BulkExportsPresenter
   end
 
   def link_text(date_range)
-    start_month = date_range.first.strftime("%B %Y")
-    end_month = date_range.last.strftime("%B %Y")
+    start_month = date_range.first.to_formatted_s(:month_year)
+    end_month = date_range.last.to_formatted_s(:month_year)
     start_month == end_month ? start_month : "#{start_month} through #{end_month}"
   end
 end
