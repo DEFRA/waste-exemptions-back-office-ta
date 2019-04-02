@@ -10,7 +10,7 @@ FactoryBot.define do
     on_a_farm { true }
     is_a_farmer { true }
 
-    exemptions { WasteExemptionsEngine::Exemption.first(2) }
+    exemptions { WasteExemptionsEngine::Exemption.first(3) }
 
     sequence :applicant_email do |n|
       "applicant#{n}@example.com"
