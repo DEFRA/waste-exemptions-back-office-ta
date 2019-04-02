@@ -8,11 +8,7 @@ class DeregisterExemptionsForm
   def submit(params, deregistration_service)
     self.state_transition = params[:state_transition]
     self.message = params[:message]&.strip
-    if valid?
-      deregistration_service.deregister!(state_transition)
-      deregistration_service.registration_exemption.update_attributes(deregistration_message: message)
-    end
-
+    deregistration_service.deregister!(state_transition, message) if valid?
     valid?
   end
 
