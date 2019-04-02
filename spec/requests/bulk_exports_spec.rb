@@ -30,6 +30,12 @@ RSpec.describe "Bulk Exports", type: :request do
       expect(response).to render_template("bulk_exports/show")
     end
 
+    it "renders the timestamp in an accessible format" do
+      get bulk_exports_path
+      # The format is "1 April 2019"
+      expect(response.body).to include("These files were created on #{Date.today.strftime("%-d %B %Y")}")
+    end
+
     it "renders a link for each file" do
       get bulk_exports_path
       file_name_regex = /waste_exemptions_bulk_export_\d{8}-\d{8}\.csv/m

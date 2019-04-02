@@ -16,7 +16,7 @@ class BulkExportsPresenter
   private
 
   def init_exported_at_message
-    export_executed_at = DefraRuby::Exporters::BulkExportFile.first&.created_at
+    export_executed_at = DefraRuby::Exporters::BulkExportFile.first&.created_at&.strftime("%-d %B %Y")
     msg = I18n.t("bulk_exports.show.not_yet_exported")
     msg = I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at) if export_executed_at.present?
     @exported_at_message = msg
