@@ -20,6 +20,7 @@ span.status-tag {
 
 .status-tag-ceased {
   @extend .status-tag;
+  color: $black;
   background-color: $orange;
 }
 
