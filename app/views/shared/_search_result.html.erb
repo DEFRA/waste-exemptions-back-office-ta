@@ -95,17 +95,6 @@
             <% end %>
           </li>
           <% end %>
-          <% if display_deregister_link_for?(result) %>
-          <li>
-            <%= link_to "#", id: "deregister_#{result.reference}" do %>
-              <%= t(".actions.deregister.link_text") %>
-              <span class="visually-hidden">
-               <%= t(".actions.deregister.visually_hidden_text",
-                     name: result_name_for_visually_hidden_text(result)) %>
-             </span>
-            <% end %>
-          </li>
-          <% end %>
           <% if display_resume_link_for?(result) %>
           <li>
             <%= link_to resume_link_for(result), id: "resume_#{result.reference}" do %>

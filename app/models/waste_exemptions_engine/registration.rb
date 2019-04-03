@@ -13,5 +13,18 @@ module WasteExemptionsEngine
     scope :search_for_person_name, lambda { |term|
       joins(:people).merge(Person.search_for_name(term))
     }
+
+    def active?
+      state == "active"
+    end
+
+    def state
+      raise "A Registration must have at least one RegistrationExemption." if registration_exemptions.empty?
+
+      return "active" if registration_exemptions.select(&:active?).any?
+
+      sorted_registration_exemptions = registration_exemptions.sort_by { |re| (re.deregistered_on || re.expires_on) }
+      sorted_registration_exemptions.last.state.to_s
+    end
   end
 end

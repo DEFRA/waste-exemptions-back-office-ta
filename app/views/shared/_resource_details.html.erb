@@ -117,11 +117,6 @@
           <%= link_to t(".actions.edit"), "#" %>
         </li>
         <% end %>
-        <% if display_deregister_link_for?(resource) %>
-        <li>
-          <%= link_to t(".actions.deregister"), "#" %>
-        </li>
-        <% end %>
         <% if display_resume_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.resume"), resume_link_for(resource) %>
@@ -130,6 +125,11 @@
         <% if display_confirmation_letter_link_for?(resource) %>
         <li>
           <%= link_to t(".actions.confirmation_letter"), "#" %>
+        </li>
+        <% end %>
+        <% if display_deregister_link_for?(resource) %>
+        <li class="separated">
+          <%= link_to t(".actions.deregister"), deregister_registrations_form_path(resource) %>
         </li>
         <% end %>
       </ul>

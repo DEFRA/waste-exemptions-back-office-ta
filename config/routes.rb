@@ -29,7 +29,12 @@ Rails.application.routes.draw do
   resources :registrations, only: :show, param: :reference
   resources :transient_registrations, only: :show, param: :reference, path: "/transient-registrations"
 
-  # Dergister Exemptions
+  # Deregister Registrations
+
+  get "/registrations/deregister/:id", to: "deregister_registrations#new", as: :deregister_registrations_form
+  post "/registrations/deregister/:id", to: "deregister_registrations#update", as: :deregister_registrations
+
+  # Deregister Exemptions
 
   get "/registration-exemptions/deregister/:id", to: "deregister_exemptions#new", as: :deregister_exemptions_form
   post "/registration-exemptions/deregister/:id", to: "deregister_exemptions#update", as: :deregister_exemptions

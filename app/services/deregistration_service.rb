@@ -2,17 +2,24 @@
 
 class DeregistrationService
 
-  attr_reader :registration_exemption
+  attr_reader :resource
 
-  def initialize(current_user, registration_exemption)
+  def initialize(current_user, resource)
     @current_user = current_user
-    @registration_exemption = registration_exemption
+    @resource = resource
   end
 
-  def deregister!(state_transition)
-    return unless @current_user.can?(:deregister, @registration_exemption)
+  def deregister!(state_transition, deregistration_message)
+    return unless @current_user.can?(:deregister, @resource)
 
-    # Apply the new state via the AASM helper method.
-    @registration_exemption.public_send("#{state_transition}!")
+    if @resource.is_a?(WasteExemptionsEngine::Registration)
+      @resource.registration_exemptions.each do |re|
+        DeregistrationService.new(@current_user, re).deregister!(state_transition, deregistration_message)
+      end
+    else
+      # Apply the new state via the AASM helper method.
+      @resource.public_send("#{state_transition}!")
+      @resource.update_attributes(deregistration_message: deregistration_message)
+    end
   end
 end

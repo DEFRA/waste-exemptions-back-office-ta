@@ -184,4 +184,79 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
       end
     end
   end
+
+  describe "#active?" do
+    context "when the state is :active" do
+      before(:each) { allow(subject).to receive(:state).and_return("active") }
+
+      it "returns `true`" do
+        expect(subject.active?).to eq true
+      end
+    end
+    %w[ceased revoked expired].each do |state|
+      context "when the state is :#{state}" do
+        before(:each) { allow(subject).to receive(:state).and_return(state) }
+
+        it "returns `false`" do
+          expect(subject.active?).to eq false
+        end
+      end
+    end
+  end
+
+  describe "#state" do
+    %w[active ceased revoked expired].each do |state|
+      context "when all of the registration's exemption registrations are #{state}" do
+        let(:registration) do
+          registration = create(:registration)
+          registration.registration_exemptions.each do |re|
+            re.state = state
+            re.save!
+          end
+          registration
+        end
+
+        it "returns \"#{state}\"" do
+          expect(registration.state).to eq state
+        end
+      end
+    end
+
+    context "when the registration's exemption registrations have mixed states" do
+      context "and at least one exemption registration is active" do
+        let(:registration) do
+          registration = create(:registration)
+          registration_exemptions = registration.registration_exemptions.to_a
+          reg_exemption = registration_exemptions.shift
+          registration_exemptions.each(&:revoke!)
+          reg_exemption.state = "active"
+          reg_exemption.save!
+          registration
+        end
+
+        it "returns \"active\"" do
+          expect(registration.state).to eq "active"
+        end
+      end
+
+      context "and none of the exemption registrations are active" do
+        let(:registration) do
+          registration = create(:registration)
+          registration_exemptions = registration.registration_exemptions.to_a
+          reg_exemption = registration_exemptions.shift
+          registration_exemptions.each do |re|
+            re.revoke!
+            re.deregistered_on = 1.day.ago
+            re.save!
+          end
+          reg_exemption.cease!
+          registration
+        end
+
+        it "returns the state of the exemption registration that has changed state most recently" do
+          expect(registration.state).to eq "ceased"
+        end
+      end
+    end
+  end
 end
