@@ -12,7 +12,7 @@
   <tbody class="govuk-table__body">
   <% resource_exemptions.each do |re| %>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell"><%= re.exemption.code%> &mdash; <%= re.exemption.summary %></td>
+      <td class="govuk-table__cell"><%= re.exemption.code %> &mdash; <%= re.exemption.summary %></td>
       <td class="govuk-table__cell date-nowrap">
         <% if re.registered_on.present? %>
           <%= re.registered_on.to_formatted_s(:day_month_year) %>
@@ -30,7 +30,12 @@
       </td>
       <td class="govuk-table__cell">
         <% if can? :deregister, re %>
-          <a class="deregister-exemption-button" href="<%= deregister_exemptions_form_path(id: re.id) %>">Deregister</a>
+          <a class="deregister-exemption-button" href="<%= deregister_exemptions_form_path(id: re.id) %>">
+            Deregister
+            <span class="visually-hidden">
+              exemption <%= re.exemption.code %> &mdash; <%= re.exemption.summary %>
+            </span>
+          </a>
         <% end %>
       </td>
     </tr>
