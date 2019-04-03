@@ -51,5 +51,12 @@ FactoryBot.define do
     end
 
     people { [build(:person), build(:person)] }
+
+    after(:create) do |registration|
+      registration.registration_exemptions.each do |re|
+        re.state = "active"
+        re.save!
+      end
+    end
   end
 end
