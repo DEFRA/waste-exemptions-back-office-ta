@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+require "defra_ruby/exporters"
+
 module DefraRuby
   module Exporters
     module RegistrationBulkExportReport
-
       COLUMNS = [
         { header: "reference_number", attribute: "registration.reference" },
         { header: "registration_date", attribute: "registered_on" },
@@ -50,6 +51,10 @@ module DefraRuby
         { header: "exemption_deregister_comment", attribute: "deregistration_message" },
         { header: "assistance_type", attribute: "registration.assistance_mode" }
       ].freeze
+
+      def self.columns
+        COLUMNS
+      end
 
       def self.query(filter = {})
         query = WasteExemptionsEngine::RegistrationExemption
