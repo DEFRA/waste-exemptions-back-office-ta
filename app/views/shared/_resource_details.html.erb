@@ -142,7 +142,10 @@
   <div class="column-full">
     <% if resource.registration_exemptions.present? %>
       <%= render("shared/resource_exemptions_list",
-                 resource_exemptions: resource.registration_exemptions.includes(:exemption).order_by_state_then_id) %>
+                 resource_exemptions: resource
+                                        .registration_exemptions
+                                        .includes(:exemption)
+                                        .order_by_state_then_exemption_id) %>
     <% else %>
       <h2 class="heading-medium">
         <%= t(".subheadings.exemptions") %>
