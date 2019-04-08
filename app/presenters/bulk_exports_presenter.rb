@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "../../lib/defra_ruby/exporters/helpers/date_range"
-require_relative "../../lib/defra_ruby/exporters/bulk_export_file"
-require_relative "../../lib/defra_ruby/exporters/registration_export_service"
+require "defra_ruby/exporters"
 
 class BulkExportsPresenter
 
@@ -16,14 +14,19 @@ class BulkExportsPresenter
   private
 
   def init_exported_at_message
-    export_executed_at = DefraRuby::Exporters::BulkExportFile.first&.created_at&.to_formatted_s(:time_on_day_month_year)
+    export_executed_at = DefraRuby::Exporters
+                         .configuration
+                         .bulk_export_file_class
+                         .first
+      &.created_at
+      &.to_formatted_s(:time_on_day_month_year)
     msg = I18n.t("bulk_exports.show.not_yet_exported")
     msg = I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at) if export_executed_at.present?
     @exported_at_message = msg
   end
 
   def init_links
-    @links = DefraRuby::Exporters::BulkExportFile.all.map do |bulk_export_file|
+    @links = DefraRuby::Exporters.configuration.bulk_export_file_class.all.map do |bulk_export_file|
       construct_link_data(bulk_export_file.file_name)
     end
 

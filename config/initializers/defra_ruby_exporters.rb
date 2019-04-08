@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
-require_relative "../../lib/defra_ruby/exporters/configuration"
+require "aws-sdk-s3"
+require "defra_ruby/exporters"
+require_relative "../../lib/defra_ruby/exporters/bulk_export_file"
 
 DefraRuby::Exporters.configure do |c|
   def raise_missing_env_var(variable)
     raise("Environment variable #{variable} has not been set")
   end
+
+  c.bulk_export_file_class = DefraRuby::Exporters::BulkExportFile
 
   c.batch_size = ENV["EXPORT_SERVICE_BATCH_SIZE"].to_i if ENV["EXPORT_SERVICE_BATCH_SIZE"].present?
   c.aws_region = ENV["AWS_REGION"] if ENV["AWS_REGION"].present?
