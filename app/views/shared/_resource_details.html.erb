@@ -124,7 +124,7 @@
         <% end %>
         <% if display_confirmation_letter_link_for?(resource) %>
         <li>
-          <%= link_to t(".actions.confirmation_letter"), "#" %>
+          <%= link_to t(".actions.confirmation_letter"), confirmation_letter_path(resource) %>
         </li>
         <% end %>
         <% if display_deregister_link_for?(resource) %>

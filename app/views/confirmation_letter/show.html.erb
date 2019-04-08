@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title><%= confirmation_letter_data.webpage_title %></title>
+  <meta name="description" content="Waste Exemptions confirmation letter" />
+  <meta name="author" content="Environment Agency" />
+  <%= wicked_pdf_stylesheet_link_tag("confirmation_letter") %>
+</head>
+
+<body>
+  <div class="wel_warning">
+    <%= t('.print_warning_header') %>
+    <ul>
+      <li><%= t('.print_warning_item1') %></li>
+      <li><%= t('.print_warning_item2') %></li>
+    </ul>
+  </div>
+
+    <div class="wel_letter">
+
+      <!-- Letter header -->
+      <div class="wel_top">
+
+        <!-- Header logo -->
+        <div class="wel_logo">
+          <%= wicked_pdf_image_tag("logo_ea.png") %>
+        </div>
+
+        <!-- Date letter was written -->
+        <div class="wel_date">
+          <p><%= confirmation_letter_data.date_of_letter %></p>
+        </div>
+
+        <!-- Postal address -->
+        <div class="wel_address">
+          <p>
+            <% confirmation_letter_data.postal_address_lines.each do |line| %>
+              <%= line %><br/>
+            <% end %>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Letter body -->
+      <h1><%= t(".title") %></h1>
+      <h2><%= t('.your_reference', reference: confirmation_letter_data.reference) %></h2>
+      <p><%= t(".read_both_sides") %></p>
+
+      <!-- Your responsibilities -->
+      <div class="wel_section">
+        <h2><%= t(".your_responsibilities_subtitle") %></h2>
+
+        <p><%= t(".your_responsibilities_para1") %></p>
+        <ul>
+          <li><%= t(".your_responsibilities_para1a") %></li>
+          <li><%= t(".your_responsibilities_para1b") %></li>
+        </ul>
+
+        <p><%= t(".your_responsibilities_para2") %></p>
+        <ul>
+          <li><%= t(".your_responsibilities_para2a") %></li>
+          <li><%= t(".your_responsibilities_para2b") %></li>
+          <li><%= t(".your_responsibilities_para2c") %></li>
+        </ul>
+
+        <p><%= t(".your_responsibilities_para3") %></p>
+      </div>
+
+      <!-- Registration details -->
+      <%= render "/confirmation_letter/letter_section", subtitle: t(".reg_details_subtitle"), items: confirmation_letter_data.reg_details_items %>
+
+      <!-- Registration completed by -->
+      <%= render "/confirmation_letter/letter_section", subtitle: t(".reg_completed_by_subtitle"), items: confirmation_letter_data.reg_completed_by_items %>
+
+      <!-- Business details -->
+      <%= render "/confirmation_letter/letter_section", subtitle: t(".organisation_subtitle"), items: confirmation_letter_data.organisation_items %>
+
+      <!-- Waste operation contact -->
+      <%= render "/confirmation_letter/letter_section", subtitle: t(".woc_subtitle"), items: confirmation_letter_data.waste_operation_contact_items %>
+
+      <!-- Site location -->
+      <%= render "/confirmation_letter/letter_section", subtitle: t(".site_subtitle"), items: confirmation_letter_data.site_items %>
+
+      <!-- Table of exemptions -->
+      <% unless confirmation_letter_data.sorted_active_registration_exemptions.empty? %>
+        <div class="wel_section">
+          <h2><%= t(".exemptions_subtitle") %></h2>
+          <table>
+            <% confirmation_letter_data.sorted_active_registration_exemptions.each do |re| %>
+              <tr>
+                <td class="wel_exemption"><%= re.exemption.description %></td>
+                <td class="wel_ex_date"><%= re.state %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+
+      <% unless confirmation_letter_data.sorted_deregistered_registration_exemptions.empty? %>
+        <div class="wel_section">
+        <h2><%= t(".deregistered_exemptions_subtitle") %></h2>
+        <table>
+          <% confirmation_letter_data.sorted_deregistered_registration_exemptions.each do |re| %>
+            <tr>
+              <td class="wel_exemption"><%= re.exemption.description %></td>
+              <td class="wel_ex_date"><%= re.state %></td>
+            </tr>
+          <% end %>
+        </table>
+        </div>
+      <% end %>
+
+      <!-- Contact us -->
+      <div class="wel_section">
+        <h2><%= t(".contact_us_subtitle") %></h2>
+        <p><%= t(".contact_us_para1") %></p>
+        <p><%= t(".contact_us_para2") %></p>
+      </div>
+
+      <!-- "Signature" -->
+      <p class="sign_off"><%= t(".sign_off") %></p>
+      <p class="sign_off"><%= t(".sender") %></p>
+    </div>
+  </body>
+</html>
