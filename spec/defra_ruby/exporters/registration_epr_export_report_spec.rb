@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe DefraRuby::Exporters::RegistrationEprExportReport do
-  describe "#COLUMNS" do
+  describe ".columns" do
     it "includes all of the headings required to generate the export" do
-      actual_headers = described_class::COLUMNS.map { |h| h[:header] }
+      actual_headers = described_class.columns.map { |h| h[:header] }
       expected_headers = %w[
         registration_number
         organisation_name
@@ -31,7 +31,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationEprExportReport do
     end
   end
 
-  describe "#query" do
+  describe ".query" do
     context "when there are multiple registrations with multiple exemptions" do
       let(:registrations) do
         [

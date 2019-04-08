@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "defra_ruby/exporters"
+
 module DefraRuby
   module Exporters
     module RegistrationEprExportReport
@@ -24,6 +26,10 @@ module DefraRuby
         { header: "exemption_registration_date", attribute: "registered_on" },
         { header: "exemption_expiry_date", attribute: "expires_on" }
       ].freeze
+
+      def self.columns
+        COLUMNS
+      end
 
       def self.query
         WasteExemptionsEngine::RegistrationExemption

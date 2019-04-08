@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
-  describe "#COLUMNS" do
+  describe ".columns" do
     it "includes all of the headings required to generate the export" do
-      actual_headers = described_class::COLUMNS.map { |h| h[:header] }
+      actual_headers = described_class.columns.map { |h| h[:header] }
       expected_headers = %w[
         reference_number
         registration_date
@@ -71,7 +71,7 @@ RSpec.describe DefraRuby::Exporters::RegistrationBulkExportReport do
     expect(query_reg_ids.uniq).to eq([registrations[0].id, registrations[2].id, registrations[1].id])
   end
 
-  describe "#query" do
+  describe ".query" do
     context "when there are multiple registrations with multiple exemptions" do
       context "and all are active" do
         before(:each) do

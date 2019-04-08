@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/DEFRA/defra-ruby-exporters
+  revision: fa2915668042dce9d8173d7e8400e5dcdd25aa5b
+  branch: master
+  specs:
+    defra_ruby_exporters (0.0.1)
+      activesupport
+      aws-sdk-s3 (~> 1.31)
+      http-2
+
+GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
   revision: 4a6ce24a77fa8854c72ec6dfc020789b1ce9202c
   branch: master
@@ -65,7 +75,7 @@ GEM
     arel (6.0.4)
     ast (2.4.0)
     aws-eventstream (1.0.2)
-    aws-partitions (1.147.0)
+    aws-partitions (1.149.0)
     aws-sdk-core (3.48.3)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
@@ -357,11 +367,11 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake (= 5.8.1)
-  aws-sdk-s3 (~> 1.31)
   bullet (~> 5.9)
   byebug
   cancancan (~> 2.0)
   database_cleaner
+  defra_ruby_exporters!
   defra_ruby_style
   devise (>= 4.4.3)
   devise_invitable (~> 1.7.0)
@@ -370,7 +380,6 @@ DEPENDENCIES
   github_changelog_generator
   govuk_elements_rails (~> 3.1)
   govuk_template (~> 0.23)
-  http-2
   jquery-rails
   kaminari (~> 1.1)
   paper_trail (~> 10.2.0)

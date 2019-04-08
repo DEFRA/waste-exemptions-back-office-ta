@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "defra_ruby/exporters"
+
 module DefraRuby
   module Exporters
     class BulkExportFile < ActiveRecord::Base
