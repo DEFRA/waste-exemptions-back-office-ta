@@ -351,6 +351,7 @@ GEM
       whenever
     wicked_pdf (1.2.2)
       activesupport
+    wkhtmltopdf-binary (0.12.4)
 
 PLATFORMS
   ruby
@@ -392,6 +393,8 @@ DEPENDENCIES
   webmock (~> 3.5)
   whenever (~> 0.10.0)
   whenever-test (~> 1.0)
+  wicked_pdf (~> 1.2)
+  wkhtmltopdf-binary (~> 0.12.4)
 
 RUBY VERSION
    ruby 2.4.2p198

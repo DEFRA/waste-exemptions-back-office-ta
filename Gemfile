@@ -52,6 +52,10 @@ gem "kaminari", "~> 1.1"
 # Use Whenever to manage cron tasks
 gem "whenever", "~> 0.10.0"
 
+# Use Wicked PDF for PDF generation
+gem "wicked_pdf", "~> 1.2"
+gem "wkhtmltopdf-binary", "~> 0.12.4"
+
 # Use the AWS SDK to interact with S3
 gem "aws-sdk-s3", "~> 1.31"
 # Temporary fix to avoid the error spam coming from the AWS SDK
