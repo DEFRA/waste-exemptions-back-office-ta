@@ -10,6 +10,8 @@ FactoryBot.define do
     on_a_farm { true }
     is_a_farmer { true }
 
+    submitted_at { DateTime.now }
+
     exemptions { WasteExemptionsEngine::Exemption.first(3) }
 
     sequence :applicant_email do |n|
