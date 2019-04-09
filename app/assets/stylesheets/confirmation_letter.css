@@ -1,0 +1,8 @@
+/*
+ * This stylesheet will be used only for the printable confirmation letters.
+ *
+ *= require ./confirmation_letter/reset.css
+ *= require ./confirmation_letter/wel_styles.css
+ *
+ */
+ @charset "utf-8";

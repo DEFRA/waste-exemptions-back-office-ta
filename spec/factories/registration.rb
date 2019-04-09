@@ -10,6 +10,8 @@ FactoryBot.define do
     on_a_farm { true }
     is_a_farmer { true }
 
+    submitted_at { DateTime.now }
+
     exemptions { WasteExemptionsEngine::Exemption.first(3) }
 
     sequence :applicant_email do |n|
@@ -51,6 +53,10 @@ FactoryBot.define do
     end
 
     people { [build(:person), build(:person)] }
+
+    trait :partnership do
+      business_type { "partnership" }
+    end
 
     after(:create) do |registration|
       registration.registration_exemptions.each do |re|

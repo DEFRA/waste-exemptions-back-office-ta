@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   post "/users/activate/:id", to: "user_activations#activate", as: :activate_user
   post "/users/deactivate/:id", to: "user_activations#deactivate", as: :deactivate_user
 
+  # Confirmation Letter
+
+  get "/confirmation-letter/:id", to: "confirmation_letter#show", as: :confirmation_letter
+
   # Bulk Exports
 
   get "/data-exports", to: "bulk_exports#show", as: :bulk_exports
