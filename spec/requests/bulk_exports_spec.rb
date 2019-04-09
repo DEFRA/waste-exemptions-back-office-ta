@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require "rails_helper"
+require "defra_ruby/exporters"
 
 RSpec.describe "Bulk Exports", type: :request do
   before(:context) do
-    DefraRuby::Exporters::BulkExportFile.create(file_name: "waste_exemptions_bulk_export_20190201-20190228.csv")
-    DefraRuby::Exporters::BulkExportFile.create(file_name: "waste_exemptions_bulk_export_20190301-20190331.csv")
-    DefraRuby::Exporters::BulkExportFile.create(file_name: "waste_exemptions_bulk_export_20190401-20190430.csv")
+    file_class = DefraRuby::Exporters.configuration.bulk_export_file_class
+    file_class.create(file_name: "waste_exemptions_bulk_export_20190201-20190228.csv")
+    file_class.create(file_name: "waste_exemptions_bulk_export_20190301-20190331.csv")
+    file_class.create(file_name: "waste_exemptions_bulk_export_20190401-20190430.csv")
   end
 
   let(:user) { create(:user, :system) }
@@ -15,7 +17,7 @@ RSpec.describe "Bulk Exports", type: :request do
   end
 
   describe "GET /data-exports" do
-    let(:num_files) { DefraRuby::Exporters::BulkExportFile.count }
+    let(:num_files) { DefraRuby::Exporters.configuration.bulk_export_file_class.count }
 
     it "makes calls to S3 to get the links for each file" do
       expect(DefraRuby::Exporters::RegistrationExportService)

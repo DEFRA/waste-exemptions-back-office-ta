@@ -56,17 +56,17 @@ gem "whenever", "~> 0.10.0"
 gem "wicked_pdf", "~> 1.2"
 gem "wkhtmltopdf-binary", "~> 0.12.4"
 
-# Use the AWS SDK to interact with S3
-gem "aws-sdk-s3", "~> 1.31"
-# Temporary fix to avoid the error spam coming from the AWS SDK
-gem "http-2"
-
 # Used for auditing and version control
 gem "paper_trail", "~> 10.2.0"
 
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
+    branch: "master"
+
+# Use the Defra Ruby Exporters gem for the EPR and bulk export functionality
+gem "defra_ruby_exporters",
+    git: "https://github.com/DEFRA/defra-ruby-exporters",
     branch: "master"
 
 # bundle exec rake doc:rails generates the API under doc/api.
