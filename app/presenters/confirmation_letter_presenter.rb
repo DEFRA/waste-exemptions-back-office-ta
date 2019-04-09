@@ -36,7 +36,7 @@ class ConfirmationLetterPresenter
   def reg_details_items
     submission_date = I18n.l(registration.submitted_at.to_date, format: :long)
     filter_blank_items([
-                         { key: t("reg_details_reference"), value: registration.reference },
+                         { key: t("reg_details_reference_number"), value: registration.reference },
                          { key: t("reg_details_activation_date"), value: submission_date }
                        ])
   end
