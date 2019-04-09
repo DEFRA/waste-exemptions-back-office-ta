@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-class ConfirmationLetterPresenter < Presenter
+class ConfirmationLetterPresenter
   delegate :reference, to: :registration
 
-  def initialize(registration, view_context)
+  def initialize(registration)
     @registration = registration
-    super(view_context)
   end
 
   def sorted_active_registration_exemptions
