@@ -108,14 +108,16 @@ class ConfirmationLetterPresenter
   end
 
   def business_details
-    org_name_key = "organisation_name_#{registration.business_type}"
-    org_number_key = "organisation_number_#{registration.business_type}"
-    org_address_key = "organisation_address_#{registration.business_type}"
+    org_type = registration.business_type.underscore
+    org_type = "default" unless %w[limited_company limited_liability_partnership].include? org_type
+    org_name_key = "organisation_name_#{org_type}"
+    org_number_key = "organisation_number_#{org_type}"
+    org_address_key = "organisation_address_#{org_type}"
     operator_address = address_lines(registration.operator_address).join(", ")
     [
-      { key: t(org_name_key, default: :organisation_name_default), value: registration.operator_name },
-      { key: t(org_number_key, default: :organisation_number_default), value: registration.company_no },
-      { key: t(org_address_key, default: :organisation_address_default), value: operator_address }
+      { key: t(org_name_key), value: registration.operator_name },
+      { key: t(org_number_key), value: registration.company_no },
+      { key: t(org_address_key), value: operator_address }
     ]
   end
 end
