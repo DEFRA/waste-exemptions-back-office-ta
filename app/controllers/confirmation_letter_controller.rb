@@ -5,7 +5,7 @@ class ConfirmationLetterController < ApplicationController
     registration = WasteExemptionsEngine::Registration.find(params[:id])
     authorize! :read, registration
 
-    show_as_html = params[:show_as_html].present? && params[:show_as_html] == 'true'
+    show_as_html = params[:show_as_html].present? && params[:show_as_html] == "true"
 
     render pdf: "#{registration.reference}_confirmation_letter",
            show_as_html: show_as_html,
