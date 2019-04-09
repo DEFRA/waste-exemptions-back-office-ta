@@ -53,7 +53,7 @@ class ConfirmationLetterPresenter
   def organisation_items
     filter_blank_items([
       { key: t("organisation_type"), value: I18n.t(registration.business_type, scope: "organisation_type") },
-      registration.business_type == "partnership" ? list_of_partners : business_details
+      registration.business_type == "partnership" ? list_of_people : business_details
     ].flatten)
   end
 
@@ -98,11 +98,11 @@ class ConfirmationLetterPresenter
     address_fields.map { |field| address.public_send(field) }.reject(&:blank?)
   end
 
-  def list_of_partners
-    registration.organisation.partner_contacts.each_with_index.map do |partner, index|
+  def list_of_people
+    registration.people.each_with_index.map do |person, index|
       {
         key: t(".organisation_partner_enumerator", count: index + 1),
-        value: [partner.full_name, get_address_lines_for_contact(partner)].flatten!.join(", ")
+        value: ["#{person.first_name} #{person.last_name}"]
       }
     end
   end

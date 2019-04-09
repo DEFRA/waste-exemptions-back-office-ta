@@ -54,6 +54,10 @@ FactoryBot.define do
 
     people { [build(:person), build(:person)] }
 
+    trait :partnership do
+      business_type { "partnership" }
+    end
+
     after(:create) do |registration|
       registration.registration_exemptions.each do |re|
         re.state = "active"
