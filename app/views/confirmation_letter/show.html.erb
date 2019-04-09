@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title><%= confirmation_letter_data.webpage_title %></title>
-  <meta name="description" content="Waste Exemptions confirmation letter" />
-  <meta name="author" content="Environment Agency" />
+  <meta name="description" content="Waste Exemptions confirmation letter">
+  <meta name="author" content="Environment Agency">
   <%= wicked_pdf_stylesheet_link_tag("confirmation_letter") %>
 </head>
 
@@ -31,7 +31,7 @@
         <div class="wel_address">
           <p>
             <% confirmation_letter_data.postal_address_lines.each do |line| %>
-              <%= line %><br/>
+              <%= line %><br>
             <% end %>
           </p>
         </div>
