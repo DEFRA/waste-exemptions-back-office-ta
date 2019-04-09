@@ -9,11 +9,11 @@ class ConfirmationLetterPresenter < Presenter
   end
 
   def sorted_active_registration_exemptions
-    registration.registration_exemptions.includes(:exemption).where(state: :active).order(:exemption_id)
+    registration_exemptions_with_exemptions.where(state: :active).order(:exemption_id)
   end
 
   def sorted_deregistered_registration_exemptions
-    registration.registration_exemptions.includes(:exemption).where("state != ?", :active).order_by_state_then_exemption_id
+    registration_exemptions_with_exemptions.where("state != ?", :active).order_by_state_then_exemption_id
   end
 
   # Used only if the page contains a single letter.
@@ -35,23 +35,20 @@ class ConfirmationLetterPresenter < Presenter
   end
 
   def reg_details_items
-    filter_blank_items(
-      [
-        { key: t("reg_details_reference"), value: registration.reference },
-        { key: t("reg_details_activation_date"), value: I18n.l(registration.submitted_at.to_date, format: :long) }
-      ]
-    )
+    submission_date = I18n.l(registration.submitted_at.to_date, format: :long)
+    filter_blank_items([
+                         { key: t("reg_details_reference"), value: registration.reference },
+                         { key: t("reg_details_activation_date"), value: submission_date }
+                       ])
   end
 
   def reg_completed_by_items
     applicant_full_name = "#{registration.applicant_first_name} #{registration.applicant_last_name}"
-    filter_blank_items(
-      [
-        { key: t("reg_completed_by_name"), value: applicant_full_name },
-        { key: t("reg_completed_by_telephone"), value: registration.applicant_phone },
-        { key: t("reg_completed_by_email"), value: registration.applicant_email }
-      ]
-    )
+    filter_blank_items([
+                         { key: t("reg_completed_by_name"), value: applicant_full_name },
+                         { key: t("reg_completed_by_telephone"), value: registration.applicant_phone },
+                         { key: t("reg_completed_by_email"), value: registration.applicant_email }
+                       ])
   end
 
   def organisation_items
@@ -63,29 +60,29 @@ class ConfirmationLetterPresenter < Presenter
 
   def waste_operation_contact_items
     contact_full_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
-    filter_blank_items(
-      [
-        { key: t("woc_name"), value: contact_full_name },
-        { key: t("woc_position"), value: registration.contact_position },
-        { key: t("woc_telephone"), value: registration.contact_phone },
-        { key: t("woc_email"), value: registration.contact_email }
-      ]
-    )
+    filter_blank_items([
+                         { key: t("woc_name"), value: contact_full_name },
+                         { key: t("woc_position"), value: registration.contact_position },
+                         { key: t("woc_telephone"), value: registration.contact_phone },
+                         { key: t("woc_email"), value: registration.contact_email }
+                       ])
   end
 
   def site_items
-    filter_blank_items(
-      [
-        { key: t("site_address"), value: address_lines(registration.site_address).join(", ") },
-        { key: t("site_ngr"), value: registration.site_address.grid_reference },
-        { key: t("site_details"), value: registration.site_address.description }
-      ]
-    )
+    filter_blank_items([
+                         { key: t("site_address"), value: address_lines(registration.site_address).join(", ") },
+                         { key: t("site_ngr"), value: registration.site_address.grid_reference },
+                         { key: t("site_details"), value: registration.site_address.description }
+                       ])
   end
 
   private
 
   attr_reader :registration
+
+  def registration_exemptions_with_exemptions
+    registration.registration_exemptions.includes(:exemption)
+  end
 
   def t(key, options = {})
     I18n.t(key, { scope: "confirmation_letter.show" }.merge!(options))
