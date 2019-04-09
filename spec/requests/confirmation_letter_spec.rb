@@ -24,7 +24,7 @@ RSpec.describe "Confirmation Letter", type: :request do
         end
       end
 
-      [:false, 1, 0, :foo].each do |bad_value|
+      [false, 1, 0, :foo].each do |bad_value|
         context "and the value is '#{bad_value}'" do
           it "responds with a PDF" do
             get "#{confirmation_letter_path(registration.id)}?show_as_html=#{bad_value}"
