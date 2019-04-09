@@ -79,7 +79,7 @@
       <%= render "/confirmation_letter/letter_section", subtitle: t(".site_subtitle"), items: confirmation_letter_data.site_items %>
 
       <!-- Table of exemptions -->
-      <% unless confirmation_letter_data.sorted_active_registration_exemptions.empty? %>
+      <% if confirmation_letter_data.sorted_active_registration_exemptions.any? %>
         <div class="wel_section">
           <h2><%= t(".exemptions_subtitle") %></h2>
           <table>
@@ -93,7 +93,7 @@
         </div>
       <% end %>
 
-      <% unless confirmation_letter_data.sorted_deregistered_registration_exemptions.empty? %>
+      <% if confirmation_letter_data.sorted_deregistered_registration_exemptions.any? %>
         <div class="wel_section">
         <h2><%= t(".deregistered_exemptions_subtitle") %></h2>
         <table>
