@@ -90,7 +90,7 @@
           <table>
             <% confirmation_letter_data.sorted_active_registration_exemptions.each do |re| %>
               <tr>
-                <td class="wel_exemption"><%= "#{re.exemption.code}: #{re.exemption.summary}" %></td>
+                <td class="wel_exemption"><%= confirmation_letter_data.exemption_description(re.exemption) %></td>
                 <td class="wel_ex_date"><%= re.state %></td>
               </tr>
             <% end %>
@@ -104,7 +104,7 @@
         <table>
           <% confirmation_letter_data.sorted_deregistered_registration_exemptions.each do |re| %>
             <tr>
-              <td class="wel_exemption"><%= "#{re.exemption.code}: #{re.exemption.summary}" %></td>
+              <td class="wel_exemption"><%= confirmation_letter_data.exemption_description(re.exemption) %></td>
               <td class="wel_ex_date"><%= re.state %></td>
             </tr>
           <% end %>

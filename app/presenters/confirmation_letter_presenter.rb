@@ -75,6 +75,10 @@ class ConfirmationLetterPresenter
                        ])
   end
 
+  def exemption_description(exemption)
+    "#{exemption.code}: #{exemption.summary}"
+  end
+
   private
 
   attr_reader :registration
