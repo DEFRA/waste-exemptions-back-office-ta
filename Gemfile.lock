@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: dc1d588ef6f042cbb412958ad27e768784d069d9
+  revision: d217c792f4200e21299d0180f2ae429e3186ff6d
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -218,7 +218,7 @@ GEM
       rake (>= 0.8.1)
     pg (0.18.4)
     pgreset (0.1.1)
-    phonelib (0.6.31)
+    phonelib (0.6.32)
     psych (3.1.0)
     public_suffix (3.0.3)
     rack (1.6.11)
