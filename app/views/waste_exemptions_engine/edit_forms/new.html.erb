@@ -6,6 +6,8 @@
 
     <h1 class="heading-large"><%= t(".heading") %></h1>
 
+    <p>Reference: <%= @edit_form.reference %></p>
+
     <%= f.hidden_field :token, value: @edit_form.token %>
     <div class="form-group">
       <%= f.submit t(".next_button"), class: "button" %>

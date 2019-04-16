@@ -23,6 +23,41 @@ module WasteExemptionsEngine
         get request_path
         expect(response.code).to eq("200")
       end
+
+      context "when the token is a registration reference" do
+        let(:registration) { create(:registration) }
+        let(:request_path) { "/edit/#{registration.reference}" }
+
+        it "renders the appropriate template" do
+          get request_path
+          expect(response).to render_template("waste_exemptions_engine/edit_forms/new")
+        end
+
+        it "responds to the GET request with a 200 status code" do
+          get request_path
+          expect(response.code).to eq("200")
+        end
+
+        it "loads the edit form for that registration" do
+          get request_path
+          expect(response.body).to include(registration.reference)
+        end
+
+        context "when the registration doesn't have an edit in progress" do
+          it "creates a new EditedRegistration for the registration" do
+            expect { get request_path }.to change { WasteExemptionsEngine::EditedRegistration.where(reference: registration.reference).count }.from(0).to(1)
+          end
+        end
+
+        context "when the registration already has an edit in progress" do
+          let(:edited_registration) { create(:edited_registration) }
+          let(:request_path) { "/edit/#{edited_registration.reference}" }
+
+          it "does not create a new EditedRegistration for the registration" do
+            expect { get request_path }.to_not change { WasteExemptionsEngine::EditedRegistration.where(reference: edited_registration.reference).count }.from(1)
+          end
+        end
+      end
     end
 
     describe "unable to go submit GET back" do
