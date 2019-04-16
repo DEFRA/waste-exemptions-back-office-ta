@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptions_engine", "transient_registration")
+require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptions_engine", "new_registration")
 
 module WasteExemptionsEngine
-  class TransientRegistration < ActiveRecord::Base
+  class NewRegistration < TransientRegistration
     include CanBeSearchedLikeRegistration
 
     scope :search_for_site_address_postcode, lambda { |term|

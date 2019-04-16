@@ -6,8 +6,8 @@ RSpec.describe SearchService do
   let(:registration) { create(:registration) }
   let(:other_registration) { create(:registration) }
 
-  let(:transient_registration) { create(:transient_registration) }
-  let(:other_transient_registration) { create(:transient_registration) }
+  let(:new_registration) { create(:new_registration) }
+  let(:other_new_registration) { create(:new_registration) }
 
   let(:term) { registration.reference }
   let(:model) { nil }
@@ -30,16 +30,16 @@ RSpec.describe SearchService do
       end
     end
 
-    context "when the model is set to transient_registrations" do
-      let(:model) { :transient_registrations }
-      let(:term) { transient_registration.reference }
+    context "when the model is set to new_registrations" do
+      let(:model) { :new_registrations }
+      let(:term) { new_registration.reference }
 
-      it "should return matching transient_registrations" do
-        expect(results).to include(transient_registration)
+      it "should return matching new_registrations" do
+        expect(results).to include(new_registration)
       end
 
-      it "should not return non-matching transient_registrations" do
-        expect(results).to_not include(other_transient_registration)
+      it "should not return non-matching new_registrations" do
+        expect(results).to_not include(other_new_registration)
       end
     end
 

@@ -39,8 +39,8 @@ class Ability
 
   def permissions_for_admin_agent
     can :create, WasteExemptionsEngine::Registration
-    can :create, WasteExemptionsEngine::TransientRegistration
-    can :update, WasteExemptionsEngine::TransientRegistration
+    can :create, WasteExemptionsEngine::NewRegistration
+    can :update, WasteExemptionsEngine::NewRegistration
 
     permissions_for_data_agent
   end
@@ -48,7 +48,7 @@ class Ability
   def permissions_for_data_agent
     can :use_back_office, :all
     can :read, WasteExemptionsEngine::Registration
-    can :read, WasteExemptionsEngine::TransientRegistration
+    can :read, WasteExemptionsEngine::NewRegistration
     can :read, DefraRuby::Exporters::RegistrationBulkExportReport
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TransientRegistrationsController < ApplicationController
+class NewRegistrationsController < ApplicationController
   helper ActionLinksHelper
   helper RegistrationsHelper
 
@@ -12,7 +12,7 @@ class TransientRegistrationsController < ApplicationController
   private
 
   def find_resource(reference)
-    @resource = WasteExemptionsEngine::TransientRegistration.find_by(reference: reference)
+    @resource = WasteExemptionsEngine::NewRegistration.find_by(reference: reference)
   end
 
   def authorize
