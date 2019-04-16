@@ -54,7 +54,6 @@ gem "whenever", "~> 0.10.0"
 
 # Use Wicked PDF for PDF generation
 gem "wicked_pdf", "~> 1.2"
-gem "wkhtmltopdf-binary", "~> 0.12.4"
 
 # Used for auditing and version control
 gem "paper_trail", "~> 10.2.0"
