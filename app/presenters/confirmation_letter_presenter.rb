@@ -21,7 +21,7 @@ class ConfirmationLetterPresenter
   end
 
   def date_of_letter
-    I18n.l(Time.zone.today, format: :long)
+    Time.now.in_time_zone("London").to_date.to_formatted_s(:day_month_year)
   end
 
   # Provides the full postal address for the letter.
