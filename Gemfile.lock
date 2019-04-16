@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: d217c792f4200e21299d0180f2ae429e3186ff6d
-  branch: master
+  revision: 224b02bb695f482680f2b05da8f1b7f92be11fc8
+  branch: feature/create-transient-edit
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
