@@ -1,0 +1,14 @@
+<%= render("waste_exemptions_engine/shared/back", back_path: main_app.root_path) %>
+
+<div class="text">
+  <%= form_for(@edit_form, url: main_app.edit_forms_path) do |f| %>
+    <%= render("waste_exemptions_engine/shared/errors", object: @edit_form) %>
+
+    <h1 class="heading-large"><%= t(".heading") %></h1>
+
+    <%= f.hidden_field :token, value: @edit_form.token %>
+    <div class="form-group">
+      <%= f.submit t(".next_button"), class: "button" %>
+    </div>
+  <% end %>
+</div>

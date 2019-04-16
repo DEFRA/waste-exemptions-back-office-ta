@@ -33,6 +33,19 @@ Rails.application.routes.draw do
   resources :registrations, only: :show, param: :reference
   resources :new_registrations, only: :show, param: :reference, path: "/new-registrations"
 
+  # Edit registrations
+  resources :edit_forms,
+            module: "waste_exemptions_engine",
+            only: %i[new create],
+            path: "edit",
+            path_names: { new: "/:token" }
+
+  resources :edit_complete_forms,
+            module: "waste_exemptions_engine",
+            only: %i[new create],
+            path: "edit-complete",
+            path_names: { new: "/:token" }
+
   # Deregister Registrations
 
   get "/registrations/deregister/:id", to: "deregister_registrations#new", as: :deregister_registrations_form
