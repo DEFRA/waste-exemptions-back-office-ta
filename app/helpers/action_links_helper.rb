@@ -19,6 +19,12 @@ module ActionLinksHelper
     WasteExemptionsEngine::Engine.routes.url_helpers.public_send(path, token)
   end
 
+  def edit_link_for(resource)
+    return "#" unless resource.is_a?(WasteExemptionsEngine::Registration)
+
+    new_edit_form_path(resource.reference)
+  end
+
   def display_resume_link_for?(resource)
     return false unless resource.is_a?(WasteExemptionsEngine::NewRegistration)
 

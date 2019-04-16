@@ -57,6 +57,25 @@ RSpec.describe ActionLinksHelper, type: :helper do
     end
   end
 
+  describe "edit_link_for" do
+    context "when the resource is a registration" do
+      let(:resource) { create(:registration) }
+
+      it "returns the correct path" do
+        path = new_edit_form_path(resource.reference)
+        expect(helper.edit_link_for(resource)).to eq(path)
+      end
+    end
+
+    context "when the resource is not a registration" do
+      let(:resource) { nil }
+
+      it "returns the correct path" do
+        expect(helper.edit_link_for(resource)).to eq("#")
+      end
+    end
+  end
+
   describe "display_resume_link_for?" do
     context "when the resource is a new_registration" do
       let(:resource) { create(:new_registration) }

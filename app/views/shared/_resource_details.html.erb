@@ -114,7 +114,7 @@
       <ul>
         <% if display_edit_link_for?(resource) %>
         <li>
-          <%= link_to t(".actions.edit"), "#" %>
+          <%= link_to t(".actions.edit"), edit_link_for(resource) %>
         </li>
         <% end %>
         <% if display_resume_link_for?(resource) %>
