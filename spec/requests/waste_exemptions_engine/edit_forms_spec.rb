@@ -79,5 +79,40 @@ module WasteExemptionsEngine
         expect(response.code).to eq(status_code.to_s)
       end
     end
+
+    %w[location
+       applicant_name
+       applicant_phone
+       applicant_email
+       main_people
+       registration_number
+       operator_name
+       operator_postcode
+       contact_name
+       contact_phone
+       contact_email
+       contact_postcode
+       on_a_farm
+       is_a_farmer
+       site_grid_reference].each do |edit_action|
+      describe "GET edit_#{edit_action}" do
+        let(:next_workflow_state) { "#{edit_action}_form" }
+        let(:request_path) { "/edit/#{edit_action}/#{form.token}" }
+        let(:redirection_path) do
+          WasteExemptionsEngine::Engine.routes.url_helpers.send("new_#{next_workflow_state}_path".to_sym, form.transient_registration.token)
+        end
+        status_code = WasteExemptionsEngine::ApplicationController::SUCCESSFUL_REDIRECTION_CODE
+
+        it "redirects to the appropriate location" do
+          get request_path
+          expect(response.location).to include(redirection_path)
+        end
+
+        it "responds to the GET request with a #{status_code} status code" do
+          get request_path
+          expect(response.code).to eq(status_code.to_s)
+        end
+      end
+    end
   end
 end
