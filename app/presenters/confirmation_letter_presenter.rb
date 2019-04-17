@@ -16,8 +16,8 @@ class ConfirmationLetterPresenter
   end
 
   # Used only if the page contains a single letter.
-  def webpage_title
-    I18n.t("confirmation_letter.single_title", reg_number: registration.reference)
+  def web_page_title
+    t("web_page_title", reg_number: registration.reference)
   end
 
   def date_of_letter

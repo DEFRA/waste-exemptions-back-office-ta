@@ -1,7 +1,7 @@
 en:
   confirmation_letter:
-    single_title: Waste Exemption confirmation letter for %{reg_number}
     show:
+      web_page_title: Waste Exemptions confirmation letter for %{reg_number}
       print_warning_header: "When you print, remember to:"
       print_warning_item1: set all print headers and footers to empty
       print_warning_item2: set print margins to 10mm all round
