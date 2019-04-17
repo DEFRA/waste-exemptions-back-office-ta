@@ -79,6 +79,19 @@ class ConfirmationLetterPresenter
     "#{exemption.code}: #{exemption.summary}"
   end
 
+  def registration_exemption_status(registration_exemption)
+    display_date = if registration_exemption.state == "active"
+                     registration_exemption.expires_on.to_formatted_s(:day_month_year)
+                   else
+                     registration_exemption.deregistered_on.to_formatted_s(:day_month_year)
+                   end
+
+    t(
+      "exemptions_status.#{registration_exemption.state}",
+      display_date: display_date
+    )
+  end
+
   private
 
   attr_reader :registration

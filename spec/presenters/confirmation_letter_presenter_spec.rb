@@ -13,4 +13,33 @@ RSpec.describe ConfirmationLetterPresenter do
       expect(subject.exemption_description(exemption)).to eq("#{exemption.code}: #{exemption.summary}")
     end
   end
+
+  describe "#registration_exemption_status" do
+    context "when the registration exemption is active" do
+      let(:registration_exemption) { build(:registration_exemption, :active) }
+
+      it "returns a string representation that states when the exemption will expire" do
+        expected_status = "Expires on #{(Date.today + 3.years).to_formatted_s(:day_month_year)}"
+        expect(subject.registration_exemption_status(registration_exemption)).to eq(expected_status)
+      end
+    end
+
+    context "when the registration exemption is ceased" do
+      let(:registration_exemption) { build(:registration_exemption, :ceased) }
+
+      it "returns a string representation that states when the exemption was ceased" do
+        expected_status = "Ceased on #{registration_exemption.deregistered_on.to_formatted_s(:day_month_year)}"
+        expect(subject.registration_exemption_status(registration_exemption)).to eq(expected_status)
+      end
+    end
+
+    context "when the registration exemption is revoked" do
+      let(:registration_exemption) { build(:registration_exemption, :revoked) }
+
+      it "returns a string representation that states when the exemption was revoked" do
+        expected_status = "Revoked on #{registration_exemption.deregistered_on.to_formatted_s(:day_month_year)}"
+        expect(subject.registration_exemption_status(registration_exemption)).to eq(expected_status)
+      end
+    end
+  end
 end

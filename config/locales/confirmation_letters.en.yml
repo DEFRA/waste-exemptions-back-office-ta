@@ -46,6 +46,10 @@ en:
       site_ngr: "Grid reference:"
       site_details: "Site details:"
       exemptions_subtitle: Waste exemptions
+      exemptions_status:
+        active: "Expires on %{display_date}"
+        ceased: "Ceased on %{display_date}"
+        revoked: "Revoked on %{display_date}"
       deregistered_exemptions_subtitle: De-registered exemptions
       contact_us_subtitle: If you need to contact us
       contact_us_para1: "If you need help or advice call the Environment Agency helpline: 03708 506506"
