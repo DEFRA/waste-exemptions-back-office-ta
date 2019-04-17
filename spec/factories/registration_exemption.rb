@@ -12,13 +12,13 @@ FactoryBot.define do
     trait :ceased do
       state { "ceased" }
       deregistration_message { "Ceased for reasons" }
-      deregistered_on { Date.today }
+      deregistered_on { Date.today - 1.day }
     end
 
     trait :revoked do
       state { "revoked" }
       deregistration_message { "Revoked for reasons" }
-      deregistered_on { Date.today }
+      deregistered_on { Date.today - 1.day }
     end
   end
 end

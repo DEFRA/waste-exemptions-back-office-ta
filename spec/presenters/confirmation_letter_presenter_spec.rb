@@ -3,13 +3,16 @@
 require "rails_helper"
 
 RSpec.describe ConfirmationLetterPresenter do
+  let(:today) { Time.new(2019, 4, 2).in_time_zone("London") }
   let(:registration) { create(:registration) }
   subject { described_class.new(registration) }
 
   describe "#date_of_letter" do
+    before { Timecop.freeze(today) }
+    after { Timecop.return }
+
     it "returns the current date formatted as for example '3 April 2019'" do
-      expected_value = Time.now.in_time_zone("London").to_date.to_formatted_s(:day_month_year)
-      expect(subject.date_of_letter).to eq(expected_value)
+      expect(subject.date_of_letter).to eq("2 April 2019")
     end
   end
 
@@ -22,12 +25,14 @@ RSpec.describe ConfirmationLetterPresenter do
   end
 
   describe "#registration_exemption_status" do
+    before { Timecop.freeze(today) }
+    after { Timecop.return }
+
     context "when the registration exemption is active" do
       let(:registration_exemption) { build(:registration_exemption, :active) }
 
       it "returns a string representation that states when the exemption will expire" do
-        expected_status = "Expires on #{(Date.today + 3.years).to_formatted_s(:day_month_year)}"
-        expect(subject.registration_exemption_status(registration_exemption)).to eq(expected_status)
+        expect(subject.registration_exemption_status(registration_exemption)).to eq("Expires on 2 April 2022")
       end
     end
 
@@ -35,8 +40,7 @@ RSpec.describe ConfirmationLetterPresenter do
       let(:registration_exemption) { build(:registration_exemption, :ceased) }
 
       it "returns a string representation that states when the exemption was ceased" do
-        expected_status = "Ceased on #{registration_exemption.deregistered_on.to_formatted_s(:day_month_year)}"
-        expect(subject.registration_exemption_status(registration_exemption)).to eq(expected_status)
+        expect(subject.registration_exemption_status(registration_exemption)).to eq("Ceased on 1 April 2019")
       end
     end
 
@@ -44,8 +48,7 @@ RSpec.describe ConfirmationLetterPresenter do
       let(:registration_exemption) { build(:registration_exemption, :revoked) }
 
       it "returns a string representation that states when the exemption was revoked" do
-        expected_status = "Revoked on #{registration_exemption.deregistered_on.to_formatted_s(:day_month_year)}"
-        expect(subject.registration_exemption_status(registration_exemption)).to eq(expected_status)
+        expect(subject.registration_exemption_status(registration_exemption)).to eq("Revoked on 1 April 2019")
       end
     end
   end
