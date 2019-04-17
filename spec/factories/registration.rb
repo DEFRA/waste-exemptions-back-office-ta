@@ -38,6 +38,10 @@ FactoryBot.define do
       "Lastcontact#{n}"
     end
 
+    sequence :contact_position do |n|
+      "Contactposition#{n}"
+    end
+
     sequence :operator_name do |n|
       "Operator #{n}"
     end
