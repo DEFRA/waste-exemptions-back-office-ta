@@ -41,6 +41,7 @@ module Helpers
       address_finder_error
       type
       workflow_state
+      submitted_at
     ]).freeze
   end
 end
