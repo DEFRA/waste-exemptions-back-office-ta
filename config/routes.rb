@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   root "dashboards#index"
 
@@ -60,3 +61,4 @@ Rails.application.routes.draw do
 
   mount WasteExemptionsEngine::Engine => "/"
 end
+# rubocop:enable Metrics/BlockLength
