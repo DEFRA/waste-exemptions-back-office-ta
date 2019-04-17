@@ -6,6 +6,13 @@ RSpec.describe ConfirmationLetterPresenter do
   let(:registration) { create(:registration) }
   subject { described_class.new(registration) }
 
+  describe "#date_of_letter" do
+    it "returns the current date formatted as for example '3 April 2019'" do
+      expected_value = Time.now.in_time_zone("London").to_date.to_formatted_s(:day_month_year)
+      expect(subject.date_of_letter).to eq(expected_value)
+    end
+  end
+
   describe "#exemption_description" do
     let(:exemption) { build(:exemption) }
 
