@@ -4,15 +4,15 @@ module ActionLinksHelper
   def view_link_for(resource)
     if resource.is_a?(WasteExemptionsEngine::Registration)
       registration_path(resource.reference)
-    elsif resource.is_a?(WasteExemptionsEngine::TransientRegistration)
-      transient_registration_path(resource.reference)
+    elsif resource.is_a?(WasteExemptionsEngine::NewRegistration)
+      new_registration_path(resource.reference)
     else
       "#"
     end
   end
 
   def resume_link_for(resource)
-    return "#" unless resource.is_a?(WasteExemptionsEngine::TransientRegistration)
+    return "#" unless resource.is_a?(WasteExemptionsEngine::NewRegistration)
 
     token = resource.token
     path = "new_#{resource.workflow_state}_path".to_sym
@@ -20,7 +20,7 @@ module ActionLinksHelper
   end
 
   def display_resume_link_for?(resource)
-    return false unless resource.is_a?(WasteExemptionsEngine::TransientRegistration)
+    return false unless resource.is_a?(WasteExemptionsEngine::NewRegistration)
 
     can?(:update, resource)
   end

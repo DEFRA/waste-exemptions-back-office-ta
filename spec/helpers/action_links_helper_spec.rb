@@ -21,15 +21,15 @@ RSpec.describe ActionLinksHelper, type: :helper do
       end
     end
 
-    context "when the resource is a transient_registration" do
-      let(:resource) { create(:transient_registration) }
+    context "when the resource is a new_registration" do
+      let(:resource) { create(:new_registration) }
 
       it "returns the correct path" do
-        expect(helper.view_link_for(resource)).to eq(transient_registration_path(resource.reference))
+        expect(helper.view_link_for(resource)).to eq(new_registration_path(resource.reference))
       end
     end
 
-    context "when the resource is not a registration or a transient_registration" do
+    context "when the resource is not a registration or a new_registration" do
       let(:resource) { nil }
 
       it "returns the correct path" do
@@ -39,8 +39,8 @@ RSpec.describe ActionLinksHelper, type: :helper do
   end
 
   describe "resume_link_for" do
-    context "when the resource is a transient_registration" do
-      let(:resource) { create(:transient_registration) }
+    context "when the resource is a new_registration" do
+      let(:resource) { create(:new_registration) }
 
       it "returns the correct path" do
         path = WasteExemptionsEngine::Engine.routes.url_helpers.new_start_form_path(resource.token)
@@ -48,7 +48,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
       end
     end
 
-    context "when the resource is not a transient_registration" do
+    context "when the resource is not a new_registration" do
       let(:resource) { nil }
 
       it "returns the correct path" do
@@ -58,8 +58,8 @@ RSpec.describe ActionLinksHelper, type: :helper do
   end
 
   describe "display_resume_link_for?" do
-    context "when the resource is a transient_registration" do
-      let(:resource) { create(:transient_registration) }
+    context "when the resource is a new_registration" do
+      let(:resource) { create(:new_registration) }
 
       context "when the user has permission" do
         before { allow(helper).to receive(:can?).and_return(true) }
@@ -78,7 +78,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
       end
     end
 
-    context "when the resource is not a transient_registration" do
+    context "when the resource is not a new_registration" do
       let(:resource) { nil }
 
       it "returns false" do
