@@ -9,8 +9,8 @@ RSpec.shared_examples "data_agent examples" do
     should be_able_to(:read, registration)
   end
 
-  it "should be able to view transient_registrations" do
-    should be_able_to(:read, transient_registration)
+  it "should be able to view new registrations" do
+    should be_able_to(:read, new_registration)
   end
 
   it "should be able to view bulk exports" do

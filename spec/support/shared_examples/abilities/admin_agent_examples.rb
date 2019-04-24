@@ -5,11 +5,11 @@ RSpec.shared_examples "admin_agent examples" do
     should be_able_to(:create, registration)
   end
 
-  it "should be able to create transient registrations" do
-    should be_able_to(:create, transient_registration)
+  it "should be able to create new registrations" do
+    should be_able_to(:create, new_registration)
   end
 
-  it "should be able to update transient registrations" do
-    should be_able_to(:update, transient_registration)
+  it "should be able to update new registrations" do
+    should be_able_to(:update, new_registration)
   end
 end
