@@ -7,8 +7,8 @@ module DashboardsHelper
     @filter == :registrations
   end
 
-  def preselect_transient_registrations_radio_button?
-    @filter == :transient_registrations
+  def preselect_new_registrations_radio_button?
+    @filter == :new_registrations
   end
 
   def status_tag_for(result)
