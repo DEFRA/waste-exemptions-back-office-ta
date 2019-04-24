@@ -86,7 +86,7 @@
           </li>
           <% if display_edit_link_for?(result) %>
           <li>
-            <%= link_to "#", id: "edit_#{result.reference}" do %>
+            <%= link_to edit_link_for(result), id: "edit_#{result.reference}" do %>
               <%= t(".actions.edit.link_text") %>
               <span class="visually-hidden">
                <%= t(".actions.edit.visually_hidden_text",
