@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 5b2acce56ba48c146c10ccfca29e9e038557298a
-  branch: feature/transient-reg-subclasses
+  revision: a65ebdc81c32e42ce081da699306652641e4633d
+  branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
