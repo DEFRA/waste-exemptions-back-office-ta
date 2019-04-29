@@ -17,7 +17,7 @@ en:
         filters:
           legend: "Filter your search"
           registrations: "Submitted"
-          transient_registrations: "Not yet submitted"
+          new_registrations: "Not yet submitted"
         submit: "Search"
       user_info:
         heading: "Current user"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190327134526) do
+ActiveRecord::Schema.define(version: 20190424143344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20190327134526) do
     t.boolean  "address_finder_error",   default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "type"
   end
 
   add_index "transient_registrations", ["reference"], name: "index_transient_registrations_on_reference", unique: true, using: :btree

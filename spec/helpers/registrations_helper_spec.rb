@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe RegistrationsHelper, type: :helper do
-  let(:resource) { build(:transient_registration) }
+  let(:resource) { build(:new_registration) }
 
   describe "applicant_data_present?" do
     context "when the resource has data in at least one relevant field" do

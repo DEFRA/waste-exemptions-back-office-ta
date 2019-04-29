@@ -8,7 +8,7 @@ RSpec.describe Ability, type: :model do
 
   let(:registration) { build(:registration) }
   let(:registration_exemption) { build(:registration_exemption) }
-  let(:transient_registration) { build(:transient_registration) }
+  let(:new_registration) { build(:new_registration) }
 
   context "when the user role is system" do
     let(:user) { build(:user, :system) }

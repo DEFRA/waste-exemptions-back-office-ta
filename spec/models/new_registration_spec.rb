@@ -2,13 +2,13 @@
 
 require "rails_helper"
 
-RSpec.describe WasteExemptionsEngine::TransientRegistration, type: :model do
-  let(:matching_registration) { create(:transient_registration) }
-  let(:non_matching_registration) { create(:transient_registration) }
+RSpec.describe WasteExemptionsEngine::NewRegistration, type: :model do
+  let(:matching_registration) { create(:new_registration) }
+  let(:non_matching_registration) { create(:new_registration) }
 
   describe "#search_registration_and_relations" do
     let(:term) { nil }
-    let(:scope) { WasteExemptionsEngine::TransientRegistration.search_registration_and_relations(term) }
+    let(:scope) { WasteExemptionsEngine::NewRegistration.search_registration_and_relations(term) }
 
     context "when the search term is an applicant_email" do
       let(:term) { matching_registration.applicant_email }
