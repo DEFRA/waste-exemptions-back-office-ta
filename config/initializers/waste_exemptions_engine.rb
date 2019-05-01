@@ -18,6 +18,9 @@ WasteExemptionsEngine.configure do |configuration|
   # Assisted digital config
   configuration.default_assistance_mode = "full"
 
+  # Edit config
+  configuration.edit_enabled = "true"
+
   # PDF config
   configuration.use_xvfb_for_wickedpdf = ENV["USE_XVFB_FOR_WICKEDPDF"] || "true"
 
