@@ -110,8 +110,20 @@ RSpec.describe ActionLinksHelper, type: :helper do
     context "when the resource is a registration" do
       let(:resource) { create(:registration) }
 
-      it "returns true" do
-        expect(helper.display_edit_link_for?(resource)).to eq(true)
+      context "when the user has permission to update a registration" do
+        before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:update, resource).and_return(true) }
+
+        it "returns true" do
+          expect(helper.display_edit_link_for?(resource)).to eq(true)
+        end
+      end
+
+      context "when the user does not have permission to update a registration" do
+        before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:update, resource).and_return(false) }
+
+        it "returns false" do
+          expect(helper.display_edit_link_for?(resource)).to eq(false)
+        end
       end
     end
 
