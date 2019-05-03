@@ -32,7 +32,7 @@ module ActionLinksHelper
   end
 
   def display_edit_link_for?(resource)
-    resource.is_a?(WasteExemptionsEngine::Registration)
+    resource.is_a?(WasteExemptionsEngine::Registration) && can?(:update, resource)
   end
 
   def display_deregister_link_for?(resource)
