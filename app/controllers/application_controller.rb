@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   before_action :set_paper_trail_whodunnit
 
   helper WasteExemptionsEngine::ApplicationHelper
-  include PermissionChecks
 
   rescue_from CanCan::AccessDenied do
     unsuccessful_redirection = WasteExemptionsEngine::ApplicationController::UNSUCCESSFUL_REDIRECTION_CODE
