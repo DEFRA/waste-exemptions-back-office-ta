@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 2b71aa4135511234f5e9b04ff998e7afa0b8e3b6
-  branch: 330-move-permissions-setting-to-service-to-allow-easier-reopen-of-class
+  revision: 24cb548e9f11f3f662eb5a8d300b1c8fec974470
+  branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)

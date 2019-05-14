@@ -62,7 +62,7 @@ gem "paper_trail", "~> 10.2.0"
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
-    branch: "330-move-permissions-setting-to-service-to-allow-easier-reopen-of-class"
+    branch: "master"
 
 # Use the Defra Ruby Exporters gem for the EPR and bulk export functionality
 gem "defra_ruby_exporters",
