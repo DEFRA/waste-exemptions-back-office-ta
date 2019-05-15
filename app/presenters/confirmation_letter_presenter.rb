@@ -74,8 +74,6 @@ class ConfirmationLetterPresenter < BasePresenter
 
   private
 
-  attr_reader :registration
-
   def registration_exemptions_with_exemptions
     registration_exemptions.includes(:exemption)
   end
