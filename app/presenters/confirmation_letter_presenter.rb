@@ -40,19 +40,15 @@ class ConfirmationLetterPresenter < BasePresenter
     ].flatten!.reject(&:blank?)
   end
 
+  def site_address_one_liner
+    address_lines(site_address).join(", ")
+  end
+
   def business_details_items
     filter_blank_items([
       { key: t("business_details.type"), value: I18n.t(business_type, scope: "organisation_type") },
       business_type == "partnership" ? list_of_people : business_details
     ].flatten)
-  end
-
-  def waste_operation_location_items
-    filter_blank_items([
-                         { key: t("waste_operation_location.address"), value: address_lines(site_address).join(", ") },
-                         { key: t("waste_operation_location.ngr"), value: site_address.grid_reference },
-                         { key: t("waste_operation_location.details"), value: site_address.description }
-                       ])
   end
 
   def exemption_description(exemption)

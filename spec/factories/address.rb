@@ -49,9 +49,17 @@ FactoryBot.define do
         n
       end
 
-      sequence :country_iso do |n|
-        "country_iso_#{n}"
-      end
+      uprn { nil }
+      premises { nil }
+      street_address { nil }
+      locality { nil }
+      city { nil }
+      postcode { nil }
+      country_iso { nil}
+    end
+
+    trait :site_uses_address do
+      address_type { 3 }
     end
   end
 end

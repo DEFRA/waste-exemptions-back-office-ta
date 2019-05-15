@@ -58,11 +58,16 @@ FactoryBot.define do
       business_type { "partnership" }
     end
 
-    after(:create) do |registration|
-      registration.registration_exemptions.each do |re|
-        re.state = "active"
-        re.save!
+    trait :site_uses_address do
+      addresses do
+        [build(:address, :operator),
+         build(:address, :contact),
+         build(:address, :site_uses_address)]
       end
+    end
+
+    trait :with_active_exemptions do
+      registration_exemptions { build_list(:registration_exemption, 5, state: :active) }
     end
   end
 end

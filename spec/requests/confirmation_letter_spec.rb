@@ -3,8 +3,8 @@
 require "rails_helper"
 
 RSpec.describe "Confirmation Letter", type: :request do
-  let(:registration) { create(:registration) }
-  let(:partnership_registration) { create(:registration, :partnership) }
+  let(:registration) { create(:registration, :with_active_exemptions) }
+  let(:partnership_registration) { create(:registration, :partnership, :with_active_exemptions) }
   let(:user) { create(:user, :system) }
   before(:each) do
     sign_in(user)

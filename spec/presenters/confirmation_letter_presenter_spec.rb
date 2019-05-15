@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe ConfirmationLetterPresenter do
   let(:today) { Time.new(2019, 4, 2).in_time_zone("London") }
-  let(:registration) { create(:registration) }
+  let(:registration) { create(:registration, :with_active_exemptions) }
   subject { described_class.new(registration) }
 
   describe "#web_page_title" do
@@ -49,12 +49,38 @@ RSpec.describe ConfirmationLetterPresenter do
     end
   end
 
-  describe "#exemption_description" do
-    let(:exemption) { build(:exemption) }
+  describe "#contact_full_name" do
+    it "returns the registration's contact first and last name attributes as a single string" do
+      expected_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
 
-    it "returns a string representation formatted as 'code: summary'" do
-      expect(subject.exemption_description(exemption)).to eq("#{exemption.code}: #{exemption.summary}")
+      expect(subject.contact_full_name).to eq(expected_name)
     end
+  end
+
+  describe "#site_address_one_liner" do
+    context "when the site location is located by grid reference" do
+      it "returns an empty string" do
+        expect(subject.site_address_one_liner).to eq("")
+      end
+    end
+
+    context "when the site location is located by postcode" do
+      let(:registration) { create(:registration, :site_uses_address) }
+      it "returns a string representation of the address" do
+        site_address = registration.site_address
+        address_fields = [
+          site_address.organisation,
+          site_address.premises,
+          site_address.street_address,
+          site_address.locality,
+          site_address.city,
+          site_address.postcode
+        ].reject(&:blank?)
+
+        expect(subject.site_address_one_liner).to eq(address_fields.join(", "))
+      end
+    end
+
   end
 
   describe "#registration_exemption_status" do
