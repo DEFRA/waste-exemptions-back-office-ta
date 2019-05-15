@@ -23,6 +23,10 @@ class ConfirmationLetterPresenter < BasePresenter
     submitted_at.to_date.to_formatted_s(:day_month_year)
   end
 
+  def applicant_full_name
+    "#{applicant_first_name} #{applicant_last_name}"
+  end
+
   # Provides the full postal address for the letter.
   def postal_address_lines
     [
@@ -30,15 +34,6 @@ class ConfirmationLetterPresenter < BasePresenter
       operator_name,
       address_lines(contact_address)
     ].flatten!.reject(&:blank?)
-  end
-
-  def reg_completed_by_items
-    applicant_full_name = "#{applicant_first_name} #{applicant_last_name}"
-    filter_blank_items([
-                         { key: t("reg_completed_by_name"), value: applicant_full_name },
-                         { key: t("reg_completed_by_telephone"), value: applicant_phone },
-                         { key: t("reg_completed_by_email"), value: applicant_email }
-                       ])
   end
 
   def business_details_items

@@ -76,7 +76,12 @@
       </div>
 
       <!-- Registration completed by -->
-      <%= render "/confirmation_letter/letter_section", subtitle: t(".registration_completed_by.title"), items: confirmation_letter_data.registration_completed_by_items %>
+      <div class="wel_section">
+        <h2><%= t(".registration_completed_by.title") %></h2>
+        <p><%= content_tag(:strong, t(".registration_completed_by.name")) %> <%= confirmation_letter_data.applicant_full_name %></p>
+        <p><%= content_tag(:strong, t(".registration_completed_by.telephone")) %> <%= confirmation_letter_data.applicant_phone %></p>
+        <p><%= content_tag(:strong, t(".registration_completed_by.email")) %> <%= confirmation_letter_data.applicant_email %></p>
+      </div>
 
       <!-- Business details -->
       <%= render "/confirmation_letter/letter_section", subtitle: t(".business_details.title"), items: confirmation_letter_data.business_details_items %>

@@ -33,6 +33,14 @@ RSpec.describe ConfirmationLetterPresenter do
     end
   end
 
+  describe "#applicant_full_name" do
+    it "returns the registration's first and last name attributes as a single string" do
+      expected_name = "#{registration.applicant_first_name} #{registration.applicant_last_name}"
+
+      expect(subject.applicant_full_name).to eq(expected_name)
+    end
+  end
+
   describe "#exemption_description" do
     let(:exemption) { build(:exemption) }
 
