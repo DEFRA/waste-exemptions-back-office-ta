@@ -24,6 +24,10 @@ class ConfirmationLetterPresenter
     Time.now.in_time_zone("London").to_date.to_formatted_s(:day_month_year)
   end
 
+  def submission_date
+    registration.submitted_at.to_date.to_formatted_s(:day_month_year)
+  end
+
   # Provides the full postal address for the letter.
   def postal_address_lines
     [
@@ -31,14 +35,6 @@ class ConfirmationLetterPresenter
       registration.operator_name,
       address_lines(registration.contact_address)
     ].flatten!.reject(&:blank?)
-  end
-
-  def registration_details_items
-    submission_date = I18n.l(registration.submitted_at.to_date, format: :long)
-    filter_blank_items([
-                         { key: t("registration_details.reference_number"), value: registration.reference },
-                         { key: t("registration_details.activation_date"), value: submission_date }
-                       ])
   end
 
   def registration_completed_by_items

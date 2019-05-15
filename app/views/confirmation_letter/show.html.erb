@@ -69,7 +69,11 @@
       </div>
 
       <!-- Registration details -->
-      <%= render "/confirmation_letter/letter_section", subtitle: t(".registration_details.title"), items: confirmation_letter_data.registration_details_items %>
+      <div class="wel_section">
+        <h2><%= t(".registration_details.title") %></h2>
+        <p><%= content_tag(:strong, t(".registration_details.reference_number")) %> <%= confirmation_letter_data.reference %></p>
+        <p><%= content_tag(:strong, t(".registration_details.activation_date")) %> <%= confirmation_letter_data.submission_date %></p>
+      </div>
 
       <!-- Registration completed by -->
       <%= render "/confirmation_letter/letter_section", subtitle: t(".registration_completed_by.title"), items: confirmation_letter_data.registration_completed_by_items %>

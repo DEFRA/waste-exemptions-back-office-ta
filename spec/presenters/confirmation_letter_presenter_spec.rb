@@ -17,8 +17,19 @@ RSpec.describe ConfirmationLetterPresenter do
     before { Timecop.freeze(today) }
     after { Timecop.return }
 
-    it "returns the current date formatted as for example '3 April 2019'" do
+    it "returns the current date formatted as for example '2 April 2019'" do
       expect(subject.date_of_letter).to eq("2 April 2019")
+    end
+  end
+
+  describe "#submission_date" do
+    before { Timecop.freeze(today) }
+    after { Timecop.return }
+
+    it "returns the registration's submitted_at date formatted as for example '2 April 2019'" do
+      parsed_date = Date.parse(subject.submission_date)
+
+      expect(parsed_date).to eq(registration.submitted_at)
     end
   end
 
