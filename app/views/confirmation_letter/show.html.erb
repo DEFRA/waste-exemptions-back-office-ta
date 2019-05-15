@@ -87,7 +87,15 @@
       <%= render "/confirmation_letter/letter_section", subtitle: t(".business_details.title"), items: confirmation_letter_data.business_details_items %>
 
       <!-- Waste operation contact -->
-      <%= render "/confirmation_letter/letter_section", subtitle: t(".waste_operation_contact.title"), items: confirmation_letter_data.waste_operation_contact_items %>
+      <div class="wel_section">
+        <h2><%= t(".waste_operation_contact.title") %></h2>
+        <p><%= content_tag(:strong, t(".waste_operation_contact.name")) %> <%= confirmation_letter_data.contact_full_name %></p>
+        <% unless confirmation_letter_data.contact_position.empty? %>
+          <p><%= content_tag(:strong, t(".waste_operation_contact.position")) %> <%= confirmation_letter_data.contact_position %></p>
+        <% end %>
+        <p><%= content_tag(:strong, t(".waste_operation_contact.telephone")) %> <%= confirmation_letter_data.contact_phone %></p>
+        <p><%= content_tag(:strong, t(".waste_operation_contact.email")) %> <%= confirmation_letter_data.contact_email %></p>
+      </div>
 
       <!-- Waste operation location -->
       <%= render "/confirmation_letter/letter_section", subtitle: t(".waste_operation_location.title"), items: confirmation_letter_data.waste_operation_location_items %>

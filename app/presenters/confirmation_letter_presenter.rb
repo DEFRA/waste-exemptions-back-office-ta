@@ -27,6 +27,10 @@ class ConfirmationLetterPresenter < BasePresenter
     "#{applicant_first_name} #{applicant_last_name}"
   end
 
+  def contact_full_name
+    "#{contact_first_name} #{contact_last_name}"
+  end
+
   # Provides the full postal address for the letter.
   def postal_address_lines
     [
@@ -41,16 +45,6 @@ class ConfirmationLetterPresenter < BasePresenter
       { key: t("business_details.type"), value: I18n.t(business_type, scope: "organisation_type") },
       business_type == "partnership" ? list_of_people : business_details
     ].flatten)
-  end
-
-  def waste_operation_contact_items
-    contact_full_name = "#{contact_first_name} #{contact_last_name}"
-    filter_blank_items([
-                         { key: t("waste_operation_contact.name"), value: contact_full_name },
-                         { key: t("waste_operation_contact.position"), value: contact_position },
-                         { key: t("waste_operation_contact.telephone"), value: contact_phone },
-                         { key: t("waste_operation_contact.email"), value: contact_email }
-                       ])
   end
 
   def waste_operation_location_items
