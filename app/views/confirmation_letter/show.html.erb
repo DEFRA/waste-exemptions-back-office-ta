@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><%= confirmation_letter_data.web_page_title %></title>
+  <title><%= presenter.web_page_title %></title>
   <meta name="description" content="Waste Exemptions confirmation letter">
   <meta name="author" content="Environment Agency">
   <%= wicked_pdf_stylesheet_link_tag("confirmation_letter") %>
@@ -29,13 +29,13 @@
 
         <!-- Date letter was written -->
         <div class="wel_date">
-          <p><%= confirmation_letter_data.date_of_letter %></p>
+          <p><%= presenter.date_of_letter %></p>
         </div>
 
         <!-- Postal address -->
         <div class="wel_address">
           <p>
-            <% confirmation_letter_data.postal_address_lines.each do |line| %>
+            <% presenter.postal_address_lines.each do |line| %>
               <%= line %><br>
             <% end %>
           </p>
@@ -45,7 +45,7 @@
 
       <!-- Letter body -->
       <h1><%= t(".title") %></h1>
-      <h2><%= t('.your_reference', reference: confirmation_letter_data.reference) %></h2>
+      <h2><%= t('.your_reference', reference: presenter.reference) %></h2>
       <p><%= t(".read_both_sides") %></p>
 
       <!-- Your responsibilities -->
@@ -71,80 +71,80 @@
       <!-- Registration details -->
       <div class="wel_section">
         <h2><%= t(".registration_details.title") %></h2>
-        <p><%= content_tag(:strong, t(".registration_details.reference_number")) %> <%= confirmation_letter_data.reference %></p>
-        <p><%= content_tag(:strong, t(".registration_details.activation_date")) %> <%= confirmation_letter_data.submission_date %></p>
+        <p><%= content_tag(:strong, t(".registration_details.reference_number")) %> <%= presenter.reference %></p>
+        <p><%= content_tag(:strong, t(".registration_details.activation_date")) %> <%= presenter.submission_date %></p>
       </div>
 
       <!-- Registration completed by -->
       <div class="wel_section">
         <h2><%= t(".registration_completed_by.title") %></h2>
-        <p><%= content_tag(:strong, t(".registration_completed_by.name")) %> <%= confirmation_letter_data.applicant_full_name %></p>
-        <p><%= content_tag(:strong, t(".registration_completed_by.telephone")) %> <%= confirmation_letter_data.applicant_phone %></p>
-        <p><%= content_tag(:strong, t(".registration_completed_by.email")) %> <%= confirmation_letter_data.applicant_email %></p>
+        <p><%= content_tag(:strong, t(".registration_completed_by.name")) %> <%= presenter.applicant_full_name %></p>
+        <p><%= content_tag(:strong, t(".registration_completed_by.telephone")) %> <%= presenter.applicant_phone %></p>
+        <p><%= content_tag(:strong, t(".registration_completed_by.email")) %> <%= presenter.applicant_email %></p>
       </div>
 
       <!-- Business details -->
       <div class="wel_section">
         <h2><%= t(".business_details.title") %></h2>
-        <p><%= content_tag(:strong, t(".business_details.type")) %> <%= confirmation_letter_data.human_business_type %></p>
-        <% if confirmation_letter_data.partnership? %>
-          <% confirmation_letter_data.partners.each do |partner| %>
+        <p><%= content_tag(:strong, t(".business_details.type")) %> <%= presenter.human_business_type %></p>
+        <% if presenter.partnership? %>
+          <% presenter.partners.each do |partner| %>
              <p><%= content_tag(:strong, partner[:label]) %> <%= partner[:name] %></p>
           <% end %>
         <% else %>
-          <p><%= content_tag(:strong, t(".business_details.name.#{confirmation_letter_data.business_type}")) %> <%= confirmation_letter_data.operator_name %></p>
-          <% if confirmation_letter_data.company_no_required? %>
-            <p><%= content_tag(:strong, t(".business_details.number.#{confirmation_letter_data.business_type}")) %> <%= confirmation_letter_data.company_no %></p>
+          <p><%= content_tag(:strong, t(".business_details.name.#{presenter.business_type}")) %> <%= presenter.operator_name %></p>
+          <% if presenter.company_no_required? %>
+            <p><%= content_tag(:strong, t(".business_details.number.#{presenter.business_type}")) %> <%= presenter.company_no %></p>
           <% end %>
         <% end %>
-        <p><%= content_tag(:strong, t(".business_details.address.#{confirmation_letter_data.business_type}")) %> <%= confirmation_letter_data.operator_address_one_liner %></p>
+        <p><%= content_tag(:strong, t(".business_details.address.#{presenter.business_type}")) %> <%= presenter.operator_address_one_liner %></p>
       </div>
 
       <!-- Waste operation contact -->
       <div class="wel_section">
         <h2><%= t(".waste_operation_contact.title") %></h2>
-        <p><%= content_tag(:strong, t(".waste_operation_contact.name")) %> <%= confirmation_letter_data.contact_full_name %></p>
-        <% unless confirmation_letter_data.contact_position&.empty? %>
-          <p><%= content_tag(:strong, t(".waste_operation_contact.position")) %> <%= confirmation_letter_data.contact_position %></p>
+        <p><%= content_tag(:strong, t(".waste_operation_contact.name")) %> <%= presenter.contact_full_name %></p>
+        <% unless presenter.contact_position&.empty? %>
+          <p><%= content_tag(:strong, t(".waste_operation_contact.position")) %> <%= presenter.contact_position %></p>
         <% end %>
-        <p><%= content_tag(:strong, t(".waste_operation_contact.telephone")) %> <%= confirmation_letter_data.contact_phone %></p>
-        <p><%= content_tag(:strong, t(".waste_operation_contact.email")) %> <%= confirmation_letter_data.contact_email %></p>
+        <p><%= content_tag(:strong, t(".waste_operation_contact.telephone")) %> <%= presenter.contact_phone %></p>
+        <p><%= content_tag(:strong, t(".waste_operation_contact.email")) %> <%= presenter.contact_email %></p>
       </div>
 
       <!-- Waste operation location -->
       <div class="wel_section">
         <h2><%= t(".waste_operation_location.title") %></h2>
-        <% if confirmation_letter_data.site_address.located_by_grid_reference? %>
-          <p><%= content_tag(:strong, t(".waste_operation_location.ngr")) %> <%= confirmation_letter_data.site_address.grid_reference %></p>
-          <p><%= content_tag(:strong, t(".waste_operation_location.details")) %> <%= confirmation_letter_data.site_address.description %></p>
+        <% if presenter.site_address.located_by_grid_reference? %>
+          <p><%= content_tag(:strong, t(".waste_operation_location.ngr")) %> <%= presenter.site_address.grid_reference %></p>
+          <p><%= content_tag(:strong, t(".waste_operation_location.details")) %> <%= presenter.site_address.description %></p>
         <% else %>
-          <p><%= content_tag(:strong, t(".waste_operation_location.address")) %> <%= confirmation_letter_data.site_address_one_liner %></p>
+          <p><%= content_tag(:strong, t(".waste_operation_location.address")) %> <%= presenter.site_address_one_liner %></p>
         <% end %>
       </div>
 
       <!-- Table of exemptions -->
-      <% if confirmation_letter_data.sorted_active_registration_exemptions.any? %>
+      <% if presenter.sorted_active_registration_exemptions.any? %>
         <div class="wel_section">
           <h2><%= t(".waste_exemptions.title") %></h2>
           <table>
-            <% confirmation_letter_data.sorted_active_registration_exemptions.each do |re| %>
+            <% presenter.sorted_active_registration_exemptions.each do |re| %>
               <tr>
-                <td class="wel_exemption"><%= confirmation_letter_data.exemption_description(re.exemption) %></td>
-                <td class="wel_ex_date"><%= confirmation_letter_data.registration_exemption_status(re) %></td>
+                <td class="wel_exemption"><%= presenter.exemption_description(re.exemption) %></td>
+                <td class="wel_ex_date"><%= presenter.registration_exemption_status(re) %></td>
               </tr>
             <% end %>
           </table>
         </div>
       <% end %>
 
-      <% if confirmation_letter_data.sorted_deregistered_registration_exemptions.any? %>
+      <% if presenter.sorted_deregistered_registration_exemptions.any? %>
         <div class="wel_section">
         <h2><%= t(".deregistered_exemptions.title") %></h2>
         <table>
-          <% confirmation_letter_data.sorted_deregistered_registration_exemptions.each do |re| %>
+          <% presenter.sorted_deregistered_registration_exemptions.each do |re| %>
             <tr>
-              <td class="wel_exemption"><%= confirmation_letter_data.exemption_description(re.exemption) %></td>
-              <td class="wel_ex_date"><%= confirmation_letter_data.registration_exemption_status(re) %></td>
+              <td class="wel_exemption"><%= presenter.exemption_description(re.exemption) %></td>
+              <td class="wel_ex_date"><%= presenter.registration_exemption_status(re) %></td>
             </tr>
           <% end %>
         </table>
