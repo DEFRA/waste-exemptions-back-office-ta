@@ -55,7 +55,7 @@ FactoryBot.define do
       locality { nil }
       city { nil }
       postcode { nil }
-      country_iso { nil}
+      country_iso { nil }
     end
 
     trait :site_uses_address do
