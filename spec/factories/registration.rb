@@ -52,10 +52,29 @@ FactoryBot.define do
        build(:address, :site)]
     end
 
-    people { [build(:person), build(:person)] }
+    trait :limited_company do
+      business_type { "limitedCompany" }
+    end
+
+    trait :limited_liability_partnership do
+      business_type { "limitedLiabilityPartnership" }
+    end
+
+    trait :local_authority do
+      business_type { "localAuthority" }
+    end
+
+    trait :charity do
+      business_type { "charity" }
+    end
 
     trait :partnership do
       business_type { "partnership" }
+      people { build_list(:person, 2) }
+    end
+
+    trait :sole_trader do
+      business_type { "soleTrader" }
     end
 
     trait :site_uses_address do

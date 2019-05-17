@@ -35,15 +35,27 @@ en:
         title: Business details
         type: "Business or organisation type:"
         partner_enumerator: "Accountable partner %{count}:"
-        name_default: "Business or organisation name:"
-        name_limited_company: "Registered name of the company:"
-        name_limited_liability_partnership: "Registered name of the partnership:"
-        number_default: "Registration number of the business or organisation:"
-        number_limited_company: "Registration number of the company:"
-        number_limited_liability_partnership: "Registration number of the partnership:"
-        address_default: "Business or organisation address:"
-        address_limited_company: "Registered address of the company:"
-        address_limited_liability_partnership: "Registered address of the partnership:"
+        name:
+          soleTrader: "Business or organisation name:"
+          limitedCompany: "Registered name of the company:"
+          partnership: "Business or organisation name:"
+          limitedLiabilityPartnership: "Registered name of the partnership:"
+          localAuthority: "Business or organisation name:"
+          charity: "Business or organisation name:"
+        number:
+          soleTrader: "Registration number of the business or organisation:"
+          limitedCompany: "Registration number of the company:"
+          partnership: "Registration number of the business or organisation:"
+          limitedLiabilityPartnership: "Registration number of the partnership:"
+          localAuthority: "Registration number of the business or organisation:"
+          charity: "Registration number of the business or organisation:"
+        address:
+          soleTrader: "Business or organisation address:"
+          limitedCompany: "Registered address of the company:"
+          partnership: "Partnership address:"
+          limitedLiabilityPartnership: "Registered address of the partnership:"
+          localAuthority: "Business or organisation address:"
+          charity: "Business or organisation address:"
       waste_operation_contact:
         title: Waste operation contact
         name: "Name:"

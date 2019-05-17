@@ -40,15 +40,25 @@ class ConfirmationLetterPresenter < BasePresenter
     ].flatten!.reject(&:blank?)
   end
 
+  def operator_address_one_liner
+    address_lines(operator_address).join(", ")
+  end
+
   def site_address_one_liner
     address_lines(site_address).join(", ")
   end
 
-  def business_details_items
-    filter_blank_items([
-      { key: t("business_details.type"), value: I18n.t(business_type, scope: "organisation_type") },
-      business_type == "partnership" ? list_of_people : business_details
-    ].flatten)
+  def human_business_type
+    I18n.t("waste_exemptions_engine.pdfs.certificate.busness_types.#{business_type}")
+  end
+
+  def partners
+    people.select(&:partner?).each_with_index.map do |person, index|
+      {
+        label: t(".business_details.partner_enumerator", count: index + 1),
+        name: "#{person.first_name} #{person.last_name}"
+      }
+    end
   end
 
   def exemption_description(exemption)
@@ -78,10 +88,6 @@ class ConfirmationLetterPresenter < BasePresenter
     I18n.t(key, { scope: "confirmation_letter.show" }.merge!(options))
   end
 
-  def filter_blank_items(items)
-    items.reject { |item| item[:value].blank? }
-  end
-
   def address_lines(address)
     return [] unless address
 
@@ -89,26 +95,4 @@ class ConfirmationLetterPresenter < BasePresenter
     address_fields.map { |field| address.public_send(field) }.reject(&:blank?)
   end
 
-  def list_of_people
-    people.each_with_index.map do |person, index|
-      {
-        key: t(".business_details.partner_enumerator", count: index + 1),
-        value: ["#{person.first_name} #{person.last_name}"]
-      }
-    end
-  end
-
-  def business_details
-    org_type = business_type.underscore
-    org_type = "default" unless %w[limited_company limited_liability_partnership].include? org_type
-    org_name_key = "business_details.name_#{org_type}"
-    org_number_key = "business_details.number_#{org_type}"
-    org_address_key = "business_details.address_#{org_type}"
-    operator_address = address_lines(operator_address).join(", ")
-    [
-      { key: t(org_name_key), value: operator_name },
-      { key: t(org_number_key), value: company_no },
-      { key: t(org_address_key), value: operator_address }
-    ]
-  end
 end

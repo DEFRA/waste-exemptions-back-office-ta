@@ -67,20 +67,65 @@ RSpec.describe ConfirmationLetterPresenter do
     context "when the site location is located by postcode" do
       let(:registration) { create(:registration, :site_uses_address) }
       it "returns a string representation of the address" do
-        site_address = registration.site_address
+        address = registration.site_address
         address_fields = [
-          site_address.organisation,
-          site_address.premises,
-          site_address.street_address,
-          site_address.locality,
-          site_address.city,
-          site_address.postcode
+          address.organisation,
+          address.premises,
+          address.street_address,
+          address.locality,
+          address.city,
+          address.postcode
         ].reject(&:blank?)
 
         expect(subject.site_address_one_liner).to eq(address_fields.join(", "))
       end
     end
+  end
 
+  describe "#operator_address_one_liner" do
+    it "returns a string representation of the address" do
+      address = registration.operator_address
+      address_fields = [
+        address.organisation,
+        address.premises,
+        address.street_address,
+        address.locality,
+        address.city,
+        address.postcode
+      ].reject(&:blank?)
+
+      expect(subject.operator_address_one_liner).to eq(address_fields.join(", "))
+    end
+  end
+
+  describe "#human_business_type" do
+    {
+      sole_trader: "Individual or sole trader",
+      limited_company: "Limited company",
+      partnership: "Partnership",
+      limited_liability_partnership: "Limited liability partnership",
+      local_authority: "Local authority or public body",
+      charity: "Charity or trust"
+    }.each do |business_type, readable_result|
+      context "when the registration's business_type is #{business_type}" do
+        let(:registration) { create(:registration, business_type) }
+
+        it "returns the human readable version" do
+          expect(subject.human_business_type).to eq(readable_result)
+        end
+      end
+    end
+  end
+
+  describe "#partners" do
+    let(:registration) { create(:registration, :partnership) }
+    it "returns an array of hashes containing an incremented label and the partner's full name" do
+      expected_result = registration.people.each_with_index.map do |person, index|
+        { label: "Accountable partner #{index + 1}:", name: "#{person.first_name} #{person.last_name}" }
+      end
+
+      expect(subject.partners).to eq(expected_result)
+    end
   end
 
   describe "#registration_exemption_status" do

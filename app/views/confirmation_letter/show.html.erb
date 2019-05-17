@@ -84,7 +84,21 @@
       </div>
 
       <!-- Business details -->
-      <%= render "/confirmation_letter/letter_section", subtitle: t(".business_details.title"), items: confirmation_letter_data.business_details_items %>
+      <div class="wel_section">
+        <h2><%= t(".business_details.title") %></h2>
+        <p><%= content_tag(:strong, t(".business_details.type")) %> <%= confirmation_letter_data.human_business_type %></p>
+        <% if confirmation_letter_data.partnership? %>
+          <% confirmation_letter_data.partners.each do |partner| %>
+             <p><%= content_tag(:strong, partner[:label]) %> <%= partner[:name] %></p>
+          <% end %>
+        <% else %>
+          <p><%= content_tag(:strong, t(".business_details.name.#{confirmation_letter_data.business_type}")) %> <%= confirmation_letter_data.operator_name %></p>
+          <% if confirmation_letter_data.company_no_required? %>
+            <p><%= content_tag(:strong, t(".business_details.number.#{confirmation_letter_data.business_type}")) %> <%= confirmation_letter_data.company_no %></p>
+          <% end %>
+        <% end %>
+        <p><%= content_tag(:strong, t(".business_details.address.#{confirmation_letter_data.business_type}")) %> <%= confirmation_letter_data.operator_address_one_liner %></p>
+      </div>
 
       <!-- Waste operation contact -->
       <div class="wel_section">
