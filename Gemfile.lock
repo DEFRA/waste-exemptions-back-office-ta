@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/defra-ruby-exporters
-  revision: f2a70f72941760dc2fa26e1d8f07a88a6f705a6a
+  revision: 95a2bd7fbd15eb000c335c5395342f4cddefc30d
   branch: master
   specs:
     defra_ruby_exporters (0.0.1)
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 035a144c3b955387f34deb66c07fdae72febfafd
+  revision: eb59af4fe48eb9ea6516c7e7a786571933daf18a
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
