@@ -50,7 +50,7 @@ class ConfirmationLetterPresenter < BasePresenter
   def partners
     people.select(&:partner?).each_with_index.map do |person, index|
       {
-        label: t(".business_details.partner_enumerator", count: index + 1),
+        label: I18n.t("business_details.partner_enumerator", scope: "confirmation_letter.show", count: index + 1),
         name: "#{person.first_name} #{person.last_name}"
       }
     end
@@ -67,8 +67,9 @@ class ConfirmationLetterPresenter < BasePresenter
                      registration_exemption.deregistered_on.to_formatted_s(:day_month_year)
                    end
 
-    t(
+    I18n.t(
       "waste_exemptions.status.#{registration_exemption.state}",
+      scope: "confirmation_letter.show",
       display_date: display_date
     )
   end
@@ -77,10 +78,6 @@ class ConfirmationLetterPresenter < BasePresenter
 
   def registration_exemptions_with_exemptions
     registration_exemptions.includes(:exemption)
-  end
-
-  def t(key, options = {})
-    I18n.t(key, { scope: "confirmation_letter.show" }.merge!(options))
   end
 
   def address_lines(address)
