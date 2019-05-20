@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><%= presenter.web_page_title %></title>
+  <title><%= t(".web_page_title", reference: presenter.reference) %></title>
   <meta name="description" content="Waste Exemptions confirmation letter">
   <meta name="author" content="Environment Agency">
   <%= wicked_pdf_stylesheet_link_tag("confirmation_letter") %>

@@ -10,11 +10,6 @@ class ConfirmationLetterPresenter < BasePresenter
     registration_exemptions_with_exemptions.where("state != ?", :active).order_by_state_then_exemption_id
   end
 
-  # Used only if the page contains a single letter.
-  def web_page_title
-    t("web_page_title", reg_number: reference)
-  end
-
   def date_of_letter
     Time.now.in_time_zone("London").to_date.to_formatted_s(:day_month_year)
   end

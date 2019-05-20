@@ -7,12 +7,6 @@ RSpec.describe ConfirmationLetterPresenter do
   let(:registration) { create(:registration, :with_active_exemptions) }
   subject { described_class.new(registration) }
 
-  describe "#web_page_title" do
-    it "returns the title including the registration reference" do
-      expect(subject.web_page_title).to eq("Waste Exemptions confirmation letter for #{registration.reference}")
-    end
-  end
-
   describe "#date_of_letter" do
     before { Timecop.freeze(today) }
     after { Timecop.return }
