@@ -19,17 +19,17 @@ class ConfirmationLetterPresenter < BasePresenter
   end
 
   def applicant_full_name
-    "#{applicant_first_name} #{applicant_last_name}"
+    format_name(applicant_first_name, applicant_last_name)
   end
 
   def contact_full_name
-    "#{contact_first_name} #{contact_last_name}"
+    format_name(contact_first_name, contact_last_name)
   end
 
   # Provides the full postal address for the letter.
   def postal_address_lines
     [
-      "#{contact_first_name} #{contact_last_name}",
+      contact_full_name,
       operator_name,
       address_lines(contact_address)
     ].flatten!.reject(&:blank?)
@@ -51,7 +51,7 @@ class ConfirmationLetterPresenter < BasePresenter
     people.select(&:partner?).each_with_index.map do |person, index|
       {
         label: I18n.t("business_details.partner_enumerator", scope: "confirmation_letter.show", count: index + 1),
-        name: "#{person.first_name} #{person.last_name}"
+        name: format_name(person.first_name, person.last_name)
       }
     end
   end
@@ -75,6 +75,10 @@ class ConfirmationLetterPresenter < BasePresenter
   end
 
   private
+
+  def format_name(first_name, last_name)
+    "#{first_name} #{last_name}"
+  end
 
   def registration_exemptions_with_exemptions
     registration_exemptions.includes(:exemption)
