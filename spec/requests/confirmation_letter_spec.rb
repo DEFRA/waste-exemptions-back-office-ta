@@ -3,8 +3,8 @@
 require "rails_helper"
 
 RSpec.describe "Confirmation Letter", type: :request do
-  let(:registration) { create(:registration) }
-  let(:partnership_registration) { create(:registration, :partnership) }
+  let(:registration) { create(:registration, :with_active_exemptions) }
+  let(:partnership_registration) { create(:registration, :partnership, :with_active_exemptions) }
   let(:user) { create(:user, :system) }
   before(:each) do
     sign_in(user)
@@ -28,7 +28,7 @@ RSpec.describe "Confirmation Letter", type: :request do
     it "responds with a PDF with a filename that includes the registration reference" do
       get confirmation_letter_path(registration.id)
       expect(response.content_type).to eq("application/pdf")
-      expected_content_disposition = "inline; filename=\"#{registration.reference}_confirmation_letter.pdf\""
+      expected_content_disposition = "inline; filename=\"#{registration.reference}.pdf\""
       expect(response.headers["Content-Disposition"]).to eq(expected_content_disposition)
     end
 

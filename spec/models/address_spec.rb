@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe WasteExemptionsEngine::Address, type: :model do
-  let(:matching_address) { create(:address, :site) }
+  let(:matching_address) { create(:address, :site_uses_address) }
   let(:non_matching_address) { create(:address, :contact) }
 
   describe "#search_for_postcode" do

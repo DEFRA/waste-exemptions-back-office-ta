@@ -170,6 +170,8 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     end
 
     context "when the search term is a related person's name" do
+      let(:matching_registration) { create(:registration, :partnership) }
+      let(:non_matching_registration) { create(:registration, :partnership) }
       let(:term) do
         person = matching_registration.people.first
         "#{person.first_name} #{person.last_name}"
