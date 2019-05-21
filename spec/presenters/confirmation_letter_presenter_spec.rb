@@ -43,14 +43,6 @@ RSpec.describe ConfirmationLetterPresenter do
     end
   end
 
-  describe "#contact_full_name" do
-    it "returns the registration's contact first and last name attributes as a single string" do
-      expected_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
-
-      expect(subject.contact_full_name).to eq(expected_name)
-    end
-  end
-
   describe "#site_address_one_liner" do
     context "when the site location is located by grid reference" do
       it "returns an empty string" do
