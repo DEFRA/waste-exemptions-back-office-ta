@@ -4,6 +4,6 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path("config/application", __dir__)
-require "defra_ruby"
+require "defra_ruby" 
 
 Rails.application.load_tasks
