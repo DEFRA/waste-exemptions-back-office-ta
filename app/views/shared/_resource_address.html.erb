@@ -1,8 +1,14 @@
-<h2 class="heading-medium">
-  <%= t(".heading.#{address.address_type}") %>
-</h2>
+<% if address.operator? %>
+  <h3 class="heading-small">
+    <%= t(".heading.#{address.address_type}") %>
+  </h2>
+<% else %>
+  <h2 class="heading-medium">
+    <%= t(".heading.#{address.address_type}") %>
+  </h2>
+<% end %>
 
-<% if address.grid_reference.present? %>
+<% if address.located_by_grid_reference? %>
   <p>
     <%= address.grid_reference %>
   </p>

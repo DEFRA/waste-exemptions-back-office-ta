@@ -3,7 +3,7 @@ en:
     search_result:
       labels:
         status: "Status"
-        operator_name: "Business name"
+        operator_name: "Operator (business) name"
         reference: "Reference number"
         address: "Site address"
         grid_reference: "Site grid reference"
