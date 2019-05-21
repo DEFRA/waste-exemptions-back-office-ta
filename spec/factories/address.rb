@@ -29,15 +29,15 @@ FactoryBot.define do
     address_type { 0 }
 
     trait :operator do
-      address_type { 1 }
+      address_type { :operator }
     end
 
     trait :contact do
-      address_type { 2 }
+      address_type { :contact }
     end
 
     trait :site do
-      address_type { 3 }
+      address_type { :site }
       description { "The waste is stored in an out-building next to the barn." }
       grid_reference { "ST 58337 72855" }
 
