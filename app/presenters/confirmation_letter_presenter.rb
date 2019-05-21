@@ -11,7 +11,7 @@ class ConfirmationLetterPresenter < BasePresenter
   end
 
   def date_of_letter
-    Time.now.in_time_zone("London").to_date.to_formatted_s(:day_month_year)
+    Time.now.to_date.to_formatted_s(:day_month_year)
   end
 
   def submission_date

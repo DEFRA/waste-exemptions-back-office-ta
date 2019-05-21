@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe ConfirmationLetterPresenter do
-  let(:today) { Time.new(2019, 4, 2).in_time_zone("London") }
+  let(:today) { Time.new(2019, 4, 2) }
   let(:registration) { create(:registration, :with_active_exemptions) }
   subject { described_class.new(registration) }
 
