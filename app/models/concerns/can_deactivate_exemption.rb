@@ -15,13 +15,13 @@ module CanDeactivateExemption
       event :cease do
         transitions from: :active,
                     to: :ceased,
-                    after: :update_deregistered_on
+                    after: :update_deregistered_at
       end
 
       event :revoke do
         transitions from: :active,
                     to: :revoked,
-                    after: :update_deregistered_on
+                    after: :update_deregistered_at
       end
 
       event :expire do
@@ -31,8 +31,8 @@ module CanDeactivateExemption
     end
 
     # Transition effects
-    def update_deregistered_on
-      self.deregistered_on = Date.today
+    def update_deregistered_at
+      self.deregistered_at = Date.today
       save!
     end
   end
