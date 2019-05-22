@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
-class ConfirmationLetterPresenter
-  delegate :reference, to: :registration
-
-  def initialize(registration)
-    @registration = registration
-  end
+class ConfirmationLetterPresenter < BasePresenter
 
   def sorted_active_registration_exemptions
     registration_exemptions_with_exemptions.where(state: :active).order(:exemption_id)
@@ -15,80 +10,78 @@ class ConfirmationLetterPresenter
     registration_exemptions_with_exemptions.where("state != ?", :active).order_by_state_then_exemption_id
   end
 
-  # Used only if the page contains a single letter.
-  def webpage_title
-    I18n.t("confirmation_letter.single_title", reg_number: registration.reference)
+  def date_of_letter
+    Time.now.to_date.to_formatted_s(:day_month_year)
   end
 
-  def date_of_letter
-    I18n.l(Time.zone.today, format: :long)
+  def submission_date
+    submitted_at.to_date.to_formatted_s(:day_month_year)
+  end
+
+  def applicant_full_name
+    format_name(applicant_first_name, applicant_last_name)
+  end
+
+  def contact_full_name
+    format_name(contact_first_name, contact_last_name)
   end
 
   # Provides the full postal address for the letter.
   def postal_address_lines
     [
-      "#{registration.contact_first_name} #{registration.contact_last_name}",
-      registration.operator_name,
-      address_lines(registration.contact_address)
+      contact_full_name,
+      operator_name,
+      address_lines(contact_address)
     ].flatten!.reject(&:blank?)
   end
 
-  def reg_details_items
-    submission_date = I18n.l(registration.submitted_at.to_date, format: :long)
-    filter_blank_items([
-                         { key: t("reg_details_reference_number"), value: registration.reference },
-                         { key: t("reg_details_activation_date"), value: submission_date }
-                       ])
+  def operator_address_one_liner
+    address_lines(operator_address).join(", ")
   end
 
-  def reg_completed_by_items
-    applicant_full_name = "#{registration.applicant_first_name} #{registration.applicant_last_name}"
-    filter_blank_items([
-                         { key: t("reg_completed_by_name"), value: applicant_full_name },
-                         { key: t("reg_completed_by_telephone"), value: registration.applicant_phone },
-                         { key: t("reg_completed_by_email"), value: registration.applicant_email }
-                       ])
+  def site_address_one_liner
+    address_lines(site_address).join(", ")
   end
 
-  def organisation_items
-    filter_blank_items([
-      { key: t("organisation_type"), value: I18n.t(registration.business_type, scope: "organisation_type") },
-      registration.business_type == "partnership" ? list_of_people : business_details
-    ].flatten)
+  def human_business_type
+    I18n.t("waste_exemptions_engine.pdfs.certificate.busness_types.#{business_type}")
   end
 
-  def waste_operation_contact_items
-    contact_full_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
-    filter_blank_items([
-                         { key: t("woc_name"), value: contact_full_name },
-                         { key: t("woc_position"), value: registration.contact_position },
-                         { key: t("woc_telephone"), value: registration.contact_phone },
-                         { key: t("woc_email"), value: registration.contact_email }
-                       ])
+  def partners
+    people.select(&:partner?).each_with_index.map do |person, index|
+      {
+        label: I18n.t("business_details.partner_enumerator", scope: "confirmation_letter.show", count: index + 1),
+        name: format_name(person.first_name, person.last_name)
+      }
+    end
   end
 
-  def site_items
-    filter_blank_items([
-                         { key: t("site_address"), value: address_lines(registration.site_address).join(", ") },
-                         { key: t("site_ngr"), value: registration.site_address.grid_reference },
-                         { key: t("site_details"), value: registration.site_address.description }
-                       ])
+  def exemption_description(exemption)
+    "#{exemption.code}: #{exemption.summary}"
+  end
+
+  def registration_exemption_status(registration_exemption)
+    display_date = if registration_exemption.state == "active"
+                     registration_exemption.expires_on.to_formatted_s(:day_month_year)
+                   else
+                     registration_exemption.deregistered_on.to_formatted_s(:day_month_year)
+                   end
+
+    I18n.t(
+      "waste_exemptions.status.#{registration_exemption.state}",
+      scope: "confirmation_letter.show",
+      display_date: display_date
+    )
   end
 
   private
 
-  attr_reader :registration
+  def format_name(first_name, last_name)
+    "#{first_name} #{last_name}"
+  end
 
   def registration_exemptions_with_exemptions
-    registration.registration_exemptions.includes(:exemption)
-  end
-
-  def t(key, options = {})
-    I18n.t(key, { scope: "confirmation_letter.show" }.merge!(options))
-  end
-
-  def filter_blank_items(items)
-    items.reject { |item| item[:value].blank? }
+    registration_exemptions.includes(:exemption)
   end
 
   def address_lines(address)
@@ -98,26 +91,4 @@ class ConfirmationLetterPresenter
     address_fields.map { |field| address.public_send(field) }.reject(&:blank?)
   end
 
-  def list_of_people
-    registration.people.each_with_index.map do |person, index|
-      {
-        key: t(".organisation_partner_enumerator", count: index + 1),
-        value: ["#{person.first_name} #{person.last_name}"]
-      }
-    end
-  end
-
-  def business_details
-    org_type = registration.business_type.underscore
-    org_type = "default" unless %w[limited_company limited_liability_partnership].include? org_type
-    org_name_key = "organisation_name_#{org_type}"
-    org_number_key = "organisation_number_#{org_type}"
-    org_address_key = "organisation_address_#{org_type}"
-    operator_address = address_lines(registration.operator_address).join(", ")
-    [
-      { key: t(org_name_key), value: registration.operator_name },
-      { key: t(org_number_key), value: registration.company_no },
-      { key: t(org_address_key), value: operator_address }
-    ]
-  end
 end

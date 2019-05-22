@@ -1,54 +1,84 @@
 en:
   confirmation_letter:
-    single_title: Waste Exemption confirmation letter for %{reg_number}
     show:
-      print_warning_header: "When you print, remember to:"
-      print_warning_item1: set all print headers and footers to empty
-      print_warning_item2: set print margins to 10mm all round
+      web_page_title: Waste Exemptions confirmation letter for %{reference}
+      print_warning:
+        header: "When you print, remember to:"
+        item1: set all print headers and footers to empty
+        item2: set print margins to 10mm all round
       title: Confirmation of waste exemption registration
       your_reference: "Your reference: %{reference}"
       read_both_sides: Check on the back of this sheet as this may print on more than one page.
-      your_responsibilities_subtitle: Your responsibilities
-      your_responsibilities_para1: "The business or organisation responsible for carrying out the exempt waste operations agrees to:"
-      your_responsibilities_para1a: comply with all conditions governing how waste must be stored, handled and treated
-      your_responsibilities_para1b: carry out the operations without endangering human health or harming the environment
-      your_responsibilities_para2: "For the operations to remain exempt they must be carried out without:"
-      your_responsibilities_para2a: causing risk to water, air, soil, plants or animals
-      your_responsibilities_para2b: causing a nuisance through noise and odours
-      your_responsibilities_para2c: negatively affecting the countryside or places of special interest
-      your_responsibilities_para3: In sensitive locations extra controls may be needed over and above those set out in the exemptions to make sure this happens.
-      reg_details_subtitle: Registration details
-      reg_details_reference_number: "Reference number:"
-      reg_details_activation_date: "Activation date:"
-      reg_completed_by_subtitle: Registration completed by
-      reg_completed_by_name: "Name:"
-      reg_completed_by_telephone: "Business telephone number:"
-      reg_completed_by_email: "Business email:"
-      organisation_subtitle: Business details
-      organisation_type: "Business or organisation type:"
-      organisation_partner_enumerator: "Accountable partner %{count}:"
-      organisation_name_default: "Business or organisation name:"
-      organisation_name_limited_company: "Registered name of the company:"
-      organisation_name_limited_liability_partnership: "Registered name of the partnership:"
-      organisation_number_default: "Registration number of the business or organisation:"
-      organisation_number_limited_company: "Registration number of the company:"
-      organisation_number_limited_liability_partnership: "Registration number of the partnership:"
-      organisation_address_default: "Business or organisation address:"
-      organisation_address_limited_company: "Registered address of the company:"
-      organisation_address_limited_liability_partnership: "Registered address of the partnership:"
-      woc_subtitle: Waste operation contact
-      woc_name: "Name:"
-      woc_position: "Position:"
-      woc_telephone: "Telephone:"
-      woc_email: "Email:"
-      site_subtitle: Waste operation location or site
-      site_address: "Waste operation location:"
-      site_ngr: "Grid reference:"
-      site_details: "Site details:"
-      exemptions_subtitle: Waste exemptions
-      deregistered_exemptions_subtitle: De-registered exemptions
-      contact_us_subtitle: If you need to contact us
-      contact_us_para1: "If you need help or advice call the Environment Agency helpline: 03708 506506"
-      contact_us_para2: It's open Monday to Friday, between 8am and 6pm.
-      sign_off: Yours sincerely,
-      sender: Waste Exemptions Team
+      your_responsibilities:
+        title: Your responsibilities
+        para1:
+          text: "The business or organisation responsible for carrying out the exempt waste operations agrees to:"
+          item1: comply with all conditions governing how waste must be stored, handled and treated
+          item2: carry out the operations without endangering human health or harming the environment
+        para2:
+          text: "For the operations to remain exempt they must be carried out without:"
+          item1: causing risk to water, air, soil, plants or animals
+          item2: causing a nuisance through noise and odours
+          item3: negatively affecting the countryside or places of special interest
+        para3:
+          text: In sensitive locations extra controls may be needed over and above those set out in the exemptions to make sure this happens.
+      registration_details:
+        title: Registration details
+        reference_number: "Reference number:"
+        activation_date: "Activation date:"
+      registration_completed_by:
+        title: Registration completed by
+        name: "Name:"
+        telephone: "Business telephone number:"
+        email: "Business email:"
+      business_details:
+        title: Business details
+        type: "Business or organisation type:"
+        partner_enumerator: "Accountable partner %{count}:"
+        name:
+          soleTrader: "Business or organisation name:"
+          limitedCompany: "Registered name of the company:"
+          partnership: "Business or organisation name:"
+          limitedLiabilityPartnership: "Registered name of the partnership:"
+          localAuthority: "Business or organisation name:"
+          charity: "Business or organisation name:"
+        number:
+          soleTrader: "Registration number of the business or organisation:"
+          limitedCompany: "Registration number of the company:"
+          partnership: "Registration number of the business or organisation:"
+          limitedLiabilityPartnership: "Registration number of the partnership:"
+          localAuthority: "Registration number of the business or organisation:"
+          charity: "Registration number of the business or organisation:"
+        address:
+          soleTrader: "Business or organisation address:"
+          limitedCompany: "Registered address of the company:"
+          partnership: "Partnership address:"
+          limitedLiabilityPartnership: "Registered address of the partnership:"
+          localAuthority: "Business or organisation address:"
+          charity: "Business or organisation address:"
+      waste_operation_contact:
+        title: Waste operation contact
+        name: "Name:"
+        position: "Position:"
+        telephone: "Telephone:"
+        email: "Email:"
+      waste_operation_location:
+        title: Waste operation location or site
+        address: "Waste operation location:"
+        ngr: "Grid reference:"
+        details: "Site details:"
+      waste_exemptions:
+        title: Waste exemptions
+        status:
+          active: "Expires on %{display_date}"
+          ceased: "Ceased on %{display_date}"
+          revoked: "Revoked on %{display_date}"
+      deregistered_exemptions:
+        title: De-registered exemptions
+      contact_us:
+        title: If you need to contact us
+        para1: "If you need help or advice call the Environment Agency helpline: 03708 506506"
+        para2: It's open Monday to Friday, between 8am and 6pm.
+      signature:
+        sign_off: Yours sincerely,
+        sender: Waste Exemptions Team

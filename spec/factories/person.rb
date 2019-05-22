@@ -9,5 +9,7 @@ FactoryBot.define do
     sequence :last_name do |n|
       "Lastperson#{n}"
     end
+
+    person_type { :partner }
   end
 end
