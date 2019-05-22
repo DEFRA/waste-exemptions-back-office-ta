@@ -52,17 +52,41 @@ FactoryBot.define do
        build(:address, :site)]
     end
 
-    people { [build(:person), build(:person)] }
+    trait :limited_company do
+      business_type { "limitedCompany" }
+    end
+
+    trait :limited_liability_partnership do
+      business_type { "limitedLiabilityPartnership" }
+    end
+
+    trait :local_authority do
+      business_type { "localAuthority" }
+    end
+
+    trait :charity do
+      business_type { "charity" }
+    end
 
     trait :partnership do
       business_type { "partnership" }
+      people { build_list(:person, 2) }
     end
 
-    after(:create) do |registration|
-      registration.registration_exemptions.each do |re|
-        re.state = "active"
-        re.save!
+    trait :sole_trader do
+      business_type { "soleTrader" }
+    end
+
+    trait :site_uses_address do
+      addresses do
+        [build(:address, :operator),
+         build(:address, :contact),
+         build(:address, :site_uses_address)]
       end
+    end
+
+    trait :with_active_exemptions do
+      registration_exemptions { build_list(:registration_exemption, 5, state: :active) }
     end
   end
 end

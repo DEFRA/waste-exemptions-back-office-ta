@@ -54,7 +54,6 @@ gem "whenever", "~> 0.10.0"
 
 # Use Wicked PDF for PDF generation
 gem "wicked_pdf", "~> 1.2"
-gem "wkhtmltopdf-binary", "~> 0.12.4"
 
 # Used for auditing and version control
 gem "paper_trail", "~> 10.2.0"
@@ -108,6 +107,9 @@ group :test do
   # Generates a test coverage report on every `bundle exec rspec` call. We use
   # the output to feed CodeClimate's stats and analysis
   gem "simplecov", require: false
+  # A gem providing "time travel" and "time freezing" capabilities, making it
+  # dead simple to test time-dependent code.
+  gem "timecop"
   # Use VCR to mock HTTP requests
   gem "vcr", "~> 4.0"
   gem "webmock", "~> 3.5"

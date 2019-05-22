@@ -108,12 +108,12 @@
           <% end %>
           <% if display_confirmation_letter_link_for?(result) %>
           <li>
-            <%= link_to confirmation_letter_path(result), id: "confirmation_letter_#{result.reference}" do %>
+            <%= link_to confirmation_letter_path(result), id: "confirmation_letter_#{result.reference}", target: "_blank" do %>
               <%= t(".actions.confirmation_letter.link_text") %>
               <span class="visually-hidden">
                <%= t(".actions.confirmation_letter.visually_hidden_text",
                      name: result_name_for_visually_hidden_text(result)) %>
-             </span>
+              </span>
             <% end %>
           </li>
           <% end %>
