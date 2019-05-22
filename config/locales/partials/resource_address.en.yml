@@ -4,8 +4,8 @@ en:
       heading:
         unknown: "Unknown address"
         contact: "Contact address"
-        operator: "Operator address"
-        site: "Site address"
+        operator: "Address"
+        site: "Site location"
       labels:
         mode: "Mode"
         description: "Description"

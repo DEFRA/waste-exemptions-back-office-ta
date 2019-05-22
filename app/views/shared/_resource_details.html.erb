@@ -161,12 +161,20 @@
                  address: resource.contact_address) %>
     </div>
   <% end %>
-  <% if resource.operator_address.present? %>
-    <div class="column-one-third">
+
+  <div class="column-one-third">
+    <h2 class="heading-medium">
+      <%= t(".subheadings.operator") %>
+    </h2>
+    <p>
+      <%= resource.operator_name %>
+    </p>
+    <% if resource.operator_address.present? %>
       <%= render("shared/resource_address",
-                 address: resource.operator_address) %>
-    </div>
-  <% end %>
+               address: resource.operator_address) %>
+    <% end %>
+  </div>
+
   <% if resource.site_address.present? %>
     <div class="column-one-third">
       <%= render("shared/resource_address",
