@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 3aec520dc18f5a3416135a4c4c4739ed30a35203
-  branch: master
+  revision: f470bbff5f9d36ab83086d6f3cd0f2ba830ea876
+  branch: require-wicked-pdf-correctly
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
