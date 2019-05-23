@@ -50,7 +50,7 @@ RSpec.describe WasteExemptionsEngine::RegistrationExemption, type: :model do
     context "when the state is 'active'" do
       before(:each) do
         registration_exemption.state = :active
-        registration_exemption.deregistered_on = nil
+        registration_exemption.deregistered_at = nil
       end
 
       it "can transition to any of the inactive states" do
@@ -67,16 +67,16 @@ RSpec.describe WasteExemptionsEngine::RegistrationExemption, type: :model do
           end
 
           if deregistration_states.include? transition
-            it "updates the deregistered_on time stamp" do
+            it "updates the deregistered_at time stamp" do
               expect { registration_exemption.send("#{transition}!") }
-                .to change { registration_exemption.deregistered_on }
+                .to change { registration_exemption.deregistered_at }
                 .from(nil)
                 .to(Date.today)
             end
           else
-            it "does not update the deregistered_on time stamp" do
+            it "does not update the deregistered_at time stamp" do
               expect { registration_exemption.send("#{transition}!") }
-                .to_not change { registration_exemption.deregistered_on }
+                .to_not change { registration_exemption.deregistered_at }
                 .from(nil)
             end
           end
