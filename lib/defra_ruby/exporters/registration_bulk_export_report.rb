@@ -47,7 +47,7 @@ module DefraRuby
         { header: "exemption_status", attribute: "state" },
         { header: "exemption_valid_from_date", attribute: "registered_on" },
         { header: "exemption_expiry_date", attribute: "expires_on" },
-        { header: "exemption_deregister_date", attribute: "deregistered_on" },
+        { header: "exemption_deregister_date", attribute: "deregistered_at" },
         { header: "exemption_deregister_comment", attribute: "deregistration_message" },
         { header: "assistance_type", attribute: "registration.assistance_mode" }
       ].freeze

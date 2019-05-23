@@ -23,7 +23,7 @@ module WasteExemptionsEngine
 
       return "active" if registration_exemptions.select(&:active?).any?
 
-      sorted_registration_exemptions = registration_exemptions.sort_by { |re| (re.deregistered_on || re.expires_on) }
+      sorted_registration_exemptions = registration_exemptions.sort_by { |re| (re.deregistered_at || re.expires_on) }
       sorted_registration_exemptions.last.state.to_s
     end
   end

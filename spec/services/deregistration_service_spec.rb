@@ -60,7 +60,7 @@ RSpec.describe DeregistrationService do
               reg_exemption = registration_exemptions.shift
               registration_exemptions.each do |re|
                 re.cease!
-                re.deregistered_on = 1.day.ago
+                re.deregistered_at = 1.day.ago
                 re.deregistration_message = ceased_message
                 re.save!
               end

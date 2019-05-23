@@ -248,7 +248,7 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
           reg_exemption = registration_exemptions.shift
           registration_exemptions.each do |re|
             re.revoke!
-            re.deregistered_on = 1.day.ago
+            re.deregistered_at = 1.day.ago
             re.save!
           end
           reg_exemption.cease!
