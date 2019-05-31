@@ -3,6 +3,8 @@
 require "aws-sdk-s3"
 require "defra_ruby/exporters"
 require_relative "../../lib/defra_ruby/exporters/bulk_export_file"
+require_relative "../../lib/defra_ruby/exporters/registration_bulk_export_report"
+require_relative "../../lib/defra_ruby/exporters/registration_epr_export_report"
 
 DefraRuby::Exporters.configure do |c|
   def raise_missing_env_var(variable)
