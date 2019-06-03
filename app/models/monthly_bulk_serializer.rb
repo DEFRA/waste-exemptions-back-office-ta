@@ -53,7 +53,7 @@ class MonthlyBulkSerializer
   def exemptions_data
     registration_exemptions_scope.find_in_batches do |batch|
       batch.each do |registration_exemption|
-        yield parse_registration_exemption(ExemptionBulkReport.new(registration_exemption))
+        yield parse_registration_exemption(ExemptionBulkReportPresenter.new(registration_exemption))
       end
     end
   end
