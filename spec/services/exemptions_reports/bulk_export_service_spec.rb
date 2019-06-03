@@ -12,7 +12,7 @@ module ExemptionsReports
 
         expect(MonthlyBulkReportService).to receive(:run).exactly(number_of_months + 1).times
 
-        BulkExportService.run
+        BulkExportService.run(:FIXME)
       end
     end
   end
