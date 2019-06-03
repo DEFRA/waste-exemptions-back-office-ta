@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ExemptionsReports
+module Reports
   class BulkExportService < ::WasteExemptionsEngine::BaseService
     def run(*)
       first_day_of_the_month = starts_from
