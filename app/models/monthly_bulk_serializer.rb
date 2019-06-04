@@ -51,7 +51,7 @@ class MonthlyBulkSerializer
   attr_reader :first_day_of_the_month
 
   def exemptions_data
-    registration_exemptions_scope.find_in_batches do |batch|
+    registration_exemptions_scope.find_in_batches(batch_size: batch_size) do |batch|
       batch.each do |registration_exemption|
         yield parse_registration_exemption(ExemptionBulkReportPresenter.new(registration_exemption))
       end
@@ -66,5 +66,11 @@ class MonthlyBulkSerializer
     ATTRIBUTES.map do |attribute|
       registration_exemption.try(attribute)
     end
+  end
+
+  def batch_size
+    return 1000 if ENV["EXPORT_SERVICE_BATCH_SIZE"].blank?
+
+    ENV["EXPORT_SERVICE_BATCH_SIZE"].to_i
   end
 end
