@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 50e6e5c98e91f60478cae07a8a77eb153b78ef76
+  revision: e3f715f5bf6e4753cf243651ca6d909fa1b77fe7
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -343,7 +343,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-    uk_postcode (2.1.3)
+    uk_postcode (2.1.4)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
