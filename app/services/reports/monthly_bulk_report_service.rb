@@ -29,7 +29,10 @@ module Reports
     end
 
     def file_name
-      @_file_name ||= "#{@first_day_of_the_month.to_formatted_s(:year_month_day)}.csv"
+      data_from_date = @first_day_of_the_month.strftime("%Y%m%d")
+      data_to_date = @first_day_of_the_month.end_of_month.strftime("%Y%m%d")
+
+      "#{data_from_date}-#{data_to_date}.csv"
     end
 
     def bulk_report
