@@ -55,7 +55,7 @@ RSpec.describe ExemptionBulkReportPresenter do
   end
 
   describe "#organisation_type" do
-    let(:registration) { create(:registration, business_type: "limitedCompany")}
+    let(:registration) { create(:registration, business_type: "limitedCompany") }
 
     it "returns the business type" do
       expect(exemption_bulk_report_presenter.organisation_type).to eq("limitedCompany")
@@ -63,7 +63,7 @@ RSpec.describe ExemptionBulkReportPresenter do
   end
 
   describe "#company_reference_number" do
-    let(:registration) { create(:registration, company_no: "4934150")}
+    let(:registration) { create(:registration, company_no: "4934150") }
 
     it "returns the company's reference number" do
       expect(exemption_bulk_report_presenter.company_reference_number).to eq("4934150")
@@ -71,7 +71,7 @@ RSpec.describe ExemptionBulkReportPresenter do
   end
 
   describe "#organisation_name" do
-    let(:registration) { create(:registration, operator_name: "My Awesome company")}
+    let(:registration) { create(:registration, operator_name: "My Awesome company") }
 
     it "returns the company's reference number" do
       expect(exemption_bulk_report_presenter.organisation_name).to eq("My Awesome company")

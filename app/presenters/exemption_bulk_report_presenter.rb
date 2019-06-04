@@ -57,9 +57,11 @@ class ExemptionBulkReportPresenter < BasePresenter
     registration.on_a_farm? ? "yes" : "no"
   end
 
+  # rubocop:disable Naming/PredicateName
   def is_a_farmer?
     registration.is_a_farmer? ? "yes" : "no"
   end
+  # rubocop:enable Naming/PredicateName
 
   def site_location_address
     format_address(site_address)

@@ -10,11 +10,13 @@ module Reports
 
       # upload file to s3
 
+      # rubocop:disable Layout/CommentIndentation
       # if upload successfull
         # record content created
       # else
         # retry 3 times then exit with failure
       # end
+      # rubocop:enable Layout/CommentIndentation
     ensure
       temp_file.close
       temp_file.unlink
