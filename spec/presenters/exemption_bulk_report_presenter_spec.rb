@@ -238,7 +238,19 @@ RSpec.describe ExemptionBulkReportPresenter do
   end
 
   describe "#site_location_area" do
-    # TODO: DUNNO :P
+    let(:site_address) do
+      build(
+        :address,
+        :site,
+        area: "Site address area"
+      )
+    end
+
+    let(:registration) { create(:registration, addresses: [site_address]) }
+
+    it "returns the site address area" do
+      expect(exemption_bulk_report_presenter.site_location_area).to eq("Site address area")
+    end
   end
 
   describe "#exemption_code" do

@@ -76,7 +76,7 @@ class ExemptionBulkReportPresenter < BasePresenter
   end
 
   def site_location_area
-    # TODO: DUNNO!
+    site_address.area
   end
 
   def exemption_code
