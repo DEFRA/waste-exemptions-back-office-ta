@@ -113,3 +113,12 @@
     <%= address.country_iso %>
   </p>
 <% end %>
+
+<% if address.area.present? %>
+  <h3 class="heading-small">
+    <%= t(".labels.area") %>
+  </h3>
+  <p>
+    <%= address.area %>
+  </p>
+<% end %>
