@@ -17,3 +17,4 @@ en:
         logical_status_code: "Logical status code"
         source_data_type: "Source data type"
         country_iso: "Country ISO"
+        area: "Area"
