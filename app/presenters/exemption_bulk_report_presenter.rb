@@ -97,7 +97,7 @@ class ExemptionBulkReportPresenter < BasePresenter
 
   def exemption_expiry_date
     # TODO: Implement into the Registration model
-    (3.years.from_now - 1.day).to_date.to_formatted_s(:year_month_day)
+    (registered_on + 3.years - 1.day).to_date.to_formatted_s(:year_month_day)
   end
 
   def exemption_deregister_date

@@ -5,12 +5,14 @@ require "rails_helper"
 RSpec.describe ExemptionBulkReportPresenter do
   let(:registration) { create(:registration) }
   let(:exemption) { create(:exemption) }
+  let(:registered_on) { Date.today }
+
   let(:registration_exemption) do
     create(
       :registration_exemption,
       registration: registration,
       exemption: exemption,
-      registered_on: Date.today
+      registered_on: registered_on
     )
   end
 
@@ -23,9 +25,9 @@ RSpec.describe ExemptionBulkReportPresenter do
   end
 
   describe "#registration_date" do
-    it "returns the registration date in the correct format" do
-      Timecop.freeze(Date.new(2019, 5, 29))
+    let(:registered_on) { Date.new(2019, 5, 29) }
 
+    it "returns the registration date in the correct format" do
       expect(exemption_bulk_report_presenter.registration_date).to eq("2019-05-29")
     end
   end
@@ -278,27 +280,25 @@ RSpec.describe ExemptionBulkReportPresenter do
   end
 
   describe "#exemption_valid_from_date" do
-    it "returns the exemption's registered on date" do
-      Timecop.freeze(Date.new(2019, 5, 29))
+    let(:registered_on) { Date.new(2019, 5, 29) }
 
+    it "returns the exemption's registered on date" do
       expect(exemption_bulk_report_presenter.exemption_valid_from_date).to eq("2019-05-29")
     end
   end
 
   describe "#exemption_expiry_date" do
-    it "returns the exemption's expiry date" do
-      Timecop.freeze(Date.new(2019, 5, 29))
+    let(:registered_on) { Date.new(2019, 5, 29) }
 
+    it "returns the exemption's expiry date" do
       expect(exemption_bulk_report_presenter.exemption_expiry_date).to eq("2022-05-28")
     end
   end
 
   describe "#exemption_deregister_date" do
-    let(:registration_exemption) { create(:registration_exemption, deregistered_at: Date.today) }
+    let(:registration_exemption) { create(:registration_exemption, deregistered_at: Date.new(2019, 5, 29)) }
 
     it "returns the deregistered at exemption's date" do
-      Timecop.freeze(Date.new(2019, 5, 29))
-
       expect(exemption_bulk_report_presenter.exemption_deregister_date).to eq("2019-05-29")
     end
   end
@@ -307,8 +307,6 @@ RSpec.describe ExemptionBulkReportPresenter do
     let(:registration_exemption) { create(:registration_exemption, deregistration_message: "I didn't like that farmer.") }
 
     it "returns the deregistered exemption's comment" do
-      Timecop.freeze(Date.new(2019, 5, 29))
-
       expect(exemption_bulk_report_presenter.exemption_deregister_comment).to eq("I didn't like that farmer.")
     end
   end
