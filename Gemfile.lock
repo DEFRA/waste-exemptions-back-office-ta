@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: e3f715f5bf6e4753cf243651ca6d909fa1b77fe7
+  revision: de9187c000e6d62add78096959a8f105c66fe32d
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -109,8 +109,9 @@ GEM
     debug_inspector (0.0.3)
     defra_ruby_style (0.1.2)
       rubocop
-    defra_ruby_validators (1.0.0)
+    defra_ruby_validators (1.1.0)
       activemodel
+      activesupport
       rest-client (~> 2.0)
     devise (4.6.2)
       bcrypt (~> 3.0)
