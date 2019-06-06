@@ -20,5 +20,9 @@ FactoryBot.define do
       deregistration_message { "Revoked for reasons" }
       deregistered_at { Date.today - 1.day }
     end
+
+    trait :with_registration do
+      registration
+    end
   end
 end

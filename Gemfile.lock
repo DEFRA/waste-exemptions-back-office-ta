@@ -1,7 +1,15 @@
 GIT
+  remote: https://github.com/DEFRA/defra-ruby-aws
+  revision: 94b8b9d93d4fa18349feb87cf9a5a935715e5e7d
+  branch: add-end-to-end-test-coverage
+  specs:
+    defra-ruby-aws (0.0.1)
+      aws-sdk-s3
+
+GIT
   remote: https://github.com/DEFRA/defra-ruby-exporters
-  revision: 3ef183e78f54ebd34002a7f08393c5ac02b137b1
-  branch: master
+  revision: 462c4609e884d9c7898234ddd66c394a14f58d1c
+  branch: fix-required-class-scope
   specs:
     defra_ruby_exporters (0.0.1)
       activesupport
@@ -378,6 +386,7 @@ DEPENDENCIES
   bullet (~> 5.9)
   cancancan (~> 2.0)
   database_cleaner
+  defra-ruby-aws!
   defra_ruby_exporters!
   defra_ruby_style
   devise (>= 4.4.3)
