@@ -6,7 +6,7 @@
 #
 # Hence this file, which magically seems to fix things! We don't understand why,
 # and should we ever get 5 minutes and the inclination to do so we might try
-# figure it out. But for now, we're just moving on 😁
+# figure it out. But for now, we're just moving on :D
 require_relative "reports/monthly_bulk_serializer"
 
 module Reports; end
