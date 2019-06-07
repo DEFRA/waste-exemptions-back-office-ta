@@ -17,7 +17,7 @@ module Reports
 
           MonthlyBulkReportService.run(first_day_of_the_month)
 
-          expect(GeneratedReport.last.file_name).eq("20190601-20190630.csv")
+          expect(GeneratedReport.last.file_name).to eq("20190601-20190630.csv")
         end
       end
 
