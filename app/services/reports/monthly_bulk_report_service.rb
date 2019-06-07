@@ -56,7 +56,7 @@ module Reports
     end
 
     def bucket_name
-      ENV["AWS_BULK_EXPORT_BUCKET"]
+      WasteExemptionsBackOffice::Application.config.bulk_reports_bucket_name
     end
   end
 end

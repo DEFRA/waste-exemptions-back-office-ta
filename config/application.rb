@@ -53,6 +53,9 @@ module WasteExemptionsBackOffice
     config.companies_house_host = ENV["COMPANIES_HOUSE_URL"] || "https://api.companieshouse.gov.uk/company/"
     config.companies_house_api_key = ENV["COMPANIES_HOUSE_API_KEY"]
 
+    # AWS monthly bulk export
+    config.bulk_reports_bucket_name = ENV["AWS_BULK_EXPORT_BUCKET"]
+
     config.years_before_expiry = ENV["YEARS_BEFORE_EXPIRY"] || 3
 
     # Emails
