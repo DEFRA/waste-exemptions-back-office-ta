@@ -63,12 +63,12 @@ gem "waste_exemptions_engine",
 # Use the Defra Ruby Aws gem for loading files to AWS buckets
 gem "defra-ruby-aws",
     git: "https://github.com/DEFRA/defra-ruby-aws",
-    branch: "add-end-to-end-test-coverage"
+    branch: "master"
 
 # Use the Defra Ruby Exporters gem for the EPR and bulk export functionality
 gem "defra_ruby_exporters",
     git: "https://github.com/DEFRA/defra-ruby-exporters",
-    branch: "fix-required-class-scope"
+    branch: "master"
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
