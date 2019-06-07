@@ -7,14 +7,17 @@ module Reports
     describe ".run" do
       let(:first_day_of_the_month) { Date.new(2019, 6, 1) }
       context "when the request succeed" do
-        it "generates a CSV file containing exemptions for the given months and upload it to AWS" do
+        it "generates a CSV file containing exemptions for the given months, upload it to AWS and record the upload" do
           stub_successful_request
           create_list(:registration_exemption, 2, :with_registration, registered_on: first_day_of_the_month)
 
           # Expect no error gets notified
           expect(Airbrake).to_not receive(:notify)
+          expect(GeneratedReport.count).to be_zero
 
           MonthlyBulkReportService.run(first_day_of_the_month)
+
+          expect(GeneratedReport.last.file_name).eq("20190601-20190630.csv")
         end
       end
 

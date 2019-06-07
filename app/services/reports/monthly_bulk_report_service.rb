@@ -9,7 +9,7 @@ module Reports
 
       load_file_to_aws_bucket
 
-      # record_content_created
+      record_content_created
     rescue StandardError => e
       Airbrake.notify e, file_name: file_name
       Rails.logger.error "Generate bulk export csv error for #{file_name}:\n#{e}"
@@ -57,6 +57,10 @@ module Reports
 
     def bucket_name
       WasteExemptionsBackOffice::Application.config.bulk_reports_bucket_name
+    end
+
+    def record_content_created
+      GeneratedReport.create!(file_name: file_name)
     end
   end
 end
