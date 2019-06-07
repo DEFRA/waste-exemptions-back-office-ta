@@ -11,17 +11,19 @@ module Reports
           stub_successful_request
           create_list(:registration_exemption, 2, :with_registration, registered_on: first_day_of_the_month)
 
-          expect_no_error
+          # Expect no error gets notified
+          expect(Airbrake).to_not receive(:notify)
 
           MonthlyBulkReportService.run(first_day_of_the_month)
         end
       end
 
-      context "when the request succeed" do
+      context "when the request fails" do
         it "fails gracefully and report the error" do
           stub_failing_request
           create_list(:registration_exemption, 2, :with_registration, registered_on: first_day_of_the_month)
 
+          # Expect an error to get notified
           expect(Airbrake).to receive(:notify).once
 
           MonthlyBulkReportService.run(first_day_of_the_month)
@@ -40,10 +42,6 @@ module Reports
       ).to_return(
         status: 403
       )
-    end
-
-    def expect_no_error
-      expect(Airbrake).to_not receive(:notify)
     end
   end
 end
