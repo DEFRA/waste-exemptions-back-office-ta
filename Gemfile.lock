@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/defra-ruby-aws
-  revision: dde43428f2825dc54c47236469105094beff1352
+  revision: 9cee098cc1246d71bfa0c7af6ed78845cb059dd8
   branch: master
   specs:
     defra-ruby-aws (0.0.1)
