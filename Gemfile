@@ -60,6 +60,11 @@ gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
     branch: "master"
 
+# Use the Defra Ruby Aws gem for loading files to AWS buckets
+gem "defra-ruby-aws",
+    git: "https://github.com/DEFRA/defra-ruby-aws",
+    branch: "master"
+
 # Use the Defra Ruby Exporters gem for the EPR and bulk export functionality
 gem "defra_ruby_exporters",
     git: "https://github.com/DEFRA/defra-ruby-exporters",
