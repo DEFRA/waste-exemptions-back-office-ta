@@ -13,9 +13,12 @@ module Reports
 
           # Expect no error gets notified
           expect(Airbrake).to_not receive(:notify)
-          expect(GeneratedReport.count).to be_zero
 
-          MonthlyBulkReportService.run(first_day_of_the_month)
+          expect {
+            MonthlyBulkReportService.run(first_day_of_the_month)
+          }.to change {
+            GeneratedReport.count
+          }.by(1)
 
           expect(GeneratedReport.last.file_name).to eq("20190601-20190630.csv")
         end
