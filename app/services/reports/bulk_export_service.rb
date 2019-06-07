@@ -2,7 +2,11 @@
 
 module Reports
   class BulkExportService < ::WasteExemptionsEngine::BaseService
-    def run(*)
+    def run
+      return if WasteExemptionsEngine::Registration.count == 0
+
+      GeneratedReport.delete_all
+
       first_day_of_the_month = starts_from
 
       while first_day_of_the_month < Date.today
