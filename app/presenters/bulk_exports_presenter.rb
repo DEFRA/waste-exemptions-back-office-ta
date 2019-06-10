@@ -13,8 +13,8 @@ class BulkExportsPresenter
   def exported_at_message
     return I18n.t("bulk_exports.show.not_yet_exported") if export_executed_at.blank?
 
-    export_executed_at = export_executed_at.to_formatted_s(:time_on_day_month_year)
-    I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at)
+    export_executed_at_string = export_executed_at.to_formatted_s(:time_on_day_month_year)
+    I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at_string)
   end
 
   private
@@ -27,7 +27,7 @@ class BulkExportsPresenter
   end
 
   def export_executed_at
-    generated_reports_scope.first&.created_at
+    @_export_executed_at ||= generated_reports_scope.first&.created_at
   end
 
   def generated_reports_scope

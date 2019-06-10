@@ -17,6 +17,7 @@ RSpec.describe "Bulk Exports", type: :request do
 
     it "renders the correct template" do
       get bulk_exports_path
+
       expect(response).to render_template("bulk_exports/show")
     end
 
