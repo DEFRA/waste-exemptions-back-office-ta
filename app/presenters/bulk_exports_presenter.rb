@@ -13,7 +13,8 @@ class BulkExportsPresenter
   def exported_at_message
     return I18n.t("bulk_exports.show.not_yet_exported") if export_executed_at.blank?
 
-    I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at.to_formatted_s(:time_on_day_month_year))
+    export_executed_at = export_executed_at.to_formatted_s(:time_on_day_month_year)
+    I18n.t("bulk_exports.show.exported_at", export_executed_at: export_executed_at)
   end
 
   private
