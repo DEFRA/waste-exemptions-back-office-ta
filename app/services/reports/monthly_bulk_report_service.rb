@@ -14,18 +14,17 @@ module Reports
       Airbrake.notify e, file_name: file_name
       Rails.logger.error "Generate bulk export csv error for #{file_name}:\n#{e}"
     ensure
-      temp_file.close
-      temp_file.unlink
+      File.unlink(file_path)
     end
 
     private
 
     def populate_temp_file
-      temp_file.write(bulk_report)
+      File.open(file_path, "w+") { |file| file.write(bulk_report) }
     end
 
-    def temp_file
-      @_temp_file ||= Tempfile.new(file_name)
+    def file_path
+      Rails.root.join("tmp/#{file_name}")
     end
 
     def file_name
@@ -43,7 +42,7 @@ module Reports
       result = nil
 
       3.times do
-        result = bucket.load(temp_file)
+        result = bucket.load(File.new(file_path, "r"))
 
         break if result.successful?
       end

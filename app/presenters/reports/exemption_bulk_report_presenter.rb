@@ -98,11 +98,11 @@ module Reports
     end
 
     def exemption_expiry_date
-      expires_on.to_date.to_formatted_s(:year_month_day)
+      expires_on&.to_date&.to_formatted_s(:year_month_day)
     end
 
     def exemption_deregister_date
-      deregistered_at.to_formatted_s(:year_month_day)
+      deregistered_at&.to_formatted_s(:year_month_day)
     end
 
     def exemption_deregister_comment
