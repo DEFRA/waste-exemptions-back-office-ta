@@ -22,7 +22,7 @@ class BulkExportsPresenter
   def build_link_data(generated_report)
     {
       url: bucket.presigned_url(generated_report.file_name),
-      text: generated_report.starts_from.to_formatted_s(:month_year)
+      text: generated_report.data_from_date.to_formatted_s(:month_year)
     }
   end
 
