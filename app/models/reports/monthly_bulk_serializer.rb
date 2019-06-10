@@ -65,7 +65,7 @@ module Reports
 
     def parse_registration_exemption(registration_exemption)
       ATTRIBUTES.map do |attribute|
-        registration_exemption.try(attribute)
+        registration_exemption.public_send(attribute)
       end
     end
 
