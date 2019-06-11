@@ -27,5 +27,5 @@ end
 bulk_frequency = (ENV["EXPORT_SERVICE_BULK_EXPORT_FREQUENCY"] || :sunday).to_sym
 bulk_time = (ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"] || "20:05")
 every bulk_frequency, at: bulk_time, roles: [:db] do
-  rake "defra_ruby_exporters:bulk"
+  rake "reports:generate:bulk"
 end
