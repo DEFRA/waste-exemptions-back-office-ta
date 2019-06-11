@@ -25,7 +25,7 @@
                               main_app.users_path %>
                 </li>
               <% end %>
-              <% if can?(:read, DefraRuby::Exporters::RegistrationBulkExportReport) %>
+              <% if can?(:read, Reports::GeneratedReport) %>
                 <li>
                   <%= link_to t("layouts.application.menu.exports"),
                               main_app.bulk_exports_path %>

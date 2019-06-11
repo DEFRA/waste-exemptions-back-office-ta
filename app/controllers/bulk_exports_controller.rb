@@ -2,7 +2,7 @@
 
 class BulkExportsController < ApplicationController
   def show
-    authorize! :read, DefraRuby::Exporters::RegistrationBulkExportReport
+    authorize! :read, Reports::GeneratedReport
 
     @bulk_exports = BulkExportsPresenter.new
   end
