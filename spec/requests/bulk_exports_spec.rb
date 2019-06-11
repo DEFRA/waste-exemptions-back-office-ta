@@ -12,7 +12,7 @@ RSpec.describe "Bulk Exports", type: :request do
 
   describe "GET /data-exports" do
     before do
-      create(:generated_report, created_at: Time.new(2019, 6, 1, 12, 0))
+      create(:generated_report, created_at: Time.new(2019, 6, 1, 12, 0), data_from_date: Date.new(2019, 6, 1))
     end
 
     it "renders the correct template" do
