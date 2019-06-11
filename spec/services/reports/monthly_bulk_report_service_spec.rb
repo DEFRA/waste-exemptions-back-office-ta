@@ -23,6 +23,8 @@ module Reports
           # rubocop:enable Style/BlockDelimiters
 
           expect(GeneratedReport.last.file_name).to eq("20190601-20190630.csv")
+          expect(GeneratedReport.last.data_from_date).to eq(first_day_of_the_month)
+          expect(GeneratedReport.last.data_to_date).to eq(first_day_of_the_month.end_of_month)
         end
       end
 
