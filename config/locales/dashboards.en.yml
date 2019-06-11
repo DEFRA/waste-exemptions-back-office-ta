@@ -23,7 +23,6 @@ en:
         heading: "Current user"
         signed_in_user: "Signed in as"
         new_registration_link: "Start a new registration"
-        change_password_link: "Change password"
         sign_out_link: "Sign out"
       heading: "Waste exemptions dashboard"
       no_results: "No results"
