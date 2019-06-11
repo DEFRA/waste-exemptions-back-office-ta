@@ -70,9 +70,13 @@ module Reports
     end
 
     def batch_size
-      return 1000 if ENV["EXPORT_SERVICE_BATCH_SIZE"].blank?
+      return 1000 if export_batch_size.blank?
 
-      ENV["EXPORT_SERVICE_BATCH_SIZE"].to_i
+      export_batch_size.to_i
+    end
+
+    def export_batch_size
+      WasteExemptionsBackOffice::Application.config.export_batch_size
     end
   end
 end

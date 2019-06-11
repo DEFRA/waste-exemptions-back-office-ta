@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../../lib/defra_ruby/exporters/registration_bulk_export_report"
-
 class Ability
   include CanCan::Ability
 
@@ -49,6 +47,6 @@ class Ability
     can :use_back_office, :all
     can :read, WasteExemptionsEngine::Registration
     can :read, WasteExemptionsEngine::NewRegistration
-    can :read, DefraRuby::Exporters::RegistrationBulkExportReport
+    can :read, Reports::GeneratedReport
   end
 end
