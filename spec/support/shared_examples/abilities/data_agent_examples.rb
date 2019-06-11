@@ -14,6 +14,6 @@ RSpec.shared_examples "data_agent examples" do
   end
 
   it "should be able to view bulk exports" do
-    should be_able_to(:read, DefraRuby::Exporters::RegistrationBulkExportReport)
+    should be_able_to(:read, Reports::GeneratedReport)
   end
 end

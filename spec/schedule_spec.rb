@@ -18,7 +18,7 @@ RSpec.describe "Whenever schedule", vcr: true do
     expect(rake_jobs.count).to eq(2)
 
     epr_jobs = rake_jobs.select { |j| j[:task] == "defra_ruby_exporters:epr" }
-    bulk_jobs = rake_jobs.select { |j| j[:task] == "defra_ruby_exporters:bulk" }
+    bulk_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:bulk" }
     expect(epr_jobs.count).to eq(1)
     expect(bulk_jobs.count).to eq(1)
   end
@@ -31,7 +31,7 @@ RSpec.describe "Whenever schedule", vcr: true do
   end
 
   it "takes the bulk export execution time and frequency from the appropriate ENV variables" do
-    job_details = schedule.jobs[:rake].find { |h| h[:task] == "defra_ruby_exporters:bulk" }
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:generate:bulk" }
 
     expect(job_details[:every][0]).to eq(ENV["EXPORT_SERVICE_BULK_EXPORT_FREQUENCY"].to_sym)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"])
