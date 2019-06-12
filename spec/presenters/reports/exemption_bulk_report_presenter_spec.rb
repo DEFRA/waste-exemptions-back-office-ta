@@ -206,6 +206,20 @@ module Reports
       it "returns the contact's address" do
         expect(exemption_bulk_report_presenter.site_location_address).to eq("Park, Westland, 45 way, away, Erabor, HD5 JFS")
       end
+
+      context "if the address is located by grid reference" do
+        let(:site_location_address) do
+          build(
+            :address,
+            :site,
+            mode: :auto
+          )
+        end
+
+        it "returns nil" do
+          expect(exemption_bulk_report_presenter.site_location_address).to be_nil
+        end
+      end
     end
 
     describe "#site_location_grid_reference" do
