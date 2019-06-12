@@ -66,6 +66,8 @@ module Reports
     # rubocop:enable Naming/PredicateName
 
     def site_location_address
+      return if site_address.located_by_grid_reference?
+
       format_address(site_address)
     end
 
