@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/defra-ruby-aws
-  revision: 25a3d5ecc6c2de769efe4f0d2b6aa447e7eb0e19
+  revision: 0c25a938b94bb36a6dc9def6fe3cfb24988be029
   branch: master
   specs:
     defra-ruby-aws (0.0.1)
@@ -83,7 +83,7 @@ GEM
     arel (6.0.4)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.173.0)
+    aws-partitions (1.174.0)
     aws-sdk-core (3.54.2)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
