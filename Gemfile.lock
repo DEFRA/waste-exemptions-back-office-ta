@@ -18,8 +18,8 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: f7de1eeed2a03dca00adadb034904519e47b654d
-  branch: master
+  revision: f898d7f50a71181f5d4b8da26315814479380d7e
+  branch: upgrade-pg-version
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
@@ -28,7 +28,7 @@ GIT
       high_voltage (~> 3.1)
       os_map_ref (~> 0.5)
       paper_trail (~> 10.2.0)
-      pg (~> 0.18.4)
+      pg (~> 0.21)
       phonelib
       rails (~> 4.2.11)
       rest-client (~> 2.0)
@@ -227,7 +227,7 @@ GEM
     passenger (5.3.7)
       rack
       rake (>= 0.8.1)
-    pg (0.18.4)
+    pg (0.21)
     pgreset (0.1.1)
     phonelib (0.6.35)
     pry (0.12.2)
@@ -400,7 +400,7 @@ DEPENDENCIES
   kaminari (~> 1.1)
   paper_trail (~> 10.2.0)
   passenger (~> 5.0, >= 5.0.30)
-  pg (~> 0.18.4)
+  pg
   pgreset
   pry-byebug
   rails (~> 4.2.11)

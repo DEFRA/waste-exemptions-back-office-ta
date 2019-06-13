@@ -23,7 +23,7 @@ gem "govuk_template", "~> 0.23"
 # Use jquery as the JavaScript library
 gem "jquery-rails"
 # Use postgresql as the database for Active Record
-gem "pg", "~> 0.18.4"
+gem "pg"
 # Automatically kills connections to Postgres when running rake tasks that
 # involve a database drop. Stops the error
 # PG::ObjectInUse: ERROR:  database "wex_db" is being accessed by other users
@@ -58,7 +58,7 @@ gem "paper_trail", "~> 10.2.0"
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
-    branch: "master"
+    branch: "upgrade-pg-version"
 
 # Use the Defra Ruby Aws gem for loading files to AWS buckets
 gem "defra-ruby-aws",
