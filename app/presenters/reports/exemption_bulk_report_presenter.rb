@@ -130,7 +130,6 @@ module Reports
 
     def format_address(address)
       [
-        address.organisation,
         address.premises,
         address.street_address,
         address.locality,
