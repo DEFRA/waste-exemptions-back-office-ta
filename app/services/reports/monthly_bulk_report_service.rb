@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require_relative "concerns/can_load_file_to_aws"
+
 module Reports
   class MonthlyBulkReportService < ::WasteExemptionsEngine::BaseService
+    include CanLoadFileToAws
+
     def run(first_day_of_the_month)
       @first_day_of_the_month = first_day_of_the_month
 
@@ -36,22 +40,6 @@ module Reports
 
     def bulk_report
       MonthlyBulkSerializer.new(@first_day_of_the_month).to_csv
-    end
-
-    def load_file_to_aws_bucket
-      result = nil
-
-      3.times do
-        result = bucket.load(File.new(file_path, "r"))
-
-        break if result.successful?
-      end
-
-      raise(result.error) unless result.successful?
-    end
-
-    def bucket
-      @_bucket ||= DefraRuby::Aws.get_bucket(bucket_name)
     end
 
     def bucket_name

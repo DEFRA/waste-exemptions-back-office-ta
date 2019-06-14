@@ -15,5 +15,15 @@ module WasteExemptionsEngine
         .includes(registration: :addresses)
         .order(:registered_on, :registration_id)
     }
+
+    scope :not_expired, -> { where("expires_on >= now()") }
+
+    scope :all_active_exemptions, lambda {
+      active
+        .not_expired
+        .includes(:exemption)
+        .includes(registration: :addresses)
+        .order(:registered_on, :registration_id)
+    }
   end
 end

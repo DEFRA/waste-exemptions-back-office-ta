@@ -55,6 +55,8 @@ module WasteExemptionsBackOffice
 
     # AWS monthly bulk export
     config.bulk_reports_bucket_name = ENV["AWS_BULK_EXPORT_BUCKET"]
+    config.epr_reports_bucket_name = ENV["AWS_DAILY_EXPORT_BUCKET"]
+    config.epr_export_filename = ENV["EPR_DAYLY_REPORT_FILE_NAME"] || "waste_exemptions_epr_daily_full"
     config.export_batch_size = ENV["EXPORT_SERVICE_BATCH_SIZE"]
 
     config.years_before_expiry = ENV["YEARS_BEFORE_EXPIRY"] || 3
