@@ -112,7 +112,11 @@ module Reports
     end
 
     def assistance_type
-      registration.assistance_mode
+      if registration.assistance_mode == "full"
+        "fully assisted"
+      else
+        "unassisted"
+      end
     end
 
     def registration_detail_url
@@ -130,7 +134,6 @@ module Reports
 
     def format_address(address)
       [
-        address.organisation,
         address.premises,
         address.street_address,
         address.locality,

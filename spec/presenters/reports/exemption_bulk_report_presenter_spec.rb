@@ -86,7 +86,6 @@ module Reports
         build(
           :address,
           :operator,
-          organisation: "Park",
           premises: "Westland",
           street_address: "45 way",
           locality: "away",
@@ -98,7 +97,7 @@ module Reports
       let(:registration) { create(:registration, addresses: [organisation_address]) }
 
       it "returns the organisation address" do
-        expect(exemption_bulk_report_presenter.organisation_address).to eq("Park, Westland, 45 way, away, Erabor, HD5 JFS")
+        expect(exemption_bulk_report_presenter.organisation_address).to eq("Westland, 45 way, away, Erabor, HD5 JFS")
       end
     end
 
@@ -123,7 +122,6 @@ module Reports
         build(
           :address,
           :contact,
-          organisation: "Park",
           premises: "Westland",
           street_address: "45 way",
           locality: "away",
@@ -135,7 +133,7 @@ module Reports
       let(:registration) { create(:registration, addresses: [contact_address]) }
 
       it "returns the contact's address" do
-        expect(exemption_bulk_report_presenter.correspondance_contact_address).to eq("Park, Westland, 45 way, away, Erabor, HD5 JFS")
+        expect(exemption_bulk_report_presenter.correspondance_contact_address).to eq("Westland, 45 way, away, Erabor, HD5 JFS")
       end
     end
 
@@ -192,7 +190,6 @@ module Reports
         build(
           :address,
           :site,
-          organisation: "Park",
           premises: "Westland",
           street_address: "45 way",
           locality: "away",
@@ -204,7 +201,7 @@ module Reports
       let(:registration) { create(:registration, addresses: [site_location_address]) }
 
       it "returns the contact's address" do
-        expect(exemption_bulk_report_presenter.site_location_address).to eq("Park, Westland, 45 way, away, Erabor, HD5 JFS")
+        expect(exemption_bulk_report_presenter.site_location_address).to eq("Westland, 45 way, away, Erabor, HD5 JFS")
       end
 
       context "if the address is located by grid reference" do
@@ -327,10 +324,22 @@ module Reports
     end
 
     describe "#assistance_type" do
-      let(:registration) { create(:registration, assistance_mode: "unassisted") }
+      let(:registration) { create(:registration, assistance_mode: assistance_mode) }
 
-      it "returns the assistance mode" do
-        expect(exemption_bulk_report_presenter.assistance_type).to eq("unassisted")
+      context "when assistance_mode is blank" do
+        let(:assistance_mode) { nil }
+
+        it "returns the string 'unassisted'" do
+          expect(exemption_bulk_report_presenter.assistance_type).to eq("unassisted")
+        end
+      end
+
+      context "when assistance_mode is set to 'full'" do
+        let(:assistance_mode) { "full" }
+
+        it "returns the string 'fully assisted'" do
+          expect(exemption_bulk_report_presenter.assistance_type).to eq("fully assisted")
+        end
       end
     end
 
