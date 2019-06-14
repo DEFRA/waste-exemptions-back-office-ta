@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/ClassLength
 module Reports
   class ExemptionEprReportPresenter < BasePresenter
     def registration_number
@@ -80,4 +79,3 @@ module Reports
     end
   end
 end
-# rubocop:enable Metrics/ClassLength

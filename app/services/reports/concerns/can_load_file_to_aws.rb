@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Reports
   module CanLoadFileToAws
     def load_file_to_aws_bucket
