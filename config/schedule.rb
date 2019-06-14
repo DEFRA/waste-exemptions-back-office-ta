@@ -19,7 +19,7 @@ set :job_template, "/bin/bash -l -c 'eval \"$(rbenv init -)\" && :job'"
 # all records and put this into an AWS S3 bucket from which Epimorphics (the
 # company that provides and maintains the EPR) will grab it
 every :day, at: (ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"] || "1:05"), roles: [:db] do
-  rake "defra_ruby_exporters:epr"
+  rake "reports:generate:epr"
 end
 
 # This is the bulk export job. When run this will create batched CSV exports of
