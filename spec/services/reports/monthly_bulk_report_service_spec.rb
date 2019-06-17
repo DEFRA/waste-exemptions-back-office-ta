@@ -6,6 +6,7 @@ module Reports
   RSpec.describe MonthlyBulkReportService do
     describe ".run" do
       let(:first_day_of_the_month) { Date.new(2019, 6, 1) }
+
       context "when the request succeed" do
         it "generates a CSV file containing exemptions for the given months, upload it to AWS and record the upload" do
           stub_successful_request

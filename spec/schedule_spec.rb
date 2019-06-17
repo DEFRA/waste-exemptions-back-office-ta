@@ -17,14 +17,14 @@ RSpec.describe "Whenever schedule" do
     rake_jobs = schedule.jobs[:rake]
     expect(rake_jobs.count).to eq(2)
 
-    epr_jobs = rake_jobs.select { |j| j[:task] == "defra_ruby_exporters:epr" }
+    epr_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:epr" }
     bulk_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:bulk" }
     expect(epr_jobs.count).to eq(1)
     expect(bulk_jobs.count).to eq(1)
   end
 
   it "takes the EPR execution time from the appropriate ENV variable" do
-    job_details = schedule.jobs[:rake].find { |h| h[:task] == "defra_ruby_exporters:epr" }
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:generate:epr" }
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])

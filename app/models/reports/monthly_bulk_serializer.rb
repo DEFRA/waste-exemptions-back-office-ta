@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Reports
-  class MonthlyBulkSerializer
+  class MonthlyBulkSerializer < BaseSerializer
     ATTRIBUTES = %i[
       reference_number
       registration_date
@@ -37,27 +37,9 @@ module Reports
       @first_day_of_the_month = first_day_of_the_month
     end
 
-    def to_csv
-      CSV.generate do |csv|
-        csv << ATTRIBUTES
-
-        exemptions_data do |exemption_data|
-          csv << exemption_data
-        end
-      end
-    end
-
     private
 
     attr_reader :first_day_of_the_month
-
-    def exemptions_data
-      registration_exemptions_scope.find_in_batches(batch_size: batch_size) do |batch|
-        batch.each do |registration_exemption|
-          yield parse_registration_exemption(ExemptionBulkReportPresenter.new(registration_exemption))
-        end
-      end
-    end
 
     def registration_exemptions_scope
       WasteExemptionsEngine::RegistrationExemption.data_for_month(first_day_of_the_month)
@@ -65,18 +47,9 @@ module Reports
 
     def parse_registration_exemption(registration_exemption)
       ATTRIBUTES.map do |attribute|
-        registration_exemption.public_send(attribute)
+        presenter = ExemptionBulkReportPresenter.new(registration_exemption)
+        presenter.public_send(attribute)
       end
-    end
-
-    def batch_size
-      return 1000 if export_batch_size.blank?
-
-      export_batch_size.to_i
-    end
-
-    def export_batch_size
-      WasteExemptionsBackOffice::Application.config.export_batch_size
     end
   end
 end
