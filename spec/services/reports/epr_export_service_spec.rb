@@ -5,8 +5,8 @@ require "rails_helper"
 module Reports
   RSpec.describe EprExportService do
     describe ".run" do
-      context "when the AWS request succeed" do
-        it "generates a CSV file containing all active exemptions and upload it to AWS" do
+      context "when the AWS request succeeds" do
+        it "generates a CSV file containing all active exemptions and uploads it to AWS" do
           create_list(:registration_exemption, 2, :with_registration, :active)
           file_name = "waste_exemptions_epr_daily_full"
 
@@ -20,7 +20,7 @@ module Reports
       end
 
       context "when the request fails" do
-        it "fails gracefully and report the error" do
+        it "fails gracefully and reports the error" do
           create(:registration_exemption, :with_registration, :active)
 
           file_name = "waste_exemptions_epr_daily_full"

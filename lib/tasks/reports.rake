@@ -7,7 +7,7 @@ namespace :reports do
       Reports::BulkExportService.run
     end
 
-    desc "Generate the EPR reports and upload them to S3."
+    desc "Generate the EPR report and upload it to S3."
     task epr: :environment do
       Reports::EprExportService.run
     end
