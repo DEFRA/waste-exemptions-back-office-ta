@@ -7,16 +7,6 @@ GIT
       aws-sdk-s3
 
 GIT
-  remote: https://github.com/DEFRA/defra-ruby-exporters
-  revision: 224a953df1a7a0ed1523731d09f17871fc572813
-  branch: master
-  specs:
-    defra_ruby_exporters (0.0.1)
-      activesupport
-      aws-sdk-s3 (~> 1.31)
-      http-2
-
-GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
   revision: f7de1eeed2a03dca00adadb034904519e47b654d
   branch: master
@@ -173,7 +163,6 @@ GEM
       activerecord (>= 3.0)
     hashdiff (0.4.0)
     high_voltage (3.1.2)
-    http-2 (0.10.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.5)
@@ -385,7 +374,6 @@ DEPENDENCIES
   cancancan (~> 2.0)
   database_cleaner
   defra-ruby-aws!
-  defra_ruby_exporters!
   defra_ruby_style
   devise (>= 4.4.3)
   devise_invitable (~> 1.7.0)

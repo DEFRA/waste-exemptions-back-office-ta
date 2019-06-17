@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "defra_ruby/exporters"
-
 class BulkExportsPresenter
 
   def links
