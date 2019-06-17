@@ -33,8 +33,6 @@ module WasteExemptionsBackOffice
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.autoload_paths += %W[#{config.root}/lib/defra_ruby/exporters/]
-
     # Don't add field_with_errors div wrapper around fields with errors. When
     # rails does this it messes with the GOV.UK styling and causes checkboxes
     # and radio buttons to become invisible

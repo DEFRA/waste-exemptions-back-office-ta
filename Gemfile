@@ -65,11 +65,6 @@ gem "defra-ruby-aws",
     git: "https://github.com/DEFRA/defra-ruby-aws",
     branch: "master"
 
-# Use the Defra Ruby Exporters gem for the EPR and bulk export functionality
-gem "defra_ruby_exporters",
-    git: "https://github.com/DEFRA/defra-ruby-exporters",
-    branch: "master"
-
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 

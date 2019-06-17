@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-require "defra_ruby/exporters"
 
 RSpec.describe "Bulk Exports", type: :request do
   let(:user) { create(:user, :system) }
