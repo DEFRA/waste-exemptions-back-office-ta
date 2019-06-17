@@ -10,7 +10,7 @@ require "open3"
 # work by actually running the deployment and seeing if it breaks (or not)
 # See https://github.com/rafaelsales/whenever-test for more details
 
-RSpec.describe "Whenever schedule", vcr: true do
+RSpec.describe "Whenever schedule" do
   let(:schedule) { Whenever::Test::Schedule.new(file: "config/schedule.rb") }
 
   it "makes sure 'rake' statements exist" do

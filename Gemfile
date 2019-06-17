@@ -112,8 +112,7 @@ group :test do
   # A gem providing "time travel" and "time freezing" capabilities, making it
   # dead simple to test time-dependent code.
   gem "timecop"
-  # Use VCR to mock HTTP requests
-  gem "vcr", "~> 4.0"
+  # Mock HTTP requests
   gem "webmock", "~> 3.5"
 
   # Allow automated testing of the whenever schedule
