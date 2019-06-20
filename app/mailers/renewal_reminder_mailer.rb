@@ -30,8 +30,8 @@ class RenewalReminderMailer < ActionMailer::Base
     "TODO"
   end
 
-  def reference(_registration)
-    "TODO"
+  def reference(registration)
+    registration.reference
   end
 
   def site_location(_registration)

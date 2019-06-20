@@ -33,5 +33,10 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
       contact_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
       expect(mail.body.encoded).to include(contact_name)
     end
+
+    it "includes the correct reference" do
+      reference = registration.reference
+      expect(mail.body.encoded).to include(reference)
+    end
   end
 end
