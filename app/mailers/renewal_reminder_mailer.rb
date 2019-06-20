@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class RenewalReminderMailer < ActionMailer::Base
+  # So we can use displayable_address()
+  include ::WasteExemptionsEngine::ApplicationHelper
+
   def first_reminder_email(registration)
     @contact_name = contact_name(registration)
     @expiry_date = expiry_date(registration)
@@ -34,8 +37,14 @@ class RenewalReminderMailer < ActionMailer::Base
     registration.reference
   end
 
-  def site_location(_registration)
-    "TODO"
+  def site_location(registration)
+    address = registration.site_address
+
+    if address.postcode.present?
+      displayable_address(address).join(", ")
+    else
+      address.grid_reference
+    end
   end
 
   def exemptions(registration)

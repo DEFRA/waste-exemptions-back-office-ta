@@ -39,6 +39,21 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
       expect(mail.body.encoded).to include(reference)
     end
 
+    it "includes the correct grid reference" do
+      grid_reference = registration.site_address.grid_reference
+      expect(mail.body.encoded).to include(grid_reference)
+    end
+
+    context "when the site address is an address" do
+      let(:registration) { build(:registration, :site_uses_address) }
+
+      it "includes the correct address" do
+        address = registration.site_address
+        address_text = "#{address.premises}, #{address.street_address}, #{address.locality}, #{address.city}, #{address.postcode}"
+        expect(mail.body.encoded).to include(address_text)
+      end
+    end
+
     it "includes the correct exemptions" do
       registration.exemptions.each do |exemption|
         exemption_text = "#{exemption.code} #{exemption.summary}"
