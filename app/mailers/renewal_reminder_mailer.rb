@@ -38,7 +38,7 @@ class RenewalReminderMailer < ActionMailer::Base
     "TODO"
   end
 
-  def exemptions(_registration)
-    ["TODO"]
+  def exemptions(registration)
+    registration.exemptions.map { |ex| "#{ex.code} #{ex.summary}" }
   end
 end

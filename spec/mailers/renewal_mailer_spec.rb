@@ -38,5 +38,12 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
       reference = registration.reference
       expect(mail.body.encoded).to include(reference)
     end
+
+    it "includes the correct exemptions" do
+      registration.exemptions.each do |exemption|
+        exemption_text = "#{exemption.code} #{exemption.summary}"
+        expect(mail.body.encoded).to include(exemption_text)
+      end
+    end
   end
 end
