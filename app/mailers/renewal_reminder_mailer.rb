@@ -29,8 +29,9 @@ class RenewalReminderMailer < ActionMailer::Base
     "#{registration.contact_first_name} #{registration.contact_last_name}"
   end
 
-  def expiry_date(_registration)
-    "TODO"
+  def expiry_date(registration)
+    # Currently you can only add exemptions when you register, so we can assume they expire at the same time
+    registration.registration_exemptions.first.expires_on.to_formatted_s(:day_month_year)
   end
 
   def reference(registration)
