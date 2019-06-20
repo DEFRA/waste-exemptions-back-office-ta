@@ -22,8 +22,8 @@ class RenewalReminderMailer < ActionMailer::Base
     "#{config.service_name} <#{config.email_service_email}>"
   end
 
-  def contact_name(_registration)
-    "TODO"
+  def contact_name(registration)
+    "#{registration.contact_first_name} #{registration.contact_last_name}"
   end
 
   def expiry_date(_registration)
