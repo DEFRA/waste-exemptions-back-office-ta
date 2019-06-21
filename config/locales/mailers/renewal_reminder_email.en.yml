@@ -13,7 +13,8 @@ en:
         subheading: "Register your waste exemptions now"
         paragraph_1: "Until our online renewal service is launched, you’ll need to register your exemptions again."
         register_label: "Register here:"
-        register_url: "www.gov.uk/register-waste-exemption"
+        register_link_text: "www.gov.uk/register-waste-exemption"
+        register_link_url: "https://www.gov.uk/register-waste-exemption"
         paragraph_2: "If you no longer carry out these waste operations, you do not need to do anything. Your exemptions will be removed from the public register when they expire."
       section_3:
         subheading: "Need help to register?"
@@ -22,9 +23,11 @@ en:
       section_4:
         subheading: "Waste exemptions guidance"
         paragraph_1: "You must read and understand the limits and conditions of each exemption before you renew. Guidance is available online at:"
-        paragraph_1_link: "www.gov.uk/register-waste-exemption"
+        paragraph_1_link_text: "www.gov.uk/register-waste-exemption"
+        paragraph_1_link_url: "https://www.gov.uk/register-waste-exemption"
         paragraph_2: "View your previous waste exemptions on the public register at:"
-        paragraph_2_link: "www.gov.uk/access-the-public-register-for-environmental-information"
+        paragraph_2_link_text: "www.gov.uk/access-the-public-register-for-environmental-information"
+        paragraph_2_link_url: "https://www.gov.uk/access-the-public-register-for-environmental-information"
       sign_off:
         paragraph_1: "Yours sincerely"
         paragraph_2: "Waste Exemptions Team"
