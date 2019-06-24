@@ -1,0 +1,153 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://validator.w3.org/nu/?out=json&parser=html&showsource=yes
+    body:
+      encoding: UTF-8
+      string: "\n\n\n\n\n<!DOCTYPE html>\n<!--[if lt IE 9]><html class=\"lte-ie8\"
+        lang=\"en\"><![endif]-->\n<!--[if gt IE 8]><!--><html lang=\"en\"><!--<![endif]-->\n
+        \ <head>\n    <meta charset=\"utf-8\" />\n    <title>Waste exemptions dashboard
+        - Register your waste exemptions - GOV.UK</title>\n\n    <!--[if gt IE 8]><!--><link
+        rel=\"stylesheet\" media=\"screen\" href=\"/assets/govuk-template-a1634ccb4d3ee33cffd3aa4dd3c604c132c389244e825027bc2e02b3680012cb.css\"
+        crossorigin=\"anonymous\" integrity=\"sha256-oWNMy00+4zz/06pN08YEwTLDiSROglAnvC4Cs2gAEss=\"
+        /><!--<![endif]-->\n    <!--[if IE 6]><link rel=\"stylesheet\" media=\"screen\"
+        href=\"/assets/govuk-template-ie6-13d6460adc09e7734f62fa1464df5078b21fd9434764ea3daf428a2f62e2d185.css\"
+        /><![endif]-->\n    <!--[if IE 7]><link rel=\"stylesheet\" media=\"screen\"
+        href=\"/assets/govuk-template-ie7-675c1b552146f677d07655d91f6a60fcdc2ecf2752f296e840125aaafdec05f2.css\"
+        /><![endif]-->\n    <!--[if IE 8]><link rel=\"stylesheet\" media=\"screen\"
+        href=\"/assets/govuk-template-ie8-08aa4c6eabe9398d4088ccecfb854b027812e38994f639185d848b22cc5866a7.css\"
+        /><![endif]-->\n    <link rel=\"stylesheet\" media=\"print\" href=\"/assets/govuk-template-print-1076519521c2fffbbf75ab3b0d3b32ee2d96ac7e9778f1cdfac1771eefd1a1c0.css\"
+        crossorigin=\"anonymous\" integrity=\"sha256-EHZRlSHC//u/das7DTsy7i2WrH6XePHN+sF3Hu/RocA=\"
+        />\n\n    <link rel=\"stylesheet\" media=\"all\" href=\"/assets/fonts-a5aa57b6ceaab0b585d834d1d78e46d8b76dd3f80502da205736cdd3060b9b86.css\"
+        crossorigin=\"anonymous\" integrity=\"sha256-papXts6qsLWF2DTR145G2Ldt0/gFAtogVzbN0wYLm4Y=\"
+        />\n    <!--[if lt IE 9]><script src=\"/assets/ie-19f47204b0f93c5c4ff044f66b82097917812360ea1a8118fc5ea7a0d5f20e6b.js\"
+        crossorigin=\"anonymous\" integrity=\"sha256-GfRyBLD5PFxP8ET2a4IJeReBI2DqGoEY/F6noNXyDms=\"></script><![endif]-->\n\n
+        \   <link rel=\"shortcut icon\" href=\"/assets/favicon-8d811b8c3badbc0b0e2f6e25d3660a96cc0cca7993e6f32e98785f205fc40907.ico\"
+        type=\"image/x-icon\" />\n    <link rel=\"mask-icon\" href=\"/assets/gov.uk_logotype_crown-de738c3fcce8ce2a91b67e89787090dc24a5cda0275ab6b75f6226c5b9619d3d.svg\"
+        color=\"#0b0c0c\">\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/assets/apple-touch-icon-180x180-ea1cbb1cbbeddfff275dfa6e8e46b84cd530892df79dc4882a8f99b802b49a90.png\">\n
+        \   <link rel=\"apple-touch-icon\" sizes=\"167x167\" href=\"/assets/apple-touch-icon-167x167-181e404a50c572923285fb83f0fbd78da6b4e38e3ce52f8e6b8e29da8586450a.png\">\n
+        \   <link rel=\"apple-touch-icon\" sizes=\"152x152\" href=\"/assets/apple-touch-icon-152x152-02457fcdcee8d309276305af2233d41bfb8fd055e855727d355e61bce7ffa9bb.png\">\n
+        \   <link rel=\"apple-touch-icon\" href=\"/assets/apple-touch-icon-a318f305290c523aed80082456175b46c95350c0eeac93f42e78a71c7a55544e.png\">\n\n
+        \   <meta name=\"theme-color\" content=\"#0b0c0c\" />\n\n    <meta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1\">\n\n      <link rel=\"stylesheet\"
+        media=\"all\" href=\"/assets/application-f38efdfa5046f32e2c472a0b02cfd3ee37757597ba5979d47c4f47b7a72db439.css\"
+        />\n  <!--[if IE 8]><link rel=\"stylesheet\" media=\"screen\" href=\"/stylesheets/ie8.css\"
+        /><![endif]-->\n  \n\n\n    <meta property=\"og:image\" content=\"/assets/opengraph-image-a1f7d89ffd0782738b1aeb0da37842d8bd0addbd724b8e58c3edbc7287cc11de.png\">\n
+        \ </head>\n\n  <body>\n    <script>document.body.className = ((document.body.className)
+        ? document.body.className + ' js-enabled' : 'js-enabled');</script>\n\n    \n\n
+        \   <div id=\"skiplink-container\">\n      <div>\n        <a href=\"#content\"
+        class=\"skiplink\">Skip to main content</a>\n      </div>\n    </div>\n\n
+        \   <div id=\"global-cookie-message\">\n        <p>GOV.UK uses cookies to
+        make the site simpler. <a href=\"https://www.gov.uk/help/cookies\" data-module=\"track-click\"
+        data-track-category=\"cookieBanner\" data-track-action=\"Cookie banner clicked\">Find
+        out more about cookies</a></p>\n    </div>\n\n    <header role=\"banner\"
+        id=\"global-header\" class=\"with-proposition\">\n      <div class=\"header-wrapper\">\n
+        \       <div class=\"header-global\">\n          <div class=\"header-logo\">\n
+        \           <a href=\"https://www.gov.uk/\" title=\"Go to the GOV.UK homepage\"
+        id=\"logo\" class=\"content\" data-module=\"track-click\" data-track-category=\"homeLinkClicked\"
+        data-track-action=\"homeHeader\">\n              <img src=\"/assets/gov.uk_logotype_crown_invert_trans-203e1db49d3eff430d7dc450ce723c1002542fe1d2bce661b6d8571f14c1043c.png\"
+        width=\"36\" height=\"32\" alt=\"\"> GOV.UK\n            </a>\n          </div>\n
+        \         \n        </div>\n          <div class=\"header-proposition\">\n
+        \   <div class=\"content\">\n          <a id=\"proposition-name\" href=\"/\">Waste
+        exemptions back office</a>\n          <nav id=\"proposition-menu\">\n            <ul
+        id=\"proposition-links\" aria-label=\"Top Level Navigation\">\n              <li>\n
+        \               <a href=\"/\">Dashboard</a>\n              </li>\n                <li>\n
+        \                 <a href=\"/users\">Manage users</a>\n                </li>\n
+        \               <li>\n                  <a href=\"/data-exports\">Data exports</a>\n
+        \               </li>\n            </ul>\n          </nav>\n    </div>\n  </div>\n\n
+        \     </div>\n    </header>\n\n    \n\n    <div id=\"global-header-bar\"></div>\n\n
+        \     <main id=\"content\" role=\"main\">\n    <div class=\"grid-row\">\n
+        \ <div class=\"column-full\">\n    <h1 class=\"heading-large\">\n      Waste
+        exemptions dashboard\n    </h1>\n  </div>\n</div>\n\n<div class=\"grid-row\">\n
+        \ <div class=\"column-two-thirds\">\n    <p>You can search for a registration
+        by:</p>\n    <ul class=\"list list-bullet\">\n        <li>site postcode</li>\n
+        \       <li>registration reference number</li>\n        <li>business or partner
+        name</li>\n        <li>applicant name</li>\n        <li>applicant email</li>\n
+        \       <li>contact name</li>\n        <li>contact email</li>\n    </ul>\n\n
+        \   <div class=\"form-group\">\n      <form action=\"/\" accept-charset=\"UTF-8\"
+        method=\"get\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" />\n
+        \       <label class=\"form-label visually-hidden\" for=\"term\">Search for
+        registrations</label>\n        <input type=\"text\" name=\"term\" id=\"term\"
+        placeholder=\"Enter your search term here\" class=\"form-control\" />\n        <input
+        type=\"submit\" name=\"commit\" value=\"Search\" class=\"button\" />\n\n        <div
+        class=\"filters\">\n          <div class=\"form-group\">\n            <fieldset
+        id=\"search-filters\">\n              <legend class=\"visually-hidden\">\n
+        \               Filter your search\n              </legend>\n              <div
+        class=\"multiple-choice\">\n                <input type=\"radio\" name=\"filter\"
+        id=\"filter_registrations\" value=\"registrations\" checked=\"checked\" />\n
+        \               <label for=\"filter_registrations\">Submitted</label>\n              </div>\n
+        \             <div class=\"multiple-choice\">\n                <input type=\"radio\"
+        name=\"filter\" id=\"filter_new_registrations\" value=\"new_registrations\"
+        />\n                <label for=\"filter_new_registrations\">Not yet submitted</label>\n
+        \             </div>\n            </fieldset>\n          </div>\n        </div>\n</form>
+        \   </div>\n  </div>\n\n  <div class=\"column-one-third\">\n    <div class=\"user-info\">\n
+        \     <h2 class=\"heading-medium\">\n        Current user\n      </h2>\n      <p>\n
+        \       Signed in as\n        <span>user36@example.com</span>\n      </p>\n
+        \       <p><a href=\"/start/new\">Start a new registration</a></p>\n      <p><a
+        class=\"button\" href=\"/users/sign_out\">Sign out</a></p>\n    </div>\n  </div>\n</div>\n\n\n
+        \ </main>\n\n\n    <footer class=\"group js-footer\" id=\"footer\" role=\"contentinfo\">\n\n
+        \     <div class=\"footer-wrapper\">\n        \n\n        <div class=\"footer-meta\">\n
+        \         <div class=\"footer-meta-inner\">\n            \n\n            <div
+        class=\"open-government-licence\">\n              <p class=\"logo\"><a href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"
+        rel=\"license\">Open Government Licence</a></p>\n                <p>All content
+        is available under the <a href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"
+        rel=\"license\">Open Government Licence v3.0</a>, except where otherwise stated</p>\n
+        \           </div>\n          </div>\n\n          <div class=\"copyright\">\n
+        \           <a href=\"https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/\">©
+        Crown copyright</a>\n          </div>\n        </div>\n      </div>\n    </footer>\n\n
+        \   <div id=\"global-app-error\" class=\"app-error hidden\"></div>\n\n    <script
+        src=\"/assets/govuk-template-99516bd3f8ebb1eb5bae235f7b64bd93b4535d001fb362ce21f127e8fd7d4049.js\"
+        crossorigin=\"anonymous\" integrity=\"sha256-mVFr0/jrsetbriNfe2S9k7RTXQAfs2LOIfEn6P19QEk=\"></script>\n\n
+        \   \n\n    <script>if (typeof window.GOVUK === 'undefined') document.body.className
+        = document.body.className.replace('js-enabled', '');</script>\n  </body>\n</html>\n\n"
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 24 Jun 2019 18:12:39 GMT
+      Accept-Encoding:
+      - gzip
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - content-type
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Vary:
+      - Accept-Encoding, User-Agent
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(9.4.z-SNAPSHOT)
+      Strict-Transport-Security:
+      - max-age=15552015; preload
+      Public-Key-Pins:
+      - pin-sha256="cN0QSpPIkuwpT6iP2YjEo1bEwGpH/yiUn6yhdy+HNto="; pin-sha256="WGJkyYjx1QMdMe0UqlyOKXtydPDVrk7sl2fV+nNm1r4=";
+        pin-sha256="LrKdTxZLRTvyHM4/atX2nquX9BeHRZMCxg3cf4rhc2I="; max-age=864000
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJtZXNzYWdlcyI6W3sidHlwZSI6ImluZm8iLCJsYXN0TGluZSI6NTYsImxhc3RDb2x1bW4iOjcwLCJmaXJzdENvbHVtbiI6NSwic3ViVHlwZSI6Indhcm5pbmciLCJtZXNzYWdlIjoiVGhlIOKAnGJhbm5lcuKAnSByb2xlIGlzIHVubmVjZXNzYXJ5IGZvciBlbGVtZW50IOKAnGhlYWRlcuKAnS4iLCJleHRyYWN0IjoiZGl2PlxuXG4gICAgPGhlYWRlciByb2xlPVwiYmFubmVyXCIgaWQ9XCJnbG9iYWwtaGVhZGVyXCIgY2xhc3M9XCJ3aXRoLXByb3Bvc2l0aW9uXCI+XG4gICAgICIsImhpbGl0ZVN0YXJ0IjoxMCwiaGlsaXRlTGVuZ3RoIjo2Nn0seyJ0eXBlIjoiaW5mbyIsImxhc3RMaW5lIjo3MCwibGFzdENvbHVtbiI6NzMsImZpcnN0Q29sdW1uIjoxMywic3ViVHlwZSI6Indhcm5pbmciLCJtZXNzYWdlIjoiUG9zc2libGUgbWlzdXNlIG9mIOKAnGFyaWEtbGFiZWzigJ0uIChJZiB5b3UgZGlzYWdyZWUgd2l0aCB0aGlzIHdhcm5pbmcsIGZpbGUgYW4gaXNzdWUgcmVwb3J0IG9yIHNlbmQgZS1tYWlsIHRvIHd3dy12YWxpZGF0b3JAdzMub3JnLikiLCJleHRyYWN0IjoiICAgICAgICAgIDx1bCBpZD1cInByb3Bvc2l0aW9uLWxpbmtzXCIgYXJpYS1sYWJlbD1cIlRvcCBMZXZlbCBOYXZpZ2F0aW9uXCI+XG4gICAgICIsImhpbGl0ZVN0YXJ0IjoxMCwiaGlsaXRlTGVuZ3RoIjo2MX0seyJ0eXBlIjoiaW5mbyIsImxhc3RMaW5lIjo5MiwibGFzdENvbHVtbiI6MzcsImZpcnN0Q29sdW1uIjo3LCJzdWJUeXBlIjoid2FybmluZyIsIm1lc3NhZ2UiOiJUaGUg4oCcbWFpbuKAnSByb2xlIGlzIHVubmVjZXNzYXJ5IGZvciBlbGVtZW50IOKAnG1haW7igJ0uIiwiZXh0cmFjdCI6InY+XG5cbiAgICAgIDxtYWluIGlkPVwiY29udGVudFwiIHJvbGU9XCJtYWluXCI+XG4gICAgPCIsImhpbGl0ZVN0YXJ0IjoxMCwiaGlsaXRlTGVuZ3RoIjozMX0seyJ0eXBlIjoiaW5mbyIsImxhc3RMaW5lIjoxNTksImxhc3RDb2x1bW4iOjY3LCJmaXJzdENvbHVtbiI6NSwic3ViVHlwZSI6Indhcm5pbmciLCJtZXNzYWdlIjoiVGhlIOKAnGNvbnRlbnRpbmZv4oCdIHJvbGUgaXMgdW5uZWNlc3NhcnkgZm9yIGVsZW1lbnQg4oCcZm9vdGVy4oCdLiIsImV4dHJhY3QiOiJpbj5cblxuXG4gICAgPGZvb3RlciBjbGFzcz1cImdyb3VwIGpzLWZvb3RlclwiIGlkPVwiZm9vdGVyXCIgcm9sZT1cImNvbnRlbnRpbmZvXCI+XG5cbiAgICAiLCJoaWxpdGVTdGFydCI6MTAsImhpbGl0ZUxlbmd0aCI6NjN9XSwic291cmNlIjp7InR5cGUiOiJ0ZXh0L2h0bWwiLCJlbmNvZGluZyI6IlVURi04IiwiY29kZSI6IlxuXG5cblxuXG48IURPQ1RZUEUgaHRtbD5cbjwhLS1baWYgbHQgSUUgOV0+PGh0bWwgY2xhc3M9XCJsdGUtaWU4XCIgbGFuZz1cImVuXCI+PCFbZW5kaWZdLS0+XG48IS0tW2lmIGd0IElFIDhdPjwhLS0+PGh0bWwgbGFuZz1cImVuXCI+PCEtLTwhW2VuZGlmXS0tPlxuICA8aGVhZD5cbiAgICA8bWV0YSBjaGFyc2V0PVwidXRmLThcIiAvPlxuICAgIDx0aXRsZT5XYXN0ZSBleGVtcHRpb25zIGRhc2hib2FyZCAtIFJlZ2lzdGVyIHlvdXIgd2FzdGUgZXhlbXB0aW9ucyAtIEdPVi5VSzwvdGl0bGU+XG5cbiAgICA8IS0tW2lmIGd0IElFIDhdPjwhLS0+PGxpbmsgcmVsPVwic3R5bGVzaGVldFwiIG1lZGlhPVwic2NyZWVuXCIgaHJlZj1cIi9hc3NldHMvZ292dWstdGVtcGxhdGUtYTE2MzRjY2I0ZDNlZTMzY2ZmZDNhYTRkZDNjNjA0YzEzMmMzODkyNDRlODI1MDI3YmMyZTAyYjM2ODAwMTJjYi5jc3NcIiBjcm9zc29yaWdpbj1cImFub255bW91c1wiIGludGVncml0eT1cInNoYTI1Ni1vV05NeTAwKzR6ei8wNnBOMDhZRXdUTERpU1JPZ2xBbnZDNENzMmdBRXNzPVwiIC8+PCEtLTwhW2VuZGlmXS0tPlxuICAgIDwhLS1baWYgSUUgNl0+PGxpbmsgcmVsPVwic3R5bGVzaGVldFwiIG1lZGlhPVwic2NyZWVuXCIgaHJlZj1cIi9hc3NldHMvZ292dWstdGVtcGxhdGUtaWU2LTEzZDY0NjBhZGMwOWU3NzM0ZjYyZmExNDY0ZGY1MDc4YjIxZmQ5NDM0NzY0ZWEzZGFmNDI4YTJmNjJlMmQxODUuY3NzXCIgLz48IVtlbmRpZl0tLT5cbiAgICA8IS0tW2lmIElFIDddPjxsaW5rIHJlbD1cInN0eWxlc2hlZXRcIiBtZWRpYT1cInNjcmVlblwiIGhyZWY9XCIvYXNzZXRzL2dvdnVrLXRlbXBsYXRlLWllNy02NzVjMWI1NTIxNDZmNjc3ZDA3NjU1ZDkxZjZhNjBmY2RjMmVjZjI3NTJmMjk2ZTg0MDEyNWFhYWZkZWMwNWYyLmNzc1wiIC8+PCFbZW5kaWZdLS0+XG4gICAgPCEtLVtpZiBJRSA4XT48bGluayByZWw9XCJzdHlsZXNoZWV0XCIgbWVkaWE9XCJzY3JlZW5cIiBocmVmPVwiL2Fzc2V0cy9nb3Z1ay10ZW1wbGF0ZS1pZTgtMDhhYTRjNmVhYmU5Mzk4ZDQwODhjY2VjZmI4NTRiMDI3ODEyZTM4OTk0ZjYzOTE4NWQ4NDhiMjJjYzU4NjZhNy5jc3NcIiAvPjwhW2VuZGlmXS0tPlxuICAgIDxsaW5rIHJlbD1cInN0eWxlc2hlZXRcIiBtZWRpYT1cInByaW50XCIgaHJlZj1cIi9hc3NldHMvZ292dWstdGVtcGxhdGUtcHJpbnQtMTA3NjUxOTUyMWMyZmZmYmJmNzVhYjNiMGQzYjMyZWUyZDk2YWM3ZTk3NzhmMWNkZmFjMTc3MWVlZmQxYTFjMC5jc3NcIiBjcm9zc29yaWdpbj1cImFub255bW91c1wiIGludGVncml0eT1cInNoYTI1Ni1FSFpSbFNIQy8vdS9kYXM3RFRzeTdpMldySDZYZVBITitzRjNIdS9Sb2NBPVwiIC8+XG5cbiAgICA8bGluayByZWw9XCJzdHlsZXNoZWV0XCIgbWVkaWE9XCJhbGxcIiBocmVmPVwiL2Fzc2V0cy9mb250cy1hNWFhNTdiNmNlYWFiMGI1ODVkODM0ZDFkNzhlNDZkOGI3NmRkM2Y4MDUwMmRhMjA1NzM2Y2RkMzA2MGI5Yjg2LmNzc1wiIGNyb3Nzb3JpZ2luPVwiYW5vbnltb3VzXCIgaW50ZWdyaXR5PVwic2hhMjU2LXBhcFh0czZxc0xXRjJEVFIxNDVHMkxkdDAvZ0ZBdG9nVnpiTjB3WUxtNFk9XCIgLz5cbiAgICA8IS0tW2lmIGx0IElFIDldPjxzY3JpcHQgc3JjPVwiL2Fzc2V0cy9pZS0xOWY0NzIwNGIwZjkzYzVjNGZmMDQ0ZjY2YjgyMDk3OTE3ODEyMzYwZWExYTgxMThmYzVlYTdhMGQ1ZjIwZTZiLmpzXCIgY3Jvc3NvcmlnaW49XCJhbm9ueW1vdXNcIiBpbnRlZ3JpdHk9XCJzaGEyNTYtR2ZSeUJMRDVQRnhQOEVUMmE0SUplUmVCSTJEcUdvRVkvRjZub05YeURtcz1cIj48L3NjcmlwdD48IVtlbmRpZl0tLT5cblxuICAgIDxsaW5rIHJlbD1cInNob3J0Y3V0IGljb25cIiBocmVmPVwiL2Fzc2V0cy9mYXZpY29uLThkODExYjhjM2JhZGJjMGIwZTJmNmUyNWQzNjYwYTk2Y2MwY2NhNzk5M2U2ZjMyZTk4Nzg1ZjIwNWZjNDA5MDcuaWNvXCIgdHlwZT1cImltYWdlL3gtaWNvblwiIC8+XG4gICAgPGxpbmsgcmVsPVwibWFzay1pY29uXCIgaHJlZj1cIi9hc3NldHMvZ292LnVrX2xvZ290eXBlX2Nyb3duLWRlNzM4YzNmY2NlOGNlMmE5MWI2N2U4OTc4NzA5MGRjMjRhNWNkYTAyNzVhYjZiNzVmNjIyNmM1Yjk2MTlkM2Quc3ZnXCIgY29sb3I9XCIjMGIwYzBjXCI+XG4gICAgPGxpbmsgcmVsPVwiYXBwbGUtdG91Y2gtaWNvblwiIHNpemVzPVwiMTgweDE4MFwiIGhyZWY9XCIvYXNzZXRzL2FwcGxlLXRvdWNoLWljb24tMTgweDE4MC1lYTFjYmIxY2JiZWRkZmZmMjc1ZGZhNmU4ZTQ2Yjg0Y2Q1MzA4OTJkZjc5ZGM0ODgyYThmOTliODAyYjQ5YTkwLnBuZ1wiPlxuICAgIDxsaW5rIHJlbD1cImFwcGxlLXRvdWNoLWljb25cIiBzaXplcz1cIjE2N3gxNjdcIiBocmVmPVwiL2Fzc2V0cy9hcHBsZS10b3VjaC1pY29uLTE2N3gxNjctMTgxZTQwNGE1MGM1NzI5MjMyODVmYjgzZjBmYmQ3OGRhNmI0ZTM4ZTNjZTUyZjhlNmI4ZTI5ZGE4NTg2NDUwYS5wbmdcIj5cbiAgICA8bGluayByZWw9XCJhcHBsZS10b3VjaC1pY29uXCIgc2l6ZXM9XCIxNTJ4MTUyXCIgaHJlZj1cIi9hc3NldHMvYXBwbGUtdG91Y2gtaWNvbi0xNTJ4MTUyLTAyNDU3ZmNkY2VlOGQzMDkyNzYzMDVhZjIyMzNkNDFiZmI4ZmQwNTVlODU1NzI3ZDM1NWU2MWJjZTdmZmE5YmIucG5nXCI+XG4gICAgPGxpbmsgcmVsPVwiYXBwbGUtdG91Y2gtaWNvblwiIGhyZWY9XCIvYXNzZXRzL2FwcGxlLXRvdWNoLWljb24tYTMxOGYzMDUyOTBjNTIzYWVkODAwODI0NTYxNzViNDZjOTUzNTBjMGVlYWM5M2Y0MmU3OGE3MWM3YTU1NTQ0ZS5wbmdcIj5cblxuICAgIDxtZXRhIG5hbWU9XCJ0aGVtZS1jb2xvclwiIGNvbnRlbnQ9XCIjMGIwYzBjXCIgLz5cblxuICAgIDxtZXRhIG5hbWU9XCJ2aWV3cG9ydFwiIGNvbnRlbnQ9XCJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MVwiPlxuXG4gICAgICA8bGluayByZWw9XCJzdHlsZXNoZWV0XCIgbWVkaWE9XCJhbGxcIiBocmVmPVwiL2Fzc2V0cy9hcHBsaWNhdGlvbi1mMzhlZmRmYTUwNDZmMzJlMmM0NzJhMGIwMmNmZDNlZTM3NzU3NTk3YmE1OTc5ZDQ3YzRmNDdiN2E3MmRiNDM5LmNzc1wiIC8+XG4gIDwhLS1baWYgSUUgOF0+PGxpbmsgcmVsPVwic3R5bGVzaGVldFwiIG1lZGlhPVwic2NyZWVuXCIgaHJlZj1cIi9zdHlsZXNoZWV0cy9pZTguY3NzXCIgLz48IVtlbmRpZl0tLT5cbiAgXG5cblxuICAgIDxtZXRhIHByb3BlcnR5PVwib2c6aW1hZ2VcIiBjb250ZW50PVwiL2Fzc2V0cy9vcGVuZ3JhcGgtaW1hZ2UtYTFmN2Q4OWZmZDA3ODI3MzhiMWFlYjBkYTM3ODQyZDhiZDBhZGRiZDcyNGI4ZTU4YzNlZGJjNzI4N2NjMTFkZS5wbmdcIj5cbiAgPC9oZWFkPlxuXG4gIDxib2R5PlxuICAgIDxzY3JpcHQ+ZG9jdW1lbnQuYm9keS5jbGFzc05hbWUgPSAoKGRvY3VtZW50LmJvZHkuY2xhc3NOYW1lKSA/IGRvY3VtZW50LmJvZHkuY2xhc3NOYW1lICsgJyBqcy1lbmFibGVkJyA6ICdqcy1lbmFibGVkJyk7PC9zY3JpcHQ+XG5cbiAgICBcblxuICAgIDxkaXYgaWQ9XCJza2lwbGluay1jb250YWluZXJcIj5cbiAgICAgIDxkaXY+XG4gICAgICAgIDxhIGhyZWY9XCIjY29udGVudFwiIGNsYXNzPVwic2tpcGxpbmtcIj5Ta2lwIHRvIG1haW4gY29udGVudDwvYT5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuXG4gICAgPGRpdiBpZD1cImdsb2JhbC1jb29raWUtbWVzc2FnZVwiPlxuICAgICAgICA8cD5HT1YuVUsgdXNlcyBjb29raWVzIHRvIG1ha2UgdGhlIHNpdGUgc2ltcGxlci4gPGEgaHJlZj1cImh0dHBzOi8vd3d3Lmdvdi51ay9oZWxwL2Nvb2tpZXNcIiBkYXRhLW1vZHVsZT1cInRyYWNrLWNsaWNrXCIgZGF0YS10cmFjay1jYXRlZ29yeT1cImNvb2tpZUJhbm5lclwiIGRhdGEtdHJhY2stYWN0aW9uPVwiQ29va2llIGJhbm5lciBjbGlja2VkXCI+RmluZCBvdXQgbW9yZSBhYm91dCBjb29raWVzPC9hPjwvcD5cbiAgICA8L2Rpdj5cblxuICAgIDxoZWFkZXIgcm9sZT1cImJhbm5lclwiIGlkPVwiZ2xvYmFsLWhlYWRlclwiIGNsYXNzPVwid2l0aC1wcm9wb3NpdGlvblwiPlxuICAgICAgPGRpdiBjbGFzcz1cImhlYWRlci13cmFwcGVyXCI+XG4gICAgICAgIDxkaXYgY2xhc3M9XCJoZWFkZXItZ2xvYmFsXCI+XG4gICAgICAgICAgPGRpdiBjbGFzcz1cImhlYWRlci1sb2dvXCI+XG4gICAgICAgICAgICA8YSBocmVmPVwiaHR0cHM6Ly93d3cuZ292LnVrL1wiIHRpdGxlPVwiR28gdG8gdGhlIEdPVi5VSyBob21lcGFnZVwiIGlkPVwibG9nb1wiIGNsYXNzPVwiY29udGVudFwiIGRhdGEtbW9kdWxlPVwidHJhY2stY2xpY2tcIiBkYXRhLXRyYWNrLWNhdGVnb3J5PVwiaG9tZUxpbmtDbGlja2VkXCIgZGF0YS10cmFjay1hY3Rpb249XCJob21lSGVhZGVyXCI+XG4gICAgICAgICAgICAgIDxpbWcgc3JjPVwiL2Fzc2V0cy9nb3YudWtfbG9nb3R5cGVfY3Jvd25faW52ZXJ0X3RyYW5zLTIwM2UxZGI0OWQzZWZmNDMwZDdkYzQ1MGNlNzIzYzEwMDI1NDJmZTFkMmJjZTY2MWI2ZDg1NzFmMTRjMTA0M2MucG5nXCIgd2lkdGg9XCIzNlwiIGhlaWdodD1cIjMyXCIgYWx0PVwiXCI+IEdPVi5VS1xuICAgICAgICAgICAgPC9hPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIFxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzPVwiaGVhZGVyLXByb3Bvc2l0aW9uXCI+XG4gICAgPGRpdiBjbGFzcz1cImNvbnRlbnRcIj5cbiAgICAgICAgICA8YSBpZD1cInByb3Bvc2l0aW9uLW5hbWVcIiBocmVmPVwiL1wiPldhc3RlIGV4ZW1wdGlvbnMgYmFjayBvZmZpY2U8L2E+XG4gICAgICAgICAgPG5hdiBpZD1cInByb3Bvc2l0aW9uLW1lbnVcIj5cbiAgICAgICAgICAgIDx1bCBpZD1cInByb3Bvc2l0aW9uLWxpbmtzXCIgYXJpYS1sYWJlbD1cIlRvcCBMZXZlbCBOYXZpZ2F0aW9uXCI+XG4gICAgICAgICAgICAgIDxsaT5cbiAgICAgICAgICAgICAgICA8YSBocmVmPVwiL1wiPkRhc2hib2FyZDwvYT5cbiAgICAgICAgICAgICAgPC9saT5cbiAgICAgICAgICAgICAgICA8bGk+XG4gICAgICAgICAgICAgICAgICA8YSBocmVmPVwiL3VzZXJzXCI+TWFuYWdlIHVzZXJzPC9hPlxuICAgICAgICAgICAgICAgIDwvbGk+XG4gICAgICAgICAgICAgICAgPGxpPlxuICAgICAgICAgICAgICAgICAgPGEgaHJlZj1cIi9kYXRhLWV4cG9ydHNcIj5EYXRhIGV4cG9ydHM8L2E+XG4gICAgICAgICAgICAgICAgPC9saT5cbiAgICAgICAgICAgIDwvdWw+XG4gICAgICAgICAgPC9uYXY+XG4gICAgPC9kaXY+XG4gIDwvZGl2PlxuXG4gICAgICA8L2Rpdj5cbiAgICA8L2hlYWRlcj5cblxuICAgIFxuXG4gICAgPGRpdiBpZD1cImdsb2JhbC1oZWFkZXItYmFyXCI+PC9kaXY+XG5cbiAgICAgIDxtYWluIGlkPVwiY29udGVudFwiIHJvbGU9XCJtYWluXCI+XG4gICAgPGRpdiBjbGFzcz1cImdyaWQtcm93XCI+XG4gIDxkaXYgY2xhc3M9XCJjb2x1bW4tZnVsbFwiPlxuICAgIDxoMSBjbGFzcz1cImhlYWRpbmctbGFyZ2VcIj5cbiAgICAgIFdhc3RlIGV4ZW1wdGlvbnMgZGFzaGJvYXJkXG4gICAgPC9oMT5cbiAgPC9kaXY+XG48L2Rpdj5cblxuPGRpdiBjbGFzcz1cImdyaWQtcm93XCI+XG4gIDxkaXYgY2xhc3M9XCJjb2x1bW4tdHdvLXRoaXJkc1wiPlxuICAgIDxwPllvdSBjYW4gc2VhcmNoIGZvciBhIHJlZ2lzdHJhdGlvbiBieTo8L3A+XG4gICAgPHVsIGNsYXNzPVwibGlzdCBsaXN0LWJ1bGxldFwiPlxuICAgICAgICA8bGk+c2l0ZSBwb3N0Y29kZTwvbGk+XG4gICAgICAgIDxsaT5yZWdpc3RyYXRpb24gcmVmZXJlbmNlIG51bWJlcjwvbGk+XG4gICAgICAgIDxsaT5idXNpbmVzcyBvciBwYXJ0bmVyIG5hbWU8L2xpPlxuICAgICAgICA8bGk+YXBwbGljYW50IG5hbWU8L2xpPlxuICAgICAgICA8bGk+YXBwbGljYW50IGVtYWlsPC9saT5cbiAgICAgICAgPGxpPmNvbnRhY3QgbmFtZTwvbGk+XG4gICAgICAgIDxsaT5jb250YWN0IGVtYWlsPC9saT5cbiAgICA8L3VsPlxuXG4gICAgPGRpdiBjbGFzcz1cImZvcm0tZ3JvdXBcIj5cbiAgICAgIDxmb3JtIGFjdGlvbj1cIi9cIiBhY2NlcHQtY2hhcnNldD1cIlVURi04XCIgbWV0aG9kPVwiZ2V0XCI+PGlucHV0IG5hbWU9XCJ1dGY4XCIgdHlwZT1cImhpZGRlblwiIHZhbHVlPVwiJiN4MjcxMztcIiAvPlxuICAgICAgICA8bGFiZWwgY2xhc3M9XCJmb3JtLWxhYmVsIHZpc3VhbGx5LWhpZGRlblwiIGZvcj1cInRlcm1cIj5TZWFyY2ggZm9yIHJlZ2lzdHJhdGlvbnM8L2xhYmVsPlxuICAgICAgICA8aW5wdXQgdHlwZT1cInRleHRcIiBuYW1lPVwidGVybVwiIGlkPVwidGVybVwiIHBsYWNlaG9sZGVyPVwiRW50ZXIgeW91ciBzZWFyY2ggdGVybSBoZXJlXCIgY2xhc3M9XCJmb3JtLWNvbnRyb2xcIiAvPlxuICAgICAgICA8aW5wdXQgdHlwZT1cInN1Ym1pdFwiIG5hbWU9XCJjb21taXRcIiB2YWx1ZT1cIlNlYXJjaFwiIGNsYXNzPVwiYnV0dG9uXCIgLz5cblxuICAgICAgICA8ZGl2IGNsYXNzPVwiZmlsdGVyc1wiPlxuICAgICAgICAgIDxkaXYgY2xhc3M9XCJmb3JtLWdyb3VwXCI+XG4gICAgICAgICAgICA8ZmllbGRzZXQgaWQ9XCJzZWFyY2gtZmlsdGVyc1wiPlxuICAgICAgICAgICAgICA8bGVnZW5kIGNsYXNzPVwidmlzdWFsbHktaGlkZGVuXCI+XG4gICAgICAgICAgICAgICAgRmlsdGVyIHlvdXIgc2VhcmNoXG4gICAgICAgICAgICAgIDwvbGVnZW5kPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwibXVsdGlwbGUtY2hvaWNlXCI+XG4gICAgICAgICAgICAgICAgPGlucHV0IHR5cGU9XCJyYWRpb1wiIG5hbWU9XCJmaWx0ZXJcIiBpZD1cImZpbHRlcl9yZWdpc3RyYXRpb25zXCIgdmFsdWU9XCJyZWdpc3RyYXRpb25zXCIgY2hlY2tlZD1cImNoZWNrZWRcIiAvPlxuICAgICAgICAgICAgICAgIDxsYWJlbCBmb3I9XCJmaWx0ZXJfcmVnaXN0cmF0aW9uc1wiPlN1Ym1pdHRlZDwvbGFiZWw+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwibXVsdGlwbGUtY2hvaWNlXCI+XG4gICAgICAgICAgICAgICAgPGlucHV0IHR5cGU9XCJyYWRpb1wiIG5hbWU9XCJmaWx0ZXJcIiBpZD1cImZpbHRlcl9uZXdfcmVnaXN0cmF0aW9uc1wiIHZhbHVlPVwibmV3X3JlZ2lzdHJhdGlvbnNcIiAvPlxuICAgICAgICAgICAgICAgIDxsYWJlbCBmb3I9XCJmaWx0ZXJfbmV3X3JlZ2lzdHJhdGlvbnNcIj5Ob3QgeWV0IHN1Ym1pdHRlZDwvbGFiZWw+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9maWVsZHNldD5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG48L2Zvcm0+ICAgIDwvZGl2PlxuICA8L2Rpdj5cblxuICA8ZGl2IGNsYXNzPVwiY29sdW1uLW9uZS10aGlyZFwiPlxuICAgIDxkaXYgY2xhc3M9XCJ1c2VyLWluZm9cIj5cbiAgICAgIDxoMiBjbGFzcz1cImhlYWRpbmctbWVkaXVtXCI+XG4gICAgICAgIEN1cnJlbnQgdXNlclxuICAgICAgPC9oMj5cbiAgICAgIDxwPlxuICAgICAgICBTaWduZWQgaW4gYXNcbiAgICAgICAgPHNwYW4+dXNlcjM2QGV4YW1wbGUuY29tPC9zcGFuPlxuICAgICAgPC9wPlxuICAgICAgICA8cD48YSBocmVmPVwiL3N0YXJ0L25ld1wiPlN0YXJ0IGEgbmV3IHJlZ2lzdHJhdGlvbjwvYT48L3A+XG4gICAgICA8cD48YSBjbGFzcz1cImJ1dHRvblwiIGhyZWY9XCIvdXNlcnMvc2lnbl9vdXRcIj5TaWduIG91dDwvYT48L3A+XG4gICAgPC9kaXY+XG4gIDwvZGl2PlxuPC9kaXY+XG5cblxuICA8L21haW4+XG5cblxuICAgIDxmb290ZXIgY2xhc3M9XCJncm91cCBqcy1mb290ZXJcIiBpZD1cImZvb3RlclwiIHJvbGU9XCJjb250ZW50aW5mb1wiPlxuXG4gICAgICA8ZGl2IGNsYXNzPVwiZm9vdGVyLXdyYXBwZXJcIj5cbiAgICAgICAgXG5cbiAgICAgICAgPGRpdiBjbGFzcz1cImZvb3Rlci1tZXRhXCI+XG4gICAgICAgICAgPGRpdiBjbGFzcz1cImZvb3Rlci1tZXRhLWlubmVyXCI+XG4gICAgICAgICAgICBcblxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cIm9wZW4tZ292ZXJubWVudC1saWNlbmNlXCI+XG4gICAgICAgICAgICAgIDxwIGNsYXNzPVwibG9nb1wiPjxhIGhyZWY9XCJodHRwczovL3d3dy5uYXRpb25hbGFyY2hpdmVzLmdvdi51ay9kb2Mvb3Blbi1nb3Zlcm5tZW50LWxpY2VuY2UvdmVyc2lvbi8zL1wiIHJlbD1cImxpY2Vuc2VcIj5PcGVuIEdvdmVybm1lbnQgTGljZW5jZTwvYT48L3A+XG4gICAgICAgICAgICAgICAgPHA+QWxsIGNvbnRlbnQgaXMgYXZhaWxhYmxlIHVuZGVyIHRoZSA8YSBocmVmPVwiaHR0cHM6Ly93d3cubmF0aW9uYWxhcmNoaXZlcy5nb3YudWsvZG9jL29wZW4tZ292ZXJubWVudC1saWNlbmNlL3ZlcnNpb24vMy9cIiByZWw9XCJsaWNlbnNlXCI+T3BlbiBHb3Zlcm5tZW50IExpY2VuY2UgdjMuMDwvYT4sIGV4Y2VwdCB3aGVyZSBvdGhlcndpc2Ugc3RhdGVkPC9wPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICA8ZGl2IGNsYXNzPVwiY29weXJpZ2h0XCI+XG4gICAgICAgICAgICA8YSBocmVmPVwiaHR0cHM6Ly93d3cubmF0aW9uYWxhcmNoaXZlcy5nb3YudWsvaW5mb3JtYXRpb24tbWFuYWdlbWVudC9yZS11c2luZy1wdWJsaWMtc2VjdG9yLWluZm9ybWF0aW9uL3VrLWdvdmVybm1lbnQtbGljZW5zaW5nLWZyYW1ld29yay9jcm93bi1jb3B5cmlnaHQvXCI+wqkgQ3Jvd24gY29weXJpZ2h0PC9hPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvZm9vdGVyPlxuXG4gICAgPGRpdiBpZD1cImdsb2JhbC1hcHAtZXJyb3JcIiBjbGFzcz1cImFwcC1lcnJvciBoaWRkZW5cIj48L2Rpdj5cblxuICAgIDxzY3JpcHQgc3JjPVwiL2Fzc2V0cy9nb3Z1ay10ZW1wbGF0ZS05OTUxNmJkM2Y4ZWJiMWViNWJhZTIzNWY3YjY0YmQ5M2I0NTM1ZDAwMWZiMzYyY2UyMWYxMjdlOGZkN2Q0MDQ5LmpzXCIgY3Jvc3NvcmlnaW49XCJhbm9ueW1vdXNcIiBpbnRlZ3JpdHk9XCJzaGEyNTYtbVZGcjAvanJzZXRicmlOZmUyUzlrN1JUWFFBZnMyTE9JZkVuNlAxOVFFaz1cIj48L3NjcmlwdD5cblxuICAgIFxuXG4gICAgPHNjcmlwdD5pZiAodHlwZW9mIHdpbmRvdy5HT1ZVSyA9PT0gJ3VuZGVmaW5lZCcpIGRvY3VtZW50LmJvZHkuY2xhc3NOYW1lID0gZG9jdW1lbnQuYm9keS5jbGFzc05hbWUucmVwbGFjZSgnanMtZW5hYmxlZCcsICcnKTs8L3NjcmlwdD5cbiAgPC9ib2R5PlxuPC9odG1sPlxuIn19Cg==
+    http_version: 
+  recorded_at: Mon, 24 Jun 2019 18:12:39 GMT
+recorded_with: VCR 5.0.0

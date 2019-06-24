@@ -11,6 +11,10 @@ RSpec.describe "NewRegistrations", type: :request do
         sign_in(create(:user))
       end
 
+      include_examples "Renders valid html" do
+        let(:request_path) { "/new-registrations/#{new_registration.reference}" }
+      end
+
       it "renders the show template" do
         get "/new-registrations/#{new_registration.reference}"
         expect(response).to render_template(:show)

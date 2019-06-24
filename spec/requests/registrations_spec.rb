@@ -11,13 +11,25 @@ RSpec.describe "Registrations", type: :request do
         sign_in(create(:user))
       end
 
+      include_examples "Renders valid html" do
+        let(:request_path) { "/registrations/#{registration.reference}" }
+      end
+
       it "renders the show template" do
         get "/registrations/#{registration.reference}"
+
         expect(response).to render_template(:show)
+      end
+
+      it "returns W3C valid HTML content" do
+        get "/registrations/#{registration.reference}"
+
+        expect(response.body).to have_valid_html
       end
 
       it "includes the correct reference" do
         get "/registrations/#{registration.reference}"
+
         expect(response.body).to include(registration.reference)
       end
     end

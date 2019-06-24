@@ -12,6 +12,10 @@ RSpec.describe "User Roles", type: :request do
         sign_in(system_user)
       end
 
+      include_examples "Renders valid html" do
+        let(:request_path) { "/users/role/#{role_change_user.id}" }
+      end
+
       it "renders the edit template" do
         get "/users/role/#{role_change_user.id}"
         expect(response).to render_template(:edit)

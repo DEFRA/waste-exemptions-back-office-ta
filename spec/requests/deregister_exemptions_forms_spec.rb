@@ -28,6 +28,10 @@ RSpec.describe "Deregister Exemptions Forms", type: :request do
 
     describe "GET /registrations/deregister/:id" do
       context "when the registration can be de-registered by the current_user" do
+        include_examples "Renders valid html" do
+          let(:request_path) { good_request_path }
+        end
+
         it "renders the appropriate template" do
           get good_request_path
           expect(response).to render_template("deregister_exemptions/new")

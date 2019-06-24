@@ -11,8 +11,7 @@
   <div class="header-proposition">
     <div class="content">
       <% if user_signed_in? %>
-        <%= link_to t(:global_proposition_header), main_app.root_path, id: "proposition-name" %>
-        <a role="button" href="#proposition-links" class="js-header-toggle menu" aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</a>
+          <%= link_to t(:global_proposition_header), main_app.root_path, id: "proposition-name" %>
           <nav id="proposition-menu">
             <ul id="proposition-links" aria-label="Top Level Navigation">
               <li>

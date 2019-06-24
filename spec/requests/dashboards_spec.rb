@@ -12,6 +12,10 @@ RSpec.describe "Dashboards", type: :request do
         allow_any_instance_of(SearchService).to receive(:search).and_return(results)
       end
 
+      include_examples "Renders valid html" do
+        let(:request_path) { "/" }
+      end
+
       it "renders the index template" do
         get "/"
         expect(response).to render_template(:index)

@@ -107,6 +107,10 @@ group :test do
   # A gem providing "time travel" and "time freezing" capabilities, making it
   # dead simple to test time-dependent code.
   gem "timecop"
+  # Register external requests in cassettes and re-play them
+  gem "vcr"
+  # Validate HTTP5 content
+  gem "w3c_validators"
   # Mock HTTP requests
   gem "webmock", "~> 3.5"
 

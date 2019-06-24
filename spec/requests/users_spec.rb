@@ -10,6 +10,10 @@ RSpec.describe "Users", type: :request do
         sign_in(user)
       end
 
+      include_examples "Renders valid html" do
+        let(:request_path) { "/users" }
+      end
+
       it "renders the index template" do
         get "/users"
         expect(response).to render_template(:index)

@@ -9,6 +9,8 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
     context "when a valid user is signed in" do
       before { sign_in(create(:user, :admin_agent)) }
 
+      include_examples "Renders valid html"
+
       it "returns a 200 response" do
         get request_path
         expect(response).to have_http_status(200)
@@ -49,6 +51,8 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
 
     context "when a valid user is signed in" do
       before { sign_in(create(:user, :super_agent)) }
+
+      include_examples "Renders valid html"
 
       it "returns a 200 response" do
         get request_path
