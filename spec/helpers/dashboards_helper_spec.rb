@@ -64,7 +64,7 @@ RSpec.describe DashboardsHelper, type: :helper do
       let(:result) { build(:registration) }
 
       it "returns :active" do
-        expect(helper.status_tag_for(result)).to eq(:active)
+        expect(helper.status_tag_for(result)).to eq(result.state)
       end
     end
   end
