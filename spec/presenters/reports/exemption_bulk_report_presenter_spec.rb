@@ -5,7 +5,7 @@ require "rails_helper"
 module Reports
   RSpec.describe ExemptionBulkReportPresenter do
     let(:registration) { create(:registration) }
-    let(:exemption) { create(:exemption) }
+    let(:exemption) { WasteExemptionsEngine::Exemption.first }
     let(:registered_on) { Date.today }
 
     let(:registration_exemption) do
@@ -268,15 +268,20 @@ module Reports
     end
 
     describe "#exemption_code" do
-      let(:exemption) { create(:exemption, code: "G56") }
+      let(:exemption) { WasteExemptionsEngine::Exemption.first }
 
       it "returns the exemption's code" do
-        expect(exemption_bulk_report_presenter.exemption_code).to eq("G56")
+        expect(exemption_bulk_report_presenter.exemption_code).to eq(exemption.code)
       end
     end
 
     describe "#exemption_summary" do
-      let(:exemption) { create(:exemption, summary: "I exempt you from waste!") }
+      let(:exemption) do
+        object = WasteExemptionsEngine::Exemption.first
+        object.update(summary: "I exempt you from waste!")
+
+        object
+      end
 
       it "returns the exemption's code" do
         expect(exemption_bulk_report_presenter.exemption_summary).to eq("I exempt you from waste!")

@@ -5,7 +5,7 @@ require "rails_helper"
 module Reports
   RSpec.describe ExemptionEprReportPresenter do
     let(:registration) { create(:registration) }
-    let(:exemption) { create(:exemption) }
+    let(:exemption) { WasteExemptionsEngine::Exemption.first }
     let(:registration_exemption) do
       create(
         :registration_exemption,
@@ -159,10 +159,10 @@ module Reports
     end
 
     describe "#exemption_code" do
-      let(:exemption) { create(:exemption, code: "G12") }
+      let(:exemption) { WasteExemptionsEngine::Exemption.first }
 
       it "returns the exemption code" do
-        expect(presenter.exemption_code).to eq("G12")
+        expect(presenter.exemption_code).to eq(exemption.code)
       end
     end
 
