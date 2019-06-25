@@ -21,12 +21,6 @@ RSpec.describe "Registrations", type: :request do
         expect(response).to render_template(:show)
       end
 
-      it "returns W3C valid HTML content" do
-        get "/registrations/#{registration.reference}"
-
-        expect(response.body).to have_valid_html
-      end
-
       it "includes the correct reference" do
         get "/registrations/#{registration.reference}"
 
