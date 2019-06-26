@@ -59,11 +59,17 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
       end
     end
 
-    it "includes the correct exemptions" do
-      registration.exemptions.each do |exemption|
-        exemption_text = "#{exemption.code} #{exemption.summary}"
-        expect(mail.body.encoded).to include(exemption_text)
-      end
+    it "includes active exemptions" do
+      re = registration.registration_exemptions.first
+      exemption_text = "#{re.exemption.code} #{re.exemption.summary}"
+      expect(mail.body.encoded).to include(exemption_text)
+    end
+
+    it "excludes inactive exemptions" do
+      re = registration.registration_exemptions.last
+      re.state = :ceased
+      exemption_text = "#{re.exemption.code} #{re.exemption.summary}"
+      expect(mail.body.encoded).to_not include(exemption_text)
     end
   end
 end

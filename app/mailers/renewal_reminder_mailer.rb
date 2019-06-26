@@ -49,6 +49,7 @@ class RenewalReminderMailer < ActionMailer::Base
   end
 
   def exemptions(registration)
-    registration.exemptions.map { |ex| "#{ex.code} #{ex.summary}" }
+    active_exemptions = registration.registration_exemptions.select(&:may_expire?)
+    active_exemptions.map { |ex| "#{ex.exemption.code} #{ex.exemption.summary}" }
   end
 end
