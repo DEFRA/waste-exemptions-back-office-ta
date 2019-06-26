@@ -41,10 +41,10 @@ class RenewalReminderMailer < ActionMailer::Base
   def site_location(registration)
     address = registration.site_address
 
-    if address.postcode.present?
-      displayable_address(address).join(", ")
-    else
+    if address.located_by_grid_reference?
       address.grid_reference
+    else
+      displayable_address(address).join(", ")
     end
   end
 
