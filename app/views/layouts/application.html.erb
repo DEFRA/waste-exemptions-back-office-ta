@@ -19,6 +19,8 @@
                 <%= link_to t("layouts.application.menu.dashboard"),
                             main_app.root_path %>
               </li>
+              <% p "USER_ID IN VIEW #{current_user.id}" %>
+              <% p "can?(:read, current_user) => #{can?(:read, current_user)}" %>
               <% if can?(:read, current_user) %>
                 <li>
                   <%= link_to t("layouts.application.menu.users"),

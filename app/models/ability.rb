@@ -12,6 +12,7 @@ class Ability
   private
 
   def assign_permissions_based_on_role(user)
+    p "USER_ID IN ABILITY #{user.id}, ROLE: #{user.role}"
     permissions_for_system_user if user.role_is?(:system)
     permissions_for_super_agent if user.role_is?(:super_agent)
     permissions_for_admin_agent if user.role_is?(:admin_agent)
