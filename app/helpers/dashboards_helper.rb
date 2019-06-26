@@ -14,7 +14,7 @@ module DashboardsHelper
   def status_tag_for(result)
     return :pending if result.is_a?(WasteExemptionsEngine::NewRegistration)
 
-    :active
+    result.state
   end
 
   def result_name_for_visually_hidden_text(result)
