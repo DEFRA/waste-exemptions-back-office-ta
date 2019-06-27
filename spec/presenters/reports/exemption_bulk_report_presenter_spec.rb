@@ -189,7 +189,7 @@ module Reports
       let(:site_location_address) do
         build(
           :address,
-          :site,
+          :site_uses_address,
           premises: "Westland",
           street_address: "45 way",
           locality: "away",
