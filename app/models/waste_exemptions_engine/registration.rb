@@ -22,9 +22,10 @@ module WasteExemptionsEngine
       raise "A Registration must have at least one RegistrationExemption." if registration_exemptions.empty?
 
       return "active" if registration_exemptions.select(&:active?).any?
+      return "revoked" if registration_exemptions.select(&:revoked?).any?
+      return "expired" if registration_exemptions.select(&:expired?).any?
 
-      sorted_registration_exemptions = registration_exemptions.sort_by { |re| (re.deregistered_at || re.expires_on) }
-      sorted_registration_exemptions.last.state.to_s
+      "ceased"
     end
   end
 end
