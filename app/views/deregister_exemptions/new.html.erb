@@ -18,10 +18,11 @@
           <span class="error-message"><%= @deregister_exemptions_form.errors[:state_transition].join(", ") %></span>
           <% end %>
 
-          <%= f.label :state_transition, class: "form-label" do %>
+          <label class="form-label">
             <%= t(".labels.state_transition") %>
             <span class="form-hint"><%= t(".labels.state_transition_hint") %></span>
-          <% end %>
+          </label>
+
           <% @deregister_exemptions_form.state_transition_options.each do |state_transition| %>
             <div class="multiple-choice">
               <%= f.radio_button :state_transition, state_transition %>
@@ -48,7 +49,7 @@
             <span class="form-hint"><%= t(".labels.message_hint") %></span>
           </legend>
 
-          <fieldset id="message">
+          <fieldset>
             <%= f.text_area :message, value: @deregister_exemptions_form.message, class: "form-control", rows: 4 %>
           </fieldset>
 
