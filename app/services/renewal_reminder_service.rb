@@ -17,7 +17,7 @@ class RenewalReminderService < ::WasteExemptionsEngine::BaseService
   def expiring_registrations
     WasteExemptionsEngine::Registration.where(
       id: all_active_exemptions_registration_ids
-    ).where("contact_email != waste-exemptions@environment-agency.gov.uk")
+    ).where("contact_email != 'waste-exemptions@environment-agency.gov.uk'")
   end
 
   def all_active_exemptions_registration_ids
