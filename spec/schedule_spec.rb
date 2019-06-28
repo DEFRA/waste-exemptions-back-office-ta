@@ -43,7 +43,7 @@ RSpec.describe "Whenever schedule" do
   end
 
   it "takes the email reminder execution time from the appropriate ENV variable" do
-    job_details = schedule.jobs[:rake].find { |h| h[:task] == "email:renew_reminder:send" }
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "email:renew_reminder:first:send" }
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["FIRST_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"])
