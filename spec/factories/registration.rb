@@ -86,7 +86,13 @@ FactoryBot.define do
     end
 
     trait :with_active_exemptions do
-      registration_exemptions { build_list(:registration_exemption, 5, state: :active) }
+      after(:build) do |reg|
+        reg.registration_exemptions.each do |re|
+          re.state = :active
+          re.expires_on = Date.today + 3.years
+          re.registered_on = Date.today
+        end
+      end
     end
   end
 end

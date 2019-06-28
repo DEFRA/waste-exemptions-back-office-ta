@@ -38,6 +38,7 @@ FactoryBot.define do
 
     trait :site do
       address_type { :site }
+      mode { :auto }
       description { "The waste is stored in an out-building next to the barn." }
       grid_reference { "ST 58337 72855" }
 
@@ -59,7 +60,8 @@ FactoryBot.define do
     end
 
     trait :site_uses_address do
-      address_type { 3 }
+      address_type { :site }
+      mode { :lookup }
     end
   end
 end

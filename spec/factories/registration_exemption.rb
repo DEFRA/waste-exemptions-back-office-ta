@@ -22,6 +22,10 @@ FactoryBot.define do
       deregistered_at { Date.today - 1.day }
     end
 
+    trait :expired do
+      state { "expired" }
+    end
+
     trait :with_registration do
       registration
     end
