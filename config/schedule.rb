@@ -22,10 +22,9 @@ every :day, at: (ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"] || "1:05"), roles: [:db] 
   rake "reports:generate:epr"
 end
 
-# This is the bulk export job. When run this will create batched CSV exports of
-# all records and put these files into an AWS S3 bucket.
-bulk_frequency = (ENV["EXPORT_SERVICE_BULK_EXPORT_FREQUENCY"] || :sunday).to_sym
+# This is the daily bulk export job. When run this will create batched CSV
+# exports of all records and put these files into an AWS S3 bucket.
 bulk_time = (ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"] || "20:05")
-every bulk_frequency, at: bulk_time, roles: [:db] do
+every :day, at: bulk_time, roles: [:db] do
   rake "reports:generate:bulk"
 end
