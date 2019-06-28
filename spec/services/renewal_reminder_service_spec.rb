@@ -6,7 +6,25 @@ RSpec.describe RenewalReminderService do
   before do
     expect(WasteExemptionsBackOffice::Application.config).to receive(:first_renewal_email_reminder_weeks).and_return("4")
   end
+
   describe ".run" do
+    context "when the email sending fails" do
+      it "report the error in the log and with Airbrake" do
+        create(
+          :registration,
+          registration_exemptions: [
+            build(:registration_exemption, :active, expires_on: 4.weeks.from_now.to_date)
+          ]
+        )
+
+        expect(RenewalReminderMailer).to receive(:first_reminder_email).and_raise("An error")
+        expect(Airbrake).to receive(:notify)
+        expect(Rails.logger).to receive(:error)
+
+        described_class.run
+      end
+    end
+
     it "send a first renewal email to all active registrations due to expire in 4 weeks" do
       active_expiring_registration = create(
         :registration,
