@@ -9,7 +9,7 @@ namespace :email do
   namespace :renew_reminder do
     desc "Collect all registration that expires in 4 weeks and sends an email reminder"
     task send: :environment do
-      RenewalReminderService.run
+      FirstRenewalReminderService.run
     end
   end
 end

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe RenewalReminderService do
+RSpec.describe FirstRenewalReminderService do
   before do
     expect(WasteExemptionsBackOffice::Application.config).to receive(:first_renewal_email_reminder_days).and_return("28")
   end

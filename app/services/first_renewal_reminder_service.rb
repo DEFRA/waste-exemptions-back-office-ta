@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RenewalReminderService < ::WasteExemptionsEngine::BaseService
+class FirstRenewalReminderService < ::WasteExemptionsEngine::BaseService
   def run
     expiring_registrations.each do |registration|
       begin
