@@ -23,11 +23,11 @@ class RenewalReminderService < ::WasteExemptionsEngine::BaseService
   def all_active_exemptions_registration_ids
     WasteExemptionsEngine::RegistrationExemption
       .all_active_exemptions
-      .where(expires_on: expires_in_weeks.weeks.from_now.to_date)
+      .where(expires_on: expires_in_days.days.from_now.to_date)
       .pluck(:registration_id)
   end
 
-  def expires_in_weeks
-    WasteExemptionsBackOffice::Application.config.first_renewal_email_reminder_weeks.to_i
+  def expires_in_days
+    WasteExemptionsBackOffice::Application.config.first_renewal_email_reminder_days.to_i
   end
 end
