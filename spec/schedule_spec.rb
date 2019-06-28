@@ -33,7 +33,7 @@ RSpec.describe "Whenever schedule" do
   it "takes the bulk export execution time and frequency from the appropriate ENV variables" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:generate:bulk" }
 
-    expect(job_details[:every][0]).to eq(ENV["EXPORT_SERVICE_BULK_EXPORT_FREQUENCY"].to_sym)
+    expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"])
   end
 
