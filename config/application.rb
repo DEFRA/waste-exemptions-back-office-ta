@@ -61,6 +61,7 @@ module WasteExemptionsBackOffice
 
     # Emails
     config.email_test_address = ENV["EMAIL_TEST_ADDRESS"]
+    config.first_renewal_email_reminder_days = ENV["FIRST_RENEWAL_EMAIL_REMINDER_DAYS"]
 
     # Version info
     config.application_name = "waste-exemptions-back-office-ta"

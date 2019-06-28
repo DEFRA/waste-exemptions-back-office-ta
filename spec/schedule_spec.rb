@@ -15,7 +15,7 @@ RSpec.describe "Whenever schedule" do
 
   it "makes sure 'rake' statements exist" do
     rake_jobs = schedule.jobs[:rake]
-    expect(rake_jobs.count).to eq(2)
+    expect(rake_jobs.count).to eq(3)
 
     epr_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:epr" }
     bulk_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:bulk" }
@@ -40,6 +40,13 @@ RSpec.describe "Whenever schedule" do
   it "takes the cron log output path from the appropriate ENV variable" do
     expected_output_file = File.join(ENV["EXPORT_SERVICE_CRON_LOG_OUTPUT_PATH"], "whenever_cron.log")
     expect(schedule.sets[:output]).to eq(expected_output_file)
+  end
+
+  it "takes the email reminder execution time from the appropriate ENV variable" do
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "email:renew_reminder:send" }
+
+    expect(job_details[:every][0]).to eq(:day)
+    expect(job_details[:every][1][:at]).to eq(ENV["FIRST_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"])
   end
 
   it "allows the `whenever` command to be called without raising an error" do
