@@ -73,6 +73,7 @@ en:
           active: "Expires on %{display_date}"
           ceased: "Ceased on %{display_date}"
           revoked: "Revoked on %{display_date}"
+          expired: "Expired on %{display_date}"
       deregistered_exemptions:
         title: De-registered exemptions
       contact_us:

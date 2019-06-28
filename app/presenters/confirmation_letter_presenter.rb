@@ -61,7 +61,7 @@ class ConfirmationLetterPresenter < BasePresenter
   end
 
   def registration_exemption_status(registration_exemption)
-    display_date = if registration_exemption.state == "active"
+    display_date = if registration_exemption.state == "active" || registration_exemption.state == "expired"
                      registration_exemption.expires_on.to_formatted_s(:day_month_year)
                    else
                      registration_exemption.deregistered_at.to_formatted_s(:day_month_year)
