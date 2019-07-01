@@ -141,5 +141,13 @@ RSpec.describe ConfirmationLetterPresenter do
         expect(subject.registration_exemption_status(registration_exemption)).to eq("Revoked on 1 April 2019")
       end
     end
+
+    context "when the registration exemption is expired" do
+      let(:registration_exemption) { build(:registration_exemption, :expired) }
+
+      it "returns a string representation that states when the exemption was expired" do
+        expect(subject.registration_exemption_status(registration_exemption)).to eq("Expired on 2 April 2022")
+      end
+    end
   end
 end
