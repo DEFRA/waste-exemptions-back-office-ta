@@ -9,7 +9,7 @@ module Reports
 
       first_day_of_the_month = starts_from
 
-      while first_day_of_the_month < Date.today
+      while first_day_of_the_month <= Date.today
         MonthlyBulkReportService.run(first_day_of_the_month)
 
         first_day_of_the_month = first_day_of_the_month.next_month
