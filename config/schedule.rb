@@ -33,5 +33,5 @@ end
 # Will run once a day in the early morning hours and send email reminders about
 # registrations that will expire in X time.
 every :day, at: (ENV["FIRST_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"] || "1:05"), roles: [:db] do
-  rake "email:renew_reminder:send"
+  rake "email:renew_reminder:first:send"
 end
