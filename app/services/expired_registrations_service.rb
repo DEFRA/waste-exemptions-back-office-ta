@@ -2,9 +2,7 @@
 
 class ExpiredRegistrationsService < ::WasteExemptionsEngine::BaseService
   def run
-    all_expired_registration_exemptions.each do |registration_exemption|
-      registration_exemption.expire!
-    end
+    all_expired_registration_exemptions.each(&:expire!)
   end
 
   private
