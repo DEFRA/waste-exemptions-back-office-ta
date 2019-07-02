@@ -10,7 +10,9 @@ namespace :email do
     namespace :first do
       desc "Collect all registration that expires in 4 weeks and sends an email reminder"
       task send: :environment do
-        FirstRenewalReminderService.run
+        if WasteExemptionsEngine::FeatureToggle.active?(:send_first_email_reminder)
+          FirstRenewalReminderService.run
+        end
       end
     end
   end
