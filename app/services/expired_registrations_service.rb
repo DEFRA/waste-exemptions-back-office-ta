@@ -2,7 +2,9 @@
 
 class ExpiredRegistrationsService < ::WasteExemptionsEngine::BaseService
   def run
-    all_expired_registration_exemptions.update_all(state: :expired)
+    all_expired_registration_exemptions.each do |registration_exemption|
+      registration_exemption.expire!
+    end
   end
 
   private
