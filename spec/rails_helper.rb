@@ -56,11 +56,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  # Seed the test DB. This ensures the exemptions table contains all of the standard exemptions.
-  config.before(:suite) do
-    Rails.application.load_seed
-  end
-
   config.before(:each) { Bullet.start_request }
   config.after(:each) { Bullet.end_request }
 end

@@ -12,13 +12,13 @@ RSpec.describe WasteExemptionsEngine::RegistrationExemption, type: :model do
 
   describe "#order_by_state_then_id" do
     let(:registration) do
-      registration = create(:registration)
+      registration = create(:registration, registration_exemptions: [])
       5.times do
         %i[active ceased revoked expired].each do |state|
           create(
             :registration_exemption,
             registration: registration,
-            exemption: WasteExemptionsEngine::Exemption.all.sample,
+            exemption: build(:exemption),
             state: state
           )
         end
