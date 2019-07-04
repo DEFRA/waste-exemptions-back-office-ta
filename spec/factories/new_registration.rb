@@ -40,7 +40,7 @@ FactoryBot.define do
        build(:transient_address, :site)]
     end
 
-    exemptions { WasteExemptionsEngine::Exemption.all }
+    exemptions { build_list(:exemption, 5) }
 
     transient_people { [build(:transient_person), build(:transient_person)] }
   end

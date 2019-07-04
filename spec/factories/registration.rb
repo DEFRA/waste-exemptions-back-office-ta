@@ -12,7 +12,7 @@ FactoryBot.define do
 
     submitted_at { DateTime.now }
 
-    exemptions { WasteExemptionsEngine::Exemption.first(3) }
+    registration_exemptions { build_list(:registration_exemption, 3) }
 
     sequence :applicant_email do |n|
       "applicant#{n}@example.com"
