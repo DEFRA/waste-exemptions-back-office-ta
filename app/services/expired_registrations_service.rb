@@ -8,6 +8,6 @@ class ExpiredRegistrationsService < ::WasteExemptionsEngine::BaseService
   private
 
   def all_expired_registration_exemptions
-    WasteExemptionsEngine::RegistrationExemption.active.expired
+    WasteExemptionsEngine::RegistrationExemption.active.expired_by_date
   end
 end

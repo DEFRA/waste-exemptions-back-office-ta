@@ -19,7 +19,7 @@ module WasteExemptionsEngine
     }
 
     scope :not_expired, -> { where("expires_on >= CURRENT_DATE") }
-    scope :expired, -> { where("expires_on < CURRENT_DATE") }
+    scope :expired_by_date, -> { where("expires_on < CURRENT_DATE") }
 
     scope :all_active_exemptions, lambda {
       active
