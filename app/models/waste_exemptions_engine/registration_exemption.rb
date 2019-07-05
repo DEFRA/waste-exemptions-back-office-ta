@@ -4,6 +4,8 @@ require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptio
 
 module WasteExemptionsEngine
   class RegistrationExemption < ActiveRecord::Base
+    self.table_name = "registration_exemptions"
+
     include CanDeactivateExemption
     include CanBeOrderedByStateAndExemptionId
 
@@ -16,7 +18,8 @@ module WasteExemptionsEngine
         .order(:registered_on, :registration_id)
     }
 
-    scope :not_expired, -> { where("expires_on > CURRENT_DATE") }
+    scope :not_expired, -> { where("expires_on >= CURRENT_DATE") }
+    scope :expired_by_date, -> { where("expires_on < CURRENT_DATE") }
 
     scope :all_active_exemptions, lambda {
       active
