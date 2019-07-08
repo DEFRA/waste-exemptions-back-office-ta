@@ -39,7 +39,7 @@ end
 # This is the registration exemptions exiry job which will collect all active
 # registration exemptions that have an expire date in the past and will set their
 # state to `expired`
-bulk_time = (ENV["EXPIRE_REGISTRATION_EXEMPTION_RUN_TIME"] || "20:05")
+bulk_time = (ENV["EXPIRE_REGISTRATION_EXEMPTION_RUN_TIME"] || "00:05")
 every :day, at: bulk_time, roles: [:db] do
   rake "expire_registration:run"
 end
