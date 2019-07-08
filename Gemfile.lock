@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 599b71a3a7cd1f7d6a8da6899a7d128b0bfb5cca
+  revision: 165b121e96b8ecb32aef9ee59bbd891a41689c4a
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -381,7 +381,7 @@ DEPENDENCIES
   factory_bot_rails
   github_changelog_generator
   govuk_elements_rails (~> 3.1)
-  govuk_template (~> 0.23)
+  govuk_template (~> 0.26)
   jquery-rails
   kaminari (~> 1.1)
   paper_trail (~> 10.2.0)

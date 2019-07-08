@@ -19,7 +19,7 @@ gem "github_changelog_generator", require: false
 
 # GOV.UK styling
 gem "govuk_elements_rails", "~> 3.1"
-gem "govuk_template", "~> 0.23"
+gem "govuk_template", "~> 0.26"
 # Use jquery as the JavaScript library
 gem "jquery-rails"
 # Use postgresql as the database for Active Record
