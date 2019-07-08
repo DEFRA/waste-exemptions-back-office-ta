@@ -381,7 +381,7 @@ DEPENDENCIES
   factory_bot_rails
   github_changelog_generator
   govuk_elements_rails (~> 3.1)
-  govuk_template (~> 0.23)
+  govuk_template (~> 0.26)
   jquery-rails
   kaminari (~> 1.1)
   paper_trail (~> 10.2.0)
