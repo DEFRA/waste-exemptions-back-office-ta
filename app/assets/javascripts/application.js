@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require govuk/details.polyfill.js
+
+// Init polyfill code from GOVUK
+GOVUK.details.init()
