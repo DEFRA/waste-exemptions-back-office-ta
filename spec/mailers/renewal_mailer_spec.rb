@@ -26,27 +26,27 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
     end
 
     it "includes the correct template in the body" do
-      expect(mail.body.encoded).to include("Until our online renewal service is launched, you’ll need to register your exemptions again.")
+      expect(mail.body.parts[0].body.encoded).to include("Until our online renewal service is launched, you’ll need to register your exemptions again.")
     end
 
     it "includes the correct contact name" do
       contact_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
-      expect(mail.body.encoded).to include(contact_name)
+      expect(mail.body.parts[0].body.encoded).to include(contact_name)
     end
 
     it "includes the correct expiry date" do
       expires_on = registration.registration_exemptions.first.expires_on.to_formatted_s(:day_month_year)
-      expect(mail.body.encoded).to include(expires_on)
+      expect(mail.body.parts[0].body.encoded).to include(expires_on)
     end
 
     it "includes the correct reference" do
       reference = registration.reference
-      expect(mail.body.encoded).to include(reference)
+      expect(mail.body.parts[0].body.encoded).to include(reference)
     end
 
     it "includes the correct grid reference" do
       grid_reference = registration.site_address.grid_reference
-      expect(mail.body.encoded).to include(grid_reference)
+      expect(mail.body.parts[0].body.encoded).to include(grid_reference)
     end
 
     context "when the site address is an address" do
@@ -55,21 +55,21 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
       it "includes the correct address" do
         address = registration.site_address
         address_text = "#{address.premises}, #{address.street_address}, #{address.locality}, #{address.city}, #{address.postcode}"
-        expect(mail.body.encoded).to include(address_text)
+        expect(mail.body.parts[0].body.encoded).to include(address_text)
       end
     end
 
     it "includes active exemptions" do
       re = registration.registration_exemptions.first
       exemption_text = "#{re.exemption.code} #{re.exemption.summary}"
-      expect(mail.body.encoded).to include(exemption_text)
+      expect(mail.body.parts[0].body.encoded).to include(exemption_text)
     end
 
     it "excludes inactive exemptions" do
       re = registration.registration_exemptions.last
       re.state = :ceased
       exemption_text = "#{re.exemption.code} #{re.exemption.summary}"
-      expect(mail.body.encoded).to_not include(exemption_text)
+      expect(mail.body.parts[0].body.encoded).to_not include(exemption_text)
     end
   end
 end

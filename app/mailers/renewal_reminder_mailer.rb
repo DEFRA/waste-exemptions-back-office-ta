@@ -3,6 +3,7 @@
 class RenewalReminderMailer < ActionMailer::Base
   # So we can use displayable_address()
   include ::WasteExemptionsEngine::ApplicationHelper
+  add_template_helper(MailerHelper)
 
   def first_reminder_email(registration)
     @contact_name = contact_name(registration)
