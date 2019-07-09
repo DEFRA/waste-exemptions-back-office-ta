@@ -1,8 +1,11 @@
 # Change Log
 
-## [v1.0.0](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.0.0) (2019-07-03)
+## [v1.0.0](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.0.0) (2019-07-09)
 **Implemented enhancements:**
 
+- Include polyfill for old browsers support [\#263](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/263) ([cintamani](https://github.com/cintamani))
+- Schedule the registration exemptions expiry job to run daily [\#256](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/256) ([cintamani](https://github.com/cintamani))
+- Add rake task to set the status of expired registration exemptions [\#255](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/255) ([cintamani](https://github.com/cintamani))
 - Add feature toggle check for first email reminder [\#254](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/254) ([cintamani](https://github.com/cintamani))
 - Schedule first email reminder job [\#245](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/245) ([cintamani](https://github.com/cintamani))
 - Update bulk exporter schedule to be daily [\#244](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/244) ([Cruikshanks](https://github.com/Cruikshanks))
@@ -54,6 +57,8 @@
 
 **Fixed bugs:**
 
+- Fix minor bugs in first email reminder [\#260](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/260) ([irisfaraway](https://github.com/irisfaraway))
+- Break long emails onto multiple lines instead of overflowing [\#258](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/258) ([irisfaraway](https://github.com/irisfaraway))
 - Update schema.rb [\#253](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/253) ([Cruikshanks](https://github.com/Cruikshanks))
 - Fix bug on first day of the month bulk report generation [\#251](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/251) ([cintamani](https://github.com/cintamani))
 - Fix error when in confirmation letter for expired [\#248](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/248) ([Cruikshanks](https://github.com/Cruikshanks))
@@ -106,6 +111,11 @@
 
 **Merged pull requests:**
 
+- Bump waste\_exemptions\_engine from `7249eff` to `7ee85c2` [\#267](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/267) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `165b121` to `7249eff` [\#264](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/264) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `78aca60` to `165b121` [\#262](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/262) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `78aca60` to `599b71a` [\#261](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/261) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `2159567` to `78aca60` [\#259](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/259) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump simplecov from 0.16.1 to 0.17.0 [\#257](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/257) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Do not seed exemptions in the test suite, use factories instead [\#252](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/252) ([cintamani](https://github.com/cintamani))
 - Bump waste\_exemptions\_engine from `cb44d5e` to `472036c` [\#250](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/250) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
