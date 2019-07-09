@@ -58,7 +58,7 @@
         <span><%= current_user.email %></span>
       </p>
       <% if can? :create, WasteExemptionsEngine::Registration.new %>
-        <p><%= link_to t(".user_info.new_registration_link"), WasteExemptionsEngine::Engine.routes.url_helpers.new_start_form_path(:new) %></p>
+        <p><%= link_to t(".user_info.new_registration_link"), ad_privacy_policy_path %></p>
       <% end %>
       <p><%= link_to t(".user_info.sign_out_link"), destroy_user_session_path, class: "button" %></p>
     </div>
