@@ -38,6 +38,10 @@ Rails.application.routes.draw do
   get "/registrations/deregister/:id", to: "deregister_registrations#new", as: :deregister_registrations_form
   post "/registrations/deregister/:id", to: "deregister_registrations#update", as: :deregister_registrations
 
+  # Privacy policy
+
+  get "/ad-privacy-policy", to: "ad_privacy_policy#show", as: :ad_privacy_policy
+
   # Deregister Exemptions
 
   get "/registration-exemptions/deregister/:id", to: "deregister_exemptions#new", as: :deregister_exemptions_form
