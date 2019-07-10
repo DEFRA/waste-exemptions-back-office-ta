@@ -17,10 +17,10 @@ module Reports
     subject(:presenter) { described_class.new(registration_exemption) }
 
     describe "#registration_number" do
-      let(:registration) { create(:registration, reference: "WEX00123") }
+      let(:registration) { create(:registration) }
 
       it "returns the registration reference" do
-        expect(presenter.registration_number).to eq("WEX00123")
+        expect(presenter.registration_number).to eq(registration.reference)
       end
     end
 
