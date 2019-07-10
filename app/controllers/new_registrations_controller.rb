@@ -5,14 +5,14 @@ class NewRegistrationsController < ApplicationController
   helper RegistrationsHelper
 
   def show
-    find_resource(params[:reference])
+    find_resource(params[:id])
     authorize
   end
 
   private
 
-  def find_resource(reference)
-    @resource = WasteExemptionsEngine::NewRegistration.find_by(reference: reference)
+  def find_resource(id)
+    @resource = WasteExemptionsEngine::NewRegistration.find(id)
   end
 
   def authorize
