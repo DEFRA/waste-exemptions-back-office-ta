@@ -30,10 +30,6 @@ FactoryBot.define do
       "Operator #{n}"
     end
 
-    sequence :reference do |n|
-      "WEX#{n}"
-    end
-
     transient_addresses do
       [build(:transient_address, :operator),
        build(:transient_address, :contact),
