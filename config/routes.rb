@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   # Registration management
 
   resources :registrations, only: :show, param: :reference
-  resources :new_registrations, only: :show, param: :reference, path: "/new-registrations"
+  resources :new_registrations, only: :show, path: "/new-registrations"
 
   # Deregister Registrations
 

@@ -25,7 +25,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
       let(:resource) { create(:new_registration) }
 
       it "returns the correct path" do
-        expect(helper.view_link_for(resource)).to eq(new_registration_path(resource.reference))
+        expect(helper.view_link_for(resource)).to eq(new_registration_path(resource.id))
       end
     end
 

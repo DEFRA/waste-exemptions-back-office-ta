@@ -32,7 +32,7 @@ RSpec.describe SearchService do
 
     context "when the model is set to new_registrations" do
       let(:model) { :new_registrations }
-      let(:term) { new_registration.reference }
+      let(:term) { new_registration.applicant_first_name }
 
       it "should return matching new_registrations" do
         expect(results).to include(new_registration)

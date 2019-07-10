@@ -5,7 +5,7 @@ module ActionLinksHelper
     if resource.is_a?(WasteExemptionsEngine::Registration)
       registration_path(resource.reference)
     elsif resource.is_a?(WasteExemptionsEngine::NewRegistration)
-      new_registration_path(resource.reference)
+      new_registration_path(resource.id)
     else
       "#"
     end
