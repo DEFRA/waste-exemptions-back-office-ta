@@ -1,8 +1,10 @@
 # Change Log
 
-## [v1.0.0](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.0.0) (2019-07-09)
+## [v1.0.0](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.0.0) (2019-07-10)
 **Implemented enhancements:**
 
+-  Attach logo to email instead of linking to gov.uk  [\#266](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/266) ([cintamani](https://github.com/cintamani))
+- Add privacy policy for Assited Digital [\#265](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/265) ([cintamani](https://github.com/cintamani))
 - Include polyfill for old browsers support [\#263](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/263) ([cintamani](https://github.com/cintamani))
 - Schedule the registration exemptions expiry job to run daily [\#256](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/256) ([cintamani](https://github.com/cintamani))
 - Add rake task to set the status of expired registration exemptions [\#255](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/255) ([cintamani](https://github.com/cintamani))
@@ -57,6 +59,8 @@
 
 **Fixed bugs:**
 
+- Use id instead of reference to find the correct new registration [\#274](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/274) ([cintamani](https://github.com/cintamani))
+- Update privacy policy [\#270](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/270) ([Cruikshanks](https://github.com/Cruikshanks))
 - Fix minor bugs in first email reminder [\#260](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/260) ([irisfaraway](https://github.com/irisfaraway))
 - Break long emails onto multiple lines instead of overflowing [\#258](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/258) ([irisfaraway](https://github.com/irisfaraway))
 - Update schema.rb [\#253](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/253) ([Cruikshanks](https://github.com/Cruikshanks))
@@ -111,6 +115,10 @@
 
 **Merged pull requests:**
 
+- Bump waste\_exemptions\_engine from `7a60ed5` to `7bdc763` [\#273](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/273) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Use id instead of reference when dealing with in progress registrations [\#272](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/272) ([cintamani](https://github.com/cintamani))
+- Bump waste\_exemptions\_engine from `dd899ab` to `9c8a81e` [\#269](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/269) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `7ee85c2` to `dd899ab` [\#268](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/268) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `7249eff` to `7ee85c2` [\#267](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/267) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `165b121` to `7249eff` [\#264](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/264) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `78aca60` to `165b121` [\#262](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/262) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
