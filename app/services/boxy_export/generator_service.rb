@@ -64,7 +64,7 @@ module BoxyExport
     end
 
     def generate_export_file(file_path, serializer_class)
-      File.open(file_path, 'w') do |file|
+      File.open(file_path, "w") do |file|
         file.write serializer_class.new.to_csv
       end
     end
