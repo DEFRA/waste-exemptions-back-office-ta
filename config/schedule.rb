@@ -36,6 +36,13 @@ every :day, at: (ENV["FIRST_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"] || "1:05"), 
   rake "email:renew_reminder:first:send"
 end
 
+# This is the daily boxi export generation service.
+# Will run once a day in the early morning hours and generate a zip file containing
+# data required for boxi.
+every :day, at: (ENV["BOXI_EXPORT_GENERATION_DAILY_RUN_TIME"] || "03:05"), roles: [:db] do
+  rake "boxi_export:generate"
+end
+
 # This is the registration exemptions exiry job which will collect all active
 # registration exemptions that have an expire date in the past and will set their
 # state to `expired`

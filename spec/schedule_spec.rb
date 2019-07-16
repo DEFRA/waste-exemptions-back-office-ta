@@ -15,7 +15,7 @@ RSpec.describe "Whenever schedule" do
 
   it "makes sure 'rake' statements exist" do
     rake_jobs = schedule.jobs[:rake]
-    expect(rake_jobs.count).to eq(4)
+    expect(rake_jobs.count).to eq(5)
 
     epr_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:epr" }
     bulk_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:bulk" }
@@ -54,6 +54,13 @@ RSpec.describe "Whenever schedule" do
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPIRE_REGISTRATION_EXEMPTION_RUN_TIME"])
+  end
+
+  it "takes the boxi export generation execution time from the appropriate ENV variable" do
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "boxi_export:generate" }
+
+    expect(job_details[:every][0]).to eq(:day)
+    expect(job_details[:every][1][:at]).to eq(ENV["BOXI_EXPORT_GENERATION_DAILY_RUN_TIME"])
   end
 
   it "allows the `whenever` command to be called without raising an error" do
