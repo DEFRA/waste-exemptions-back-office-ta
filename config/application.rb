@@ -60,7 +60,7 @@ module WasteExemptionsBackOffice
     config.years_before_expiry = ENV["YEARS_BEFORE_EXPIRY"] || 3
 
     # BOXI data export
-    config.boxi_exports_bucket_name = ENV["AWS_BOXI_EXPORTS_BUCKET"]
+    config.boxi_exports_bucket_name = ENV["AWS_BOXI_EXPORT_BUCKET"]
     config.boxi_export_batch_size = ENV["BOXI_EXPORTS_BATCH_SIZE"]
 
     # Emails
