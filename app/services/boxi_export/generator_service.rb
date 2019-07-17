@@ -3,8 +3,7 @@
 require "zip"
 require_relative "../concerns/can_load_file_to_aws"
 
-module
-BoxiExport
+module BoxiExport
   class GeneratorService < ::WasteExemptionsEngine::BaseService
     include CanLoadFileToAws
 
