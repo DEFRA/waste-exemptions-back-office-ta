@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "concerns/can_load_file_to_aws"
+require_relative "../concerns/can_load_file_to_aws"
 
 module Reports
   class EprExportService < ::WasteExemptionsEngine::BaseService
