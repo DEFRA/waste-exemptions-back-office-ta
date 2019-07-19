@@ -68,6 +68,9 @@ gem "defra_ruby_aws",
 # bundle exec rake doc:rails generates the API under doc/api.
 gem "sdoc", "~> 0.4.0", group: :doc
 
+# Manage, create and open zip files https://github.com/rubyzip/rubyzip
+gem "rubyzip"
+
 group :production do
   # Web application server that replaces webrick. It handles HTTP requests,
   # manages processes and resources, and enables administration, monitoring
