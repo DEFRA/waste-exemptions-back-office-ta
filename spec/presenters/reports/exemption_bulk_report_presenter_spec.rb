@@ -99,6 +99,14 @@ module Reports
       it "returns the organisation address" do
         expect(exemption_bulk_report_presenter.organisation_address).to eq("Westland, 45 way, away, Erabor, HD5 JFS")
       end
+
+      context "if the registration has no organisation address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns empty values between delimiting commas" do
+          expect(exemption_bulk_report_presenter.organisation_address).to eq(", , , , ")
+        end
+      end
     end
 
     describe "#correspondance_contact_full_name" do
@@ -134,6 +142,14 @@ module Reports
 
       it "returns the contact's address" do
         expect(exemption_bulk_report_presenter.correspondance_contact_address).to eq("Westland, 45 way, away, Erabor, HD5 JFS")
+      end
+
+      context "if the registration has no correspondance contact address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns empty values between delimiting commas" do
+          expect(exemption_bulk_report_presenter.correspondance_contact_address).to eq(", , , , ")
+        end
       end
     end
 
@@ -217,6 +233,14 @@ module Reports
           expect(exemption_bulk_report_presenter.site_location_address).to be_nil
         end
       end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns empty values between delimiting commas" do
+          expect(exemption_bulk_report_presenter.site_location_address).to eq(", , , , ")
+        end
+      end
     end
 
     describe "#site_location_grid_reference" do
@@ -230,8 +254,16 @@ module Reports
 
       let(:registration) { create(:registration, addresses: [site_location_grid_reference]) }
 
-      it "returns the contact's address" do
+      it "returns the site location grid reference" do
         expect(exemption_bulk_report_presenter.site_location_grid_reference).to eq("ST12345678")
+      end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(exemption_bulk_report_presenter.site_location_grid_reference).to be_nil
+        end
       end
     end
 
@@ -246,8 +278,16 @@ module Reports
 
       let(:registration) { create(:registration, addresses: [site_address]) }
 
-      it "returns the contact's address" do
+      it "returns the site location description" do
         expect(exemption_bulk_report_presenter.site_location_description).to eq("Next to the big green tree.")
+      end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(exemption_bulk_report_presenter.site_location_description).to be_nil
+        end
       end
     end
 
@@ -264,6 +304,14 @@ module Reports
 
       it "returns the site address area" do
         expect(exemption_bulk_report_presenter.site_location_area).to eq("Site address area")
+      end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(exemption_bulk_report_presenter.site_location_area).to be_nil
+        end
       end
     end
 
