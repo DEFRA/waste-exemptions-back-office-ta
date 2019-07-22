@@ -39,6 +39,14 @@ module Reports
       it "returns the operator address premises" do
         expect(presenter.organisation_premises).to eq("123 ABC")
       end
+
+      context "if the registration has no organisation address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.organisation_premises).to be_nil
+        end
+      end
     end
 
     describe "#organisation_street_address" do
@@ -47,6 +55,14 @@ module Reports
 
       it "returns the operator street address" do
         expect(presenter.organisation_street_address).to eq("32 Foo St")
+      end
+
+      context "if the registration has no organisation address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.organisation_street_address).to be_nil
+        end
       end
     end
 
@@ -57,6 +73,14 @@ module Reports
       it "returns the operator address locality" do
         expect(presenter.organisation_locality).to eq("Avon")
       end
+
+      context "if the registration has no organisation address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.organisation_street_address).to be_nil
+        end
+      end
     end
 
     describe "#organisation_city" do
@@ -65,6 +89,14 @@ module Reports
 
       it "returns the operator address city" do
         expect(presenter.organisation_city).to eq("Bristol")
+      end
+
+      context "if the registration has no organisation address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.organisation_city).to be_nil
+        end
       end
     end
 
@@ -84,6 +116,14 @@ module Reports
       it "returns the operator address premises" do
         expect(presenter.site_premises).to eq("Bar 123")
       end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_premises).to be_nil
+        end
+      end
     end
 
     describe "#site_street_address" do
@@ -92,6 +132,14 @@ module Reports
 
       it "returns the operator address street" do
         expect(presenter.site_street_address).to eq("12 Baz road")
+      end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_street_address).to be_nil
+        end
       end
     end
 
@@ -102,6 +150,14 @@ module Reports
       it "returns the operator address locality" do
         expect(presenter.site_locality).to eq("Avon")
       end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_locality).to be_nil
+        end
+      end
     end
 
     describe "#site_city" do
@@ -110,6 +166,14 @@ module Reports
 
       it "returns the operator address locality" do
         expect(presenter.site_city).to eq("Bristol")
+      end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_city).to be_nil
+        end
       end
     end
 
@@ -120,6 +184,14 @@ module Reports
       it "returns the operator address postcode" do
         expect(presenter.site_postcode).to eq("BS2 34G")
       end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_postcode).to be_nil
+        end
+      end
     end
 
     describe "#site_country" do
@@ -128,6 +200,14 @@ module Reports
 
       it "returns the operator address country" do
         expect(presenter.site_country).to eq("GB")
+      end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_country).to be_nil
+        end
       end
     end
 
@@ -138,6 +218,14 @@ module Reports
       it "returns the operator address grid reference" do
         expect(presenter.site_ngr).to eq("SB1234")
       end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_ngr).to be_nil
+        end
+      end
     end
 
     describe "#site_easting" do
@@ -147,6 +235,14 @@ module Reports
       it "returns the operator address x coordinates" do
         expect(presenter.site_easting).to eq(123.45)
       end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_easting).to be_nil
+        end
+      end
     end
 
     describe "#site_northing" do
@@ -155,6 +251,14 @@ module Reports
 
       it "returns the operator address y coordinates" do
         expect(presenter.site_northing).to eq(123.45)
+      end
+
+      context "if the registration has no site address" do
+        let(:registration) { create(:registration, addresses: []) }
+
+        it "returns nil" do
+          expect(presenter.site_northing).to be_nil
+        end
       end
     end
 
