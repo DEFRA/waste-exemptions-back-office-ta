@@ -66,21 +66,21 @@ module Reports
     # rubocop:enable Naming/PredicateName
 
     def site_location_address
-      return if site_address.located_by_grid_reference?
+      return if site_address&.located_by_grid_reference?
 
       format_address(site_address)
     end
 
     def site_location_grid_reference
-      site_address.grid_reference
+      site_address&.grid_reference
     end
 
     def site_location_description
-      site_address.description
+      site_address&.description
     end
 
     def site_location_area
-      site_address.area
+      site_address&.area
     end
 
     def exemption_code
@@ -134,11 +134,11 @@ module Reports
 
     def format_address(address)
       [
-        address.premises,
-        address.street_address,
-        address.locality,
-        address.city,
-        address.postcode
+        address&.premises,
+        address&.street_address,
+        address&.locality,
+        address&.city,
+        address&.postcode
       ].join(", ")
     end
 
