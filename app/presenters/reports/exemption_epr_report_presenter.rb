@@ -11,59 +11,59 @@ module Reports
     end
 
     def organisation_premises
-      registration.operator_address.premises
+      registration.operator_address&.premises
     end
 
     def organisation_street_address
-      registration.operator_address.street_address
+      registration.operator_address&.street_address
     end
 
     def organisation_locality
-      registration.operator_address.locality
+      registration.operator_address&.locality
     end
 
     def organisation_city
-      registration.operator_address.city
+      registration.operator_address&.city
     end
 
     def organisation_postcode
-      registration.operator_address.postcode
+      registration.operator_address&.postcode
     end
 
     def site_premises
-      registration.site_address.premises
+      registration.site_address&.premises
     end
 
     def site_street_address
-      registration.site_address.street_address
+      registration.site_address&.street_address
     end
 
     def site_locality
-      registration.site_address.locality
+      registration.site_address&.locality
     end
 
     def site_city
-      registration.site_address.city
+      registration.site_address&.city
     end
 
     def site_postcode
-      registration.site_address.postcode
+      registration.site_address&.postcode
     end
 
     def site_country
-      registration.site_address.country_iso
+      registration.site_address&.country_iso
     end
 
     def site_ngr
-      registration.site_address.grid_reference
+      registration.site_address&.grid_reference
     end
 
     def site_easting
-      registration.site_address.x
+      registration.site_address&.x
     end
 
     def site_northing
-      registration.site_address.y
+      registration.site_address&.y
     end
 
     def exemption_code
