@@ -9,10 +9,6 @@ module BoxiExport
       let(:bucket) { double(:bucket) }
       let(:aws_response) { double(:aws_response, successful?: true) }
 
-      before do
-        expect(WasteExemptionsEngine::FeatureToggle).to receive(:active?).with(:generate_boxi_report).and_return(true)
-      end
-
       it "generates a zip file containing data for BOXI and load it to AWS" do
         # Cleanup before run
         File.delete(zip_file_path) if File.exist?(zip_file_path)
