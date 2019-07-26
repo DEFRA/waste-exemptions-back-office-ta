@@ -8,6 +8,8 @@ module BoxiExport
     include CanLoadFileToAws
 
     def run
+      return unless WasteExemptionsEngine::FeatureToggle.active?(:generate_boxi_report)
+
       Dir.mktmpdir do |dir_path|
         BoxiExport::AddressesSerializer.export_to_file(dir_path)
         BoxiExport::ExemptionsSerializer.export_to_file(dir_path)
