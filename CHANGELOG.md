@@ -1,5 +1,29 @@
 # Change Log
 
+## [v1.0.2](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.0.2) (2019-07-26)
+[Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office-ta/compare/hotfix/v1.0.1...v1.0.2)
+
+**Implemented enhancements:**
+
+- Add feature toggle on Boxi export [\#283](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/283) ([cintamani](https://github.com/cintamani))
+- Schedule boxi generation service job [\#277](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/277) ([cintamani](https://github.com/cintamani))
+- Generate Boxi report CSV files for AWS export [\#276](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/276) ([cintamani](https://github.com/cintamani))
+
+**Merged pull requests:**
+
+- Bump waste\_exemptions\_engine from `d1b939d` to `4ed93c0` [\#284](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/284) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `b2b3d37` to `d1b939d` [\#282](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/282) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubyzip from 1.2.2 to 1.2.3 [\#279](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/279) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `bb44a8d` to `b2b3d37` [\#278](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/278) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `7bdc763` to `bb44a8d` [\#275](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/275) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+## [hotfix/v1.0.1](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/hotfix/v1.0.1) (2019-07-22)
+[Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office-ta/compare/v1.0.0...hotfix/v1.0.1)
+
+**Implemented enhancements:**
+
+- Prevent exports to fail if a required address is missing [\#280](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/280) ([cintamani](https://github.com/cintamani))
+
 ## [v1.0.0](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.0.0) (2019-07-10)
 **Implemented enhancements:**
 
