@@ -13,6 +13,8 @@ namespace :email do
         return unless WasteExemptionsEngine::FeatureToggle.active?(:send_first_email_reminder)
 
         FirstRenewalReminderService.run
+
+        Airbrake.close
       end
     end
   end
