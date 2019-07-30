@@ -1,5 +1,5 @@
 ---
 send_first_email_reminder:
-  active: false
+  active: true
 generate_boxi_report:
   active: false
