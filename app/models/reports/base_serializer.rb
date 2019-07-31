@@ -25,13 +25,7 @@ module Reports
     end
 
     def batch_size
-      return 1000 if export_batch_size.blank?
-
-      export_batch_size.to_i
-    end
-
-    def export_batch_size
-      WasteExemptionsBackOffice::Application.config.export_batch_size
+      WasteExemptionsBackOffice::Application.config.export_batch_size.to_i
     end
   end
 end
