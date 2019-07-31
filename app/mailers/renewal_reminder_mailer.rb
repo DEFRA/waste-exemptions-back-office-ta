@@ -6,11 +6,7 @@ class RenewalReminderMailer < ActionMailer::Base
   add_template_helper(MailerHelper)
 
   def first_reminder_email(registration)
-    @contact_name = contact_name(registration)
-    @expiry_date = expiry_date(registration)
-    @reference = reference(registration)
-    @site_location = site_location(registration)
-    @exemptions = exemptions(registration)
+    assign_values_for_email(registration)
 
     mail(
       to: registration.contact_email,
@@ -19,7 +15,25 @@ class RenewalReminderMailer < ActionMailer::Base
     )
   end
 
+  def first_renew_with_magic_link_email(registration)
+    assign_values_for_email(registration)
+
+    mail(
+      to: registration.contact_email,
+      from: from_email,
+      subject: I18n.t(".renewal_reminder_mailer.first_renew_with_magic_link_email.subject", date: @expiry_date)
+    )
+  end
+
   private
+
+  def assign_values_for_email(registration)
+    @contact_name = contact_name(registration)
+    @expiry_date = expiry_date(registration)
+    @reference = reference(registration)
+    @site_location = site_location(registration)
+    @exemptions = exemptions(registration)
+  end
 
   def from_email
     config = WasteExemptionsEngine.configuration
