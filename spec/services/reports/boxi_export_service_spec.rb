@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-module BoxiExport
-  RSpec.describe GeneratorService do
+module Reports
+  RSpec.describe BoxiExportService do
     describe ".run" do
       let(:zip_file_path) { Rails.root.join("tmp/waste_exemptions_rep_daily_full.zip") }
       let(:bucket) { double(:bucket) }
@@ -42,7 +42,7 @@ module BoxiExport
 
       context "when an error happen" do
         it "logs the issue on Airbrake" do
-          expect(BoxiExport::AddressesSerializer).to receive(:export_to_file).and_raise(StandardError)
+          expect(Boxi::AddressesSerializer).to receive(:export_to_file).and_raise(StandardError)
 
           expect(Airbrake).to receive(:notify)
 
