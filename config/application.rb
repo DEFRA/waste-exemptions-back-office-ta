@@ -67,5 +67,8 @@ module WasteExemptionsBackOffice
     # Version info
     config.application_name = "waste-exemptions-back-office-ta"
     config.git_repository_url = "https://github.com/DEFRA/#{config.application_name}"
+
+    # Change authomatic expire of renew's magic link token
+    config.registration_renewal_grace_window = ENV["REGISTRATION_RENEWAL_GRACE_WINDOW"] || 30
   end
 end
