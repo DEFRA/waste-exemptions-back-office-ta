@@ -6,6 +6,7 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
   before do
     allow(WasteExemptionsEngine.configuration).to receive(:email_service_email).and_return("wex@example.com")
     allow(WasteExemptionsEngine.configuration).to receive(:service_name).and_return("WEX")
+    allow(Rails.configuration).to receive(:front_office_url).and_return("https://wex.gov.uk")
   end
 
   describe "first_reminder_email" do
@@ -136,6 +137,11 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
       re.state = :ceased
       exemption_text = "#{re.exemption.code} #{re.exemption.summary}"
       expect(mail.body.parts[0].body.encoded).to_not include(exemption_text)
+    end
+
+    it "includes the correct renewal link" do
+      url = "https://wex.gov.uk/renew/#{registration.renew_token}"
+      expect(mail.body.parts[0].body.encoded).to include(url)
     end
   end
 end

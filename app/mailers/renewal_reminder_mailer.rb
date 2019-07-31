@@ -17,6 +17,7 @@ class RenewalReminderMailer < ActionMailer::Base
 
   def first_renew_with_magic_link_email(registration)
     assign_values_for_email(registration)
+    @magic_link_url = magic_link_url(registration)
 
     mail(
       to: registration.contact_email,
@@ -26,6 +27,16 @@ class RenewalReminderMailer < ActionMailer::Base
   end
 
   private
+
+  def magic_link_url(registration)
+    token = magic_link_token(registration)
+    Rails.configuration.front_office_url + WasteExemptionsEngine::Engine.routes.url_helpers.renew_path(token: token)
+  end
+
+  def magic_link_token(registration)
+    WasteExemptionsEngine::GenerateRenewTokenService.run(registration: registration) if registration.renew_token.nil?
+    registration.renew_token
+  end
 
   def assign_values_for_email(registration)
     @contact_name = contact_name(registration)
