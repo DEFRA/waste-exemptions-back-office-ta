@@ -15,5 +15,12 @@ namespace :reports do
 
       Airbrake.close
     end
+
+    desc "Generate the BOXI report (zipped) and upload it to S3."
+    task boxi: :environment do
+      Reports::BoxiExportService.run if WasteExemptionsEngine::FeatureToggle.active?(:generate_boxi_report)
+
+      Airbrake.close
+    end
   end
 end

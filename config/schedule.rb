@@ -39,8 +39,8 @@ end
 # This is the daily boxi export generation service.
 # Will run once a day in the early morning hours and generate a zip file containing
 # data required for boxi.
-every :day, at: (ENV["BOXI_EXPORT_GENERATION_DAILY_RUN_TIME"] || "03:05"), roles: [:db] do
-  rake "boxi_export:generate"
+every :day, at: (ENV["EXPORT_SERVICE_BOXI_EXPORT_TIME"] || "03:05"), roles: [:db] do
+  rake "reports:generate:boxi"
 end
 
 # This is the registration exemptions exiry job which will collect all active
