@@ -31,3 +31,21 @@ en:
       sign_off:
         paragraph_1: "Yours sincerely"
         paragraph_2: "Waste Exemptions Team"
+    first_renew_with_magic_link_email:
+      subject: "Waste exemptions expire on %{date}, renew online now"
+      salutation: "Dear %{name}"
+      body:
+        heading: "Renew your waste exemptions by %{date}"
+        paragraph_1: "If your registration details and exemptions have not changed, you can renew online in a few minutes. Renewal is free."
+        renew_label: "Renew online at:"
+        site_label: "Site location:"
+        reference_label: "Registration number:"
+        exemptions_label: "These waste exemption(s) will expire on %{date}:"
+        guidance_link_label: "Waste exemption rules and guidance"
+        guidance_link_url: "https://www.gov.uk/guidance/register-your-waste-exemptions-environmental-permits"
+        paragraph_2: "If you no longer carry out these waste operations, you can ignore any reminders. Your waste exemptions will be removed from the public register when they expire."
+      sign_off:
+        paragraph_1: "Environment Agency Helpline"
+        phone: "03708 506 506 (Monday to Friday, 8am to 6pm)"
+        email: "enquiries@environment-agency.gov.uk"
+        paragraph_2: "This is an automated email, please do not reply."
