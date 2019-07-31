@@ -9,11 +9,11 @@ module Reports
 
     def run
       Dir.mktmpdir do |dir_path|
-        BoxiExport::AddressesSerializer.export_to_file(dir_path)
-        BoxiExport::ExemptionsSerializer.export_to_file(dir_path)
-        BoxiExport::PeopleSerializer.export_to_file(dir_path)
-        BoxiExport::RegistrationExemptionsSerializer.export_to_file(dir_path)
-        BoxiExport::RegistrationsSerializer.export_to_file(dir_path)
+        Boxi::AddressesSerializer.export_to_file(dir_path)
+        Boxi::ExemptionsSerializer.export_to_file(dir_path)
+        Boxi::PeopleSerializer.export_to_file(dir_path)
+        Boxi::RegistrationExemptionsSerializer.export_to_file(dir_path)
+        Boxi::RegistrationsSerializer.export_to_file(dir_path)
 
         zip_export_files(dir_path)
 

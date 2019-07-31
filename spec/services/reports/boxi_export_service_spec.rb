@@ -42,7 +42,7 @@ module Reports
 
       context "when an error happen" do
         it "logs the issue on Airbrake" do
-          expect(BoxiExport::AddressesSerializer).to receive(:export_to_file).and_raise(StandardError)
+          expect(Boxi::AddressesSerializer).to receive(:export_to_file).and_raise(StandardError)
 
           expect(Airbrake).to receive(:notify)
 
