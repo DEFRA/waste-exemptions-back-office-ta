@@ -51,17 +51,14 @@ module WasteExemptionsBackOffice
     config.companies_house_host = ENV["COMPANIES_HOUSE_URL"] || "https://api.companieshouse.gov.uk/company/"
     config.companies_house_api_key = ENV["COMPANIES_HOUSE_API_KEY"]
 
-    # AWS monthly bulk export
+    # Data export config
     config.bulk_reports_bucket_name = ENV["AWS_BULK_EXPORT_BUCKET"]
     config.epr_reports_bucket_name = ENV["AWS_DAILY_EXPORT_BUCKET"]
+    config.boxi_exports_bucket_name = ENV["AWS_BOXI_EXPORT_BUCKET"]
     config.epr_export_filename = ENV["EPR_DAILY_REPORT_FILE_NAME"] || "waste_exemptions_epr_daily_full"
     config.export_batch_size = ENV["EXPORT_SERVICE_BATCH_SIZE"]
 
     config.years_before_expiry = ENV["YEARS_BEFORE_EXPIRY"] || 3
-
-    # BOXI data export
-    config.boxi_exports_bucket_name = ENV["AWS_BOXI_EXPORT_BUCKET"]
-    config.boxi_export_batch_size = ENV["BOXI_EXPORTS_BATCH_SIZE"]
 
     # Emails
     config.email_test_address = ENV["EMAIL_TEST_ADDRESS"]

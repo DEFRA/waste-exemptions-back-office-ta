@@ -57,10 +57,10 @@ RSpec.describe "Whenever schedule" do
   end
 
   it "takes the boxi export generation execution time from the appropriate ENV variable" do
-    job_details = schedule.jobs[:rake].find { |h| h[:task] == "boxi_export:generate" }
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:generate:boxi" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["BOXI_EXPORT_GENERATION_DAILY_RUN_TIME"])
+    expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_BOXI_EXPORT_TIME"])
   end
 
   it "allows the `whenever` command to be called without raising an error" do

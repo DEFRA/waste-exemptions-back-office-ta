@@ -38,7 +38,7 @@ module BoxiExport
     end
 
     def batch_size
-      WasteExemptionsBackOffice::Application.config.boxi_export_batch_size.to_i
+      WasteExemptionsBackOffice::Application.config.export_batch_size.to_i
     end
 
     def file_name
