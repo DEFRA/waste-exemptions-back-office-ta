@@ -67,5 +67,9 @@ module WasteExemptionsBackOffice
     # Version info
     config.application_name = "waste-exemptions-back-office-ta"
     config.git_repository_url = "https://github.com/DEFRA/#{config.application_name}"
+
+    # Grace window value in days from when a registration expires. During the
+    # grace window users will still be permitted to renew their registration.
+    config.registration_renewal_grace_window = ENV["REGISTRATION_RENEWAL_GRACE_WINDOW"] || 30
   end
 end
