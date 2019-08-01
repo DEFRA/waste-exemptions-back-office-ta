@@ -4,4 +4,4 @@ send_first_email_reminder:
 generate_boxi_report:
   active: false
 send_renewal_magic_link:
-  active: true
+  active: false
