@@ -4,7 +4,7 @@ class FirstRenewalReminderService < ::WasteExemptionsEngine::BaseService
   def run
     expiring_registrations.each do |registration|
       begin
-        RenewalReminderMailer.first_reminder_email(registration).deliver_now
+        send_email(registration)
       rescue StandardError => e
         Airbrake.notify e, registration: registration.reference
         Rails.logger.error "Failed to send first renewal email for registration #{registration.reference}"
@@ -13,6 +13,14 @@ class FirstRenewalReminderService < ::WasteExemptionsEngine::BaseService
   end
 
   private
+
+  def send_email(registration)
+    if WasteExemptionsEngine::FeatureToggle.active?(:send_renewal_magic_link)
+      RenewalReminderMailer.first_renew_with_magic_link_email(registration).deliver_now
+    else
+      RenewalReminderMailer.first_reminder_email(registration).deliver_now
+    end
+  end
 
   def expiring_registrations
     WasteExemptionsEngine::Registration.where(
