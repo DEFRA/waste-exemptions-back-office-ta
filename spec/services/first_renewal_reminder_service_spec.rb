@@ -5,6 +5,8 @@ require "rails_helper"
 RSpec.describe FirstRenewalReminderService do
   before do
     expect(WasteExemptionsBackOffice::Application.config).to receive(:first_renewal_email_reminder_days).and_return("28")
+
+    allow(WasteExemptionsEngine::FeatureToggle).to receive(:active?).with(:send_renewal_magic_link).and_return(false)
   end
 
   describe ".run" do
@@ -64,6 +66,34 @@ RSpec.describe FirstRenewalReminderService do
         ]
       )
       expect { described_class.run }.to_not change { ActionMailer::Base.deliveries.count }
+    end
+
+    context "when the magic link feature flag is off" do
+      it "uses the correct mailer" do
+        registration = create(
+          :registration,
+          registration_exemptions: [build(:registration_exemption, :active, expires_on: 4.weeks.from_now.to_date)]
+        )
+
+        expect(RenewalReminderMailer).to receive(:first_reminder_email).with(registration)
+        described_class.run
+      end
+    end
+
+    context "when the magic link feature flag is on" do
+      before do
+        allow(WasteExemptionsEngine::FeatureToggle).to receive(:active?).with(:send_renewal_magic_link).and_return(true)
+      end
+
+      it "uses the correct mailer" do
+        registration = create(
+          :registration,
+          registration_exemptions: [build(:registration_exemption, :active, expires_on: 4.weeks.from_now.to_date)]
+        )
+
+        expect(RenewalReminderMailer).to receive(:first_renew_with_magic_link_email).with(registration)
+        described_class.run
+      end
     end
   end
 end

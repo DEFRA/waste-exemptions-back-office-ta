@@ -1,0 +1,27 @@
+<%= t(".salutation", name: @contact_name) %>
+
+<%= t(".body.heading", date: @expiry_date) %>
+
+<%= t(".body.paragraph_1") %>
+
+<%= t(".body.renew_label") %>
+<%= @magic_link_url %>
+
+<%= t(".body.site_label") %> <%= @site_location %>
+<%= t(".body.reference_label") %> <%= @reference %>
+
+<%= t(".body.exemptions_label", date: @expiry_date) %>
+
+<% @exemptions.each do |exemption| %>
+- <%= exemption %>
+<% end %>
+
+<%= t(".body.guidance_link_label") %> <%= t(".body.guidance_link_url") %>
+
+<%= t(".body.paragraph_2") %>
+
+<%= t(".sign_off.paragraph_1") %>
+<%= t(".sign_off.phone") %>
+<%= t(".sign_off.email") %>
+
+<%= t(".sign_off.paragraph_2") %>
