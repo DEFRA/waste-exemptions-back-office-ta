@@ -101,8 +101,7 @@
 
                                 <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
                                     <%= t(".body.site_label") %> <%= @site_location %>
-                                </p>
-                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
+                                    <br>
                                     <%= t(".body.reference_label") %> <%= @reference %>
                                 </p>
 
@@ -110,7 +109,7 @@
                                   <%= t(".body.exemptions_label", date: @expiry_date) %>
                                 </p>
 
-                                <ul style="margin:0 0 0 20px; padding:0; list-style-type:disc">
+                                <ul style="margin:0 0 20px 20px; padding:0; list-style-type:disc">
                                   <% @exemptions.each do |exemption| %>
                                     <li style="margin:5px 0 5px; padding:0 0 0 5px; font-size:19px; line-height:25px; color:#0B0C0C">
                                       <%= exemption %>
@@ -126,12 +125,14 @@
                                 </p>
 
                                 <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
+                                    <%= t(".body.paragraph_2") %>
+                                </p>
+
+                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
                                     <%= t(".sign_off.paragraph_1") %>
-                                </p>
-                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
+                                    <br>
                                     <%= t(".sign_off.phone") %>
-                                </p>
-                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
+                                    <br>
                                     <a href="mailto:<%= t(".sign_off.email") %>" style="word-wrap:break-word; color:#005ea5" target="_blank" rel="noopener noreferrer">
                                         <%= t(".sign_off.email") %>
                                     </a>
