@@ -2,6 +2,6 @@
 send_first_email_reminder:
   active: true
 generate_boxi_report:
-  active: false
+  active: true
 send_renewal_magic_link:
   active: false
