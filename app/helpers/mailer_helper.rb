@@ -8,7 +8,7 @@ module MailerHelper
   def email_image_tag(image, **options)
     path = "/app/assets/images/#{image}"
 
-    full_path = Rails.root.join(path)
+    full_path = File.join(Rails.root, path)
 
     full_path = "#{Gem.loaded_specs['waste_exemptions_engine'].full_gem_path}#{path}" unless File.exist?(full_path)
 
