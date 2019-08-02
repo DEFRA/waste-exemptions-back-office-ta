@@ -4,4 +4,4 @@ send_first_email_reminder:
 generate_boxi_report:
   active: true
 send_renewal_magic_link:
-  active: false
+  active: <%= ENV["FEATURE_TOGGLE_SEND_RENEWAL_MAGIC_LINK"] %>
