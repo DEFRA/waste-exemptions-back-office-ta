@@ -34,7 +34,7 @@ class RenewalReminderMailer < ActionMailer::Base
   end
 
   def magic_link_token(registration)
-    WasteExemptionsEngine::GenerateRenewTokenService.run(registration: registration) if registration.renew_token.nil?
+    registration.regenerate_renew_token if registration.renew_token.nil?
     registration.renew_token
   end
 
