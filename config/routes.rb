@@ -47,7 +47,11 @@ Rails.application.routes.draw do
   get "/registration-exemptions/deregister/:id", to: "deregister_exemptions#new", as: :deregister_exemptions_form
   post "/registration-exemptions/deregister/:id", to: "deregister_exemptions#update", as: :deregister_exemptions
 
-  # Engine
+  # Override renew path
+  get "/renew/:reference",
+      to: "renews#new",
+      as: "renew"
 
+  # Engine
   mount WasteExemptionsEngine::Engine => "/"
 end

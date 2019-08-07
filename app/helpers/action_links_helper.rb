@@ -42,4 +42,16 @@ module ActionLinksHelper
   def display_confirmation_letter_link_for?(resource)
     resource.is_a?(WasteExemptionsEngine::Registration)
   end
+
+  def display_renew_link_for?(resource)
+    resource.is_a?(WasteExemptionsEngine::Registration) &&
+      resource.in_renewal_window? &&
+      can?(:renew, resource)
+  end
+
+  def display_renew_window_closed_text_for?(resource)
+    resource.is_a?(WasteExemptionsEngine::Registration) &&
+      resource.past_renewal_window? &&
+      can?(:renew, resource)
+  end
 end

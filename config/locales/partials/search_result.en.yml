@@ -33,3 +33,7 @@ en:
         confirmation_letter:
           link_text: "View confirmation letter"
           visually_hidden_text: "for %{name}"
+        renew:
+          link_text: "Start renewal"
+          visually_hidden_text: "of %{name}"
+          renew_window_closed: "Renewal period closed"
