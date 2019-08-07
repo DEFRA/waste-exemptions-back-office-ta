@@ -59,6 +59,10 @@ en:
         deregister: "Deregister"
         resume: "Resume"
         confirmation_letter: "View confirmation letter"
+        renew:
+          link_text: "Start renewal"
+          visually_hidden_text: "of %{name}"
+          renew_window_closed: "Renewal period closed"
       no_applicant_data: "No applicant details"
       no_contact_data: "No contact details"
       no_exemptions: "No exemptions"

@@ -45,10 +45,10 @@
     <% else %>
       <%= t(".no_applicant_data") %>
     <% end %>
-
   </div>
+
   <div class="column-one-third">
-     <h2 class="heading-medium">
+    <h2 class="heading-medium">
       <%= t(".subheadings.contact") %>
     </h2>
 
@@ -61,6 +61,7 @@
           <%= resource.contact_first_name %>
         </p>
       <% end %>
+
       <% if resource.contact_last_name.present? %>
         <h3 class="heading-small">
           <%= t(".labels.contact_last_name") %>
@@ -101,42 +102,59 @@
     <% else %>
       <%= t(".no_contact_data") %>
     <% end %>
-
   </div>
+
   <div class="column-one-third">
     <h2 class="heading-medium">
       <%= t(".subheadings.actions") %>
       <% if resource.reference.present? %>
-      for <%= resource.reference %>
+        for <%= resource.reference %>
       <% end %>
     </h2>
     <div class="action-boxout">
       <ul>
         <% if display_edit_link_for?(resource) %>
-        <li>
-          <%= link_to t(".actions.edit"), edit_link_for(resource) %>
-        </li>
+          <li>
+            <%= link_to t(".actions.edit"), edit_link_for(resource) %>
+          </li>
         <% end %>
+
         <% if display_resume_link_for?(resource) %>
-        <li>
-          <%= link_to t(".actions.resume"), resume_link_for(resource) %>
-        </li>
+          <li>
+            <%= link_to t(".actions.resume"), resume_link_for(resource) %>
+          </li>
         <% end %>
+
         <% if display_confirmation_letter_link_for?(resource) %>
-        <li>
-          <%= link_to t(".actions.confirmation_letter"), confirmation_letter_path(resource), target: "_blank" %>
-        </li>
+          <li>
+            <%= link_to t(".actions.confirmation_letter"), confirmation_letter_path(resource), target: "_blank" %>
+          </li>
         <% end %>
+
+        <% if display_renew_link_for?(resource) %>
+          <li>
+            <%= link_to ad_privacy_policy_path(renew_registration: resource.reference), id: "renew_#{resource.reference}", target: "_blank" do %>
+              <%= t(".actions.renew.link_text") %>
+              <span class="visually-hidden">
+               <%= t(".actions.renew.visually_hidden_text",
+                     name: result_name_for_visually_hidden_text(resource)) %>
+              </span>
+            <% end %>
+          </li>
+        <% elsif display_renew_window_closed_text_for?(resource) %>
+          <li><%= t(".actions.renew.renew_window_closed") %></li>
+        <% end %>
+
         <% if display_deregister_link_for?(resource) %>
-        <li class="separated">
-          <%= link_to t(".actions.deregister"), deregister_registrations_form_path(resource) %>
-        </li>
+          <li class="separated">
+            <%= link_to t(".actions.deregister"), deregister_registrations_form_path(resource) %>
+          </li>
         <% end %>
       </ul>
-    </div>
-<!-- /boxout -->
+    </div> <!-- /boxout -->
   </div>
 </div>
+
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 <div class="grid-row">
   <div class="column-full">
@@ -154,6 +172,7 @@
     <% end %>
   </div>
 </div>
+
 <div class="grid-row">
   <% if resource.contact_address.present? %>
     <div class="column-one-third">
@@ -182,6 +201,7 @@
     </div>
   <% end %>
 </div>
+
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 <div class="grid-row">
   <div class="column-one-third">
@@ -250,18 +270,18 @@
   </div>
 
   <% if resource.people.present? %>
-  <div class="column-one-third">
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          <%= t(".labels.people") %>
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-      <%= render("shared/resource_people_list",
-                 resource_people: resource.people) %>
-      </div>
-    </details>
-  </div>
+    <div class="column-one-third">
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            <%= t(".labels.people") %>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+        <%= render("shared/resource_people_list",
+                   resource_people: resource.people) %>
+        </div>
+      </details>
+    </div>
   <% end %>
 </div>
