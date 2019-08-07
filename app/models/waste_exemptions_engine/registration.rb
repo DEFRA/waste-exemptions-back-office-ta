@@ -27,5 +27,28 @@ module WasteExemptionsEngine
 
       "ceased"
     end
+
+    def in_renewal_window?
+      (expires_on - renewal_window_open_before_days.days) < Time.now &&
+        !past_renewal_window?
+    end
+
+    def past_renewal_window?
+      (expires_on + registration_renewal_grace_window.days) < Time.now
+    end
+
+    private
+
+    def renewal_window_open_before_days
+      WasteExemptionsBackOffice::Application.config.renewal_window_open_before_days.to_i
+    end
+
+    def registration_renewal_grace_window
+      WasteExemptionsBackOffice::Application.config.registration_renewal_grace_window.to_i
+    end
+
+    def expires_on
+      @_expires_on ||= registration_exemptions.pluck(:expires_on).presence&.sort.first
+    end
   end
 end

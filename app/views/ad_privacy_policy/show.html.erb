@@ -55,7 +55,9 @@
       </div>
     </details>
 
-    <p><%= link_to "Continue", WasteExemptionsEngine::Engine.routes.url_helpers.new_start_form_path(:new), class: "button" %></p>
+    <p>
+      <%= link_to "Continue", destination_path, class: "button" %>
+    </p>
     <p><%= t(".last_updated") %></p>
   </div>
 </div>

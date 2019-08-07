@@ -6,17 +6,19 @@
         <span><%= t(".labels.status") %></span>
         <span class="<%= "status-tag-#{status_tag_for(result)}" %>"><%= t(".statuses.#{status_tag_for(result)}") %></span>
       </li>
+
       <% if result.operator_name.present? %>
-      <li>
-        <span><%= t(".labels.operator_name") %></span>
-        <%= result.operator_name %>
-      </li>
+        <li>
+          <span><%= t(".labels.operator_name") %></span>
+          <%= result.operator_name %>
+        </li>
       <% end %>
+
       <% if result.reference.present? %>
-      <li>
-        <span><%= t(".labels.reference") %></span>
-        <%= result.reference %>
-      </li>
+        <li>
+          <span><%= t(".labels.reference") %></span>
+          <%= result.reference %>
+        </li>
       <% end %>
     </ul>
   </div>
@@ -24,49 +26,53 @@
     <% if result.site_address.present? %>
       <ul class="registration-details">
         <% if result.site_address.postcode.present? %>
-        <li>
-          <span><%= t(".labels.address") %></span>
-          <ul>
-            <% displayable_address(result.site_address).each do |address_line| %>
-              <li><%= address_line %></li>
-            <% end %>
-          </ul>
-        </li>
+          <li>
+            <span><%= t(".labels.address") %></span>
+            <ul>
+              <% displayable_address(result.site_address).each do |address_line| %>
+                <li><%= address_line %></li>
+              <% end %>
+            </ul>
+          </li>
         <% end %>
+
         <% if result.site_address.grid_reference.present? %>
-        <li>
-          <span><%= t(".labels.grid_reference") %></span>
-          <%= result.site_address.grid_reference %>
-        </li>
+          <li>
+            <span><%= t(".labels.grid_reference") %></span>
+            <%= result.site_address.grid_reference %>
+          </li>
         <% end %>
       </ul>
     <% else %>
-      <br>
+      <br />
     <% end %>
   </div>
+
   <div class="column-one-quarter">
     <ul class="registration-details">
       <% if result.applicant_first_name.present? %>
-      <li>
-        <span><%= t(".labels.applicant") %></span>
-        <%= result.applicant_first_name %> <%= result.applicant_last_name %>
-      </li>
+        <li>
+          <span><%= t(".labels.applicant") %></span>
+          <%= result.applicant_first_name %> <%= result.applicant_last_name %>
+        </li>
       <% end %>
+
       <% if result.contact_first_name.present? %>
       <li>
         <span><%= t(".labels.contact") %></span>
         <%= result.contact_first_name %> <%= result.contact_last_name %>
       </li>
       <% end %>
+
       <% if result.people.present? && result.business_type == "partnership" %>
-      <li>
-        <span><%= t(".labels.partners") %></span>
-        <ul>
-          <% result.people.each do |partner| %>
-            <li><%= partner.first_name %> <%= partner.last_name %></li>
-          <% end %>
-        </ul>
-      </li>
+        <li>
+          <span><%= t(".labels.partners") %></span>
+          <ul>
+            <% result.people.each do |partner| %>
+              <li><%= partner.first_name %> <%= partner.last_name %></li>
+            <% end %>
+          </ul>
+        </li>
       <% end %>
     </ul>
   </div>
@@ -79,43 +85,59 @@
             <%= link_to view_link_for(result), id: "view_#{result.reference}" do %>
               <%= t(".actions.view.link_text") %>
               <span class="visually-hidden">
-               <%= t(".actions.view.visually_hidden_text",
-                     name: result_name_for_visually_hidden_text(result)) %>
-             </span>
-            <% end %>
-          </li>
-          <% if display_edit_link_for?(result) %>
-          <li>
-            <%= link_to edit_link_for(result), id: "edit_#{result.reference}" do %>
-              <%= t(".actions.edit.link_text") %>
-              <span class="visually-hidden">
-               <%= t(".actions.edit.visually_hidden_text",
-                     name: result_name_for_visually_hidden_text(result)) %>
-             </span>
-            <% end %>
-          </li>
-          <% end %>
-          <% if display_resume_link_for?(result) %>
-          <li>
-            <%= link_to resume_link_for(result), id: "resume_#{result.reference}" do %>
-              <%= t(".actions.resume.link_text") %>
-              <span class="visually-hidden">
-               <%= t(".actions.resume.visually_hidden_text",
-                     name: result_name_for_visually_hidden_text(result)) %>
-             </span>
-            <% end %>
-          </li>
-          <% end %>
-          <% if display_confirmation_letter_link_for?(result) %>
-          <li>
-            <%= link_to confirmation_letter_path(result), id: "confirmation_letter_#{result.reference}", target: "_blank" do %>
-              <%= t(".actions.confirmation_letter.link_text") %>
-              <span class="visually-hidden">
-               <%= t(".actions.confirmation_letter.visually_hidden_text",
-                     name: result_name_for_visually_hidden_text(result)) %>
+                <%= t(".actions.view.visually_hidden_text",
+                      name: result_name_for_visually_hidden_text(result)) %>
               </span>
             <% end %>
           </li>
+          <% if display_edit_link_for?(result) %>
+            <li>
+              <%= link_to edit_link_for(result), id: "edit_#{result.reference}" do %>
+                <%= t(".actions.edit.link_text") %>
+                <span class="visually-hidden">
+                 <%= t(".actions.edit.visually_hidden_text",
+                       name: result_name_for_visually_hidden_text(result)) %>
+               </span>
+              <% end %>
+            </li>
+          <% end %>
+
+          <% if display_resume_link_for?(result) %>
+            <li>
+              <%= link_to resume_link_for(result), id: "resume_#{result.reference}" do %>
+                <%= t(".actions.resume.link_text") %>
+                <span class="visually-hidden">
+                 <%= t(".actions.resume.visually_hidden_text",
+                       name: result_name_for_visually_hidden_text(result)) %>
+               </span>
+              <% end %>
+            </li>
+          <% end %>
+
+          <% if display_confirmation_letter_link_for?(result) %>
+            <li>
+              <%= link_to confirmation_letter_path(result), id: "confirmation_letter_#{result.reference}", target: "_blank" do %>
+                <%= t(".actions.confirmation_letter.link_text") %>
+                <span class="visually-hidden">
+                 <%= t(".actions.confirmation_letter.visually_hidden_text",
+                       name: result_name_for_visually_hidden_text(result)) %>
+                </span>
+              <% end %>
+            </li>
+          <% end %>
+
+          <% if display_renew_link_for?(result) %>
+            <li>
+              <%= link_to ad_privacy_policy_path(renew_registration: result.reference), id: "renew_#{result.reference}", target: "_blank" do %>
+                <%= t(".actions.renew.link_text") %>
+                <span class="visually-hidden">
+                 <%= t(".actions.renew.visually_hidden_text",
+                       name: result_name_for_visually_hidden_text(result)) %>
+                </span>
+              <% end %>
+            </li>
+          <% elsif display_renew_window_closed_text_for?(result) %>
+            <li><%= t(".actions.renew.renew_window_closed") %></li>
           <% end %>
         </ul>
       </li>
