@@ -36,7 +36,7 @@ module Reports
         self.class::ATTRIBUTES.map do |attribute|
           content = record.public_send(attribute)
 
-          if self.respond_to?("parse_#{attribute}")
+          if respond_to?("parse_#{attribute}")
             public_send("parse_#{attribute}", content)
           else
             content
