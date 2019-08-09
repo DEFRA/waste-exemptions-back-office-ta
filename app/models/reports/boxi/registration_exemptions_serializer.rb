@@ -12,6 +12,10 @@ module Reports
       def records_scope
         WasteExemptionsEngine::RegistrationExemption.all
       end
+
+      def parse_deregistration_message(message)
+        message&.gsub(/\r\n|\r|\n/, " ")
+      end
     end
   end
 end
