@@ -93,7 +93,7 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
     end
 
     it "includes the correct template in the body" do
-      expect(mail.body.parts[0].body.encoded).to include("If your registration details and exemptions have not changed, you can renew online in a few minutes. Renewal is free.")
+      expect(mail.body.parts[0].body.encoded).to include("You can renew online in a few minutes. Renewal is free.")
     end
 
     it "includes the correct contact name" do

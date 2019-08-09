@@ -36,7 +36,7 @@ en:
       salutation: "Dear %{name}"
       body:
         heading: "Renew your waste exemptions by %{date}"
-        paragraph_1: "If your registration details and exemptions have not changed, you can renew online in a few minutes. Renewal is free."
+        paragraph_1: "You can renew online in a few minutes. Renewal is free."
         renew_label: "Renew online at:"
         site_label: "Site location:"
         reference_label: "Registration number:"
