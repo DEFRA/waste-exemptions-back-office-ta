@@ -14,7 +14,7 @@ module Reports
       end
 
       def parse_description(description)
-        description.gsub(/\r\n|\r|\n/, " ")
+        description&.gsub(/\r\n|\r|\n/, " ")
       end
     end
   end
