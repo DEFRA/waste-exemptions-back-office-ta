@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 108b701ccd58c478933b07ac3945c81090aee3df
+  revision: 10a8898cc24174f0999f2736941973dbc88aac1d
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -248,7 +248,7 @@ GEM
       activesupport (>= 4.2.0, < 5.0)
       nokogiri (~> 1.6)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-html-sanitizer (1.1.0)
+    rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
     railties (4.2.11.1)
       actionpack (= 4.2.11.1)
