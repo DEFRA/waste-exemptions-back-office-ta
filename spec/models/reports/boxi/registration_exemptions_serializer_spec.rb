@@ -19,6 +19,15 @@ module Reports
           expect(result_lines.first.split(",")).to include(*WasteExemptionsEngine::RegistrationExemption.column_names)
           expect(result_lines.count).to eq(2)
         end
+
+        context "when the address description contains new lines" do
+          it "generates a csv file without new lines" do
+            create(:registration_exemption, deregistration_message: "sadfsa\r\nfafdafaf\r\nfdfdaf")
+
+            expect(registration_exemptions_serializer.to_csv).to_not include("\r\n")
+            expect(registration_exemptions_serializer.to_csv).to include("sadfsa fafdafaf fdfdaf")
+          end
+        end
       end
     end
   end
