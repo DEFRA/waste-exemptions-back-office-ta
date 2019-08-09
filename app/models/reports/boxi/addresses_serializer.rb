@@ -12,6 +12,10 @@ module Reports
       def records_scope
         WasteExemptionsEngine::Address.all
       end
+
+      def parse_description(description)
+        description.gsub(/\r\n|\r|\n/, " ")
+      end
     end
   end
 end

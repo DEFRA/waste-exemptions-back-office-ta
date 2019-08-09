@@ -34,7 +34,13 @@ module Reports
 
       def serialize_record(record)
         self.class::ATTRIBUTES.map do |attribute|
-          record.public_send(attribute)
+          content = record.public_send(attribute)
+
+          if self.respond_to?("parse_#{attribute}")
+            public_send("parse_#{attribute}", content)
+          else
+            content
+          end
         end
       end
 
