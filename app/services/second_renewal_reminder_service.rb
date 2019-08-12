@@ -16,6 +16,9 @@ class SecondRenewalReminderService < RenewalReminderServiceBase
   end
 
   def recent_renewals_ids
-    WasteExemptionsEngine::Registration.renewals.where(submitted_at: 1.month.ago..Time.now).pluck(:referring_registration_id)
+    WasteExemptionsEngine::Registration
+      .renewals
+      .where(submitted_at: 1.month.ago..Time.now)
+      .pluck(:referring_registration_id)
   end
 end
