@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 namespace :email do
   desc "Send a test email to confirm setup is correct"
   task test: :environment do
@@ -37,3 +38,4 @@ namespace :email do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
