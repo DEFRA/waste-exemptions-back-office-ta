@@ -18,7 +18,7 @@ namespace :email do
 
   namespace :renew_reminder do
     namespace :first do
-      desc "Collect all registration that expires in 4 weeks and sends an email reminder"
+      desc "Send first email reminder to all registrations expiring in X days (default is 28)"
       task send: :environment do
         return unless WasteExemptionsEngine::FeatureToggle.active?(:send_first_email_reminder)
 
@@ -29,7 +29,7 @@ namespace :email do
     end
 
     namespace :second do
-      desc "Collect all registration that expires in X weeks and sends a second email reminder"
+      desc "Send second email reminder to all registrations expiring in X days (default is 14)"
       task send: :environment do
         return unless WasteExemptionsEngine::FeatureToggle.active?(:send_second_email_reminder)
 

@@ -63,7 +63,7 @@ module WasteExemptionsBackOffice
     # Emails
     config.email_test_address = ENV["EMAIL_TEST_ADDRESS"]
     config.first_renewal_email_reminder_days = ENV["RENEWAL_WINDOW_OPEN_BEFORE_DAYS"]
-    config.second_renewal_email_reminder_days = ENV["SECOND_RENEWAL_EMAIL_BEFORE_DAYS"]
+    config.second_renewal_email_reminder_days = ENV["SECOND_RENEWAL_EMAIL_BEFORE_DAYS"] || 14
     config.renewal_window_open_before_days = ENV["RENEWAL_WINDOW_OPEN_BEFORE_DAYS"]
 
     # Version info
