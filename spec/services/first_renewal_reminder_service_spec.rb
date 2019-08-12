@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe FirstRenewalReminderService do
   before do
-    expect(WasteExemptionsBackOffice::Application.config).to receive(:first_renewal_email_reminder_days).and_return("28")
+    expect(WasteExemptionsEngine.configuration).to receive(:renewal_window_before_expiry_in_days).and_return("28")
 
     allow(WasteExemptionsEngine::FeatureToggle).to receive(:active?).with(:send_renewal_magic_link).and_return(false)
   end
