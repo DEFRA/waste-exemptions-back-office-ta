@@ -19,7 +19,7 @@ class RenewalReminderServiceBase < ::WasteExemptionsEngine::BaseService
   end
 
   def expiring_registrations
-    WasteExemptionsEngine::Registration.where(
+    default_scope.where(
       id: all_active_exemptions_registration_ids
     ).where("contact_email != 'waste-exemptions@environment-agency.gov.uk'")
   end
@@ -29,6 +29,10 @@ class RenewalReminderServiceBase < ::WasteExemptionsEngine::BaseService
       .all_active_exemptions
       .where(expires_on: expires_in_days.days.from_now.to_date)
       .pluck(:registration_id)
+  end
+
+  def default_scope
+    WasteExemptionsEngine::Registration
   end
 
   def expires_in_days

@@ -33,6 +33,18 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     end
   end
 
+  describe ".renewals" do
+    it "retruns registration that are renewals of older registrations" do
+      registration = create(:registration)
+      renewal = create(:registration, referring_registration: registration)
+
+      result = described_class.renewals
+
+      expect(result).to include(renewal)
+      expect(result).to_not include(registration)
+    end
+  end
+
   describe "#in_renewal_window?" do
     let(:registration_exemption) { build(:registration_exemption, expires_on: expires_on) }
 

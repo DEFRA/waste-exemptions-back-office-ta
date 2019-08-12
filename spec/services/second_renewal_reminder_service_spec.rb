@@ -54,6 +54,19 @@ RSpec.describe SecondRenewalReminderService do
       expect(ActionMailer::Base.deliveries.last.to).to eq([active_expiring_registration.contact_email])
     end
 
+    it "do not send emails if a registration have already been renewed" do
+      registration = create(
+        :registration,
+        registration_exemptions: [
+          build(:registration_exemption, :active, expires_on: 2.weeks.from_now.to_date)
+        ]
+      )
+
+      create(:registration, referring_registration: registration)
+
+      expect { described_class.run }.to_not change { ActionMailer::Base.deliveries.count }
+    end
+
     it "do not send emails to AD NCCC email addresses" do
       create(
         :registration,
