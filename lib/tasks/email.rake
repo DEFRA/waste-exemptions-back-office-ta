@@ -26,5 +26,14 @@ namespace :email do
         Airbrake.close
       end
     end
+
+    namespace :second do
+      desc "Collect all registration that expires in X weeks and sends a second email reminder"
+      task send: :environment do
+        SecondRenewalReminderService.run
+
+        Airbrake.close
+      end
+    end
   end
 end
