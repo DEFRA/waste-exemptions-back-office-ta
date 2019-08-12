@@ -31,6 +31,8 @@ namespace :email do
     namespace :second do
       desc "Collect all registration that expires in X weeks and sends a second email reminder"
       task send: :environment do
+        return unless WasteExemptionsEngine::FeatureToggle.active?(:send_second_email_reminder)
+
         SecondRenewalReminderService.run
 
         Airbrake.close
