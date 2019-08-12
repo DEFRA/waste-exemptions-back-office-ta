@@ -12,6 +12,6 @@ class FirstRenewalReminderService < RenewalReminderServiceBase
   end
 
   def expires_in_days
-    WasteExemptionsBackOffice::Application.config.first_renewal_email_reminder_days.to_i
+    WasteExemptionsEngine.configuration.renewal_window_before_expiry_in_days.to_i
   end
 end
