@@ -39,7 +39,7 @@ end
 # This is the daily second renewal reminder mail service.
 # Will run once a day in the early morning hours and send email reminders about
 # registrations that will expire in X time.
-every :day, at: (ENV["SECOND_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"] || "3:05"), roles: [:db] do
+every :day, at: (ENV["SECOND_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"] || "04:05"), roles: [:db] do
   rake "email:renew_reminder:second:send"
 end
 

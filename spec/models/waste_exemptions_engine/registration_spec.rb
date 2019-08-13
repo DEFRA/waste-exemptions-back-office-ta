@@ -34,7 +34,7 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
   end
 
   describe ".renewals" do
-    it "retruns registration that are renewals of older registrations" do
+    it "returns registrations that are renewals of older registrations" do
       registration = create(:registration)
       renewal = create(:registration, referring_registration: registration)
 
