@@ -1,6 +1,6 @@
 ---
 send_first_email_reminder:
-  active: true
+  active: <%= ENV["FEATURE_TOGGLE_SEND_FIRST_EMAIL_REMINDER"] || "true" %>
 send_second_email_reminder:
   active: <%= ENV["FEATURE_TOGGLE_SEND_SECOND_EMAIL_REMINDER"] || "true" %>
 generate_boxi_report:
