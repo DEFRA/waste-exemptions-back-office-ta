@@ -22,12 +22,13 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
     end
 
     it "uses the correct subject" do
-      subject = "Your waste exemptions expire soon, register again to continue your waste operations"
+      date = registration.registration_exemptions.first.expires_on.to_formatted_s(:day_month_year)
+      subject = "Waste exemptions expire on #{date}, renew online now"
       expect(mail.subject).to eq(subject)
     end
 
     it "includes the correct template in the body" do
-      expect(mail.body.parts[0].body.encoded).to include("Until our online renewal service is launched, you’ll need to register your exemptions again.")
+      expect(mail.body.parts[0].body.encoded).to include("You can renew online in a few minutes. Renewal is free.")
     end
 
     it "includes the correct contact name" do
@@ -72,11 +73,16 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
       exemption_text = "#{re.exemption.code} #{re.exemption.summary}"
       expect(mail.body.parts[0].body.encoded).to_not include(exemption_text)
     end
+
+    it "includes the correct renewal link" do
+      url = "https://wex.gov.uk/renew/#{registration.renew_token}"
+      expect(mail.body.parts[0].body.encoded).to include(url)
+    end
   end
 
-  describe "first_renew_with_magic_link_email" do
+  describe "second_reminder_email" do
     let(:registration) { build(:registration, :with_active_exemptions) }
-    let(:mail) { RenewalReminderMailer.first_renew_with_magic_link_email(registration) }
+    let(:mail) { RenewalReminderMailer.second_reminder_email(registration) }
 
     it "uses the correct 'to' address" do
       expect(mail.to).to eq([registration.contact_email])
@@ -87,8 +93,7 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
     end
 
     it "uses the correct subject" do
-      date = registration.registration_exemptions.first.expires_on.to_formatted_s(:day_month_year)
-      subject = "Waste exemptions expire on #{date}, renew online now"
+      subject = "Renew your waste exemptions online now"
       expect(mail.subject).to eq(subject)
     end
 

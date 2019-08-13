@@ -11,29 +11,17 @@ class RenewalReminderMailer < ActionMailer::Base
     mail(
       to: registration.contact_email,
       from: from_email,
-      subject: I18n.t(".renewal_reminder_mailer.first_reminder_email.subject")
+      subject: I18n.t(".renewal_reminder_mailer.first_reminder_email.subject", date: @expiry_date)
     )
   end
 
   def second_reminder_email(registration)
     assign_values_for_email(registration)
-    @magic_link_url = magic_link_url(registration)
 
     mail(
       to: registration.contact_email,
       from: from_email,
       subject: I18n.t(".renewal_reminder_mailer.second_reminder_email.subject")
-    )
-  end
-
-  def first_renew_with_magic_link_email(registration)
-    assign_values_for_email(registration)
-    @magic_link_url = magic_link_url(registration)
-
-    mail(
-      to: registration.contact_email,
-      from: from_email,
-      subject: I18n.t(".renewal_reminder_mailer.first_renew_with_magic_link_email.subject", date: @expiry_date)
     )
   end
 
@@ -55,6 +43,7 @@ class RenewalReminderMailer < ActionMailer::Base
     @reference = reference(registration)
     @site_location = site_location(registration)
     @exemptions = exemptions(registration)
+    @magic_link_url = magic_link_url(registration)
   end
 
   def from_email

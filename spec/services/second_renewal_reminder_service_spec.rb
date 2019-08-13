@@ -25,7 +25,7 @@ RSpec.describe SecondRenewalReminderService do
       end
     end
 
-    it "send a second renewal email to all active registrations due to expire in 4 weeks" do
+    it "send a second renewal email to all active registrations due to expire in 2 weeks" do
       active_expiring_registration = create(
         :registration,
         registration_exemptions: [

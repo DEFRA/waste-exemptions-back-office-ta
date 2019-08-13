@@ -1,33 +1,27 @@
 <%= t(".salutation", name: @contact_name) %>
 
-<%= t(".section_1.subheading", date: @expiry_date) %>
+<%= t(".body.heading", date: @expiry_date) %>
 
-<%= t(".section_1.reference_label") %> <%= @reference %>
-<%= t(".section_1.site_label") %> <%= @site_location %>
+<%= t(".body.paragraph_1") %>
 
-<%= t(".section_1.exemptions_label", date: @expiry_date) %>
+<%= t(".body.renew_label") %>
+<%= @magic_link_url %>
+
+<%= t(".body.site_label") %> <%= @site_location %>
+<%= t(".body.reference_label") %> <%= @reference %>
+
+<%= t(".body.exemptions_label", date: @expiry_date) %>
 
 <% @exemptions.each do |exemption| %>
 - <%= exemption %>
 <% end %>
 
-<%= t(".section_2.subheading") %>
+<%= t(".body.guidance_link_label") %> <%= t(".body.guidance_link_url") %>
 
-<%= t(".section_2.paragraph_1") %>
-
-<%= t(".section_2.register_label") %> <%= t(".section_2.register_link_url") %>
-
-<%= t(".section_2.paragraph_2") %>
-
-<%= t(".section_3.subheading") %>
-
-<%= t(".section_3.paragraph_1") %> <%= t(".section_3.paragraph_1_email") %>
-
-<%= t(".section_4.subheading") %>
-
-<%= t(".section_4.paragraph_1") %> <%= t(".section_4.paragraph_1_link_url") %>
-
-<%= t(".section_4.paragraph_2") %> <%= t(".section_4.paragraph_2_link_url") %>
+<%= t(".body.paragraph_2") %>
 
 <%= t(".sign_off.paragraph_1") %>
+<%= t(".sign_off.phone") %>
+<%= t(".sign_off.email") %>
+
 <%= t(".sign_off.paragraph_2") %>
