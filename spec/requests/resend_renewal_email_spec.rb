@@ -41,7 +41,7 @@ RSpec.describe "ResendRenewalEmail", type: :request do
 
       context "when an error happens", disable_bullet: true do
         before do
-          expect(RenewalReminderMailer).to receive(:first_renew_with_magic_link_email).and_raise(StandardError)
+          expect(RenewalReminderMailer).to receive(:first_reminder_email).and_raise(StandardError)
         end
 
         around do |example|
