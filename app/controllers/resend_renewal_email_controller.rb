@@ -23,8 +23,8 @@ class ResendRenewalEmailController < ApplicationController
 
   def registration
     @_registration ||=  WasteExemptionsEngine::Registration
-                        .includes(registration_exemptions: :exemption)
-                        .find_by(reference: params[:reference])
+                          .includes(registration_exemptions: :exemption)
+                          .find_by(reference: params[:reference])
   end
 
   def authorize
