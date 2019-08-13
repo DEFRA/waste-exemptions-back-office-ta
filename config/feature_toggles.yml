@@ -1,6 +1,8 @@
 ---
 send_first_email_reminder:
   active: true
+send_second_email_reminder:
+  active: <%= ENV["FEATURE_TOGGLE_SEND_SECOND_EMAIL_REMINDER"] || "true" %>
 generate_boxi_report:
   active: true
 send_renewal_magic_link:

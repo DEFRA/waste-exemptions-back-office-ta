@@ -14,6 +14,8 @@ module WasteExemptionsEngine
       joins(:people).merge(Person.search_for_name(term))
     }
 
+    scope :renewals, -> { where.not(referring_registration_id: nil) }
+
     def active?
       state == "active"
     end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 namespace :email do
   desc "Send a test email to confirm setup is correct"
   task test: :environment do
@@ -17,7 +18,7 @@ namespace :email do
 
   namespace :renew_reminder do
     namespace :first do
-      desc "Collect all registration that expires in 4 weeks and sends an email reminder"
+      desc "Send first email reminder to all registrations expiring in X days (default is 28)"
       task send: :environment do
         return unless WasteExemptionsEngine::FeatureToggle.active?(:send_first_email_reminder)
 
@@ -26,5 +27,17 @@ namespace :email do
         Airbrake.close
       end
     end
+
+    namespace :second do
+      desc "Send second email reminder to all registrations expiring in X days (default is 14)"
+      task send: :environment do
+        return unless WasteExemptionsEngine::FeatureToggle.active?(:send_second_email_reminder)
+
+        SecondRenewalReminderService.run
+
+        Airbrake.close
+      end
+    end
   end
 end
+# rubocop:enable Metrics/BlockLength
