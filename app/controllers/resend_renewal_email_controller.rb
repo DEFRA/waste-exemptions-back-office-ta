@@ -5,7 +5,7 @@ class ResendRenewalEmailController < ApplicationController
     authorize
 
     begin
-      RenewalReminderMailer.first_renew_with_magic_link_email(registration).deliver_now
+      RenewalReminderMailer.first_reminder_email(registration).deliver_now
 
       flash[:message] = I18n.t("resend_renewal_email.messages.success", email: registration.contact_email)
     rescue StandardError => e
