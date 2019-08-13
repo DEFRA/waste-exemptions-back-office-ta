@@ -1,36 +1,23 @@
-
 en:
   renewal_reminder_mailer:
     first_reminder_email:
-      subject: "Your waste exemptions expire soon, register again to continue your waste operations"
+      subject: "Waste exemptions expire on %{date}, renew online now"
       salutation: "Dear %{name}"
-      section_1:
-        subheading: "Your waste exemptions registration expires on %{date}."
-        reference_label: "Waste exemptions registration number:"
+      body:
+        heading: "Renew your waste exemptions by %{date}"
+        paragraph_1: "You can renew online in a few minutes. Renewal is free."
+        renew_label: "Renew online at:"
         site_label: "Site location:"
-        exemptions_label: "These waste exemption(s) will expire on %{date}:"
-      section_2:
-        subheading: "Register your waste exemptions now"
-        paragraph_1: "Until our online renewal service is launched, you’ll need to register your exemptions again."
-        register_label: "Register here:"
-        register_link_text: "www.gov.uk/register-waste-exemption"
-        register_link_url: "https://www.gov.uk/register-waste-exemption"
-        paragraph_2: "If you no longer carry out these waste operations, you do not need to do anything. Your exemptions will be removed from the public register when they expire."
-      section_3:
-        subheading: "Need help to register?"
-        paragraph_1: "Call us on 03708 506 506 to register by phone (Monday to Friday, 8am to 6pm), or email:"
-        paragraph_1_email: "enquiries@environment-agency.gov.uk"
-      section_4:
-        subheading: "Waste exemptions guidance"
-        paragraph_1: "You must read and understand the limits and conditions of each exemption before you renew. Guidance is available online at:"
-        paragraph_1_link_text: "www.gov.uk/register-waste-exemption"
-        paragraph_1_link_url: "https://www.gov.uk/register-waste-exemption"
-        paragraph_2: "View your previous waste exemptions on the public register at:"
-        paragraph_2_link_text: "www.gov.uk/access-the-public-register-for-environmental-information"
-        paragraph_2_link_url: "https://www.gov.uk/access-the-public-register-for-environmental-information"
+        reference_label: "Registration number:"
+        exemptions_label: "These waste exemptions will expire on %{date}:"
+        guidance_link_label: "Waste exemption rules and guidance:"
+        guidance_link_url: "https://www.gov.uk/guidance/register-your-waste-exemptions-environmental-permits"
+        paragraph_2: "If you no longer carry out these waste operations, you can ignore any reminders. Your waste exemptions will be removed from the public register when they expire."
       sign_off:
-        paragraph_1: "Yours sincerely"
-        paragraph_2: "Waste Exemptions Team"
+        paragraph_1: "Environment Agency Helpline"
+        phone: "03708 506 506 (Monday to Friday, 8am to 6pm)"
+        email: "enquiries@environment-agency.gov.uk"
+        paragraph_2: "This is an automated email, please do not reply."
     second_reminder_email:
       subject: "Renew your waste exemptions online now"
       salutation: "Dear %{name}"
@@ -45,25 +32,6 @@ en:
         guidance_link_label: "Waste exemption rules and guidance:"
         guidance_link_url: "https://www.gov.uk/guidance/register-your-waste-exemptions-environmental-permits"
         paragraph_3: "If you no longer carry out these waste operations, you can ignore any reminders. Your waste exemptions will be removed from the public register when they expire."
-      sign_off:
-        paragraph_1: "Environment Agency Helpline"
-        phone: "03708 506 506 (Monday to Friday, 8am to 6pm)"
-        email: "enquiries@environment-agency.gov.uk"
-        paragraph_2: "This is an automated email, please do not reply."
-
-    first_renew_with_magic_link_email:
-      subject: "Waste exemptions expire on %{date}, renew online now"
-      salutation: "Dear %{name}"
-      body:
-        heading: "Renew your waste exemptions by %{date}"
-        paragraph_1: "You can renew online in a few minutes. Renewal is free."
-        renew_label: "Renew online at:"
-        site_label: "Site location:"
-        reference_label: "Registration number:"
-        exemptions_label: "These waste exemptions will expire on %{date}:"
-        guidance_link_label: "Waste exemption rules and guidance:"
-        guidance_link_url: "https://www.gov.uk/guidance/register-your-waste-exemptions-environmental-permits"
-        paragraph_2: "If you no longer carry out these waste operations, you can ignore any reminders. Your waste exemptions will be removed from the public register when they expire."
       sign_off:
         paragraph_1: "Environment Agency Helpline"
         phone: "03708 506 506 (Monday to Friday, 8am to 6pm)"

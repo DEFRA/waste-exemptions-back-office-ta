@@ -85,21 +85,31 @@
                                 </p>
 
                                 <h1 style="margin:0 0 20px 0; padding:0; font-size:30px; line-height:38px; font-weight:bold; color:#0B0C0C">
-                                    <%= t(".section_1.subheading", date: @expiry_date) %>
+                                    <%= t(".body.heading", date: @expiry_date) %>
                                 </h1>
 
                                 <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
-                                    <%= t(".section_1.reference_label") %> <%= @reference %>
+                                    <%= t(".body.paragraph_1") %>
                                 </p>
+
+                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C; font-weight:bold;">
+                                    <%= t(".body.renew_label") %>
+                                    <a href="<%= @magic_link_url %>" style="word-wrap:break-word; color:#005ea5" target="_blank" rel="noopener noreferrer">
+                                        <%= @magic_link_url %>
+                                    </a>
+                                </p>
+
                                 <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
-                                    <%= t(".section_1.site_label") %> <%= @site_location %>
+                                    <%= t(".body.site_label") %> <%= @site_location %>
+                                    <br>
+                                    <%= t(".body.reference_label") %> <%= @reference %>
                                 </p>
 
                                 <p style="margin:0 0 10px 0; font-size:19px; line-height:25px; color:#0B0C0C">
-                                  <%= t(".section_1.exemptions_label", date: @expiry_date) %>
+                                  <%= t(".body.exemptions_label", date: @expiry_date) %>
                                 </p>
 
-                                <ul style="margin:0 0 0 20px; padding:0; list-style-type:disc">
+                                <ul style="margin:0 0 20px 20px; padding:0; list-style-type:disc">
                                   <% @exemptions.each do |exemption| %>
                                     <li style="margin:5px 0 5px; padding:0 0 0 5px; font-size:19px; line-height:25px; color:#0B0C0C">
                                       <%= exemption %>
@@ -107,57 +117,29 @@
                                   <% end %>
                                 </ul>
 
-                                <h2 style="margin:20px 0 4px 0; padding:0; font-size:22px; line-height:35px; font-weight:bold; color:#0B0C0C">
-                                    <%= t(".section_2.subheading") %>
-                                </h2>
-
                                 <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
-                                    <%= t(".section_2.paragraph_1") %>
-                                </p>
-
-                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C; font-weight:bold;">
-                                    <%= t(".section_2.register_label") %>
-                                    <a href="<%= t(".section_2.register_link_url") %>" style="word-wrap:break-word; color:#005ea5" target="_blank" rel="noopener noreferrer">
-                                        <%= t(".section_2.register_link_text") %>
+                                    <%= t(".body.guidance_link_label") %>
+                                    <a href="<%= t(".body.guidance_link_url") %>" style="word-wrap:break-word; color:#005ea5" target="_blank" rel="noopener noreferrer">
+                                        <%= t(".body.guidance_link_url") %>
                                     </a>
                                 </p>
 
                                 <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
-                                    <%= t(".section_2.paragraph_2") %>
+                                    <%= t(".body.paragraph_2") %>
                                 </p>
 
-                                <h2 style="margin:20px 0 4px 0; padding:0; font-size:22px; line-height:35px; font-weight:bold; color:#0B0C0C">
-                                    <%= t(".section_3.subheading") %>
-                                </h2>
-
-                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
-                                    <%= t(".section_3.paragraph_1") %>
-                                    <a href="mailto:<%= t(".section_3.paragraph_1_email") %>" style="word-wrap:break-word; color:#005ea5" target="_blank" rel="noopener noreferrer">
-                                        <%= t(".section_3.paragraph_1_email") %>
-                                    </a>
-                                </p>
-
-                                <h2 style="margin:20px 0 4px 0; padding:0; font-size:22px; line-height:35px; font-weight:bold; color:#0B0C0C">
-                                    <%= t(".section_4.subheading") %>
-                                </h2>
-
-                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
-                                    <%= t(".section_4.paragraph_1") %>
-                                    <a href="<%= t(".section_4.paragraph_1_link_url") %>" style="word-wrap:break-word; color:#005ea5" target="_blank" rel="noopener noreferrer">
-                                        <%= t(".section_4.paragraph_1_link_text") %>
-                                    </a>
-                                </p>
-
-                                <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
-                                    <%= t(".section_4.paragraph_2") %>
-                                    <a href="<%= t(".section_4.paragraph_2_link_url") %>" style="word-wrap:break-word; color:#005ea5" target="_blank" rel="noopener noreferrer">
-                                        <%= t(".section_4.paragraph_2_link_text") %>
-                                    </a>
-                                </p>
+                                <%= email_image_tag("logo_ea_color.png", { alt: "Environment Agency", style: "margin-top:10px", }) %>
 
                                 <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
                                     <%= t(".sign_off.paragraph_1") %>
+                                    <br>
+                                    <%= t(".sign_off.phone") %>
+                                    <br>
+                                    <a href="mailto:<%= t(".sign_off.email") %>" style="word-wrap:break-word; color:#005ea5" target="_blank" rel="noopener noreferrer">
+                                        <%= t(".sign_off.email") %>
+                                    </a>
                                 </p>
+
                                 <p style="margin:0 0 20px 0; font-size:19px; line-height:25px; color:#0B0C0C">
                                     <%= t(".sign_off.paragraph_2") %>
                                 </p>
