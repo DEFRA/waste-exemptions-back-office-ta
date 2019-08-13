@@ -7,7 +7,6 @@ class RenewalReminderMailer < ActionMailer::Base
 
   def first_reminder_email(registration)
     assign_values_for_email(registration)
-    @magic_link_url = magic_link_url(registration)
 
     mail(
       to: registration.contact_email,
@@ -18,7 +17,6 @@ class RenewalReminderMailer < ActionMailer::Base
 
   def second_reminder_email(registration)
     assign_values_for_email(registration)
-    @magic_link_url = magic_link_url(registration)
 
     mail(
       to: registration.contact_email,
@@ -45,6 +43,7 @@ class RenewalReminderMailer < ActionMailer::Base
     @reference = reference(registration)
     @site_location = site_location(registration)
     @exemptions = exemptions(registration)
+    @magic_link_url = magic_link_url(registration)
   end
 
   def from_email
