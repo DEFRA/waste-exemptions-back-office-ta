@@ -126,12 +126,21 @@
             </li>
           <% end %>
 
-          <% if display_renew_link_for?(result) %>
+          <% if display_renew_links_for?(result) %>
             <li>
               <%= link_to ad_privacy_policy_path(renew_registration: result.reference), id: "renew_#{result.reference}", target: "_blank" do %>
                 <%= t(".actions.renew.link_text") %>
                 <span class="visually-hidden">
                  <%= t(".actions.renew.visually_hidden_text",
+                       name: result_name_for_visually_hidden_text(result)) %>
+                </span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to resend_renewal_email_path(reference: result.reference), id: "resend_renew_email_#{result.reference}" do %>
+                <%= t(".actions.resend_renew_email.link_text") %>
+                <span class="visually-hidden">
+                 <%= t(".actions.resend_renew_email.visually_hidden_text",
                        name: result_name_for_visually_hidden_text(result)) %>
                 </span>
               <% end %>

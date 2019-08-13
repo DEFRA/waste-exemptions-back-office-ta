@@ -1,0 +1,6 @@
+en:
+  resend_renewal_email:
+    messages:
+      success: Renewal email sent to %{email}
+      failure: We could not send an email to %{email}
+      failure_details: The error has been logged. Try again later or contact an administrator.
