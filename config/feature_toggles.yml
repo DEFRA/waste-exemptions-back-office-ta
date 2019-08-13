@@ -5,5 +5,3 @@ send_second_email_reminder:
   active: <%= ENV["FEATURE_TOGGLE_SEND_SECOND_EMAIL_REMINDER"] || "true" %>
 generate_boxi_report:
   active: true
-send_renewal_magic_link:
-  active: <%= ENV["FEATURE_TOGGLE_SEND_RENEWAL_MAGIC_LINK"] %>
