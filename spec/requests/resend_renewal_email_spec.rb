@@ -6,7 +6,7 @@ RSpec.describe "ResendRenewalEmail", type: :request do
   let(:registration) { create(:registration) }
 
   describe "GET /resend-renewal-email/:reference" do
-    let(  :request_path) { "/resend-renewal-email/#{registration.reference}" }
+    let(:request_path) { "/resend-renewal-email/#{registration.reference}" }
 
     before { sign_in(user) if defined?(user) }
 
