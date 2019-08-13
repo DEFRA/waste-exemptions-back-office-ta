@@ -36,7 +36,6 @@ RSpec.describe "ResendRenewalEmail", type: :request do
         get request_path, {}, "HTTP_REFERER" => "/"
         follow_redirect!
 
-        # binding.pry
         expect(response.body).to include(success_message)
       end
 
