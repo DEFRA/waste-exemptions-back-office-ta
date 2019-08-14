@@ -1,19 +1,23 @@
 # frozen_string_literal: true
 
 class ResendRenewalEmailController < ApplicationController
+  include CanSetFlashMessages
+
   def new
     authorize
 
     begin
       RenewalReminderMailer.first_reminder_email(registration).deliver_now
 
-      flash[:message] = I18n.t("resend_renewal_email.messages.success", email: registration.contact_email)
+      flash_success I18n.t("resend_renewal_email.messages.success", email: registration.contact_email)
     rescue StandardError => e
       Airbrake.notify e, registration: registration.reference
       Rails.logger.error "Failed to send renewal email for registration #{registration.reference}"
 
-      flash[:error] = I18n.t("resend_renewal_email.messages.failure", email: registration.contact_email)
-      flash[:error_details] = I18n.t("resend_renewal_email.messages.failure_details")
+      message = I18n.t("resend_renewal_email.messages.failure", email: registration.contact_email)
+      description = I18n.t("resend_renewal_email.messages.failure_details")
+
+      flash_error(message, description)
     end
 
     redirect_to :back
