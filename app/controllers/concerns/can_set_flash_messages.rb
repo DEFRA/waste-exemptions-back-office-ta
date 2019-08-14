@@ -7,7 +7,7 @@ module CanSetFlashMessages
     flash[:message] = message
   end
 
-  def flash_error(message, description)
+  def flash_error(error, description)
     flash[:error] = error
     flash[:error_details] = description
   end
