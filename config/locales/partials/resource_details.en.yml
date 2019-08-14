@@ -63,6 +63,9 @@ en:
           link_text: "Start renewal"
           visually_hidden_text: "of %{name}"
           renew_window_closed: "Renewal period closed"
+        resend_renew_email:
+          link_text: "Resend renewal email"
+          visually_hidden_text: "of %{name}"
       no_applicant_data: "No applicant details"
       no_contact_data: "No contact details"
       no_exemptions: "No exemptions"

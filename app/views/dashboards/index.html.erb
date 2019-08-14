@@ -65,6 +65,15 @@
   </div>
 </div>
 
+<% if flash[:message].present? || flash[:error].present? %>
+  <div class="grid-row">
+    <div class="column-full">
+      <%= render("shared/message", message: flash[:message]) if flash[:message].present? %>
+      <%= render("shared/error", error: flash[:error], details: flash[:error_details]) if flash[:error].present? %>
+    </div>
+  </div>
+<% end %>
+
 <% if @results.present? %>
   <div id="search-results">
   <% @results.each do |result| %>

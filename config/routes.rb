@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   root "dashboards#index"
 
@@ -52,6 +53,11 @@ Rails.application.routes.draw do
       to: "renews#new",
       as: "renew"
 
+  get "/resend-renewal-email/:reference",
+      to: "resend_renewal_email#new",
+      as: "resend_renewal_email"
+
   # Engine
   mount WasteExemptionsEngine::Engine => "/"
 end
+# rubocop:enable Metrics/BlockLength
