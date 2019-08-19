@@ -47,13 +47,19 @@ module ActionLinksHelper
     resource.is_a?(WasteExemptionsEngine::Registration) &&
       resource.in_renewal_window? &&
       can?(:renew, resource) &&
-      resource.active?
+      resource_has_active_or_expired_exemptions?(resource)
   end
 
   def display_renew_window_closed_text_for?(resource)
     resource.is_a?(WasteExemptionsEngine::Registration) &&
       resource.past_renewal_window? &&
       can?(:renew, resource) &&
-      resource.active?
+      resource_has_active_or_expired_exemptions?(resource)
+  end
+
+  private
+
+  def resource_has_active_or_expired_exemptions?(resource)
+    resource.active? || resource.registration_exemptions.select(&:expired?).any?
   end
 end
