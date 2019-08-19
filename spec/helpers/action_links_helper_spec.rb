@@ -279,4 +279,81 @@ RSpec.describe ActionLinksHelper, type: :helper do
       end
     end
   end
+
+  describe "display_renew_window_closed_text_for?" do
+    context "when the resource is a registration" do
+      let(:resource) { create(:registration) }
+
+      context "when the resource is past the renewal window" do
+        before(:each) { allow(resource).to receive(:past_renewal_window?).and_return(true) }
+
+        context "when the user has permission to renew" do
+          before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:renew, resource).and_return(true) }
+
+          context "when the resource has active exemptions" do
+            before do
+              resource.registration_exemptions.each do |re|
+                re.state = "active"
+                re.save!
+              end
+            end
+
+            it "returns true" do
+              expect(helper.display_renew_window_closed_text_for?(resource)).to eq(true)
+            end
+          end
+
+          context "when the resource has expired exemptions" do
+            before do
+              resource.registration_exemptions.each do |re|
+                re.state = "expired"
+                re.save!
+              end
+            end
+
+            it "returns true" do
+              expect(helper.display_renew_window_closed_text_for?(resource)).to eq(true)
+            end
+          end
+
+          context "when the resource has no active or expired exemptions" do
+            before do
+              resource.registration_exemptions.each do |re|
+                re.state = "ceased"
+                re.save!
+              end
+            end
+
+            it "returns false" do
+              expect(helper.display_renew_window_closed_text_for?(resource)).to eq(false)
+            end
+          end
+        end
+
+        context "when the user does not have permission to renew" do
+          before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:renew, resource).and_return(false) }
+
+          it "returns false" do
+            expect(helper.display_renew_window_closed_text_for?(resource)).to eq(false)
+          end
+        end
+      end
+
+      context "when the resource is not in the renewal window" do
+        before(:each) { allow(resource).to receive(:in_renewal_window?).and_return(false) }
+
+        it "returns false" do
+          expect(helper.display_renew_window_closed_text_for?(resource)).to eq(false)
+        end
+      end
+    end
+
+    context "when the resource is not a registration" do
+      let(:resource) { nil }
+
+      it "returns false" do
+        expect(helper.display_renew_window_closed_text_for?(resource)).to eq(false)
+      end
+    end
+  end
 end
