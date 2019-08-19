@@ -4,23 +4,32 @@
 
 [Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office-ta/compare/v1.1.0...HEAD)
 
-**Implemented enhancements:**
+**Fixed bugs:**
 
-- Add EA logo to renew email [\#308](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/308) ([Cruikshanks](https://github.com/Cruikshanks))
-- Use ENV variable to setup magic link feature toggle [\#306](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/306) ([cintamani](https://github.com/cintamani))
+- Don't require active status to display renewal link [\#342](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/342) ([irisfaraway](https://github.com/irisfaraway))
 
 **Merged pull requests:**
 
-- Bump waste\_exemptions\_engine from `edfd070` to `c7a6eeb` [\#307](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/307) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Update token generation in renew email [\#305](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/305) ([Cruikshanks](https://github.com/Cruikshanks))
-- Bump waste\_exemptions\_engine from `3aaf2ca` to `2fe17a0` [\#304](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/304) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump waste\_exemptions\_engine from `8b70bb3` to `3aaf2ca` [\#303](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/303) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `6c28b06` to `2280501` [\#341](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/341) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `273873f` to `6c28b06` [\#340](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/340) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `412bfcb` to `273873f` [\#339](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/339) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
-## [v1.1.0](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.1.0) (2019-08-01)
+## [v1.1.0](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.1.0) (2019-08-15)
 [Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office-ta/compare/v1.0.2...v1.1.0)
 
 **Implemented enhancements:**
 
+- Do not show renew links on not active registrations [\#336](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/336) ([cintamani](https://github.com/cintamani))
+- Add links to resend renew email in back office [\#335](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/335) ([cintamani](https://github.com/cintamani))
+- Add second email reminder for renewals [\#332](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/332) ([cintamani](https://github.com/cintamani))
+- Update magic link email text [\#326](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/326) ([irisfaraway](https://github.com/irisfaraway))
+- Add anonymise emails rake task [\#324](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/324) ([cintamani](https://github.com/cintamani))
+- Tell search engines not to index app [\#322](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/322) ([irisfaraway](https://github.com/irisfaraway))
+- Add renew link in resource details page [\#318](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/318) ([cintamani](https://github.com/cintamani))
+- Add renew link in back office dashboard [\#316](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/316) ([cintamani](https://github.com/cintamani))
+- Update schema [\#311](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/311) ([cintamani](https://github.com/cintamani))
+- Add EA logo to renew email [\#308](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/308) ([Cruikshanks](https://github.com/Cruikshanks))
+- Use ENV variable to setup magic link feature toggle [\#306](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/306) ([cintamani](https://github.com/cintamani))
 - Update schema - Drop reference index on transient registrations [\#300](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/300) ([cintamani](https://github.com/cintamani))
 - Add schema changes [\#298](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/298) ([cintamani](https://github.com/cintamani))
 - Add configs for generating and decoding a renew JWT token [\#293](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/293) ([cintamani](https://github.com/cintamani))
@@ -28,10 +37,32 @@
 
 **Fixed bugs:**
 
+- Add ability to custom-parse attribute on Boxi serializer [\#327](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/327) ([cintamani](https://github.com/cintamani))
 - Close Airbrake to execute async promises [\#286](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/286) ([cintamani](https://github.com/cintamani))
 
 **Merged pull requests:**
 
+- Bump waste\_exemptions\_engine from `83ebb42` to `412bfcb` [\#338](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/338) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `f6790cf` to `83ebb42` [\#337](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/337) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Refactor email reminders to remove non-magic link [\#334](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/334) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump waste\_exemptions\_engine from `3af5382` to `f6790cf` [\#333](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/333) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `c2514d6` to `3af5382` [\#331](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/331) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- \[Security\] Bump nokogiri from 1.10.3 to 1.10.4 [\#330](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/330) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `10a8898` to `c2514d6` [\#329](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/329) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `108b701` to `10a8898` [\#328](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/328) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `c297a7c` to `108b701` [\#321](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/321) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `0eae8ad` to `c297a7c` [\#320](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/320) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `445de3a` to `0eae8ad` [\#319](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/319) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `08c530d` to `445de3a` [\#315](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/315) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `dea555c` to `08c530d` [\#314](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/314) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `405ea84` to `dea555c` [\#313](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/313) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `c887823` to `405ea84` [\#312](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/312) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `75ffb45` to `c887823` [\#310](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/310) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `c7a6eeb` to `75ffb45` [\#309](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/309) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `edfd070` to `c7a6eeb` [\#307](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/307) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Update token generation in renew email [\#305](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/305) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump waste\_exemptions\_engine from `3aaf2ca` to `2fe17a0` [\#304](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/304) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `8b70bb3` to `3aaf2ca` [\#303](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/303) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Enable BOXI export job [\#302](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/302) ([Cruikshanks](https://github.com/Cruikshanks))
 - Bump waste\_exemptions\_engine from `fa118f0` to `8b70bb3` [\#301](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/301) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `ad29a5b` to `fa118f0` [\#299](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/299) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
