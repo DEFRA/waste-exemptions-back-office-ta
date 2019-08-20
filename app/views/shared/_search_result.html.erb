@@ -128,7 +128,7 @@
 
           <% if display_renew_links_for?(result) %>
             <li>
-              <%= link_to ad_privacy_policy_path(renew_registration: result.reference), id: "renew_#{result.reference}", target: "_blank" do %>
+              <%= link_to ad_privacy_policy_path(renew_registration: result.reference), id: "renew_#{result.reference}" do %>
                 <%= t(".actions.renew.link_text") %>
                 <span class="visually-hidden">
                  <%= t(".actions.renew.visually_hidden_text",
