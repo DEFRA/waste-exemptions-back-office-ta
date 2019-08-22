@@ -52,6 +52,5 @@ module ActionLinksHelper
     can?(:renew, resource) &&
       resource.in_renewable_state? &&
       resource.past_renewal_window?
-
   end
 end
