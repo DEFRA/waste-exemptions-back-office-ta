@@ -20,6 +20,10 @@ module WasteExemptionsEngine
       state == "active"
     end
 
+    def expired?
+      state == "expired"
+    end
+
     def state
       raise "A Registration must have at least one RegistrationExemption." if registration_exemptions.empty?
 
@@ -31,7 +35,11 @@ module WasteExemptionsEngine
     end
 
     def renewable?
-      in_renewal_window? && %w[active expired].include?(state)
+      in_renewal_window? && in_renewable_state?
+    end
+
+    def in_renewable_state?
+      active? || expired?
     end
   end
 end

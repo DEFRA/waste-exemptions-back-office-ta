@@ -50,6 +50,8 @@ module ActionLinksHelper
 
   def display_renew_window_closed_text_for?(resource)
     can?(:renew, resource) &&
-      resource.renewable?
+      resource.in_renewable_state? &&
+      resource.past_renewal_window?
+
   end
 end
