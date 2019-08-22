@@ -29,5 +29,9 @@ module WasteExemptionsEngine
 
       "ceased"
     end
+
+    def renewable?
+      in_renewal_window? && %w[active expired].include?(state)
+    end
   end
 end
