@@ -57,3 +57,9 @@ bulk_time = (ENV["EXPIRE_REGISTRATION_EXEMPTION_RUN_TIME"] || "00:05")
 every :day, at: bulk_time, roles: [:db] do
   rake "expire_registration:run"
 end
+
+# This is the transient registration cleanup job which will delete all records
+# that are too old, as well as their associated addresses, exemptions and people
+every :day, at: (ENV["CLEANUP_TRANSIENT_REGISTRATIONS_RUN_TIME"] || "00:35"), roles: [:db] do
+  rake "cleanup:transient_registrations"
+end
