@@ -2,14 +2,39 @@
 
 ## [Unreleased](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/HEAD)
 
-[Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office-ta/compare/v1.1.0...HEAD)
+[Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office-ta/compare/v1.1.1...HEAD)
+
+**Implemented enhancements:**
+
+- Schedule transient registration cleanup task [\#352](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/352) ([irisfaraway](https://github.com/irisfaraway))
+- Add rake task to remove old transient\_registrations [\#350](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/350) ([irisfaraway](https://github.com/irisfaraway))
 
 **Fixed bugs:**
 
+- Fix cleanup:transient\_registrations rake task [\#353](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/353) ([irisfaraway](https://github.com/irisfaraway))
+
+**Merged pull requests:**
+
+- Bump waste\_exemptions\_engine from `7e177e9` to `1d88d40` [\#351](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/351) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `241bfc6` to `7e177e9` [\#348](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/348) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+## [v1.1.1](https://github.com/DEFRA/waste-exemptions-back-office-ta/tree/v1.1.1) (2019-08-20)
+[Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office-ta/compare/v1.1.0...v1.1.1)
+
+**Implemented enhancements:**
+
+- Include expired exemptions in renewal emails [\#343](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/343) ([irisfaraway](https://github.com/irisfaraway))
+
+**Fixed bugs:**
+
+- Do not open renewals in new tab [\#347](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/347) ([Cruikshanks](https://github.com/Cruikshanks))
 - Don't require active status to display renewal link [\#342](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/342) ([irisfaraway](https://github.com/irisfaraway))
 
 **Merged pull requests:**
 
+- Bump waste\_exemptions\_engine from `bc6829e` to `241bfc6` [\#346](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/346) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump devise from 4.6.2 to 4.7.0 [\#345](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/345) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `2280501` to `bc6829e` [\#344](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/344) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `6c28b06` to `2280501` [\#341](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/341) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `273873f` to `6c28b06` [\#340](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/340) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `412bfcb` to `273873f` [\#339](https://github.com/DEFRA/waste-exemptions-back-office-ta/pull/339) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
