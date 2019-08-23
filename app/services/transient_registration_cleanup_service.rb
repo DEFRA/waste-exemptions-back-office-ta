@@ -2,7 +2,7 @@
 
 class TransientRegistrationCleanupService < ::WasteExemptionsEngine::BaseService
   def run
-    transient_registrations_to_remove.each(&:destroy)
+    transient_registrations_to_remove.destroy_all
   end
 
   private
