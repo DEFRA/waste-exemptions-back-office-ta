@@ -126,7 +126,9 @@
             </li>
           <% end %>
 
-          <% if display_renew_links_for?(result) %>
+          <% if display_already_renewed_text_for?(result) %>
+            <li><%= t(".actions.renew.already_renewed") %></li>
+          <% elsif display_renew_links_for?(result) %>
             <li>
               <%= link_to ad_privacy_policy_path(renew_registration: result.reference), id: "renew_#{result.reference}" do %>
                 <%= t(".actions.renew.link_text") %>

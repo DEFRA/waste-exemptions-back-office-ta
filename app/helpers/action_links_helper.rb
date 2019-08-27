@@ -57,6 +57,12 @@ module ActionLinksHelper
       resource_has_active_or_expired_exemptions?(resource)
   end
 
+  def display_already_renewed_text_for?(resource)
+    can?(:renew, resource) &&
+      resource.in_renewal_window? &&
+      resource.already_renewed?
+  end
+
   private
 
   def resource_has_active_or_expired_exemptions?(resource)
