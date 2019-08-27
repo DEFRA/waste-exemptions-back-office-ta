@@ -39,7 +39,7 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
       end
     end
 
-    context "when the registratiion is not in a renewal state" do
+    context "when the registration is not in a renewal state" do
       it "returns false" do
         allow(registration).to receive(:in_renewal_window?).and_return(true)
         allow(registration).to receive(:in_renewable_state?).and_return(false)
@@ -54,7 +54,7 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
       allow(registration).to receive(:state).and_return(state)
     end
 
-    context "whent the state is active" do
+    context "when the state is active" do
       let(:state) { "active" }
 
       it "returns true" do
