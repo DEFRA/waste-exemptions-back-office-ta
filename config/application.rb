@@ -64,6 +64,9 @@ module WasteExemptionsBackOffice
     config.email_test_address = ENV["EMAIL_TEST_ADDRESS"]
     config.second_renewal_email_reminder_days = ENV["SECOND_RENEWAL_EMAIL_BEFORE_DAYS"] || 14
 
+    # Database cleanup
+    config.max_transient_registration_age_days = ENV["MAX_TRANSIENT_REGISTRATION_AGE_DAYS"] || 30
+
     # Version info
     config.application_name = "waste-exemptions-back-office-ta"
     config.git_repository_url = "https://github.com/DEFRA/#{config.application_name}"
