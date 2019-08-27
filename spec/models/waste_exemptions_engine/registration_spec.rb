@@ -5,33 +5,7 @@ require "rails_helper"
 RSpec.describe WasteExemptionsEngine::Registration, type: :model do
   let(:matching_registration) { create(:registration) }
   let(:non_matching_registration) { create(:registration) }
-
-  describe "#past_renewal_window?" do
-    let(:registration_exemption) { build(:registration_exemption, expires_on: expires_on) }
-
-    subject(:registration) { create(:registration, registration_exemptions: [registration_exemption]) }
-
-    before do
-      WasteExemptionsBackOffice::Application.config.renewal_window_open_before_days = "28"
-      WasteExemptionsBackOffice::Application.config.registration_renewal_grace_window = "30"
-    end
-
-    context "when the renewal period hasn't finished yet" do
-      let(:expires_on) { 50.days.from_now }
-
-      it "returns false" do
-        expect(registration).to_not be_past_renewal_window
-      end
-    end
-
-    context "when the renewal period has passed" do
-      let(:expires_on) { 50.days.ago }
-
-      it "returns true" do
-        expect(registration).to be_past_renewal_window
-      end
-    end
-  end
+  subject(:registration) { build(:registration) }
 
   describe ".renewals" do
     it "returns registrations that are renewals of older registrations" do
@@ -45,45 +19,62 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     end
   end
 
-  describe "#in_renewal_window?" do
-    let(:registration_exemption) { build(:registration_exemption, expires_on: expires_on) }
+  describe "#renewable?" do
 
-    subject(:registration) { create(:registration, registration_exemptions: [registration_exemption]) }
+    context "when the registration is in a renewal window and renewal state" do
+      it "returns true" do
+        allow(registration).to receive(:in_renewal_window?).and_return(true)
+        allow(registration).to receive(:in_renewable_state?).and_return(true)
 
+        expect(registration).to be_renewable
+      end
+    end
+
+    context "when the registration is not in a renewal window" do
+      it "returns false" do
+        allow(registration).to receive(:in_renewal_window?).and_return(false)
+        allow(registration).to receive(:in_renewable_state?).and_return(true)
+
+        expect(registration).to_not be_renewable
+      end
+    end
+
+    context "when the registration is not in a renewal state" do
+      it "returns false" do
+        allow(registration).to receive(:in_renewal_window?).and_return(true)
+        allow(registration).to receive(:in_renewable_state?).and_return(false)
+
+        expect(registration).to_not be_renewable
+      end
+    end
+  end
+
+  describe "#in_renewable_state?" do
     before do
-      WasteExemptionsBackOffice::Application.config.renewal_window_open_before_days = "28"
-      WasteExemptionsBackOffice::Application.config.registration_renewal_grace_window = "30"
+      allow(registration).to receive(:state).and_return(state)
     end
 
-    context "when the renewal period hasn't started yet" do
-      let(:expires_on) { 50.days.from_now }
-
-      it "returns false" do
-        expect(registration).to_not be_in_renewal_window
-      end
-    end
-
-    context "when the renewal period has started" do
-      let(:expires_on) { 10.days.from_now }
+    context "when the state is active" do
+      let(:state) { "active" }
 
       it "returns true" do
-        expect(registration).to be_in_renewal_window
+        expect(registration).to be_in_renewable_state
       end
     end
 
-    context "when the expire date is in the past but still in the grace period" do
-      let(:expires_on) { 10.days.ago }
+    context "when the state is expired" do
+      let(:state) { "expired" }
 
       it "returns true" do
-        expect(registration).to be_in_renewal_window
+        expect(registration).to be_in_renewable_state
       end
     end
 
-    context "when the grace period has passed" do
-      let(:expires_on) { 50.days.ago }
+    context "when the state is not expired nor active" do
+      let(:state) { "ceased" }
 
       it "returns false" do
-        expect(registration).to_not be_in_renewal_window
+        expect(registration).to_not be_in_renewable_state
       end
     end
   end
