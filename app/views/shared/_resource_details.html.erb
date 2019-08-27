@@ -276,7 +276,7 @@
           </p>
         <% end %>
 
-        <% if resource.referring_registration.present? %>
+        <% if resource.renewal? %>
           <h3 class="heading-small">
             <%= t(".labels.renewed_from") %>
           </h3>
