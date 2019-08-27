@@ -18,6 +18,7 @@ en:
         applicant_email: "Applicant email"
         business_type: "Business type"
         details: "Reporting information"
+        renewed_from: "Renewed from"
         operator_name: "Operator name"
         people: "Partners"
         company_no: "Company number"
