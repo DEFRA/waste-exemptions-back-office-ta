@@ -53,4 +53,10 @@ module ActionLinksHelper
       resource.in_renewable_state? &&
       resource.past_renewal_window?
   end
+
+  def display_already_renewed_text_for?(resource)
+    can?(:renew, resource) &&
+      resource.in_renewal_window? &&
+      resource.already_renewed?
+  end
 end

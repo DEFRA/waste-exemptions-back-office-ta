@@ -356,4 +356,70 @@ RSpec.describe ActionLinksHelper, type: :helper do
       end
     end
   end
+
+  describe "display_already_renewed_text_for?" do
+    context "when the resource is a registration" do
+      let(:resource) { create(:registration) }
+
+      before do
+        allow_any_instance_of(described_class).to receive(:can?).with(:renew, resource).and_return(user_can_renew)
+      end
+
+      context "when the user has permission to renew" do
+        let(:user_can_renew) { true }
+
+        before do
+          allow(resource).to receive(:in_renewal_window?).and_return(in_renewal_window)
+        end
+
+        context "when the resource is in the renewal window" do
+          let(:in_renewal_window) { true }
+
+          before do
+            allow(resource).to receive(:already_renewed?).and_return(already_renewed)
+          end
+
+          context "when the resource is already renewed" do
+            let(:already_renewed) { true }
+
+            it "returns true" do
+              expect(helper.display_already_renewed_text_for?(resource)).to eq(true)
+            end
+          end
+
+          context "when the resource is not already renewed" do
+            let(:already_renewed) { false }
+
+            it "returns false" do
+              expect(helper.display_already_renewed_text_for?(resource)).to eq(false)
+            end
+          end
+        end
+
+        context "when the resource is not in the renewal window" do
+          let(:in_renewal_window) { false }
+
+          it "returns false" do
+            expect(helper.display_already_renewed_text_for?(resource)).to eq(false)
+          end
+        end
+      end
+
+      context "when the user has no permission to renew" do
+        let(:user_can_renew) { false }
+
+        it "returns false" do
+          expect(helper.display_already_renewed_text_for?(resource)).to eq(false)
+        end
+      end
+    end
+
+    context "when the resource is not a registration" do
+      let(:resource) { nil }
+
+      it "returns false" do
+        expect(helper.display_renew_window_closed_text_for?(resource)).to eq(false)
+      end
+    end
+  end
 end
