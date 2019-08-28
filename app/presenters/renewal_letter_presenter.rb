@@ -18,6 +18,17 @@ class RenewalLetterPresenter < BaseLetterPresenter
     @_unlisted_exemption_count = calculate_number_of_unlisted_exemptions
   end
 
+  def partners_list
+    return unless partnership?
+
+    people_list = []
+    people.each do |person|
+      people_list << format_name(person.first_name, person.last_name)
+    end
+
+    people_list.join(", ")
+  end
+
   private
 
   def calculate_number_of_unlisted_exemptions
