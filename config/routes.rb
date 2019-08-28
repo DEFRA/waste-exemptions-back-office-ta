@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
   get "/confirmation-letter/:id", to: "confirmation_letter#show", as: :confirmation_letter
 
+  # Renewal Letter
+
+  get "/renewal-letter/:id", to: "renewal_letter#show", as: :renewal_letter
+
   # Bulk Exports
 
   get "/data-exports", to: "bulk_exports#show", as: :bulk_exports
