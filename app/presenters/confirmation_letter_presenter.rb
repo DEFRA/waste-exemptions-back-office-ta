@@ -26,10 +26,6 @@ class ConfirmationLetterPresenter < BaseLetterPresenter
     address_lines(site_address).join(", ")
   end
 
-  def human_business_type
-    I18n.t("waste_exemptions_engine.pdfs.certificate.busness_types.#{business_type}")
-  end
-
   def partners
     people.select(&:partner?).each_with_index.map do |person, index|
       {

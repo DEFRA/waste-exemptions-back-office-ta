@@ -9,6 +9,10 @@ class BaseLetterPresenter < BasePresenter
     Time.now.to_date.to_formatted_s(:day_month_year)
   end
 
+  def human_business_type
+    I18n.t("waste_exemptions_engine.pdfs.certificate.busness_types.#{business_type}")
+  end
+
   # Provides the full postal address for the letter.
   def postal_address_lines
     [
