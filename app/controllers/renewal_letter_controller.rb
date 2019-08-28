@@ -11,8 +11,12 @@ class RenewalLetterController < ApplicationController
            show_as_html: show_as_html,
            layout: false,
            locals: { presenter: RenewalLetterPresenter.new(registration, view_context) },
+           disable_smart_shrinking: true,
+           footer_font_size: 12,
+           footer_left: "Read the other side of this letter",
+           footer_line: true,
+           margin: { top: "20mm", bottom: "30mm", left: "20mm", right: "20mm" },
            page_size: "A4",
-           margin: { top: "10mm", bottom: "10mm", left: "10mm", right: "10mm" },
            print_media_type: true
   end
 end
