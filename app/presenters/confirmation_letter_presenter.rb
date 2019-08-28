@@ -18,10 +18,6 @@ class ConfirmationLetterPresenter < BaseLetterPresenter
     format_name(applicant_first_name, applicant_last_name)
   end
 
-  def site_address_one_liner
-    address_lines(site_address).join(", ")
-  end
-
   def partners
     people.select(&:partner?).each_with_index.map do |person, index|
       {

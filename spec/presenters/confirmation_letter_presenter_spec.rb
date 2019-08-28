@@ -28,31 +28,6 @@ RSpec.describe ConfirmationLetterPresenter do
     end
   end
 
-  describe "#site_address_one_liner" do
-    context "when the site location is located by grid reference" do
-      it "returns an empty string" do
-        expect(subject.site_address_one_liner).to eq("")
-      end
-    end
-
-    context "when the site location is located by postcode" do
-      let(:registration) { create(:registration, :site_uses_address) }
-      it "returns a string representation of the address" do
-        address = registration.site_address
-        address_fields = [
-          address.organisation,
-          address.premises,
-          address.street_address,
-          address.locality,
-          address.city,
-          address.postcode
-        ].reject(&:blank?)
-
-        expect(subject.site_address_one_liner).to eq(address_fields.join(", "))
-      end
-    end
-  end
-
   describe "#partners" do
     let(:registration) { create(:registration, :partnership) }
     it "returns an array of hashes containing an incremented label and the partner's full name" do

@@ -26,6 +26,10 @@ class BaseLetterPresenter < BasePresenter
     ].flatten!.reject(&:blank?)
   end
 
+  def site_address_one_liner
+    address_lines(site_address).join(", ")
+  end
+
   private
 
   def format_name(first_name, last_name)
