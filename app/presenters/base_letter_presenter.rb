@@ -5,6 +5,10 @@ class BaseLetterPresenter < BasePresenter
     format_name(contact_first_name, contact_last_name)
   end
 
+  def date_of_letter
+    Time.now.to_date.to_formatted_s(:day_month_year)
+  end
+
   # Provides the full postal address for the letter.
   def postal_address_lines
     [

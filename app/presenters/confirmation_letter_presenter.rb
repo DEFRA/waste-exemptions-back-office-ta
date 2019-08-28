@@ -10,10 +10,6 @@ class ConfirmationLetterPresenter < BaseLetterPresenter
     registration_exemptions_with_exemptions.where("state != ?", :active).order_by_state_then_exemption_id
   end
 
-  def date_of_letter
-    Time.now.to_date.to_formatted_s(:day_month_year)
-  end
-
   def submission_date
     submitted_at.to_date.to_formatted_s(:day_month_year)
   end

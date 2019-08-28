@@ -9,15 +9,6 @@ RSpec.describe ConfirmationLetterPresenter do
 
   it_behaves_like "a letter presenter"
 
-  describe "#date_of_letter" do
-    before { Timecop.freeze(today) }
-    after { Timecop.return }
-
-    it "returns the current date formatted as for example '2 April 2019'" do
-      expect(subject.date_of_letter).to eq("2 April 2019")
-    end
-  end
-
   describe "#submission_date" do
     before { Timecop.freeze(today) }
     after { Timecop.return }
