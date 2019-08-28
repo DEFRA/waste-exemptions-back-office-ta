@@ -26,7 +26,7 @@ en:
         exemptions_label: "Your current waste exemptions:"
         more_exemptions:
           one: You have 1 other exemption. Check your registration document to find it.
-          more: "You have %{count} other exemptions. Check your registration document to find these."
+          other: "You have %{count} other exemptions. Check your registration document to find these."
         business_type_label: "Type of business:"
         business_type_value:
           charity: ""

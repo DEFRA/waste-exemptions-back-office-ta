@@ -268,30 +268,14 @@
         <p class="list_intro"><span class="reg_head"><%= t(".section_4.exemptions_label") %></span></p>
 
         <ul class="reg_section">
-          <li>TODO - list exemptions</li>
-          <li>D2 Depositing waste from a railway sanitary convenience</li>
-          <li>D3 Depositing waste from a portable sanitary convenience</li>
-          <li>D4 Depositing agricultural waste consisting of plant tissue under a Plant Health Notice</li>
-          <li>D5 Depositing waste samples for testing or analysis</li>
-          <li>D8 Burning waste at a port under a Plant Health Notice</li>
-          <li>T1 Cleaning, washing, spraying or coating relevant waste</li>
-          <li>T14 Crushing and emptying vehicle waste oil filters</li>
-          <li>T19 Physical and chemical treatment of waste edible oil and fat to produce biodiesel</li>
-          <li>T21 Recovery of waste at a waste water treatment works</li>
-          <li>T23 Aerobic composting and associated prior treatment</li>
-          <li>T25 Anaerobic digestion at premises not used for agriculture and burning resulting biogas</li>
-          <li>T27 Treatment of sheep dip using organophosphate-degrading enzyme</li>
-          <li>T28 Sort and denature controlled drugs for disposal</li>
-          <li>T29 Treatment of non-hazardous pesticide washings by carbon filtration for disposal</li>
-          <li>T4 Preparatory treatments (baling, sorting, shredding etc)</li>
-          <li>T6 Treating waste wood and waste plant matter by chipping, shredding, cutting or pulverising</li>
-          <li>U11 Spreading waste to benefit non-agricultural land</li>
-          <li>U16 Using depolluted end-of-life vehicles for parts</li>
-          <li>U4 Burning of waste as a fuel in a small appliance</li>
-          <li>U6 Using sludge to re-seed a waste water treatment plant</li>
+          <% presenter.listable_exemptions.each do |exemption| %>
+            <li><%= presenter.exemption_description(exemption) %></li>
+          <% end %>
 
           <!-- SHOW IF NUMBER OF EXEMPTIONS > 20 -->
-          <li><%= t(".section_4.more_exemptions", count: 1) %> TODO</li>
+          <% if presenter.unlisted_exemption_count.positive? %>
+            <li><%= t(".section_4.more_exemptions", count: presenter.unlisted_exemption_count) %></li>
+          <% end %>
 
         </ul>
 
