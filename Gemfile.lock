@@ -8,8 +8,8 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 5b7b054021a7b9be8fd2f4a1a4d24f00947fc2b1
-  branch: 506-add-renewal-method-to-registrations
+  revision: 199faedf5aa86016ecac9393bcb40ff02ea4f6b9
+  branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
