@@ -43,6 +43,22 @@ RSpec.shared_examples "a letter presenter" do
     end
   end
 
+  describe "#operator_address_one_liner" do
+    it "returns a string representation of the address" do
+      address = registration.operator_address
+      address_fields = [
+        address.organisation,
+        address.premises,
+        address.street_address,
+        address.locality,
+        address.city,
+        address.postcode
+      ].reject(&:blank?)
+
+      expect(subject.operator_address_one_liner).to eq(address_fields.join(", "))
+    end
+  end
+
   describe "#postal_address_lines" do
     it "returns an array with the contact name and address" do
       contact_name = "#{registration.contact_first_name} #{registration.contact_last_name}"

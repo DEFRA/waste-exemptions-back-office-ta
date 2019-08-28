@@ -53,22 +53,6 @@ RSpec.describe ConfirmationLetterPresenter do
     end
   end
 
-  describe "#operator_address_one_liner" do
-    it "returns a string representation of the address" do
-      address = registration.operator_address
-      address_fields = [
-        address.organisation,
-        address.premises,
-        address.street_address,
-        address.locality,
-        address.city,
-        address.postcode
-      ].reject(&:blank?)
-
-      expect(subject.operator_address_one_liner).to eq(address_fields.join(", "))
-    end
-  end
-
   describe "#partners" do
     let(:registration) { create(:registration, :partnership) }
     it "returns an array of hashes containing an incremented label and the partner's full name" do

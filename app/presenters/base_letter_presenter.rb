@@ -13,6 +13,10 @@ class BaseLetterPresenter < BasePresenter
     I18n.t("waste_exemptions_engine.pdfs.certificate.busness_types.#{business_type}")
   end
 
+  def operator_address_one_liner
+    address_lines(operator_address).join(", ")
+  end
+
   # Provides the full postal address for the letter.
   def postal_address_lines
     [

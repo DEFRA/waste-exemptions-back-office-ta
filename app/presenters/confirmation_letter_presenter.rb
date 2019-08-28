@@ -18,10 +18,6 @@ class ConfirmationLetterPresenter < BaseLetterPresenter
     format_name(applicant_first_name, applicant_last_name)
   end
 
-  def operator_address_one_liner
-    address_lines(operator_address).join(", ")
-  end
-
   def site_address_one_liner
     address_lines(site_address).join(", ")
   end
