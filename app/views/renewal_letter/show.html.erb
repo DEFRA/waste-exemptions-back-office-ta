@@ -272,7 +272,6 @@
             <li><%= presenter.exemption_description(exemption) %></li>
           <% end %>
 
-          <!-- SHOW IF NUMBER OF EXEMPTIONS > 20 -->
           <% if presenter.unlisted_exemption_count.positive? %>
             <li><%= t(".section_4.more_exemptions", count: presenter.unlisted_exemption_count) %></li>
           <% end %>
@@ -311,60 +310,7 @@
           <% else %>
             <%= presenter.site_address_one_liner %>
           <% end %>
-      </p>
-
-
-    <!-- INDIVIDUAL ####################
-        <p class="reg_section"><span class="reg_head">Type of business:</span> Individual or sole trader</p>
-        <p class="reg_section"><span class="reg_head">Carrying out the waste operation:</span> Jane Smith</p>
-        <p class="reg_section"><span class="reg_head">Postcode:</span> TS23 6NQ</p>
-        <p class="reg_section"><span class="reg_head">Address:</span> SUMMER FARM, LONDON ROAD, COMPTON PUGWORTH, NEATON</p>
-        <p class="reg_section"><span class="reg_head">Location of waste operation:</span> SUMMER FARM, LONDON ROAD, COMPTON PUGWORTH, NEATON TS23 6NQ</p>
-        -->
-
-    <!-- COMPANY ####################
-        <p class="reg_section"><span class="reg_head">Type of business:</span> Limited company</p>
-        <p class="reg_section"><span class="reg_head">Company registration number:</span> AB123456</p>
-        <p class="reg_section"><span class="reg_head">Company name:</span> Waste Operations North LTD</p>
-        <p class="reg_section"><span class="reg_head">Postcode:</span> TS23 6NQ</p>
-        <p class="reg_section"><span class="reg_head">Company address:</span> THE OFFICE, LONDON ROAD, COMPTON PUGWORTH, NEATON</p>
-        <p class="reg_section"><span class="reg_head">Location of waste operation:</span> SUMMER FARM, LONDON ROAD, COMPTON PUGWORTH, NEATON TS23 6NQ</p>
-        -->
-
-    <!-- PARTNERSHIP ####################
-        <p class="reg_section"><span class="reg_head">Type of business:</span> Partnership</p>
-        <p class="reg_section"><span class="reg_head">Partners:</span> David de Montford-Smythe, Hilary de Montford-Smythe, Fenella de Montford-Smythe</p>
-        <p class="reg_section"><span class="reg_head">Partnership name:</span> Montford-Smythe and Partners</p>
-        <p class="reg_section"><span class="reg_head">Postcode:</span> TS23 6NQ</p>
-        <p class="reg_section"><span class="reg_head">Partnership address:</span> THE OLD COTTAGE, LONDON ROAD, COMPTON PUGWORTH, NEATON</p>
-        <p class="reg_section"><span class="reg_head">Location of waste operation:</span> SUMMER FARM, LONDON ROAD, COMPTON PUGWORTH, NEATON TS23 6NQ</p>
-        -->
-
-    <!-- LLP ####################
-        <p class="reg_section"><span class="reg_head">Type of business:</span> Limited liability partnership (LLP)</p>
-        <p class="reg_section"><span class="reg_head">LLP registration number:</span> AB123457</p>
-        <p class="reg_section"><span class="reg_head">LLP name:</span> Waste Operations North LLP</p>
-        <p class="reg_section"><span class="reg_head">Postcode:</span> TS23 6NQ</p>
-        <p class="reg_section"><span class="reg_head">Company address:</span> THE OFFICE, LONDON ROAD, COMPTON PUGWORTH, NEATON</p>
-        <p class="reg_section"><span class="reg_head">Location of waste operation:</span> SUMMER FARM, LONDON ROAD, COMPTON PUGWORTH, NEATON TS23 6NQ</p>
-        -->
-
-    <!-- LOCAL AUTHORITY OR PUBLIC BODY ####################
-        <p class="reg_section"><span class="reg_head">Type of business:</span> Local authority or public body</p>
-        <p class="reg_section"><span class="reg_head">Local authority or public body name:</span> Montford-Smythe and Partners</p>
-        <p class="reg_section"><span class="reg_head">Postcode:</span> TS23 6NQ</p>
-        <p class="reg_section"><span class="reg_head">Local authority or public body address: </span> THE OLD COTTAGE, LONDON ROAD, COMPTON PUGWORTH, NEATON</p>
-        <p class="reg_section"><span class="reg_head">Location of waste operation:</span> SUMMER FARM, LONDON ROAD, COMPTON PUGWORTH, NEATON TS23 6NQ</p>
-         -->
-
-    <!-- LOCAL AUTHORITY OR PUBLIC BODY ####################
-        <p class="reg_section"><span class="reg_head">Type of business:</span> Charity or trust</p>
-        <p class="reg_section"><span class="reg_head">Charity or trust name:</span> Montford-Smythe and Partners</p>
-        <p class="reg_section"><span class="reg_head">Postcode:</span> TS23 6NQ</p>
-        <p class="reg_section"><span class="reg_head">Charity or trust address: </span> THE OLD COTTAGE, LONDON ROAD, COMPTON PUGWORTH, NEATON</p>
-        <p class="reg_section"><span class="reg_head">Location of waste operation:</span> SUMMER FARM, LONDON ROAD, COMPTON PUGWORTH, NEATON TS23 6NQ</p>
- -->
-
+        </p>
 
         <p class="new_section"><%= t(".section_5.paragraph_1") %></p>
 
