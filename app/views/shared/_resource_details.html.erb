@@ -222,6 +222,7 @@
           <%= t(".labels.details") %>
         </span>
       </summary>
+
       <div class="govuk-details__text">
         <% unless resource.on_a_farm.nil? %>
           <h3 class="heading-small">
@@ -274,6 +275,15 @@
           </h3>
           <p>
             <%= t(".values.assistance_mode.#{resource.assistance_mode || "none"}") %>
+          </p>
+        <% end %>
+
+        <% if resource.renewal? %>
+          <h3 class="heading-small">
+            <%= t(".labels.renewed_from") %>
+          </h3>
+          <p>
+            <%= link_to resource.referring_registration.reference, view_link_for(resource.referring_registration), id: "view_#{resource.referring_registration.reference}" %>
           </p>
         <% end %>
       </div>
