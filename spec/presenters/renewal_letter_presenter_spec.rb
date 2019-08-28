@@ -3,6 +3,5 @@
 require "rails_helper"
 
 RSpec.describe RenewalLetterPresenter do
-  let(:registration) { create(:registration, :with_active_exemptions) }
-  subject { described_class.new(registration) }
+  it_behaves_like "a letter presenter"
 end

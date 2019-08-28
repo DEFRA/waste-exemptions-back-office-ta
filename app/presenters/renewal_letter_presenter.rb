@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class RenewalLetterPresenter < BasePresenter
+class RenewalLetterPresenter < BaseLetterPresenter
 end

@@ -7,6 +7,8 @@ RSpec.describe ConfirmationLetterPresenter do
   let(:registration) { create(:registration, :with_active_exemptions) }
   subject { described_class.new(registration) }
 
+  it_behaves_like "a letter presenter"
+
   describe "#date_of_letter" do
     before { Timecop.freeze(today) }
     after { Timecop.return }
@@ -32,14 +34,6 @@ RSpec.describe ConfirmationLetterPresenter do
       expected_name = "#{registration.applicant_first_name} #{registration.applicant_last_name}"
 
       expect(subject.applicant_full_name).to eq(expected_name)
-    end
-  end
-
-  describe "#contact_full_name" do
-    it "returns the registration's contact first and last name attributes as a single string" do
-      expected_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
-
-      expect(subject.contact_full_name).to eq(expected_name)
     end
   end
 

@@ -223,11 +223,9 @@
 
     <div id="address_window">
       <p>
-        SUMMER FARM<br>
-        LONDON ROAD<br>
-        COMPTON PUGWORTH NEATON<br>
-        EXTRALINESHIRE<br>
-        TS23 6NQ
+        <% presenter.postal_address_lines.each do |line| %>
+          <%= line %><br>
+        <% end %>
       </p>
     </div>
 

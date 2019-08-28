@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ConfirmationLetterPresenter < BasePresenter
+class ConfirmationLetterPresenter < BaseLetterPresenter
 
   def sorted_active_registration_exemptions
     registration_exemptions_with_exemptions.where(state: :active).order(:exemption_id)
@@ -20,19 +20,6 @@ class ConfirmationLetterPresenter < BasePresenter
 
   def applicant_full_name
     format_name(applicant_first_name, applicant_last_name)
-  end
-
-  def contact_full_name
-    format_name(contact_first_name, contact_last_name)
-  end
-
-  # Provides the full postal address for the letter.
-  def postal_address_lines
-    [
-      contact_full_name,
-      operator_name,
-      address_lines(contact_address)
-    ].flatten!.reject(&:blank?)
   end
 
   def operator_address_one_liner
@@ -76,19 +63,7 @@ class ConfirmationLetterPresenter < BasePresenter
 
   private
 
-  def format_name(first_name, last_name)
-    "#{first_name} #{last_name}"
-  end
-
   def registration_exemptions_with_exemptions
     registration_exemptions.includes(:exemption)
   end
-
-  def address_lines(address)
-    return [] unless address
-
-    address_fields = %i[organisation premises street_address locality city postcode]
-    address_fields.map { |field| address.public_send(field) }.reject(&:blank?)
-  end
-
 end
