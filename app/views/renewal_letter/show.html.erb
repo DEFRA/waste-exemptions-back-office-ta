@@ -283,10 +283,15 @@
           <span class="reg_head"><%= t(".section_4.business_type_label") %></span>
           <%= presenter.human_business_type %>
         </p>
-        <p class="reg_section"><span class="reg_head"><%= t(".section_4.company_no_label.limited_company") %></span> TODO - BT DEPENDANT</p>
+        <% if presenter.company_no_required? %>
+          <p class="reg_section">
+            <span class="reg_head"><%= t(".section_4.company_no_label.#{presenter.business_type}") %></span>
+            <%= presenter.company_no %>
+          </p>
+        <% end %>
         <p class="reg_section"><span class="reg_head"><%= t(".section_4.partners_label") %></span> TODO - BT DEPENDANT</p>
-        <p class="reg_section"><span class="reg_head"><%= t(".section_4.operator_label.limited_company") %></span> TODO - BT DEPENDANT</p>
-        <p class="reg_section"><span class="reg_head"><%= t(".section_4.operator_address_label.limited_company") %></span> TODO - BT DEPENDANT</p>
+        <p class="reg_section"><span class="reg_head"><%= t(".section_4.operator_label.limitedCompany") %></span> TODO - BT DEPENDANT</p>
+        <p class="reg_section"><span class="reg_head"><%= t(".section_4.operator_address_label.limitedCompany") %></span> TODO - BT DEPENDANT</p>
         <p class="reg_section"><span class="reg_head"><%= t(".section_4.site_label") %></span> TODO (include postcode if address)<br>
         TODO - SITE DESCRIPTION (if grid)</p>
 

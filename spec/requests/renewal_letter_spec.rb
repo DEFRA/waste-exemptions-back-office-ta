@@ -4,7 +4,6 @@ require "rails_helper"
 
 RSpec.describe "Renewal Letter", type: :request do
   let(:registration) { create(:registration, :with_active_exemptions) }
-  let(:partnership_registration) { create(:registration, :partnership, :with_active_exemptions) }
   let(:user) { create(:user, :system) }
   before(:each) do
     sign_in(user)
@@ -18,9 +17,58 @@ RSpec.describe "Renewal Letter", type: :request do
       expect(response.headers["Content-Disposition"]).to eq(expected_content_disposition)
     end
 
-    it "returns a 200 status code" do
-      get renewal_letter_path(registration.id)
-      expect(response.code).to eq("200")
+    context "when the registration is a charity" do
+      let(:registration) { create(:registration, :charity, :with_active_exemptions) }
+
+      it "returns a 200 status code" do
+        get renewal_letter_path(registration.id)
+        expect(response.code).to eq("200")
+      end
+    end
+
+    context "when the registration is a limited company" do
+      let(:registration) { create(:registration, :limited_company, :with_active_exemptions) }
+
+      it "returns a 200 status code" do
+        get renewal_letter_path(registration.id)
+        expect(response.code).to eq("200")
+      end
+    end
+
+    context "when the registration is an LLP" do
+      let(:registration) { create(:registration, :limited_liability_partnership, :with_active_exemptions) }
+
+      it "returns a 200 status code" do
+        get renewal_letter_path(registration.id)
+        expect(response.code).to eq("200")
+      end
+    end
+
+    context "when the registration is a local authority" do
+      let(:registration) { create(:registration, :local_authority, :with_active_exemptions) }
+
+      it "returns a 200 status code" do
+        get renewal_letter_path(registration.id)
+        expect(response.code).to eq("200")
+      end
+    end
+
+    context "when the registration is a partnership" do
+      let(:registration) { create(:registration, :partnership, :with_active_exemptions) }
+
+      it "returns a 200 status code" do
+        get renewal_letter_path(registration.id)
+        expect(response.code).to eq("200")
+      end
+    end
+
+    context "when the registration is a sole trader" do
+      let(:registration) { create(:registration, :sole_trader, :with_active_exemptions) }
+
+      it "returns a 200 status code" do
+        get renewal_letter_path(registration.id)
+        expect(response.code).to eq("200")
+      end
     end
 
     context "when the 'show_as_html' query string is present" do
