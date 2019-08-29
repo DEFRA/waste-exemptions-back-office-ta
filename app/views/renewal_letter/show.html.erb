@@ -195,7 +195,7 @@
       list-style-type: disc;
     }
 
-    ul li:last-child {
+    ul li.more_exemptions {
        list-style-type: none;
        padding-top:3pt;
     }
@@ -208,7 +208,6 @@
       font-weight:bold;
     }
 
-
   </style>
 
 </head>
@@ -218,7 +217,7 @@
   <div id="page_wrapper">
 
     <div id="logo">
-      <img width="250px" src="file:///Users/martinglancy/Documents/Waste%20exemptions/Prototype/app/assets/images/ea-logo-letter.png" alt="">
+      <%= image_tag wicked_pdf_asset_base64("logo_ea.png") %>
     </div>
 
     <div id="address_window">
@@ -263,7 +262,7 @@
         <p><%= t(".section_3.paragraph_1", reference: presenter.reference) %></p>
         <p><%= t(".section_3.paragraph_2") %></p>
 
-        <h2 class="medium"><%= t(".section_3.subheading", reference: presenter.reference) %></h2>
+        <h2 class="medium"><%= t(".section_4.subheading", reference: presenter.reference) %></h2>
 
         <p class="list_intro"><span class="reg_head"><%= t(".section_4.exemptions_label") %></span></p>
 
@@ -273,7 +272,7 @@
           <% end %>
 
           <% if presenter.unlisted_exemption_count.positive? %>
-            <li><%= t(".section_4.more_exemptions", count: presenter.unlisted_exemption_count) %></li>
+            <li class="more_exemptions"><%= t(".section_4.more_exemptions", count: presenter.unlisted_exemption_count) %></li>
           <% end %>
 
         </ul>
@@ -312,7 +311,7 @@
           <% end %>
         </p>
 
-        <p class="new_section"><%= t(".section_5.paragraph_1") %></p>
+        <p class="new_section"><%= t(".section_5.paragraph_1_html") %></p>
 
         <p><%= t(".section_5.paragraph_2") %></p>
 

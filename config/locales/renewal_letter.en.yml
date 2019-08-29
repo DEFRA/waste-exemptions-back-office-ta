@@ -55,6 +55,6 @@ en:
           soleTrader: "Address:"
         site_label: "Location of waste operation:"
       section_5:
-        paragraph_1: "Read the guidance to check that you still meet the exemption rules and limits: www.gov.uk/register-waste-exemption."
+        paragraph_1_html: "Read the guidance to check that you still meet the exemption rules and limits:<br>www.gov.uk/register-waste-exemption."
         paragraph_2: Yours sincerely
         paragraph_3: Waste Exemptions Team
