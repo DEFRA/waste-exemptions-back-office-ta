@@ -8,6 +8,49 @@ RSpec.describe RenewalLetterPresenter do
 
   it_behaves_like "a letter presenter"
 
+  describe "#postal_address_lines" do
+    context "when the registration is a sole trader" do
+      let(:registration) { create(:registration, :sole_trader, :with_active_exemptions) }
+
+      it "returns an array with the contact name and address" do
+        contact_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
+        address = registration.contact_address
+        address_fields = [
+          contact_name,
+          address.organisation,
+          address.premises,
+          address.street_address,
+          address.locality,
+          address.city,
+          address.postcode
+        ].reject(&:blank?)
+
+        expect(subject.postal_address_lines).to eq(address_fields)
+      end
+    end
+
+    context "when the registration is not a sole trader" do
+      let(:registration) { create(:registration, :limited_company, :with_active_exemptions) }
+
+      it "returns an array with the contact name, operator name and address" do
+        contact_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
+        address = registration.contact_address
+        address_fields = [
+          contact_name,
+          registration.operator_name,
+          address.organisation,
+          address.premises,
+          address.street_address,
+          address.locality,
+          address.city,
+          address.postcode
+        ].reject(&:blank?)
+
+        expect(subject.postal_address_lines).to eq(address_fields)
+      end
+    end
+  end
+
   describe "#expiry_date" do
     it "returns the registration's expiry_date formatted as for example '2 April 2019'" do
       parsed_date = Date.parse(subject.expiry_date)

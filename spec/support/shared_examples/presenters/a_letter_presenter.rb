@@ -59,25 +59,6 @@ RSpec.shared_examples "a letter presenter" do
     end
   end
 
-  describe "#postal_address_lines" do
-    it "returns an array with the contact name and address" do
-      contact_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
-      address = registration.contact_address
-      address_fields = [
-        contact_name,
-        registration.operator_name,
-        address.organisation,
-        address.premises,
-        address.street_address,
-        address.locality,
-        address.city,
-        address.postcode
-      ].reject(&:blank?)
-
-      expect(subject.postal_address_lines).to eq(address_fields)
-    end
-  end
-
   describe "#site_address_one_liner" do
     context "when the site location is located by grid reference" do
       it "returns an empty string" do

@@ -18,6 +18,15 @@ class ConfirmationLetterPresenter < BaseLetterPresenter
     format_name(applicant_first_name, applicant_last_name)
   end
 
+  # Provides the full postal address for the letter.
+  def postal_address_lines
+    [
+      contact_full_name,
+      operator_name,
+      address_lines(contact_address)
+    ].flatten!.reject(&:blank?)
+  end
+
   def partners
     people.select(&:partner?).each_with_index.map do |person, index|
       {

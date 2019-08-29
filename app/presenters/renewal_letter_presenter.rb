@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class RenewalLetterPresenter < BaseLetterPresenter
+  # Provides the full postal address for the letter.
+  def postal_address_lines
+    lines = [contact_full_name]
+    lines << operator_name unless business_type == WasteExemptionsEngine::Registration::BUSINESS_TYPES[:sole_trader]
+    lines << address_lines(contact_address)
+    lines.flatten!.reject(&:blank?)
+  end
+
   def exemption_description(exemption)
     "#{exemption.code} #{exemption.summary}"
   end

@@ -17,15 +17,6 @@ class BaseLetterPresenter < BasePresenter
     address_lines(operator_address).join(", ")
   end
 
-  # Provides the full postal address for the letter.
-  def postal_address_lines
-    [
-      contact_full_name,
-      operator_name,
-      address_lines(contact_address)
-    ].flatten!.reject(&:blank?)
-  end
-
   def site_address_one_liner
     address_lines(site_address).join(", ")
   end
