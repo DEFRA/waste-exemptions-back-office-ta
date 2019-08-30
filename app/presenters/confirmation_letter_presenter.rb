@@ -48,7 +48,7 @@ class ConfirmationLetterPresenter < BasePresenter
   end
 
   def partners
-    people.select(&:partner?).each_with_index.map do |person, index|
+    people.each_with_index.map do |person, index|
       {
         label: I18n.t("business_details.partner_enumerator", scope: "confirmation_letter.show", count: index + 1),
         name: format_name(person.first_name, person.last_name)
