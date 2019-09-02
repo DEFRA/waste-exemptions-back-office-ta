@@ -63,5 +63,13 @@ FactoryBot.define do
       address_type { :site }
       mode { :lookup }
     end
+
+    trait :short_description do
+      description { Faker::Lorem.sentence(word_count: 3) }
+    end
+
+    trait :long_description do
+      description { Faker::Lorem.sentence(word_count: 100) }
+    end
   end
 end

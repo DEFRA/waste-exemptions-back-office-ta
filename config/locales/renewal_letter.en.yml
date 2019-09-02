@@ -54,6 +54,7 @@ en:
           partnership: "Partnership address:"
           soleTrader: "Address:"
         site_label: "Location of waste operation:"
+        more_site_description: "Check your registration document for the full site description."
       section_5:
         paragraph_1_html: "Read the guidance to check that you still meet the exemption rules and limits:<br>www.gov.uk/register-waste-exemption."
         paragraph_2: Yours sincerely

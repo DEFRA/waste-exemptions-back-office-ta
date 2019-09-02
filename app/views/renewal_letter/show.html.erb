@@ -211,6 +211,84 @@
 
   </style>
 
+  <style>
+    /* OVER-RIDE FOR WKHTMLTOPDF disable_smart_shrinking not working #################### */
+
+    body {
+      font-size: 16pt;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 24pt;
+      line-height: 1.4;
+      margin-bottom: 5mm;
+    }
+
+    h2 {
+      font-size: 16pt;
+      line-height: 1.5;
+      margin-top:14pt;
+      margin-bottom:6pt;
+    }
+
+    h2.medium {
+      font-size: 18.66pt;
+    }
+
+    p {
+      font-size: 16pt;
+      margin-bottom:8pt;
+    }
+
+    #address_window {
+      position: absolute;
+      top: 48mm;
+      left: 6mm;
+    }
+
+    #date {
+      position: absolute;
+      top: 48mm;
+      right: 0mm;
+    }
+
+    #address_window p {
+    line-height: 1.2;
+    }
+
+    #letter_body {
+      position: relative;
+      top: 110mm;
+    }
+
+    #call_to_action * {
+      font-size:18.66pt;
+    }
+
+    #call_to_action ol {
+      padding-left: 8mm;
+    }
+
+    ul {
+      margin-bottom: 6.6mm;
+      padding-left: 6.6mm;
+    }
+
+    ul li {
+       line-height: 1.5;
+    }
+
+    ul li.more_exemptions {
+       padding-top:4pt;
+    }
+
+    p.new_section {
+      margin-top: 18pt;
+    }
+
+  </style>
+
 </head>
 
 <body>
@@ -218,7 +296,7 @@
   <div id="page_wrapper">
 
     <div id="logo">
-      <%= image_tag wicked_pdf_asset_base64("logo_ea.png") %>
+      <%= image_tag wicked_pdf_asset_base64("logo_ea.png"), width: "332px" %>
     </div>
 
     <div id="address_window">
@@ -306,7 +384,10 @@
           <span class="reg_head"><%= t(".section_4.site_label") %></span>
           <% if presenter.site_address.located_by_grid_reference? %>
             <%= presenter.site_address.grid_reference %><br>
-            <%= presenter.site_address.description %>
+            "<%= presenter.site_description %>"
+            <% if presenter.site_description_abridged? %>
+            <%= t(".section_4.more_site_description") %>
+            <% end %>
           <% else %>
             <%= presenter.site_address_one_liner %>
           <% end %>

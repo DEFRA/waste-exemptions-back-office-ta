@@ -69,36 +69,36 @@ RSpec.describe RenewalLetterPresenter do
   end
 
   describe "#listable_exemptions" do
-    context "when there are 20 or fewer exemptions" do
+    context "when there are 18 or fewer exemptions" do
       it "returns all exemptions" do
         expect(subject.listable_exemptions).to eq(registration.exemptions)
       end
     end
 
-    context "when there are more than 20 exemptions" do
+    context "when there are more than 18 exemptions" do
       before do
-        registration.exemptions = build_list(:exemption, 21)
+        registration.exemptions = build_list(:exemption, 19)
       end
 
-      it "only returns the first 20" do
-        expect(subject.listable_exemptions).to eq(registration.exemptions.first(20))
+      it "only returns the first 18" do
+        expect(subject.listable_exemptions).to eq(registration.exemptions.first(18))
       end
     end
   end
 
   describe "#unlisted_exemption_count" do
-    context "when there are 20 or fewer exemptions" do
+    context "when there are 18 or fewer exemptions" do
       it "returns 0" do
         expect(subject.unlisted_exemption_count).to eq(0)
       end
     end
 
-    context "when there are more than 20 exemptions" do
+    context "when there are more than 18 exemptions" do
       before do
-        registration.exemptions = build_list(:exemption, 21)
+        registration.exemptions = build_list(:exemption, 19)
       end
 
-      it "returns the count minus 20" do
+      it "returns the count minus 18" do
         expect(subject.unlisted_exemption_count).to eq(1)
       end
     end
@@ -121,6 +121,43 @@ RSpec.describe RenewalLetterPresenter do
                "#{registration.people.last.first_name} #{registration.people.last.last_name}"
 
         expect(subject.partners_list).to eq(list)
+      end
+    end
+  end
+
+  describe "#site_description" do
+    context "when the description is under 200 characters" do
+      let(:registration) { create(:registration, :with_active_exemptions, :with_short_site_description) }
+
+      it "returns the site description" do
+        expect(subject.site_description).to eq(registration.site_address.description)
+      end
+    end
+
+    context "when the description is over 200 characters" do
+      let(:registration) { create(:registration, :with_active_exemptions, :with_long_site_description) }
+
+      it "abbreviates the site description" do
+        expect(subject.site_description.length).to be < 200
+        expect(subject.site_description.last(3)).to eq("...")
+      end
+    end
+  end
+
+  describe "#site_description_abridged?" do
+    context "when the description is under 200 characters" do
+      let(:registration) { create(:registration, :with_active_exemptions, :with_short_site_description) }
+
+      it "returns false" do
+        expect(subject.site_description_abridged?).to be false
+      end
+    end
+
+    context "when the description is over 200 characters" do
+      let(:registration) { create(:registration, :with_active_exemptions, :with_long_site_description) }
+
+      it "returns true" do
+        expect(subject.site_description_abridged?).to be true
       end
     end
   end
