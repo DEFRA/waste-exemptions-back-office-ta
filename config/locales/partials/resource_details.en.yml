@@ -18,6 +18,7 @@ en:
         applicant_email: "Applicant email"
         business_type: "Business type"
         details: "Reporting information"
+        renewed_from: "Renewed from"
         operator_name: "Operator name"
         people: "Partners"
         company_no: "Company number"
@@ -63,6 +64,7 @@ en:
           link_text: "Start renewal"
           visually_hidden_text: "of %{name}"
           renew_window_closed: "Renewal period closed"
+          already_renewed: "Already renewed"
         resend_renew_email:
           link_text: "Resend renewal email"
           visually_hidden_text: "of %{name}"

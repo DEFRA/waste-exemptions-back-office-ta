@@ -13,6 +13,6 @@ class TransientRegistrationCleanupService < ::WasteExemptionsEngine::BaseService
 
   def oldest_possible_date
     max = Rails.configuration.max_transient_registration_age_days.to_i
-    max.days.ago
+    max.days.ago.beginning_of_day
   end
 end
