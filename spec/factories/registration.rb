@@ -94,5 +94,21 @@ FactoryBot.define do
         end
       end
     end
+
+    trait :with_short_site_description do
+      addresses do
+        [build(:address, :operator),
+         build(:address, :contact),
+         build(:address, :site, :short_description)]
+      end
+    end
+
+    trait :with_long_site_description do
+      addresses do
+        [build(:address, :operator),
+         build(:address, :contact),
+         build(:address, :site, :long_description)]
+      end
+    end
   end
 end

@@ -1,0 +1,61 @@
+en:
+  renewal_letter:
+    show:
+      web_page_title: Waste Exemptions renewal letter for %{reference}
+      print_warning:
+        header: "When you print, remember to:"
+        item1: set all print headers and footers to empty
+        item2: set print margins to 10mm all round
+      section_1:
+        salutation: "Dear %{name},"
+        paragraph_1: Renew your waste exemptions by %{date}. Renewal is free, and should take about 10 minutes.
+      section_2:
+        label: Renew online
+        text: you'll need an email address to use the service
+        instructions:
+          line_1: Go to the website
+          line_1_url: www.gov.uk/renew-waste-exemption
+          line_2: "Click the ‘Register or renew’ button, then choose ‘Renew’."
+          line_3: Fill in the form - the details you’ll need are below, you can change them if you need to.
+      section_3:
+        subheading: Need help to renew?
+        paragraph_1: Call us on 03708 506 506 (Monday to Friday, 8am to 6pm). Your waste exemptions registration number is %{reference}.
+        paragraph_2: If you no longer carry out these waste operations, you can ignore this reminder.
+      section_4:
+        subheading: Registration details for registration number %{reference}
+        exemptions_label: "Your current waste exemptions:"
+        more_exemptions:
+          one: You have 1 other exemption. Check your registration document to find it.
+          other: "You have %{count} other exemptions. Check your registration document to find these."
+        business_type_label: "Type of business:"
+        business_type_value:
+          charity: ""
+          localAuthority: ""
+          limitedCompany: ""
+          limitedLiabilityPartnership: ""
+          partnership: ""
+          soleTrader: "Individual or sole trader"
+        company_no_label:
+          limitedCompany: "Company registration number:"
+          limitedLiabilityPartnership: "LLP registration number:"
+        partners_label: "Partners:"
+        operator_label:
+          charity: "Charity or trust name:"
+          localAuthority: "Local authority or public body name:"
+          limitedCompany: "Company name:"
+          limitedLiabilityPartnership: "LLP name:"
+          partnership: "Partnership name:"
+          soleTrader: "Carrying out the waste operation:"
+        operator_address_label:
+          charity: "Charity or trust address:"
+          localAuthority: "Local authority or public body address:"
+          limitedCompany: "Company address:"
+          limitedLiabilityPartnership: "Company address:"
+          partnership: "Partnership address:"
+          soleTrader: "Address:"
+        site_label: "Location of waste operation:"
+        more_site_description: "Check your registration document for the full site description."
+      section_5:
+        paragraph_1_html: "Read the guidance to check that you still meet the exemption rules and limits:<br>www.gov.uk/register-waste-exemption."
+        paragraph_2: Yours sincerely
+        paragraph_3: Waste Exemptions Team

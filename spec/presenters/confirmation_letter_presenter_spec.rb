@@ -7,14 +7,7 @@ RSpec.describe ConfirmationLetterPresenter do
   let(:registration) { create(:registration, :with_active_exemptions) }
   subject { described_class.new(registration) }
 
-  describe "#date_of_letter" do
-    before { Timecop.freeze(today) }
-    after { Timecop.return }
-
-    it "returns the current date formatted as for example '2 April 2019'" do
-      expect(subject.date_of_letter).to eq("2 April 2019")
-    end
-  end
+  it_behaves_like "a letter presenter"
 
   describe "#submission_date" do
     before { Timecop.freeze(today) }
@@ -35,43 +28,13 @@ RSpec.describe ConfirmationLetterPresenter do
     end
   end
 
-  describe "#contact_full_name" do
-    it "returns the registration's contact first and last name attributes as a single string" do
-      expected_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
-
-      expect(subject.contact_full_name).to eq(expected_name)
-    end
-  end
-
-  describe "#site_address_one_liner" do
-    context "when the site location is located by grid reference" do
-      it "returns an empty string" do
-        expect(subject.site_address_one_liner).to eq("")
-      end
-    end
-
-    context "when the site location is located by postcode" do
-      let(:registration) { create(:registration, :site_uses_address) }
-      it "returns a string representation of the address" do
-        address = registration.site_address
-        address_fields = [
-          address.organisation,
-          address.premises,
-          address.street_address,
-          address.locality,
-          address.city,
-          address.postcode
-        ].reject(&:blank?)
-
-        expect(subject.site_address_one_liner).to eq(address_fields.join(", "))
-      end
-    end
-  end
-
-  describe "#operator_address_one_liner" do
-    it "returns a string representation of the address" do
-      address = registration.operator_address
+  describe "#postal_address_lines" do
+    it "returns an array with the contact name and address" do
+      contact_name = "#{registration.contact_first_name} #{registration.contact_last_name}"
+      address = registration.contact_address
       address_fields = [
+        contact_name,
+        registration.operator_name,
         address.organisation,
         address.premises,
         address.street_address,
@@ -80,26 +43,7 @@ RSpec.describe ConfirmationLetterPresenter do
         address.postcode
       ].reject(&:blank?)
 
-      expect(subject.operator_address_one_liner).to eq(address_fields.join(", "))
-    end
-  end
-
-  describe "#human_business_type" do
-    {
-      sole_trader: "Individual or sole trader",
-      limited_company: "Limited company",
-      partnership: "Partnership",
-      limited_liability_partnership: "Limited liability partnership",
-      local_authority: "Local authority or public body",
-      charity: "Charity or trust"
-    }.each do |business_type, readable_result|
-      context "when the registration's business_type is #{business_type}" do
-        let(:registration) { create(:registration, business_type) }
-
-        it "returns the human readable version" do
-          expect(subject.human_business_type).to eq(readable_result)
-        end
-      end
+      expect(subject.postal_address_lines).to eq(address_fields)
     end
   end
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ConfirmationLetterController < ApplicationController
+class RenewalLetterController < ApplicationController
   include CanRenderPdf
 
   def show
@@ -10,9 +10,10 @@ class ConfirmationLetterController < ApplicationController
     render pdf: registration.reference,
            show_as_html: show_as_html?,
            layout: false,
-           locals: { presenter: ConfirmationLetterPresenter.new(registration, view_context) },
+           locals: { presenter: RenewalLetterPresenter.new(registration, view_context) },
+           disable_smart_shrinking: true,
+           margin: { top: "20mm", bottom: "30mm", left: "20mm", right: "20mm" },
            page_size: "A4",
-           margin: { top: "10mm", bottom: "10mm", left: "10mm", right: "10mm" },
            print_media_type: true
   end
 end
