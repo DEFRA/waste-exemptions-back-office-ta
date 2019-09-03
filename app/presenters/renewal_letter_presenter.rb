@@ -28,14 +28,9 @@ class RenewalLetterPresenter < BaseLetterPresenter
   end
 
   def partners_list
-    return unless partnership?
-
-    people_list = []
-    people.each do |person|
-      people_list << format_names(person.first_name, person.last_name)
-    end
-
-    people_list.join(", ")
+    people.map do |person|
+      format_names(person.first_name, person.last_name)
+    end.join(", ")
   end
 
   def site_description

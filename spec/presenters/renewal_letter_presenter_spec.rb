@@ -105,15 +105,15 @@ RSpec.describe RenewalLetterPresenter do
   end
 
   describe "#partners_list" do
-    context "when the registration is not a partnership" do
+    context "when the registration does not have partners" do
       let(:registration) { create(:registration, :sole_trader, :with_active_exemptions) }
 
-      it "returns nil" do
-        expect(subject.partners_list).to eq(nil)
+      it "returns an empty string" do
+        expect(subject.partners_list).to eq("")
       end
     end
 
-    context "when the registration is a partnership" do
+    context "when the registration has partners" do
       let(:registration) { create(:registration, :partnership, :with_active_exemptions) }
 
       it "returns a comma-separated list of partners" do
