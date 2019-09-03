@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RenewalLetterPresenter < BaseLetterPresenter
+  MAX_SITE_DESCRIPTION_LENGTH = 200
+
   # Provides the full postal address for the letter.
   def postal_address_lines
     lines = [contact_full_name]
@@ -35,21 +37,17 @@ class RenewalLetterPresenter < BaseLetterPresenter
 
   def site_description
     if site_description_abridged?
-      site_address.description.truncate(max_site_description_length, separator: " ")
+      site_address.description.truncate(MAX_SITE_DESCRIPTION_LENGTH, separator: " ")
     else
       site_address.description
     end
   end
 
   def site_description_abridged?
-    @_site_description_abridged ||= site_address.description.length > max_site_description_length
+    @_site_description_abridged ||= site_address.description.length > MAX_SITE_DESCRIPTION_LENGTH
   end
 
   private
-
-  def max_site_description_length
-    200
-  end
 
   def calculate_number_of_unlisted_exemptions
     total_exemption_count = exemptions.count
