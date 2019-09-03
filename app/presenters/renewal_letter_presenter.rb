@@ -32,7 +32,7 @@ class RenewalLetterPresenter < BaseLetterPresenter
 
     people_list = []
     people.each do |person|
-      people_list << format_name(person.first_name, person.last_name)
+      people_list << format_names(person.first_name, person.last_name)
     end
 
     people_list.join(", ")

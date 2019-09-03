@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class BaseLetterPresenter < BasePresenter
+  include WasteExemptionsEngine::ApplicationHelper
+
   def contact_full_name
-    format_name(contact_first_name, contact_last_name)
+    format_names(contact_first_name, contact_last_name)
   end
 
   def date_of_letter
@@ -22,10 +24,6 @@ class BaseLetterPresenter < BasePresenter
   end
 
   private
-
-  def format_name(first_name, last_name)
-    "#{first_name} #{last_name}"
-  end
 
   def address_lines(address)
     return [] unless address

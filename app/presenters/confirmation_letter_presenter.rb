@@ -15,7 +15,7 @@ class ConfirmationLetterPresenter < BaseLetterPresenter
   end
 
   def applicant_full_name
-    format_name(applicant_first_name, applicant_last_name)
+    format_names(applicant_first_name, applicant_last_name)
   end
 
   # Provides the full postal address for the letter.
@@ -31,7 +31,7 @@ class ConfirmationLetterPresenter < BaseLetterPresenter
     people.each_with_index.map do |person, index|
       {
         label: I18n.t("business_details.partner_enumerator", scope: "confirmation_letter.show", count: index + 1),
-        name: format_name(person.first_name, person.last_name)
+        name: format_names(person.first_name, person.last_name)
       }
     end
   end
