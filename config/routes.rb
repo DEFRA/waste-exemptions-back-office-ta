@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root "dashboards#index"
 
   # User management
-
   devise_for :users,
              controllers: { invitations: "user_invitations", sessions: "sessions" },
              path: "/users",
@@ -22,33 +21,26 @@ Rails.application.routes.draw do
   post "/users/deactivate/:id", to: "user_activations#deactivate", as: :deactivate_user
 
   # Confirmation Letter
-
   get "/confirmation-letter/:id", to: "confirmation_letter#show", as: :confirmation_letter
 
   # Renewal Letter
-
   get "/renewal-letter/:id", to: "renewal_letter#show", as: :renewal_letter
 
   # Bulk Exports
-
   get "/data-exports", to: "bulk_exports#show", as: :bulk_exports
 
   # Registration management
-
   resources :registrations, only: :show, param: :reference
   resources :new_registrations, only: :show, path: "/new-registrations"
 
   # Deregister Registrations
-
   get "/registrations/deregister/:id", to: "deregister_registrations#new", as: :deregister_registrations_form
   post "/registrations/deregister/:id", to: "deregister_registrations#update", as: :deregister_registrations
 
   # Privacy policy
-
   get "/ad-privacy-policy", to: "ad_privacy_policy#show", as: :ad_privacy_policy
 
   # Deregister Exemptions
-
   get "/registration-exemptions/deregister/:id", to: "deregister_exemptions#new", as: :deregister_exemptions_form
   post "/registration-exemptions/deregister/:id", to: "deregister_exemptions#update", as: :deregister_exemptions
 
