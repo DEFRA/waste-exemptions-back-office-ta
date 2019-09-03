@@ -46,16 +46,15 @@ RSpec.shared_examples "a letter presenter" do
   describe "#operator_address_one_liner" do
     it "returns a string representation of the address" do
       address = registration.operator_address
-      address_fields = [
-        address.organisation,
+      expected_address = [
         address.premises,
         address.street_address,
         address.locality,
         address.city,
         address.postcode
-      ].reject(&:blank?)
+      ].join(", ")
 
-      expect(subject.operator_address_one_liner).to eq(address_fields.join(", "))
+      expect(subject.operator_address_one_liner).to eq(expected_address)
     end
   end
 
@@ -70,16 +69,15 @@ RSpec.shared_examples "a letter presenter" do
       let(:registration) { create(:registration, :site_uses_address) }
       it "returns a string representation of the address" do
         address = registration.site_address
-        address_fields = [
-          address.organisation,
+        expected_address = [
           address.premises,
           address.street_address,
           address.locality,
           address.city,
           address.postcode
-        ].reject(&:blank?)
+        ].join(", ")
 
-        expect(subject.site_address_one_liner).to eq(address_fields.join(", "))
+        expect(subject.site_address_one_liner).to eq(expected_address)
       end
     end
   end
