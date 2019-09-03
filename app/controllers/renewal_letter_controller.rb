@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class RenewalLetterController < ApplicationController
+  include CanRenderPdf
+
   def show
     registration = WasteExemptionsEngine::Registration.find(params[:id])
     authorize! :read, registration
 
-    show_as_html = params[:show_as_html].present? && params[:show_as_html] == "true"
-
     render pdf: registration.reference,
-           show_as_html: show_as_html,
+           show_as_html: show_as_html?,
            layout: false,
            locals: { presenter: RenewalLetterPresenter.new(registration, view_context) },
            disable_smart_shrinking: true,
