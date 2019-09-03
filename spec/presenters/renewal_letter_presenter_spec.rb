@@ -137,8 +137,8 @@ RSpec.describe RenewalLetterPresenter do
     context "when the description is over 200 characters" do
       let(:registration) { create(:registration, :with_active_exemptions, :with_long_site_description) }
 
-      it "abbreviates the site description" do
-        expect(subject.site_description.length).to be < 200
+      it "abbreviates the site description to no more than 200 characters" do
+        expect(subject.site_description.length).to be < 201
         expect(subject.site_description.last(3)).to eq("...")
       end
     end
