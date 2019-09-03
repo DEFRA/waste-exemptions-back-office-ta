@@ -41,3 +41,6 @@ en:
         resend_renew_email:
           link_text: "Resend renewal email"
           visually_hidden_text: "of %{name}"
+        renewal_letter:
+          link_text: "View renewal letter"
+          visually_hidden_text: "for %{name}"

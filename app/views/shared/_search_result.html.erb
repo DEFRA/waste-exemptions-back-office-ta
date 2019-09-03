@@ -147,6 +147,15 @@
                 </span>
               <% end %>
             </li>
+            <li>
+              <%= link_to renewal_letter_path(result), id: "renewal_letter_#{result.reference}", target: "_blank" do %>
+                <%= t(".actions.renewal_letter.link_text") %>
+                <span class="visually-hidden">
+                 <%= t(".actions.renewal_letter.visually_hidden_text",
+                       name: result_name_for_visually_hidden_text(result)) %>
+                </span>
+              <% end %>
+            </li>
           <% elsif display_renew_window_closed_text_for?(result) %>
             <li><%= t(".actions.renew.renew_window_closed") %></li>
           <% end %>

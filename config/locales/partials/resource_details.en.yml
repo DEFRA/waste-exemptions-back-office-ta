@@ -68,6 +68,7 @@ en:
         resend_renew_email:
           link_text: "Resend renewal email"
           visually_hidden_text: "of %{name}"
+        renewal_letter: "View renewal letter"
       no_applicant_data: "No applicant details"
       no_contact_data: "No contact details"
       no_exemptions: "No exemptions"
