@@ -21,7 +21,7 @@ class RenewalLetterPresenter < BaseLetterPresenter
   end
 
   def listable_exemptions
-    @_listable_exemptions ||= (active_exemptions + expired_exemptions).first(18)
+    @_listable_exemptions ||= relevant_exemptions.first(18)
     @_listable_exemptions
   end
 
@@ -49,8 +49,12 @@ class RenewalLetterPresenter < BaseLetterPresenter
 
   private
 
+  def relevant_exemptions
+    @_relevant_exemptions ||= (active_exemptions + expired_exemptions)
+  end
+
   def calculate_number_of_unlisted_exemptions
-    total_exemption_count = exemptions.count
+    total_exemption_count = relevant_exemptions.count
     listable_exemptions_count = listable_exemptions.count
 
     if listable_exemptions_count < total_exemption_count
