@@ -84,6 +84,30 @@ RSpec.describe RenewalLetterPresenter do
         expect(subject.listable_exemptions).to eq(registration.exemptions.first(18))
       end
     end
+
+    it "includes the active exemptions from the registration" do
+      registration.registration_exemptions.first.update_attributes(state: :active)
+
+      expect(subject.listable_exemptions).to include(registration.exemptions.first)
+    end
+
+    it "includes the expired exemptions from the registration" do
+      registration.registration_exemptions.first.update_attributes(state: :expired)
+
+      expect(subject.listable_exemptions).to include(registration.exemptions.first)
+    end
+
+    it "does not include revoked exemptions from the registration" do
+      registration.registration_exemptions.first.update_attributes(state: :revoked)
+
+      expect(subject.listable_exemptions).to_not include(registration.exemptions.first)
+    end
+
+    it "does not include ceased exemptions from the registration" do
+      registration.registration_exemptions.first.update_attributes(state: :ceased)
+
+      expect(subject.listable_exemptions).to_not include(registration.exemptions.first)
+    end
   end
 
   describe "#unlisted_exemption_count" do

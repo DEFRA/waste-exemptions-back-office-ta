@@ -21,7 +21,7 @@ class RenewalLetterPresenter < BaseLetterPresenter
   end
 
   def listable_exemptions
-    @_listable_exemptions ||= exemptions.first(18)
+    @_listable_exemptions ||= (active_exemptions + expired_exemptions).first(18)
     @_listable_exemptions
   end
 
