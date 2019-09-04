@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 76d506151d45bcbda99dccdeaeb67937d60b151b
+  revision: 797fa7214e4692c515cf88dccd5a0277dfa36101
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -107,7 +107,7 @@ GEM
     debug_inspector (0.0.3)
     defra_ruby_style (0.1.2)
       rubocop
-    defra_ruby_validators (2.1.1)
+    defra_ruby_validators (2.1.2)
       activemodel
       os_map_ref
       phonelib
