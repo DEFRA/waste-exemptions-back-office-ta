@@ -126,6 +126,17 @@ RSpec.describe RenewalLetterPresenter do
         expect(subject.unlisted_exemption_count).to eq(1)
       end
     end
+
+    context "when there are exemptions in unrenewable states" do
+      before do
+        registration.exemptions = build_list(:exemption, 21)
+        registration.registration_exemptions.last(2).each { |re| re.update_attributes(state: :ceased) }
+      end
+
+      it "returns the count minus 18 minus the unrenewable exemptions" do
+        expect(subject.unlisted_exemption_count).to eq(1)
+      end
+    end
   end
 
   describe "#partners_list" do
