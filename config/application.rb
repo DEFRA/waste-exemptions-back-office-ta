@@ -68,7 +68,7 @@ module WasteExemptionsBackOffice
     config.max_transient_registration_age_days = ENV["MAX_TRANSIENT_REGISTRATION_AGE_DAYS"] || 30
 
     # Version info
-    config.application_name = "waste-exemptions-back-office-ta"
+    config.application_name = "waste-exemptions-back-office"
     config.git_repository_url = "https://github.com/DEFRA/#{config.application_name}"
   end
 end
