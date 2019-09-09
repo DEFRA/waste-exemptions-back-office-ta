@@ -2,8 +2,8 @@
 
 WasteExemptionsEngine.configure do |configuration|
   # General config
-  configuration.application_name = "waste-exemptions-back-office-ta"
-  configuration.git_repository_url = "https://github.com/DEFRA/waste-exemptions-back-office-ta"
+  configuration.application_name = "waste-exemptions-back-office"
+  configuration.git_repository_url = "https://github.com/DEFRA/waste-exemptions-back-office"
 
   # Companies house API config
   configuration.companies_house_host = ENV["COMPANIES_HOUSE_URL"] || "https://api.companieshouse.gov.uk/company/"
