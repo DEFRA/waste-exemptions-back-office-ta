@@ -1,8 +1,9 @@
-# Waste Exemptions Back Office (TA)
+# Waste Exemptions Back Office
 
-[![Build Status](https://travis-ci.com/DEFRA/waste-exemptions-back-office-ta.svg?branch=master)](https://travis-ci.org/DEFRA/waste-exemptions-back-office-ta)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c55dc26cbfffc87c5172/maintainability)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office-ta/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c55dc26cbfffc87c5172/test_coverage)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office-ta/test_coverage)
+[![Build Status](https://travis-ci.com/DEFRA/waste-exemptions-back-office.svg?branch=master)](https://travis-ci.org/DEFRA/waste-exemptions-back-office)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a223a4a371d36d1e24ae/maintainability)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a223a4a371d36d1e24ae/test_coverage)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office/test_coverage)
+[![security](https://hakiri.io/github/DEFRA/waste-exemptions-back-office/master.svg)](https://hakiri.io/github/DEFRA/waste-exemptions-back-office/master)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
 If your business produces waste or emissions that pollute you may require an environmental permit. However you may also be able to get an exemption if your business activities are considered to be easily controlled and only create low risks of pollution.
@@ -22,7 +23,7 @@ You'll need [Ruby 2.4.2](https://www.ruby-lang.org/en/) installed plus the [Bund
 First clone the repository and then drop into your new local repo
 
 ```bash
-git clone https://github.com/defra/waste-exemptions-back-office-ta.git && cd waste-exemptions-back-office-ta
+git clone https://github.com/defra/waste-exemptions-back-office.git && cd waste-exemptions-back-office
 ```
 
 Next download and install the dependencies

@@ -10,7 +10,7 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
   end
 
   describe "first_reminder_email" do
-    let(:registration) { build(:registration, :with_active_exemptions) }
+    let(:registration) { create(:registration, :with_active_exemptions) }
     let(:mail) { RenewalReminderMailer.first_reminder_email(registration) }
 
     it "uses the correct 'to' address" do
@@ -52,7 +52,7 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
     end
 
     context "when the site address is an address" do
-      let(:registration) { build(:registration, :site_uses_address, :with_active_exemptions) }
+      let(:registration) { create(:registration, :site_uses_address, :with_active_exemptions) }
 
       it "includes the correct address" do
         address = registration.site_address
@@ -95,7 +95,7 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
   end
 
   describe "second_reminder_email" do
-    let(:registration) { build(:registration, :with_active_exemptions) }
+    let(:registration) { create(:registration, :with_active_exemptions) }
     let(:mail) { RenewalReminderMailer.second_reminder_email(registration) }
 
     it "uses the correct 'to' address" do
@@ -136,7 +136,7 @@ RSpec.describe RenewalReminderMailer, type: :mailer do
     end
 
     context "when the site address is an address" do
-      let(:registration) { build(:registration, :site_uses_address, :with_active_exemptions) }
+      let(:registration) { create(:registration, :site_uses_address, :with_active_exemptions) }
 
       it "includes the correct address" do
         address = registration.site_address
