@@ -2,6 +2,7 @@
 
 require "defra_ruby/aws"
 
+# rubocop:disable Metrics/BlockLength
 DefraRuby::Aws.configure do |c|
   bulk_bucket = {
     name: ENV["AWS_BULK_EXPORT_BUCKET"],
@@ -41,3 +42,4 @@ DefraRuby::Aws.configure do |c|
 
   c.buckets = [bulk_bucket, epr_bucket, boxi_export_bucket, letters_export_bucket]
 end
+# rubocop:enable Metrics/BlockLength

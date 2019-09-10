@@ -17,7 +17,7 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
     Airbrake.notify e, file_name: file_name
     Rails.logger.error "Generate AD renewal letters export error for #{file_name}:\n#{e}"
   ensure
-    File.unlink(file_path) if File.exists?(file_name)
+    File.unlink(file_path) if File.exist?(file_name)
   end
 
   private
@@ -33,14 +33,14 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
   end
 
   def ad_expiring_registrations
-    @_ad_expiring_registrations ||= WasteExemptionsEngine::Registration
+    WasteExemptionsEngine::Registration
       .where(contact_email: "waste-exemptions@environment-agency.gov.uk")
-      .where(id:
-        WasteExemptionsEngine::RegistrationExemption
-          .all_active_exemptions
-          .where(expires_on: ad_letters_expires_on)
-          .select(:registration_id)
-        )
+      .where(
+        id: WasteExemptionsEngine::RegistrationExemption
+              .all_active_exemptions
+              .where(expires_on: ad_letters_expires_on)
+              .select(:registration_id)
+      )
   end
 
   def bucket_name
