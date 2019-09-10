@@ -7,7 +7,7 @@ RSpec.describe RenewalLettersBulkPdfService do
     let(:registrations) { create_list(:registration, 2) }
     let(:result) { double(:result) }
 
-    it "returns a PDF string with a letter per-registration" do
+    it "returns a PDF string" do
       expect(Airbrake).to_not receive(:notify)
 
       expect(described_class.run(registrations)).to start_with("%PDF")
