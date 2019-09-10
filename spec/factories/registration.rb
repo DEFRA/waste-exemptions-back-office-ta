@@ -103,6 +103,10 @@ FactoryBot.define do
       end
     end
 
+    trait :ad_registration do
+      contact_email { "waste-exemptions@environment-agency.gov.uk" }
+    end
+
     trait :with_long_site_description do
       addresses do
         [build(:address, :operator),

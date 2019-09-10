@@ -1,6 +1,6 @@
 en:
   renewal_letter:
-    show:
+    renewal_letter_content:
       web_page_title: Waste Exemptions renewal letter for %{reference}
       print_warning:
         header: "When you print, remember to:"
