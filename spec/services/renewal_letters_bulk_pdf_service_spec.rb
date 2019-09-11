@@ -18,7 +18,7 @@ RSpec.describe RenewalLettersBulkPdfService do
         expect_any_instance_of(ApplicationController).to receive(:render_to_string).and_raise("An error")
         expect(Airbrake).to receive(:notify)
 
-        described_class.run([])
+        described_class.run(registrations)
       end
     end
 

@@ -7,11 +7,14 @@ RSpec.describe AdRenewalLettersExportService do
     let(:bucket) { double(:bucket) }
     let(:result) { double(:result, successful?: true) }
 
+    before do
+      create_list(:registration, 3, :ad_registration)
+      expect(WasteExemptionsBackOffice::Application.config).to receive(:ad_letters_exports_expires_in).and_return(35)
+      WasteExemptionsEngine::RegistrationExemption.update_all(expires_on: 35.days.from_now)
+    end
+
     context "when there are expiring registrations from AD users" do
       before do
-        create_list(:registration, 3, :ad_registration)
-        expect(WasteExemptionsBackOffice::Application.config).to receive(:ad_letters_exports_expires_in).and_return(35)
-        WasteExemptionsEngine::RegistrationExemption.update_all(expires_on: 35.days.from_now)
         expect(DefraRuby::Aws).to receive(:get_bucket).and_return(bucket)
         expect(bucket).to receive(:load).and_return(result)
       end
