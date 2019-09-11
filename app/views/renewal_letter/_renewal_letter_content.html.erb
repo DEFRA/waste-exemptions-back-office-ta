@@ -1,0 +1,108 @@
+<div id="page_wrapper">
+  <div id="logo">
+    <%= image_tag wicked_pdf_asset_base64("logo_ea.png"), width: "332px" %>
+  </div>
+
+  <div id="section">
+    <div id="address_window">
+      <p>
+        <% presenter.postal_address_lines.each do |line| %>
+          <%= line %><br>
+        <% end %>
+      </p>
+    </div>
+
+    <div id="date">
+      <p>
+        <%= presenter.date_of_letter %>
+      </p>
+    </div>
+  </div>
+
+  <div id="letter_body">
+
+    <div id="salutation">
+      <p>
+        <%= t(".section_1.salutation", name: presenter.contact_full_name) %>
+      </p>
+    </div>
+
+    <h1><%= t(".section_1.paragraph_1", date: presenter.expiry_date) %></h1>
+
+    <div id="call_to_action">
+      <p>
+        <span class="bold_text"><%= t(".section_2.label") %></span> – <%= t(".section_2.text") %>
+      </p>
+
+      <ol>
+        <li><%= t(".section_2.instructions.line_1") %> <span class="bold_text"><%= t(".section_2.instructions.line_1_url") %></span></li>
+        <li><%= t(".section_2.instructions.line_2") %></li>
+        <li><%= t(".section_2.instructions.line_3") %></li>
+      </ol>
+    </div>
+
+    <h2><%= t(".section_3.subheading") %></h2>
+
+    <p><%= t(".section_3.paragraph_1", reference: presenter.reference) %></p>
+    <p><%= t(".section_3.paragraph_2") %></p>
+
+    <h2 class="medium"><%= t(".section_4.subheading", reference: presenter.reference) %></h2>
+
+    <p class="list_intro"><span class="reg_head"><%= t(".section_4.exemptions_label") %></span></p>
+
+    <ul class="reg_section">
+      <% presenter.listable_exemptions.each do |exemption| %>
+        <li><%= presenter.exemption_description(exemption) %></li>
+      <% end %>
+
+      <% if presenter.unlisted_exemption_count.positive? %>
+        <li class="more_exemptions"><%= t(".section_4.more_exemptions", count: presenter.unlisted_exemption_count) %></li>
+      <% end %>
+
+    </ul>
+
+    <p class="reg_section">
+      <span class="reg_head"><%= t(".section_4.business_type_label") %></span>
+      <%= presenter.human_business_type %>
+    </p>
+    <% if presenter.company_no_required? %>
+      <p class="reg_section">
+        <span class="reg_head"><%= t(".section_4.company_no_label.#{presenter.business_type}") %></span>
+        <%= presenter.company_no %>
+      </p>
+    <% end %>
+    <% if presenter.partnership? %>
+      <p class="reg_section">
+        <span class="reg_head"><%= t(".section_4.partners_label") %></span>
+        <%= presenter.partners_list %>
+      </p>
+    <% end %>
+    <p class="reg_section">
+      <span class="reg_head"><%= t(".section_4.operator_label.#{presenter.business_type}") %></span>
+      <%= presenter.operator_name %>
+    </p>
+    <p class="reg_section">
+      <span class="reg_head"><%= t(".section_4.operator_address_label.#{presenter.business_type}") %></span>
+      <%= presenter.operator_address_one_liner %>
+    </p>
+    <p class="reg_section">
+      <span class="reg_head"><%= t(".section_4.site_label") %></span>
+      <% if presenter.site_address.located_by_grid_reference? %>
+        <%= presenter.site_address.grid_reference %><br>
+        "<%= presenter.site_description %>"
+        <% if presenter.site_description_abridged? %>
+        <%= t(".section_4.more_site_description") %>
+        <% end %>
+      <% else %>
+        <%= presenter.site_address_one_liner %>
+      <% end %>
+    </p>
+
+    <p class="new_section"><%= t(".section_5.paragraph_1_html") %></p>
+
+    <p><%= t(".section_5.paragraph_2") %></p>
+
+    <p><%= t(".section_5.paragraph_3") %></p>
+
+  </div><!-- // END letter_body -->
+</div><!-- // END wrapper -->
