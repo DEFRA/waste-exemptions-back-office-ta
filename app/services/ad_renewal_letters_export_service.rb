@@ -6,11 +6,13 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
   include CanLoadFileToAws
 
   def run
-    File.open(file_path, "w:ASCII-8BIT") do |file|
-      file.write(RenewalLettersBulkPdfService.run(ad_expiring_registrations))
-    end
+    if ad_expiring_registrations.any?
+      File.open(file_path, "w:ASCII-8BIT") do |file|
+        file.write(RenewalLettersBulkPdfService.run(ad_expiring_registrations))
+      end
 
-    load_file_to_aws_bucket
+      load_file_to_aws_bucket
+    end
 
     record_content_created
   rescue StandardError => e
@@ -33,14 +35,16 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
   end
 
   def ad_expiring_registrations
-    WasteExemptionsEngine::Registration
-      .where(contact_email: "waste-exemptions@environment-agency.gov.uk")
-      .where(
-        id: WasteExemptionsEngine::RegistrationExemption
-              .all_active_exemptions
-              .where(expires_on: ad_letters_expires_on)
-              .select(:registration_id)
-      )
+    @_ad_expiring_registrations ||= -> do
+      WasteExemptionsEngine::Registration
+        .where(contact_email: "waste-exemptions@environment-agency.gov.uk")
+        .where(
+          id: WasteExemptionsEngine::RegistrationExemption
+                .all_active_exemptions
+                .where(expires_on: ad_letters_expires_on)
+                .select(:registration_id)
+        )
+    end.call
   end
 
   def bucket_name
@@ -48,14 +52,16 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
   end
 
   def ad_letters_expires_on
-    WasteExemptionsBackOffice::Application.config.ad_letters_exports_expires_in.days.from_now.to_date
+    @_ad_letters_expires_on ||= WasteExemptionsBackOffice::Application.config.ad_letters_exports_expires_in.days.from_now.to_date
   end
 
   def record_content_created
-    WasteExemptionsEngine::AdRenewalLettersExport.create!(
-      expires_on: ad_letters_expires_on,
-      number_of_letters: ad_expiring_registrations.count,
-      file_name: file_name
-    )
+    ad_renewal_letters_export = WasteExemptionsEngine::AdRenewalLettersExport.find_or_initialize_by(file_name: file_name)
+    ad_renewal_letters_export.expires_on = ad_letters_expires_on
+    ad_renewal_letters_export.number_of_letters = ad_expiring_registrations.count
+
+    ad_renewal_letters_export.save!
   end
+
+
 end

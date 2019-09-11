@@ -2,6 +2,8 @@
 
 class RenewalLettersBulkPdfService < ::WasteExemptionsEngine::BaseService
   def run(registrations)
+    return unless registrations.any?
+
     @registrations = registrations
 
     ApplicationController.new.render_to_string(

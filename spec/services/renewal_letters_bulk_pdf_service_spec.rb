@@ -24,7 +24,7 @@ RSpec.describe RenewalLettersBulkPdfService do
 
     context "when there are no registrations" do
       it "returns a result" do
-        expect(described_class.run([])).to start_with("%PDF")
+        expect(described_class.run([])).to be_nil
       end
     end
   end
