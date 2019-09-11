@@ -35,7 +35,7 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
   end
 
   def ad_expiring_registrations
-    @_ad_expiring_registrations ||= -> do
+    @_ad_expiring_registrations ||= lambda do
       WasteExemptionsEngine::Registration
         .where(contact_email: "waste-exemptions@environment-agency.gov.uk")
         .where(
@@ -52,16 +52,22 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
   end
 
   def ad_letters_expires_on
-    @_ad_letters_expires_on ||= WasteExemptionsBackOffice::Application.config.ad_letters_exports_expires_in.days.from_now.to_date
+    @_ad_letters_expires_on ||= ad_letters_expires_in.days.from_now.to_date
+  end
+
+  def ad_letters_expires_in
+    WasteExemptionsBackOffice::Application.config.ad_letters_exports_expires_in
   end
 
   def record_content_created
-    ad_renewal_letters_export = WasteExemptionsEngine::AdRenewalLettersExport.find_or_initialize_by(file_name: file_name)
+    ad_renewal_letters_export = find_ad_renewal_letters_export
     ad_renewal_letters_export.expires_on = ad_letters_expires_on
     ad_renewal_letters_export.number_of_letters = ad_expiring_registrations.count
 
     ad_renewal_letters_export.save!
   end
 
-
+  def find_ad_renewal_letters_export
+    WasteExemptionsEngine::AdRenewalLettersExport.find_or_initialize_by(file_name: file_name)
+  end
 end
