@@ -6,10 +6,10 @@ RSpec.describe AdRenewalLettersExportService do
   describe ".run" do
     let(:bucket) { double(:bucket) }
     let(:result) { double(:result, successful?: true) }
+    let(:ad_renewal_letters_export) { create(:ad_renewal_letters_export, expires_on: 35.days.from_now) }
 
     before do
       create_list(:registration, 3, :ad_registration)
-      expect(WasteExemptionsBackOffice::Application.config).to receive(:ad_letters_exports_expires_in).and_return(35)
       WasteExemptionsEngine::RegistrationExemption.update_all(expires_on: 35.days.from_now)
     end
 
@@ -22,8 +22,10 @@ RSpec.describe AdRenewalLettersExportService do
       it "load a file to a AWS bucket and record the content created" do
         expect(Airbrake).to_not receive(:notify)
 
-        expect { described_class.run }.to change { WasteExemptionsEngine::AdRenewalLettersExport.count }.by(1)
-        expect(WasteExemptionsEngine::AdRenewalLettersExport.last.number_of_letters).to eq(3)
+        described_class.run(ad_renewal_letters_export)
+
+        expect(ad_renewal_letters_export.number_of_letters).to eq(3)
+        expect(ad_renewal_letters_export).to be_succeded
       end
 
       context "when one registration is in an invalid state and a PDF cannot be generated for it" do
@@ -33,8 +35,10 @@ RSpec.describe AdRenewalLettersExportService do
 
           expect(Airbrake).to receive(:notify)
 
-          expect { described_class.run }.to change { WasteExemptionsEngine::AdRenewalLettersExport.count }.by(1)
-          expect(WasteExemptionsEngine::AdRenewalLettersExport.last.number_of_letters).to eq(4)
+          described_class.run(ad_renewal_letters_export)
+
+          expect(ad_renewal_letters_export.number_of_letters).to eq(4)
+          expect(ad_renewal_letters_export).to be_succeded
         end
       end
     end
@@ -44,7 +48,8 @@ RSpec.describe AdRenewalLettersExportService do
         expect(RenewalLettersBulkPdfService).to receive(:run).and_raise("An error")
         expect(Airbrake).to receive(:notify)
 
-        expect { described_class.run }.to_not change { WasteExemptionsEngine::AdRenewalLettersExport.count }
+        described_class.run(ad_renewal_letters_export)
+        expect(ad_renewal_letters_export).to be_failed
       end
     end
   end
