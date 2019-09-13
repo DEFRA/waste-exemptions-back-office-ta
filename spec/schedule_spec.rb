@@ -17,21 +17,21 @@ RSpec.describe "Whenever schedule" do
     rake_jobs = schedule.jobs[:rake]
     expect(rake_jobs.count).to eq(7)
 
-    epr_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:epr" }
-    bulk_jobs = rake_jobs.select { |j| j[:task] == "reports:generate:bulk" }
+    epr_jobs = rake_jobs.select { |j| j[:task] == "reports:export:epr" }
+    bulk_jobs = rake_jobs.select { |j| j[:task] == "reports:export:bulk" }
     expect(epr_jobs.count).to eq(1)
     expect(bulk_jobs.count).to eq(1)
   end
 
   it "takes the EPR execution time from the appropriate ENV variable" do
-    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:generate:epr" }
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:export:epr" }
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])
   end
 
   it "takes the bulk export execution time and frequency from the appropriate ENV variables" do
-    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:generate:bulk" }
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:export:bulk" }
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"])
@@ -64,7 +64,7 @@ RSpec.describe "Whenever schedule" do
   end
 
   it "takes the boxi export generation execution time from the appropriate ENV variable" do
-    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:generate:boxi" }
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:export:boxi" }
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_BOXI_EXPORT_TIME"])
