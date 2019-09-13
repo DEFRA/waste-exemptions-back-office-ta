@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :reports do
-  namespace :generate do
+  namespace :export do
     desc "Generate the bulk montly reports and upload them to S3."
     task bulk: :environment do
       Reports::BulkExportService.run

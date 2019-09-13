@@ -19,14 +19,14 @@ set :job_template, "/bin/bash -l -c 'eval \"$(rbenv init -)\" && :job'"
 # all records and put this into an AWS S3 bucket from which Epimorphics (the
 # company that provides and maintains the EPR) will grab it
 every :day, at: (ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"] || "1:05"), roles: [:db] do
-  rake "reports:generate:epr"
+  rake "reports:export:epr"
 end
 
 # This is the daily bulk export job. When run this will create batched CSV
 # exports of all records and put these files into an AWS S3 bucket.
 bulk_time = (ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"] || "20:05")
 every :day, at: bulk_time, roles: [:db] do
-  rake "reports:generate:bulk"
+  rake "reports:export:bulk"
 end
 
 # This is the daily first renewal reminder mail service.
@@ -47,7 +47,7 @@ end
 # Will run once a day in the early morning hours and generate a zip file containing
 # data required for boxi.
 every :day, at: (ENV["EXPORT_SERVICE_BOXI_EXPORT_TIME"] || "03:05"), roles: [:db] do
-  rake "reports:generate:boxi"
+  rake "reports:export:boxi"
 end
 
 # This is the registration exemptions exiry job which will collect all active
