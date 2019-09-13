@@ -51,7 +51,7 @@ module WasteExemptionsEngine
         end
       end
 
-      context "when prited_by is empty" do
+      context "when printed_by is empty" do
         it "is not printed" do
           expect(ad_renewal_letters_export).to_not be_printed
         end
