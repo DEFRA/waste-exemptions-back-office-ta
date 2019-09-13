@@ -53,7 +53,7 @@ end
 # This is the daily AD renewal letters export service.
 # Will run once a day in the early morning hours and generate a zip file containing
 # data required for boxi.
-every :day, at: (ENV["EXPORT_SERVICE_AD_RENEWAL_LETTERS_TIME"] || "02:05"), roles: [:db] do
+every :day, at: (ENV["EXPORT_SERVICE_AD_RENEWAL_LETTERS_TIME"] || "01:05"), roles: [:db] do
   rake "letters:export:ad_renewals"
 end
 
