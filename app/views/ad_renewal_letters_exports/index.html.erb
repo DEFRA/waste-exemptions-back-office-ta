@@ -1,0 +1,60 @@
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= render("waste_exemptions_engine/shared/back", back_path: letters_path) %>
+
+    <h1 class="heading-large">
+      <%= t(".heading") %>
+    </h1>
+
+    <table class="govuk-table letters">
+      <thead>
+        <tr>
+          <th scope="col"><%= t(".table.heading.expiring_date") %></th>
+          <th scope="col"><%= t(".table.heading.number_of_letters") %></th>
+          <th scope="col"><%= t(".table.heading.printed") %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @ad_renewal_letters_exports.each do |ad_renewal_letters_export| %>
+          <tr>
+            <td>
+              <%= link_to ad_renewal_letters_export.expires_on.to_formatted_s(:abbr_week_day_month), ad_renewal_letters_export.presigned_aws_url, { target: :blank } %>
+            </td>
+            <td>
+              <% if ad_renewal_letters_export.failed? %>
+                <strong class="bold-small"><%= t(".labels.failed") %></strong>
+              <% elsif ad_renewal_letters_export.number_of_letters > 0 %>
+                <%= t(".table.letters_label", number_of_letters: ad_renewal_letters_export.number_of_letters) %>
+              <% else %>
+                <%= t(".labels.no_renewals") %>
+              <% end %>
+            </td>
+            <td>
+              <% if ad_renewal_letters_export.succeded? %>
+                <% if ad_renewal_letters_export.printed? %>
+                  <span class="green-label">
+                    <%= t(".labels.printed",
+                      printed_by: format_email_to_name(ad_renewal_letters_export.printed_by),
+                      printed_on: ad_renewal_letters_export.printed_on.to_formatted_s(:abbr_week_day_month))
+                    %>
+                  </span>
+                <% elsif ad_renewal_letters_export.number_of_letters == 0 %>
+                  <span class="green-label"><%= t(".labels.none_to_print") %></span>
+                <% else %>
+                  <%= form_for ad_renewal_letters_export do |f| %>
+                    <%= f.hidden_field :printed_by, value: current_user.email %>
+                    <%= f.hidden_field :printed_on, value: Date.today %>
+
+                    <%= f.submit t(".labels.submit"), class: "button-link" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

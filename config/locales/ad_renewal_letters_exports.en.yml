@@ -1,0 +1,16 @@
+en:
+  ad_renewal_letters_exports:
+    index:
+      heading: "Renewal letters for assisted digital"
+      table:
+        heading:
+          expiring_date: "Expiry date"
+          number_of_letters: "Number of letters"
+          printed: "Printed"
+        letters_label: "%{number_of_letters} letters"
+      labels:
+        submit: "Mark as printed"
+        none_to_print: "None to print"
+        no_renewals: "No registrations"
+        failed: "Letter generation failed - contact support"
+        printed: "%{printed_by}, %{printed_on}"
