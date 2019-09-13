@@ -48,6 +48,6 @@ class Ability
     can :use_back_office, :all
     can :read, WasteExemptionsEngine::Registration
     can :read, WasteExemptionsEngine::NewRegistration
-    can :read, Reports::GeneratedReport
+    can :read, Data::GeneratedReport
   end
 end
