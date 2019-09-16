@@ -1,5 +1,34 @@
 # Change Log
 
+## [Unreleased](https://github.com/DEFRA/waste-exemptions-back-office/tree/HEAD)
+
+[Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office/compare/v1.2.1...HEAD)
+
+**Implemented enhancements:**
+
+- Schedule export AD renewal letters [\#390](https://github.com/DEFRA/waste-exemptions-back-office/pull/390) ([cintamani](https://github.com/cintamani))
+- Ad renewal letters - Create record first [\#386](https://github.com/DEFRA/waste-exemptions-back-office/pull/386) ([cintamani](https://github.com/cintamani))
+- Update env.example [\#384](https://github.com/DEFRA/waste-exemptions-back-office/pull/384) ([cintamani](https://github.com/cintamani))
+- AD renewal letters bulk generation [\#383](https://github.com/DEFRA/waste-exemptions-back-office/pull/383) ([cintamani](https://github.com/cintamani))
+
+**Merged pull requests:**
+
+- Bump waste\_exemptions\_engine from `95782a6` to `2927abd` [\#392](https://github.com/DEFRA/waste-exemptions-back-office/pull/392) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump webmock from 3.7.2 to 3.7.3 [\#391](https://github.com/DEFRA/waste-exemptions-back-office/pull/391) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Rename :generate namespace to :export [\#388](https://github.com/DEFRA/waste-exemptions-back-office/pull/388) ([cintamani](https://github.com/cintamani))
+- Bump waste\_exemptions\_engine from `4952466` to `95782a6` [\#385](https://github.com/DEFRA/waste-exemptions-back-office/pull/385) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+## [v1.2.1](https://github.com/DEFRA/waste-exemptions-back-office/tree/v1.2.1) (2019-09-10)
+[Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office/compare/v1.2.0...v1.2.1)
+
+**Merged pull requests:**
+
+- Bump waste\_exemptions\_engine from `b337756` to `4952466` [\#382](https://github.com/DEFRA/waste-exemptions-back-office/pull/382) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Update project following name change [\#381](https://github.com/DEFRA/waste-exemptions-back-office/pull/381) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump devise from 4.7.0 to 4.7.1 [\#380](https://github.com/DEFRA/waste-exemptions-back-office/pull/380) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubyzip from 1.2.3 to 1.2.4 [\#379](https://github.com/DEFRA/waste-exemptions-back-office/pull/379) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `0b5d7dc` to `b337756` [\#378](https://github.com/DEFRA/waste-exemptions-back-office/pull/378) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v1.2.0](https://github.com/DEFRA/waste-exemptions-back-office/tree/v1.2.0) (2019-09-06)
 [Full Changelog](https://github.com/DEFRA/waste-exemptions-back-office/compare/v1.1.1...v1.2.0)
 
