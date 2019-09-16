@@ -2,7 +2,7 @@
 
 class AdRenewalLettersExportPresenter < BasePresenter
   def downloadable?
-    succeded? && number_of_letters > 0
+    succeded? && number_of_letters.positive?
   end
 
   def expire_date
@@ -10,7 +10,7 @@ class AdRenewalLettersExportPresenter < BasePresenter
   end
 
   def letters_label
-    if number_of_letters > 0
+    if number_of_letters.positive?
       I18n.t("ad_renewal_letters_exports.index.table.letters_label", number_of_letters: number_of_letters)
     else
       I18n.t("ad_renewal_letters_exports.index.labels.no_renewals")
@@ -27,9 +27,11 @@ class AdRenewalLettersExportPresenter < BasePresenter
   private
 
   def printed_label
-    I18n.t("ad_renewal_letters_exports.index.labels.printed",
+    I18n.t(
+      "ad_renewal_letters_exports.index.labels.printed",
       printed_by: printed_by_label,
-      printed_on: printed_on.to_formatted_s(:abbr_week_day_month))
+      printed_on: printed_on.to_formatted_s(:abbr_week_day_month)
+    )
   end
 
   def printed_by_label
