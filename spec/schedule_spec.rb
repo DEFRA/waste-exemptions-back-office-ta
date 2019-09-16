@@ -63,7 +63,7 @@ RSpec.describe "Whenever schedule" do
     expect(job_details[:every][1][:at]).to eq(ENV["EXPIRE_REGISTRATION_EXEMPTION_RUN_TIME"])
   end
 
-  it "takes the expire ad renewal letters execution time from the appropriate ENV variable" do
+  it "takes the export AD renewal letters execution time from the appropriate ENV variable" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "letters:export:ad_renewals" }
 
     expect(job_details[:every][0]).to eq(:day)
