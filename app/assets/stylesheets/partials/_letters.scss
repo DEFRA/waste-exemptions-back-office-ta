@@ -1,0 +1,11 @@
+table.letters td, table.letters th {
+  width: 33%;
+}
+
+table.letters .green-label {
+  @include status-tag-mixin {
+    text-transform: none;
+    color: $white;
+    background-color: $green;
+  }
+}

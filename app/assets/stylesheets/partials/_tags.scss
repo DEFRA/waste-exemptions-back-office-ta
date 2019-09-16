@@ -1,6 +1,6 @@
 // STATUS TAGS for dashboard and registration details page
 // Taken from https://dwp-design-examples.herokuapp.com/example/tags
-span.status-tag {
+@mixin status-tag-mixin {
   display: inline-block;
   font-family: 'nta', Arial, sans-serif;
   font-size: 14px;
@@ -10,6 +10,11 @@ span.status-tag {
   padding: 5px 8px 1px;
   text-decoration: none;
   text-transform: uppercase;
+  @content;
+}
+
+span.status-tag {
+  @include status-tag-mixin;
 }
 
 .status-tag-active {

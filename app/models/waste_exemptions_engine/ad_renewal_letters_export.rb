@@ -11,5 +11,23 @@ module WasteExemptionsEngine
     def export!
       AdRenewalLettersExportService.run(self)
     end
+
+    def printed?
+      printed_on.presence && printed_by.presence
+    end
+
+    def presigned_aws_url
+      bucket.presigned_url(file_name)
+    end
+
+    private
+
+    def bucket
+      @_bucket ||= DefraRuby::Aws.get_bucket(bucket_name)
+    end
+
+    def bucket_name
+      WasteExemptionsBackOffice::Application.config.letters_export_bucket_name
+    end
   end
 end
