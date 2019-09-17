@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/DEFRA/defra-ruby-aws
-  revision: 6c3b832c865434df33d06f16f64563732a3c9ae5
+  revision: ce82b4214709b0cc437545958b1b7db8a2472a71
   branch: master
   specs:
-    defra_ruby_aws (0.1.0)
+    defra_ruby_aws (0.2.0)
       aws-sdk-s3
 
 GIT
@@ -73,17 +73,17 @@ GEM
     arel (6.0.4)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.177.0)
-    aws-sdk-core (3.56.0)
+    aws-partitions (1.213.0)
+    aws-sdk-core (3.68.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.22.0)
-      aws-sdk-core (~> 3, >= 3.56.0)
+    aws-sdk-kms (1.24.0)
+      aws-sdk-core (~> 3, >= 3.61.1)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.43.0)
-      aws-sdk-core (~> 3, >= 3.56.0)
+    aws-sdk-s3 (1.48.0)
+      aws-sdk-core (~> 3, >= 3.61.1)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.0)
