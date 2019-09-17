@@ -1,14 +1,14 @@
 GIT
   remote: https://github.com/DEFRA/defra-ruby-aws
-  revision: 6c3b832c865434df33d06f16f64563732a3c9ae5
+  revision: ce82b4214709b0cc437545958b1b7db8a2472a71
   branch: master
   specs:
-    defra_ruby_aws (0.1.0)
+    defra_ruby_aws (0.2.0)
       aws-sdk-s3
 
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 2927abdebd22f7963321a0f87191087400e034d0
+  revision: d29f983ad4295c129f5368b6878b33f4e0c13aa4
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -73,17 +73,17 @@ GEM
     arel (6.0.4)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.177.0)
-    aws-sdk-core (3.56.0)
+    aws-partitions (1.213.0)
+    aws-sdk-core (3.68.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.22.0)
-      aws-sdk-core (~> 3, >= 3.56.0)
+    aws-sdk-kms (1.24.0)
+      aws-sdk-core (~> 3, >= 3.61.1)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.43.0)
-      aws-sdk-core (~> 3, >= 3.56.0)
+    aws-sdk-s3 (1.48.0)
+      aws-sdk-core (~> 3, >= 3.61.1)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.0)
@@ -321,7 +321,7 @@ GEM
       rdoc (~> 4.0)
     secure_headers (5.0.5)
       useragent (>= 0.15.0)
-    simplecov (0.17.0)
+    simplecov (0.17.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
@@ -361,7 +361,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    webmock (3.7.3)
+    webmock (3.7.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
