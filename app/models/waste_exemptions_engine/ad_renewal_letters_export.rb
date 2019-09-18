@@ -6,18 +6,26 @@ module WasteExemptionsEngine
 
     validates :expires_on, uniqueness: true
 
-    enum status: { succeded: 0, failed: 1 }
+    enum status: { succeded: 0, failed: 1, deleted: 2 }
+
+    scope :not_deleted, -> { where.not(status: 2) }
 
     def export!
       AdRenewalLettersExportService.run(self)
     end
 
     def printed?
-      printed_on.presence && printed_by.presence
+      printed_on.present? && printed_by.present?
     end
 
     def presigned_aws_url
       bucket.presigned_url(file_name)
+    end
+
+    def deleted!
+      bucket.delete(file_name)
+
+      super
     end
 
     private

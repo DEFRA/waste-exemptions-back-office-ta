@@ -22,6 +22,19 @@ module WasteExemptionsEngine
       end
     end
 
+    describe "#deleted!" do
+      subject(:ad_renewal_letters_export) { create(:ad_renewal_letters_export, file_name: "foo.pdf") }
+
+      let(:bucket) { double(:bucket) }
+
+      it "deletes the file from AWS" do
+        expect(DefraRuby::Aws).to receive(:get_bucket).and_return(bucket)
+        expect(bucket).to receive(:delete).with("foo.pdf")
+
+        ad_renewal_letters_export.deleted!
+      end
+    end
+
     describe "#presigned_aws_url" do
       subject(:ad_renewal_letters_export) { build(:ad_renewal_letters_export, file_name: "foo.pdf") }
 
