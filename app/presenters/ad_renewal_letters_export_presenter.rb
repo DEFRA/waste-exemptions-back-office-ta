@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class AdRenewalLettersExportPresenter < BasePresenter
+  include ActionView::Helpers::TextHelper
+
   def downloadable?
     succeded? && number_of_letters.positive?
   end
@@ -11,7 +13,7 @@ class AdRenewalLettersExportPresenter < BasePresenter
 
   def letters_label
     if number_of_letters.positive?
-      I18n.t("ad_renewal_letters_exports.index.table.letters_label", number_of_letters: number_of_letters)
+      pluralize(number_of_letters, I18n.t("ad_renewal_letters_exports.index.table.letters_label"))
     else
       I18n.t("ad_renewal_letters_exports.index.labels.no_renewals")
     end
@@ -35,7 +37,7 @@ class AdRenewalLettersExportPresenter < BasePresenter
   end
 
   def printed_by_label
-    printed_by.scan(/(\A.*)\.(.*)@/).flatten.map(&:capitalize).join(" ")
+    printed_by.scan(/(\A.*)[\.|_](.*)@/).flatten.map(&:capitalize).join(" ").presence || printed_by
   end
 
   def none_to_print_label
