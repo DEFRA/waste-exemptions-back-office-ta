@@ -116,7 +116,6 @@ RSpec.describe AdRenewalLettersExportPresenter do
           end
         end
 
-
         it "returns a label with the printed status" do
           ad_renewal_letters_export.printed_by = "katherine.johnson@nasa.org.uk"
           ad_renewal_letters_export.printed_on = Date.today
