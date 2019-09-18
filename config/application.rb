@@ -61,6 +61,7 @@ module WasteExemptionsBackOffice
 
     config.years_before_expiry = ENV["YEARS_BEFORE_EXPIRY"] || 3
     config.ad_letters_exports_expires_in = ENV["AD_LETTERS_EXPORT_EXPIRES_IN"] || 35
+    config.ad_letters_delete_records_in = ENV["AD_LETTERS_DELETE_RECORDS_IN"] || 21
 
     # Emails
     config.email_test_address = ENV["EMAIL_TEST_ADDRESS"]
