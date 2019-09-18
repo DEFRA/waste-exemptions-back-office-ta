@@ -89,6 +89,34 @@ RSpec.describe AdRenewalLettersExportPresenter do
       let(:status) { :succeded }
 
       context "when the export has been printed" do
+        context "when the email is in the format name_surname" do
+          it "returns a label with the name of the person that printed it" do
+            ad_renewal_letters_export.printed_by = "katherine_johnson@nasa.org.uk"
+            ad_renewal_letters_export.printed_on = Date.today
+
+            expect(presenter.print_label).to include("Katherine Johnson")
+          end
+        end
+
+        context "when the email is in the format name.surname" do
+          it "returns a label with the name of the person that printed it" do
+            ad_renewal_letters_export.printed_by = "katherine.johnson@nasa.org.uk"
+            ad_renewal_letters_export.printed_on = Date.today
+
+            expect(presenter.print_label).to include("Katherine Johnson")
+          end
+        end
+
+        context "when the email is in any other format" do
+          it "returns a label with the email of the person that printed it" do
+            ad_renewal_letters_export.printed_by = "katherine-johnson@nasa.org.uk"
+            ad_renewal_letters_export.printed_on = Date.today
+
+            expect(presenter.print_label).to include("katherine-johnson@nasa.org.uk")
+          end
+        end
+
+
         it "returns a label with the printed status" do
           ad_renewal_letters_export.printed_by = "katherine.johnson@nasa.org.uk"
           ad_renewal_letters_export.printed_on = Date.today

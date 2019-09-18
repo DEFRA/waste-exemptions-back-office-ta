@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <% presenters.each do |presenter| %>
+  <% presenters.each_with_index do |presenter, index| %>
     <!-- We don't want the bulk to fail if a single render fails -->
     <%=
       begin
@@ -19,7 +19,9 @@
         ""
       end
     %>
-    <div id="page-break">&nbsp;</div>
+    <% if index < (presenters.size - 1) %>
+      <div id="page-break">&nbsp;</div>
+    <% end %>
   <% end %>
 </body>
 </html>

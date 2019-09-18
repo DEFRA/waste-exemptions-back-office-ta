@@ -19,6 +19,8 @@ class RenewalLettersBulkPdfService < ::WasteExemptionsEngine::BaseService
   rescue StandardError => e
     Airbrake.notify e
     Rails.logger.error "Generate AD renewal letters PDF bulk error:\n#{e}"
+
+    raise e
   end
 
   private

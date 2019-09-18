@@ -7,7 +7,7 @@ en:
           expiring_date: "Expiry date"
           number_of_letters: "Number of letters"
           printed: "Printed"
-        letters_label: "%{number_of_letters} letters"
+        letters_label: "letter"
       labels:
         submit: "Mark as printed"
         none_to_print: "None to print"
