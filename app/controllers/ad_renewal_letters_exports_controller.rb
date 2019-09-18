@@ -22,7 +22,7 @@ class AdRenewalLettersExportsController < ApplicationController
   end
 
   def ad_renewal_letters_exports_presenters
-    WasteExemptionsEngine::AdRenewalLettersExport.all.map do |ad_renewal_letters_export|
+    WasteExemptionsEngine::AdRenewalLettersExport.not_deleted.map do |ad_renewal_letters_export|
       AdRenewalLettersExportPresenter.new(ad_renewal_letters_export)
     end
   end

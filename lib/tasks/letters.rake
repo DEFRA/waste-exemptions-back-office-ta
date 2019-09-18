@@ -10,6 +10,10 @@ namespace :letters do
         expires_on: expires_on
       ).export!
 
+      older_than = WasteExemptionsBackOffice::Application.config.ad_letters_delete_records_in.to_i.weeks.from_now
+
+      AdRenewalLettersExportCleanerService.run(older_than)
+
       Airbrake.close
     end
   end
