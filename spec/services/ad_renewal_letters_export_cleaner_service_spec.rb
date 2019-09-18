@@ -9,7 +9,7 @@ RSpec.describe AdRenewalLettersExportCleanerService do
       create(:ad_renewal_letters_export, created_at: 3.weeks.ago, file_name: "example.txt")
     end
 
-    it "mark as deleted all records oldert than a specified date and delete their associated files" do
+    it "marks as deleted all records older than a specified date and deletes their associated files" do
       # Expect no error
       expect(Airbrake).to_not receive(:notify)
 
