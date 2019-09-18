@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/DEFRA/defra-ruby-aws
-  revision: ce82b4214709b0cc437545958b1b7db8a2472a71
-  branch: master
-  specs:
-    defra_ruby_aws (0.2.0)
-      aws-sdk-s3
-
-GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
   revision: 371066eadf92ec450880adc03f77e5734e0d5d9c
   branch: master
@@ -73,7 +65,7 @@ GEM
     arel (6.0.4)
     ast (2.4.0)
     aws-eventstream (1.0.3)
-    aws-partitions (1.213.0)
+    aws-partitions (1.215.0)
     aws-sdk-core (3.68.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
@@ -105,6 +97,8 @@ GEM
     crass (1.0.4)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
+    defra_ruby_aws (0.2.0)
+      aws-sdk-s3
     defra_ruby_style (0.1.2)
       rubocop
     defra_ruby_validators (2.1.2)
@@ -380,7 +374,7 @@ DEPENDENCIES
   bullet (~> 5.9)
   cancancan (~> 2.0)
   database_cleaner
-  defra_ruby_aws!
+  defra_ruby_aws (~> 0.2.0)
   defra_ruby_style
   devise (>= 4.4.3)
   devise_invitable (~> 1.7.0)
