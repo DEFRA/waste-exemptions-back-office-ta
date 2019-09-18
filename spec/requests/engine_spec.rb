@@ -3,8 +3,8 @@
 require "rails_helper"
 
 RSpec.describe "Waste Exemptions Engine", type: :request do
-  describe "/start/new" do
-    let(:request_path) { "/start/new" }
+  describe "/start" do
+    let(:request_path) { "/start" }
 
     context "when a valid user is signed in" do
       before { sign_in(create(:user, :admin_agent)) }
@@ -45,7 +45,7 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
 
   describe "edit permissions" do
     let(:registration) { create(:registration) }
-    let(:request_path) { "/edit/#{registration.reference}" }
+    let(:request_path) { "/#{registration.reference}/edit" }
 
     context "when a valid user is signed in" do
       before { sign_in(create(:user, :super_agent)) }
