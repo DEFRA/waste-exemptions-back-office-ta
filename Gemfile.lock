@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 371066eadf92ec450880adc03f77e5734e0d5d9c
-  branch: master
+  revision: 6c74df93ef918e7ab249f54e5bc256327e4bea27
+  branch: add-active-and-expired-registrations
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
