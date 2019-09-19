@@ -43,6 +43,7 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
   def ad_expiring_registrations
     @_ad_expiring_registrations ||= lambda do
       WasteExemptionsEngine::Registration
+        .order(:reference)
         .where(contact_email: "waste-exemptions@environment-agency.gov.uk")
         .where(
           id: WasteExemptionsEngine::RegistrationExemption
