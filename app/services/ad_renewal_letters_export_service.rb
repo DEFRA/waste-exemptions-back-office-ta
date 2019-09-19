@@ -62,6 +62,7 @@ class AdRenewalLettersExportService < ::WasteExemptionsEngine::BaseService
     @ad_renewal_letters_export.file_name = file_name
 
     @ad_renewal_letters_export.save!
+    @ad_renewal_letters_export.succeded!
   end
 
   def record_content_errored
