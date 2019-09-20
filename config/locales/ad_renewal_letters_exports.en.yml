@@ -14,3 +14,4 @@ en:
         no_renewals: "No registrations"
         failed: "Letter generation failed - contact support"
         printed: "%{printed_by}, %{printed_on}"
+        expire_date_for: "for %{expire_date}"
