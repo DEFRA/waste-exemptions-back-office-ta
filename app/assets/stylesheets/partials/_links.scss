@@ -1,5 +1,6 @@
 // A button which looks like a link
-input.button-link {
+input.button-link, button.button-link {
+  @extend input;
   border: none;
   color: $link-colour;
   padding: 0;
