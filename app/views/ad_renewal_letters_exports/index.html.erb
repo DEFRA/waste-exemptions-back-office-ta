@@ -42,7 +42,7 @@
                   <%= f.hidden_field :printed_by, value: current_user.email %>
                   <%= f.hidden_field :printed_on, value: Date.today %>
 
-                  <%= button_tag(type: 'submit', class: "button-link", id: 'validForm') do %>
+                  <%= button_tag(type: 'submit', class: "button-link") do %>
                     <%= t(".labels.submit") %>
                     <span class="visually-hidden">
                       <%= t(".labels.expire_date_for", expire_date: presenter.expire_date) %>
