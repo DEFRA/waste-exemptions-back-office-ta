@@ -50,7 +50,7 @@ class RenewalLetterPresenter < BaseLetterPresenter
   private
 
   def relevant_exemptions
-    @_relevant_exemptions ||= (active_exemptions + expired_exemptions)
+    @_relevant_exemptions ||= expired_and_active_exemptions.order(:id)
   end
 
   def calculate_number_of_unlisted_exemptions
