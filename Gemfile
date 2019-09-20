@@ -60,6 +60,9 @@ gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
     branch: "master"
 
+# EA Area lookup
+gem "defra_ruby_area"
+
 # Use the Defra Ruby Aws gem for loading files to AWS buckets
 gem "defra_ruby_aws", "~> 0.2.0"
 

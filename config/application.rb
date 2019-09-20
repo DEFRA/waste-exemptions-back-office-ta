@@ -63,6 +63,7 @@ module WasteExemptionsBackOffice
     config.ad_letters_exports_expires_in = ENV["AD_LETTERS_EXPORT_EXPIRES_IN"] || 35
     config.ad_letters_delete_records_in = ENV["AD_LETTERS_DELETE_RECORDS_IN"] || 21
 
+    config.ea_area_lookup_number_of_runs = ENV["EA_AREA_LOOKUP_NUMBER_OF_RUNS"] || 500
     # Emails
     config.email_test_address = ENV["EMAIL_TEST_ADDRESS"]
     config.second_renewal_email_reminder_days = ENV["SECOND_RENEWAL_EMAIL_BEFORE_DAYS"] || 14
