@@ -9,7 +9,7 @@ module AdPrivacyPolicyHelper
     if @registration.present?
       renew_path(reference: @registration.reference)
     else
-      WasteExemptionsEngine::Engine.routes.url_helpers.new_start_form_path(:new)
+      WasteExemptionsEngine::Engine.routes.url_helpers.new_start_form_path
     end
   end
 end
