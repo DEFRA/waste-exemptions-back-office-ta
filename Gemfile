@@ -58,7 +58,7 @@ gem "paper_trail", "~> 10.2.0"
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
-    branch: "master"
+    branch: "487-lookups-scopes"
 
 # Use the Defra Ruby Aws gem for loading files to AWS buckets
 gem "defra_ruby_aws", "~> 0.2.0"
@@ -112,6 +112,7 @@ group :test do
   gem "timecop"
   # Mock HTTP requests
   gem "webmock", "~> 3.5"
+  gem "vcr"
 
   # Allow automated testing of the whenever schedule
   gem "whenever-test", "~> 1.0"
