@@ -4,7 +4,7 @@ class AdRenewalLettersExportPresenter < BasePresenter
   include ActionView::Helpers::TextHelper
 
   def downloadable?
-    succeded? && number_of_letters.positive?
+    succeded? && number_of_letters&.positive?
   end
 
   def expire_date
