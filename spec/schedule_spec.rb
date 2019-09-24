@@ -15,7 +15,7 @@ RSpec.describe "Whenever schedule" do
 
   it "makes sure 'rake' statements exist" do
     rake_jobs = schedule.jobs[:rake]
-    expect(rake_jobs.count).to eq(8)
+    expect(rake_jobs.count).to eq(9)
 
     epr_jobs = rake_jobs.select { |j| j[:task] == "reports:export:epr" }
     bulk_jobs = rake_jobs.select { |j| j[:task] == "reports:export:bulk" }
@@ -28,6 +28,13 @@ RSpec.describe "Whenever schedule" do
 
     expect(job_details[:every][0]).to eq(:day)
     expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])
+  end
+
+  it "takes the area lookup execution time from the appropriate ENV variable" do
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "lookups:update:missing_area" }
+
+    expect(job_details[:every][0]).to eq(:day)
+    expect(job_details[:every][1][:at]).to eq(ENV["AREA_LOOKUP"])
   end
 
   it "takes the bulk export execution time and frequency from the appropriate ENV variables" do

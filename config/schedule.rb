@@ -22,6 +22,11 @@ every :day, at: (ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"] || "1:05"), roles: [:db] 
   rake "reports:export:epr"
 end
 
+# This will run daily and update EA areas for addresses with x and y but without Area.
+every :day, at: (ENV["AREA_LOOKUP"] || "1:05"), roles: [:db] do
+  rake "lookups:update:missing_area"
+end
+
 # This is the daily bulk export job. When run this will create batched CSV
 # exports of all records and put these files into an AWS S3 bucket.
 bulk_time = (ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"] || "20:05")

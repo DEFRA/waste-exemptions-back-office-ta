@@ -111,6 +111,7 @@ group :test do
   # dead simple to test time-dependent code.
   gem "timecop"
   # Mock HTTP requests
+  gem "vcr"
   gem "webmock", "~> 3.5"
 
   # Allow automated testing of the whenever schedule
