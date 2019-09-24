@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 437b1656a68ff80c35bcfbd6eba038ce13ae8b55
-  branch: 487-lookups-scopes
+  revision: 53a145db52bd4f9ee59d9b3b9e015c5a394705aa
+  branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
