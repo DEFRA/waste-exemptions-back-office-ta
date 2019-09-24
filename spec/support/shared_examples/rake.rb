@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Adapted from: https://thoughtbot.com/blog/test-rake-tasks-like-a-boss
 
 require "rake"

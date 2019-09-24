@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "Lookups task" do
@@ -14,7 +16,7 @@ RSpec.describe "Lookups task" do
     let(:run_for) { 10 }
 
     it "update area info into addresses missing it" do
-      address = create(:address, x: 408602.61, y: 257535.31)
+      address = create(:address, x: 408_602.61, y: 257_535.31)
 
       expect { subject.invoke }.to change { address.reload.area }.from(nil).to("West Midlands")
     end
