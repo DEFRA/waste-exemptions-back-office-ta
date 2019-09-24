@@ -11,7 +11,7 @@ namespace :lookups do
       addresses_scope.find_each do |address|
         break if Time.now > run_until
 
-        EaAreaLookupService.run(address)
+        UpdateAreaService.run(address)
       end
 
       Airbrake.close

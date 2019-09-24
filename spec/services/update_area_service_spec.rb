@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe EaAreaLookupService do
+RSpec.describe UpdateAreaService do
   describe ".run" do
     let(:address) { create(:address, x: 123.1, y: 123.1, area: nil) }
     let(:area) { "West Midlands" }

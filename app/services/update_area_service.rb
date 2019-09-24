@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EaAreaLookupService < ::WasteExemptionsEngine::BaseService
+class UpdateAreaService < ::WasteExemptionsEngine::BaseService
   attr_reader :address
 
   def run(address)
