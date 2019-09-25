@@ -30,6 +30,13 @@ RSpec.describe "Whenever schedule" do
     expect(job_details[:every][1][:at]).to eq("22:05")
   end
 
+  it "takes the area lookup execution time from the appropriate ENV variable" do
+    job_details = schedule.jobs[:rake].find { |h| h[:task] == "lookups:update:missing_easting_and_northing" }
+
+    expect(job_details[:every][0]).to eq(:day)
+    expect(job_details[:every][1][:at]).to eq("23:05")
+  end
+
   it "picks up the area lookup run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "lookups:update:missing_area" }
 

@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:9002/address-service/v1/addresses/postcode?client-id=0&key=client1&postcode=AB35EF
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (linux-gnu x86_64) ruby/2.4.2p198
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:9002
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 25 Sep 2019 09:58:25 GMT
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalMatches":0,"startMatch":null,"endMatch":null,"uri_to_supplier":"https://api.ordnancesurvey.co.uk/places/v1/addresses/postcode?lr=EN&postcode=AB35EF&maxresults=100&dataset=DPA","uri_from_client":"stub","results":[]}'
+    http_version: 
+  recorded_at: Wed, 25 Sep 2019 09:58:25 GMT
+recorded_with: VCR 5.0.0
