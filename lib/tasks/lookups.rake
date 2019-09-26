@@ -2,11 +2,11 @@
 
 namespace :lookups do
   namespace :update do
-    desc "Populate EA Area information in all WasteExemptionsEngine::Address objects missing it."
+    desc "Update all sites with a missing area (x & y must be populated)"
     task missing_area: :environment do
       run_for = WasteExemptionsBackOffice::Application.config.area_lookup_run_for.to_i
       run_until = run_for.minutes.from_now
-      addresses_scope = WasteExemptionsEngine::Address.missing_area.with_easting_and_northing
+      addresses_scope = WasteExemptionsEngine::Address.site.missing_area.with_easting_and_northing
 
       addresses_scope.find_each do |address|
         break if Time.now > run_until
