@@ -393,7 +393,7 @@ module Reports
 
     describe "#registration_detail_url" do
       it "returns an url to the registration details backend page" do
-        url = "http://localhost:8001/registrations/#{registration.reference}"
+        url = "http://localhost:8000/registrations/#{registration.reference}"
 
         expect(exemption_bulk_report_presenter.registration_detail_url).to eq(url)
       end
