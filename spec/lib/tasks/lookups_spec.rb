@@ -36,13 +36,17 @@ RSpec.describe "Lookups task", type: :rake do
 
     it "update easting and northing info into addresses missing it" do
       site_address = create(:address, address_type: :site, x: nil, y: nil, postcode: "BS1 5AH")
+      non_site_address = create(:address, x: nil, y: nil, postcode: "BS1 5AH")
 
       subject.invoke
-
       site_address.reload
+      non_site_address.reload
 
       expect(site_address.x).to eq(358_205.03)
       expect(site_address.y).to eq(172_708.07)
+
+      expect(non_site_address.x).to be_nil
+      expect(non_site_address.y).to be_nil
     end
   end
 
