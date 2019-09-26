@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "../close_airbrake"
-require_relative "../service_on_scope_runner"
+require_relative "../timed_service_runner"
 
 namespace :lookups do
   namespace :update do
