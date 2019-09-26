@@ -10,7 +10,7 @@ namespace :lookups do
       run_for = WasteExemptionsBackOffice::Application.config.area_lookup_run_for.to_i
       addresses_scope = WasteExemptionsEngine::Address.site.missing_area.with_easting_and_northing
 
-      ServiceOnScopeRunner.run(
+      TimedServiceRunner.run(
         scope: addresses_scope,
         run_for: run_for,
         service: UpdateAreaService
@@ -27,7 +27,7 @@ namespace :lookups do
       run_for = WasteExemptionsBackOffice::Application.config.easting_and_northing_lookup_run_for.to_i
       addresses_scope = WasteExemptionsEngine::Address.site.missing_easting_or_northing
 
-      ServiceOnScopeRunner.run(
+      TimedServiceRunner.run(
         scope: addresses_scope,
         run_for: run_for,
         service: UpdateEastingAndNorthingService
