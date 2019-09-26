@@ -19,8 +19,12 @@ RSpec.describe "Lookups task", type: :rake do
       site_address = create(:address, address_type: :site, x: 408_602.61, y: 257_535.31)
       non_site_address = create(:address, x: 408_602.61, y: 257_535.31)
 
-      expect { subject.invoke }.to change { site_address.reload.area }.from(nil).to("West Midlands")
-      expect { subject.invoke }.to_not change { non_site_address.reload.area }
+      subject.invoke
+      site_address.reload
+      non_site_address.reload
+
+      expect(site_address.area).to eq("West Midlands")
+      expect(non_site_address.area).to be_nil
     end
   end
 
