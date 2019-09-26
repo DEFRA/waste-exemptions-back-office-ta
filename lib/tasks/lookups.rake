@@ -25,7 +25,7 @@ namespace :lookups do
     desc "Populate EA Area information in all WasteExemptionsEngine::Address objects missing it."
     task missing_easting_and_northing: :environment do
       run_for = WasteExemptionsBackOffice::Application.config.easting_and_northing_lookup_run_for.to_i
-      addresses_scope = WasteExemptionsEngine::Address.missing_easting_or_northing
+      addresses_scope = WasteExemptionsEngine::Address.site.missing_easting_or_northing
 
       ServiceOnScopeRunner.run(
         scope: addresses_scope,

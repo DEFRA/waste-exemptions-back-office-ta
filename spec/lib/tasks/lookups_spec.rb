@@ -35,14 +35,14 @@ RSpec.describe "Lookups task", type: :rake do
     let(:run_for) { 10 }
 
     it "update easting and northing info into addresses missing it" do
-      address = create(:address, x: nil, y: nil, postcode: "BS1 5AH")
+      site_address = create(:address, address_type: :site, x: nil, y: nil, postcode: "BS1 5AH")
 
       subject.invoke
 
-      address.reload
+      site_address.reload
 
-      expect(address.x).to eq(358_205.03)
-      expect(address.y).to eq(172_708.07)
+      expect(site_address.x).to eq(358_205.03)
+      expect(site_address.y).to eq(172_708.07)
     end
   end
 
