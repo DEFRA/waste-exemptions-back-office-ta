@@ -41,8 +41,8 @@ module WasteExemptionsBackOffice
     }
 
     # Paths
-    config.front_office_url = ENV["FRONT_OFFICE_URL"] || "http://localhost:3001"
-    config.back_office_url = ENV["BACK_OFFICE_URL"] || "http://localhost:8001"
+    config.front_office_url = ENV["FRONT_OFFICE_URL"] || "http://localhost:3000"
+    config.back_office_url = ENV["BACK_OFFICE_URL"] || "http://localhost:8000"
 
     # Addressbase facade config
     config.addressbase_url = ENV["ADDRESSBASE_URL"] || "http://localhost:9002"
@@ -59,7 +59,6 @@ module WasteExemptionsBackOffice
     config.epr_export_filename = ENV["EPR_DAILY_REPORT_FILE_NAME"] || "waste_exemptions_epr_daily_full"
     config.export_batch_size = ENV["EXPORT_SERVICE_BATCH_SIZE"] || 1000
 
-    config.years_before_expiry = ENV["YEARS_BEFORE_EXPIRY"] || 3
     config.ad_letters_exports_expires_in = ENV["AD_LETTERS_EXPORT_EXPIRES_IN"] || 35
     config.ad_letters_delete_records_in = ENV["AD_LETTERS_DELETE_RECORDS_IN"] || 21
 

@@ -11,6 +11,7 @@ WasteExemptionsEngine.configure do |configuration|
 
   # Addressbase facade config
   configuration.addressbase_url = ENV["ADDRESSBASE_URL"] || "http://localhost:9002"
+
   # Email config
   configuration.service_name = ENV["EMAIL_SERVICE_NAME"] || "Waste Exemptions Service"
   configuration.email_service_email = ENV["EMAIL_SERVICE_EMAIL"] || "wex-local@example.com"
@@ -22,6 +23,10 @@ WasteExemptionsEngine.configure do |configuration|
   configuration.edit_enabled = "true"
 
   # PDF config
+  # Should we use XVFB when rendering PDFs? The reason for asking this is local
+  # development environments. If you're working in an environment without a GUI
+  # then you want this set to true. However if you are working locally then
+  # you'll want to disable it
   configuration.use_xvfb_for_wickedpdf = ENV["USE_XVFB_FOR_WICKEDPDF"] || "true"
 
   # Last email cache config
