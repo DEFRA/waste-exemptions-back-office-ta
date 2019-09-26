@@ -15,7 +15,7 @@ RSpec.describe "Lookups task", type: :rake do
 
     let(:run_for) { 10 }
 
-    it "update area info into addresses missing it" do
+    it "updates the area for site addresses missing it, as long as x & y is populated" do
       site_address = create(:address, address_type: :site, x: 408_602.61, y: 257_535.31)
       non_site_address = create(:address, x: 408_602.61, y: 257_535.31)
 
@@ -38,7 +38,7 @@ RSpec.describe "Lookups task", type: :rake do
 
     let(:run_for) { 10 }
 
-    it "update easting and northing info into addresses missing it" do
+    it "updates x & y for site addresses missing them, as long as the postcode is populated" do
       site_address = create(:address, address_type: :site, x: nil, y: nil, postcode: "BS1 5AH")
       non_site_address = create(:address, x: nil, y: nil, postcode: "BS1 5AH")
 
