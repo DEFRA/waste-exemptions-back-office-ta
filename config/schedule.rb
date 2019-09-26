@@ -18,48 +18,8 @@ set :job_template, "/bin/bash -l -c 'eval \"$(rbenv init -)\" && :job'"
 # This is the daily EPR export job. When run this will create a CSV export of
 # all records and put this into an AWS S3 bucket from which Epimorphics (the
 # company that provides and maintains the EPR) will grab it
-every :day, at: (ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"] || "1:05"), roles: [:db] do
+every :day, at: (ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"] || "22:05"), roles: [:db] do
   rake "reports:export:epr"
-end
-
-# This will run daily and update EA areas for addresses with x and y but without Area.
-every :day, at: (ENV["AREA_LOOKUP"] || "1:05"), roles: [:db] do
-  rake "lookups:update:missing_area"
-end
-
-# This is the daily bulk export job. When run this will create batched CSV
-# exports of all records and put these files into an AWS S3 bucket.
-bulk_time = (ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"] || "20:05")
-every :day, at: bulk_time, roles: [:db] do
-  rake "reports:export:bulk"
-end
-
-# This is the daily first renewal reminder mail service.
-# Will run once a day in the early morning hours and send email reminders about
-# registrations that will expire in X time.
-every :day, at: (ENV["FIRST_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"] || "1:05"), roles: [:db] do
-  rake "email:renew_reminder:first:send"
-end
-
-# This is the daily second renewal reminder mail service.
-# Will run once a day in the early morning hours and send email reminders about
-# registrations that will expire in X time.
-every :day, at: (ENV["SECOND_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"] || "04:05"), roles: [:db] do
-  rake "email:renew_reminder:second:send"
-end
-
-# This is the daily boxi export generation service.
-# Will run once a day in the early morning hours and generate a zip file containing
-# data required for boxi.
-every :day, at: (ENV["EXPORT_SERVICE_BOXI_EXPORT_TIME"] || "03:05"), roles: [:db] do
-  rake "reports:export:boxi"
-end
-
-# This is the daily AD renewal letters export service.
-# Will run once a day in the early morning hours and generate a PDF file containing
-# all AD renewal letters expiring in X days.
-every :day, at: (ENV["EXPORT_SERVICE_AD_RENEWAL_LETTERS_TIME"] || "01:05"), roles: [:db] do
-  rake "letters:export:ad_renewals"
 end
 
 # This is the registration exemptions exiry job which will collect all active
@@ -74,4 +34,44 @@ end
 # that are too old, as well as their associated addresses, exemptions and people
 every :day, at: (ENV["CLEANUP_TRANSIENT_REGISTRATIONS_RUN_TIME"] || "00:35"), roles: [:db] do
   rake "cleanup:transient_registrations"
+end
+
+# This is the daily AD renewal letters export service.
+# Will run once a day in the early morning hours and generate a PDF file containing
+# all AD renewal letters expiring in X days.
+every :day, at: (ENV["EXPORT_SERVICE_AD_RENEWAL_LETTERS_TIME"] || "00:45"), roles: [:db] do
+  rake "letters:export:ad_renewals"
+end
+
+# This will run daily and update EA areas for addresses with x and y but without Area.
+every :day, at: (ENV["AREA_LOOKUP"] || "01:05"), roles: [:db] do
+  rake "lookups:update:missing_area"
+end
+
+# This is the daily bulk export job. When run this will create batched CSV
+# exports of all records and put these files into an AWS S3 bucket.
+bulk_time = (ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"] || "02:05")
+every :day, at: bulk_time, roles: [:db] do
+  rake "reports:export:bulk"
+end
+
+# This is the daily first renewal reminder mail service.
+# Will run once a day in the early morning hours and send email reminders about
+# registrations that will expire in X time.
+every :day, at: (ENV["FIRST_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"] || "02:05"), roles: [:db] do
+  rake "email:renew_reminder:first:send"
+end
+
+# This is the daily boxi export generation service.
+# Will run once a day in the early morning hours and generate a zip file containing
+# data required for boxi.
+every :day, at: (ENV["EXPORT_SERVICE_BOXI_EXPORT_TIME"] || "03:05"), roles: [:db] do
+  rake "reports:export:boxi"
+end
+
+# This is the daily second renewal reminder mail service.
+# Will run once a day in the early morning hours and send email reminders about
+# registrations that will expire in X time.
+every :day, at: (ENV["SECOND_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"] || "04:05"), roles: [:db] do
+  rake "email:renew_reminder:second:send"
 end
