@@ -7,15 +7,15 @@
 # all site addresses missing an area. To ensure this does not run for too long
 # we use +TimedServiceRunner+ to limit how long it runs for.
 #
-#   run_for = 60 # minutes
-#   job_scope = WasteExemptionsEngine::Address.site.missing_area.with_easting_and_northing
-#   service_to_run = UpdateAreaService
+#     run_for = 60 # minutes
+#     job_scope = WasteExemptionsEngine::Address.site.missing_area.with_easting_and_northing
+#     service_to_run = UpdateAreaService
 #
-#   TimedServiceRunner.run(
-#     scope: job_scope,
-#     run_for: run_for,
-#     service: service_to_run
-#   )
+#     TimedServiceRunner.run(
+#       scope: job_scope,
+#       run_for: run_for,
+#       service: service_to_run
+#     )
 #
 class TimedServiceRunner
   def self.run(scope:, run_for:, service:)
