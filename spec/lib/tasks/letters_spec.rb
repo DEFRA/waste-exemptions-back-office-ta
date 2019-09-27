@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Letters task" do
+RSpec.describe "Letters task", type: :rake do
   include_context "rake"
 
   describe "letters:export:ad_renewals" do

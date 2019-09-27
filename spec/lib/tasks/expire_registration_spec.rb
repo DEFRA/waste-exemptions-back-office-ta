@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Expire Registration task" do
+RSpec.describe "Expire Registration task", type: :rake do
   include_context "rake"
 
   describe "expire_registration:run" do

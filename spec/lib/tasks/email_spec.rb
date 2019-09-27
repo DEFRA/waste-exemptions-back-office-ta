@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Email task" do
+RSpec.describe "Email task", type: :rake do
   include_context "rake"
 
   # We have this test declared here as a way of recording a decision. The

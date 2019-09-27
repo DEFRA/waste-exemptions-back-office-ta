@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Reports task" do
+RSpec.describe "Reports task", type: :rake do
   include_context "rake"
 
   describe "reports:export:bulk" do

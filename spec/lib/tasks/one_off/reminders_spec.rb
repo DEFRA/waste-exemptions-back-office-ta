@@ -2,10 +2,10 @@
 
 require "rails_helper"
 
-RSpec.describe "Reminder task" do
+RSpec.describe "Reminder task", type: :rake do
   include_context "rake"
 
-  before(:all) { create(:registration, :with_active_exemptions) }
+  before(:each) { create(:registration, :with_active_exemptions) }
 
   describe "reminder:first" do
     it "runs without error" do

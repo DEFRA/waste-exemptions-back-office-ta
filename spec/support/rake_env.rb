@@ -38,4 +38,12 @@ RSpec.configure do |config|
 
     Rake::Task.define_task(:environment)
   end
+
+  config.before(:each, type: :rake) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.after(type: :rake) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
 end
