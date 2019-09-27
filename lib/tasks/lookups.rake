@@ -16,10 +16,7 @@ namespace :lookups do
         service: UpdateAreaService
       )
 
-      # The test suite will complain about airbrake being closed already when running this
-      # Since there is no way in version 5.8 to ask Airbrake if it is already closed or to
-      # reopen it before every tets, this check will allow the test suite to not complain
-      Airbrake.close unless Rails.env.test?
+      CloseAirbrake.now
     end
 
     desc "Populate EA Area information in all WasteExemptionsEngine::Address objects missing it."
