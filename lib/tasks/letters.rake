@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../close_airbrake"
+
 namespace :letters do
   namespace :export do
     desc "Generate a bulk export PDF file of AD renewal letters expiring soon"
@@ -14,10 +16,7 @@ namespace :letters do
 
       AdRenewalLettersExportCleanerService.run(older_than)
 
-      # The test suite will complain about airbrake being closed already when running this
-      # Since there is no way in version 5.8 to ask Airbrake if it is already closed or to
-      # reopen it before every tets, this check will allow the test suite to not complain
-      Airbrake.close unless Rails.env.test?
+      CloseAirbrake.now
     end
   end
 end

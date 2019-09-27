@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../close_airbrake"
+
 namespace :lookups do
   namespace :update do
     desc "Update all sites with a missing area (x & y must be populated)"
@@ -14,7 +16,7 @@ namespace :lookups do
         UpdateAreaService.run(address)
       end
 
-      Airbrake.close
+      CloseAirbrake.now
     end
   end
 end
