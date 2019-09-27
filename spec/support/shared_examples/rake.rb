@@ -1,22 +1,30 @@
 # frozen_string_literal: true
 
 # Adapted from: https://thoughtbot.com/blog/test-rake-tasks-like-a-boss
+# and https://stackoverflow.com/a/42172531
+#
+# In the Thoughbot article it has custom method
+# `loaded_files_excluding_current_rake_file` which is called in a `before`
+# block. The purpose of this is to handle situations where you have more than
+# one test of a rake file, which due to rake's idiosyncrasies can cause
+# problems.
+#
+# However its inclusion leads to an issue where if a rake file contains more
+# than one task and we have have a test for each, the last to be run will
+# overwrite the results of the first in simplecov.
+#
+# So we have dropped its use and incorporated the notes from the stackoverflow
+# article to cater for this situation, and ensure our test coverage is accurate.
 
 require "rake"
 
 RSpec.shared_context "rake" do
-  let(:rake)      { Rake::Application.new }
-  let(:task_name) { self.class.description }
+  let(:subject) { Rake.application[task_name] }
   let(:task_path) { "lib/tasks/#{task_name.split(':').first}" }
-  subject         { rake[task_name] }
 
-  def loaded_files_excluding_current_rake_file
-    $LOADED_FEATURES.reject { |file| file == Rails.root.join("#{task_path}.rake").to_s }
-  end
-
-  before do
-    Rake.application = rake
-    Rake.application.rake_require(task_path, [Rails.root.to_s], loaded_files_excluding_current_rake_file)
+  before(:all) do
+    Rake.application = Rake::Application.new
+    Rails.application.load_tasks
 
     Rake::Task.define_task(:environment)
   end

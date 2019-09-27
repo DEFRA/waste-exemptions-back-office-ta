@@ -10,10 +10,11 @@ RSpec.describe "Lookups task" do
     after { VCR.eject_cassette }
 
     before do
-      expect(WasteExemptionsBackOffice::Application.config).to receive(:area_lookup_run_for).and_return(run_for)
+      allow(WasteExemptionsBackOffice::Application.config).to receive(:area_lookup_run_for).and_return(run_for)
     end
 
     let(:run_for) { 10 }
+    let(:task_name) { self.class.description }
 
     it "update area info into addresses missing it" do
       site_address = create(:address, address_type: :site, x: 408_602.61, y: 257_535.31)
