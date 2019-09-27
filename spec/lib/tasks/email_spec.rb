@@ -14,36 +14,25 @@ RSpec.describe "Email task" do
   # If this was a more important function we'd properly cover it, but in this
   # case we are happy to skip the test coverage.
   describe "email:test", skip: "We don't want to cover this!" do
-    let(:task_name) { self.class.description }
-
     it "runs without error" do
       expect { subject.invoke }.not_to raise_error
     end
   end
 
   describe "email:anonymise" do
-    let(:task_name) { self.class.description }
-
     it "runs without error" do
-
       expect { subject.invoke }.not_to raise_error
     end
   end
 
   describe "email:renew_reminder:first:send" do
-    let(:task_name) { self.class.description }
-
     it "runs without error" do
-
       expect { subject.invoke }.not_to raise_error
     end
   end
 
   describe "email:renew_reminder:second:send" do
-    let(:task_name) { self.class.description }
-
     it "runs without error" do
-
       expect { subject.invoke }.not_to raise_error
     end
   end
