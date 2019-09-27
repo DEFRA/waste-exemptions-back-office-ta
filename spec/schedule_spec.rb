@@ -23,72 +23,72 @@ RSpec.describe "Whenever schedule" do
     expect(bulk_jobs.count).to eq(1)
   end
 
-  it "takes the EPR execution time from the appropriate ENV variable" do
+  it "picks up the EPR export run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:export:epr" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_EPR_EXPORT_TIME"])
+    expect(job_details[:every][1][:at]).to eq("22:05")
   end
 
-  it "takes the area lookup execution time from the appropriate ENV variable" do
+  it "picks up the area lookup run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "lookups:update:missing_area" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["AREA_LOOKUP"])
+    expect(job_details[:every][1][:at]).to eq("01:05")
   end
 
-  it "takes the bulk export execution time and frequency from the appropriate ENV variables" do
+  it "picks up the bulk export run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:export:bulk" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"])
+    expect(job_details[:every][1][:at]).to eq("02:05")
   end
 
-  it "takes the cron log output path from the appropriate ENV variable" do
-    expected_output_file = File.join(ENV["EXPORT_SERVICE_CRON_LOG_OUTPUT_PATH"], "whenever_cron.log")
+  it "can determine the configured cron log output path" do
+    expected_output_file = File.join("/srv/ruby/waste-exemptions-back-office/shared/log/", "whenever_cron.log")
     expect(schedule.sets[:output]).to eq(expected_output_file)
   end
 
-  it "takes the first email reminder execution time from the appropriate ENV variable" do
+  it "picks up the first email reminder run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "email:renew_reminder:first:send" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["FIRST_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"])
+    expect(job_details[:every][1][:at]).to eq("02:05")
   end
 
-  it "takes the second email reminder execution time from the appropriate ENV variable" do
+  it "picks up the second email reminder run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "email:renew_reminder:second:send" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["SECOND_RENEWAL_EMAIL_REMINDER_DAILY_RUN_TIME"])
+    expect(job_details[:every][1][:at]).to eq("04:05")
   end
 
-  it "takes the expire registration exemption execution time from the appropriate ENV variable" do
+  it "picks up the expire registration exemption run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "expire_registration:run" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["EXPIRE_REGISTRATION_EXEMPTION_RUN_TIME"])
+    expect(job_details[:every][1][:at]).to eq("00:05")
   end
 
-  it "takes the export AD renewal letters execution time from the appropriate ENV variable" do
+  it "picks up the export AD renewal letters run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "letters:export:ad_renewals" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_AD_RENEWAL_LETTERS_TIME"])
+    expect(job_details[:every][1][:at]).to eq("00:45")
   end
 
-  it "takes the boxi export generation execution time from the appropriate ENV variable" do
+  it "picks up the boxi export generation run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "reports:export:boxi" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["EXPORT_SERVICE_BOXI_EXPORT_TIME"])
+    expect(job_details[:every][1][:at]).to eq("03:05")
   end
 
-  it "takes the transient registration cleanup execution time from the appropriate ENV variable" do
+  it "picks up the transient registration cleanup execution run frequency and time" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "cleanup:transient_registrations" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq(ENV["CLEANUP_TRANSIENT_REGISTRATIONS_RUN_TIME"])
+    expect(job_details[:every][1][:at]).to eq("00:35")
   end
 
   it "allows the `whenever` command to be called without raising an error" do
