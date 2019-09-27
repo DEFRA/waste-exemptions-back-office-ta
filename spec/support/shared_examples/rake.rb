@@ -19,6 +19,7 @@
 require "rake"
 
 RSpec.shared_context "rake" do
+  let(:task_name) { self.class.description }
   let(:subject) { Rake.application[task_name] }
   let(:task_path) { "lib/tasks/#{task_name.split(':').first}" }
 
