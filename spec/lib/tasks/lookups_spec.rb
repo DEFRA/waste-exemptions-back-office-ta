@@ -2,7 +2,9 @@
 
 require "rails_helper"
 
-RSpec.describe "Lookups task" do
+RSpec.describe "Lookups task", type: :rake do
+  include_context "rake"
+
   describe "lookups:update:missing_area" do
     include_context "rake"
 
@@ -10,7 +12,7 @@ RSpec.describe "Lookups task" do
     after { VCR.eject_cassette }
 
     before do
-      expect(WasteExemptionsBackOffice::Application.config).to receive(:area_lookup_run_for).and_return(run_for)
+      allow(WasteExemptionsBackOffice::Application.config).to receive(:area_lookup_run_for).and_return(run_for)
     end
 
     let(:run_for) { 10 }

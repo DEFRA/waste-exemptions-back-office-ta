@@ -19,4 +19,5 @@ SimpleCov.start("rails") do
   add_group "Presenters", "app/presenters"
   add_group "Services", "app/services"
   add_group "Validators", "app/validators"
+  add_group "Tasks", "lib/tasks"
 end

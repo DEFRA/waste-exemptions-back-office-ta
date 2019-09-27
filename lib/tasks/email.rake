@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../close_airbrake"
+
 # rubocop:disable Metrics/BlockLength
 namespace :email do
   desc "Send a test email to confirm setup is correct"
@@ -24,7 +26,7 @@ namespace :email do
 
         FirstRenewalReminderService.run
 
-        Airbrake.close
+        CloseAirbrake.now
       end
     end
 
@@ -35,7 +37,7 @@ namespace :email do
 
         SecondRenewalReminderService.run
 
-        Airbrake.close
+        CloseAirbrake.now
       end
     end
   end
