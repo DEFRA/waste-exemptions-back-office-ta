@@ -15,18 +15,12 @@
 #
 # So we have dropped its use and incorporated the notes from the stackoverflow
 # article to cater for this situation, and ensure our test coverage is accurate.
-
+#
+# See also spec/support/rake_env.rb
 require "rake"
 
 RSpec.shared_context "rake" do
   let(:task_name) { self.class.description }
   let(:subject) { Rake.application[task_name] }
   let(:task_path) { "lib/tasks/#{task_name.split(':').first}" }
-
-  before(:all) do
-    Rake.application = Rake::Application.new
-    Rails.application.load_tasks
-
-    Rake::Task.define_task(:environment)
-  end
 end
