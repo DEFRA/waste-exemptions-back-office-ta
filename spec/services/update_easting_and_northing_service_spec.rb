@@ -90,6 +90,19 @@ RSpec.describe UpdateEastingAndNorthingService do
           expect(address.y).to eq(172_708.07)
         end
       end
+
+      context "when the lookup service is down" do
+        let(:address) { create(:address, postcode: "BS1 5AH", x: 1.23, y: nil) }
+
+        it "set up x and y to nil" do
+          address_finder_service = double(:address_finder_service, search_by_postcode: :error)
+          expect(WasteExemptionsEngine::AddressFinderService).to receive(:new).and_return(address_finder_service)
+
+          described_class.run(address)
+
+          expect(address.x).to be_nil
+        end
+      end
     end
   end
 end
