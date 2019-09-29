@@ -48,6 +48,11 @@ every :day, at: (ENV["AREA_LOOKUP"] || "01:05"), roles: [:db] do
   rake "lookups:update:missing_area"
 end
 
+# This will run daily and update easting and northing info for addresses using os places
+every :day, at: (ENV["EASTING_AND_NORTHING_LOOKUP"] || "23:05"), roles: [:db] do
+  rake "lookups:update:missing_easting_and_northing"
+end
+
 # This is the daily bulk export job. When run this will create batched CSV
 # exports of all records and put these files into an AWS S3 bucket.
 bulk_time = (ENV["EXPORT_SERVICE_BULK_EXPORT_TIME"] || "02:05")

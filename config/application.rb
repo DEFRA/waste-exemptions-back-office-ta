@@ -61,6 +61,7 @@ module WasteExemptionsBackOffice
 
     # Minutes the EA area lookup job should run for
     config.area_lookup_run_for = ENV["AREA_LOOKUP_RUN_FOR"] || 60
+    config.easting_and_northing_lookup_run_for = ENV["EASTING_AND_NORTHING_LOOKUP_RUN_FOR"] || 60
 
     # Emails
     config.email_test_address = ENV["EMAIL_TEST_ADDRESS"]
