@@ -8,7 +8,7 @@ namespace :lookups do
     desc "Update all sites with a missing area (x & y must be populated)"
     task missing_area: :environment do
       run_for = WasteExemptionsBackOffice::Application.config.area_lookup_run_for.to_i
-      addresses_scope = WasteExemptionsEngine::Address.site.missing_area.with_easting_and_northing
+      addresses_scope = WasteExemptionsEngine::Address.site.missing_area.with_valid_easting_and_northing
 
       TimedServiceRunner.run(
         scope: addresses_scope,
