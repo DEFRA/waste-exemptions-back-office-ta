@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 9eb2f41419a0d3859089b9cf0d4d6fe80deb9af1
+  revision: 5b157fa3a6b784cc962a5c14a87f86e9cc43676f
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -106,7 +106,7 @@ GEM
       aws-sdk-s3
     defra_ruby_style (0.1.3)
       rubocop (~> 0.75)
-    defra_ruby_validators (2.1.2)
+    defra_ruby_validators (2.2.0)
       activemodel
       os_map_ref
       phonelib
