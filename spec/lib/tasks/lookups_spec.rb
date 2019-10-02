@@ -40,14 +40,23 @@ RSpec.describe "Lookups task", type: :rake do
 
     it "updates x & y for site addresses missing them, as long as the postcode is populated" do
       site_address = create(:address, address_type: :site, x: nil, y: nil, postcode: "BS1 5AH")
+      site_address_no_postcode = create(:address, address_type: :site, x: nil, y: nil, postcode: nil)
       non_site_address = create(:address, x: nil, y: nil, postcode: "BS1 5AH")
 
+      # Expect no error
+      expect(Airbrake).to_not receive(:notify)
+
       subject.invoke
+
       site_address.reload
+      site_address_no_postcode.reload
       non_site_address.reload
 
       expect(site_address.x).to eq(358_205.03)
       expect(site_address.y).to eq(172_708.07)
+
+      expect(site_address_no_postcode.x).to be_nil
+      expect(site_address_no_postcode.y).to be_nil
 
       expect(non_site_address.x).to be_nil
       expect(non_site_address.y).to be_nil
