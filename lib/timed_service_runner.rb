@@ -24,7 +24,13 @@ class TimedServiceRunner
     scope.find_each do |address|
       break if Time.now > run_until
 
-      service.run(address)
+      begin
+        service.run(address)
+        address.save!
+      rescue StandardError => e
+        Airbrake.notify(e, address_id: address.id) if defined? Airbrake
+        Rails.logger.error "#{service.name.demodulize} failed:\n #{e}"
+      end
     end
   end
 end
