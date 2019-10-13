@@ -25,7 +25,7 @@ class TimedServiceRunner
       break if Time.now > run_until
 
       begin
-        service.run(address)
+        service.run(address: address)
         address.save!
       rescue StandardError => e
         Airbrake.notify(e, address_id: address.id) if defined? Airbrake
