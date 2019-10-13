@@ -28,9 +28,13 @@ class TimedServiceRunner
         service.run(address: address)
         address.save!
       rescue StandardError => e
-        Airbrake.notify(e, address_id: address.id) if defined? Airbrake
-        Rails.logger.error "#{service.name.demodulize} failed:\n #{e}"
+        handle_error(e, address.id)
       end
     end
+  end
+
+  def handle_error(error, address_id)
+    Airbrake.notify(error, address_id: address_id) if defined? Airbrake
+    Rails.logger.error "#{service.name.demodulize} failed:\n #{error}"
   end
 end
