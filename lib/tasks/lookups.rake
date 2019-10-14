@@ -13,7 +13,7 @@ namespace :lookups do
       TimedServiceRunner.run(
         scope: addresses_scope,
         run_for: run_for,
-        service: UpdateAreaService
+        service: WasteExemptionsEngine::AssignSiteDetailsService
       )
 
       CloseAirbrake.now
@@ -27,7 +27,7 @@ namespace :lookups do
       TimedServiceRunner.run(
         scope: addresses_scope,
         run_for: run_for,
-        service: UpdateEastingAndNorthingService
+        service: WasteExemptionsEngine::AssignSiteDetailsService
       )
 
       CloseAirbrake.now

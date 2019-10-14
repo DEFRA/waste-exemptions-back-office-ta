@@ -5,9 +5,10 @@ require "rails_helper"
 RSpec.describe "Lookups task", type: :rake do
   include_context "rake"
 
+  before { VCR.insert_cassette("valid_area_lookup", allow_playback_repeats: true) }
+  after { VCR.eject_cassette }
+
   describe "lookups:update:missing_area" do
-    before { VCR.insert_cassette("ea_area_lookups_west_midlands", allow_playback_repeats: true) }
-    after { VCR.eject_cassette }
 
     before do
       allow(WasteExemptionsBackOffice::Application.config).to receive(:area_lookup_run_for).and_return(run_for)
@@ -16,14 +17,14 @@ RSpec.describe "Lookups task", type: :rake do
     let(:run_for) { 10 }
 
     it "updates the area for site addresses missing it, as long as x & y is populated" do
-      site_address = create(:address, address_type: :site, x: 408_602.61, y: 257_535.31)
-      non_site_address = create(:address, x: 408_602.61, y: 257_535.31)
+      site_address = create(:address, address_type: :site, x: 358_130.1, y: 172_687.87)
+      non_site_address = create(:address, x: 358_130.1, y: 172_687.87)
 
       subject.invoke
       site_address.reload
       non_site_address.reload
 
-      expect(site_address.area).to eq("West Midlands")
+      expect(site_address.area).to eq("Wessex")
       expect(non_site_address.area).to be_nil
     end
   end
