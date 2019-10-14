@@ -1,6 +1,6 @@
 # Waste Exemptions Back Office
 
-[![Build Status](https://travis-ci.com/DEFRA/waste-exemptions-back-office.svg?branch=master)](https://travis-ci.org/DEFRA/waste-exemptions-back-office)
+[![Build Status](https://travis-ci.com/DEFRA/waste-exemptions-back-office.svg?branch=master)](https://travis-ci.com/DEFRA/waste-exemptions-back-office)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a223a4a371d36d1e24ae/maintainability)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a223a4a371d36d1e24ae/test_coverage)](https://codeclimate.com/github/DEFRA/waste-exemptions-back-office/test_coverage)
 [![security](https://hakiri.io/github/DEFRA/waste-exemptions-back-office/master.svg)](https://hakiri.io/github/DEFRA/waste-exemptions-back-office/master)
