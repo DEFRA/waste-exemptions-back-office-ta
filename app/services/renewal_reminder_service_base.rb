@@ -21,7 +21,7 @@ class RenewalReminderServiceBase < ::WasteExemptionsEngine::BaseService
   def expiring_registrations
     default_scope.where(
       id: all_active_exemptions_registration_ids
-    ).contact_email_is_not_nccc.site_address_is_not_nccc
+    ).where("contact_email != 'waste-exemptions@environment-agency.gov.uk'")
   end
 
   def all_active_exemptions_registration_ids

@@ -54,7 +54,7 @@ RSpec.describe FirstRenewalReminderService do
       expect(ActionMailer::Base.deliveries.last.to).to eq([active_expiring_registration.contact_email])
     end
 
-    it "does not send emails to AD NCCC email addresses" do
+    it "do not send emails to AD NCCC email addresses" do
       create(
         :registration,
         contact_email: "waste-exemptions@environment-agency.gov.uk",
@@ -63,19 +63,6 @@ RSpec.describe FirstRenewalReminderService do
           build(:registration_exemption, :revoked, expires_on: 4.weeks.from_now.to_date)
         ]
       )
-      expect { described_class.run }.to_not change { ActionMailer::Base.deliveries.count }
-    end
-
-    it "does not send emails to registrations with the NCCC postcode" do
-      registration = create(
-        :registration,
-        :site_uses_address,
-        registration_exemptions: [
-          build(:registration_exemption, :active, expires_on: 4.weeks.from_now.to_date)
-        ]
-      )
-      registration.site_address.update_attributes(postcode: "S9 4WF")
-
       expect { described_class.run }.to_not change { ActionMailer::Base.deliveries.count }
     end
   end

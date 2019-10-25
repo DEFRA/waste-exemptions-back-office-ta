@@ -78,18 +78,5 @@ RSpec.describe SecondRenewalReminderService do
       )
       expect { described_class.run }.to_not change { ActionMailer::Base.deliveries.count }
     end
-
-    it "does not send emails to registrations with the NCCC postcode" do
-      registration = create(
-        :registration,
-        :site_uses_address,
-        registration_exemptions: [
-          build(:registration_exemption, :active, expires_on: 4.weeks.from_now.to_date)
-        ]
-      )
-      registration.site_address.update_attributes(postcode: "S9 4WF")
-
-      expect { described_class.run }.to_not change { ActionMailer::Base.deliveries.count }
-    end
   end
 end

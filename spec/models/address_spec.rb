@@ -5,8 +5,6 @@ require "rails_helper"
 RSpec.describe WasteExemptionsEngine::Address, type: :model do
   let(:matching_address) { create(:address, :site_uses_address) }
   let(:non_matching_address) { create(:address, :contact) }
-  let(:nccc_address) { create(:address, :contact, postcode: "S9 4WF") }
-  let(:non_nccc_address) { create(:address, :contact, postcode: "AA1 1AA") }
 
   describe "#search_for_postcode" do
     let(:term) { nil }
@@ -34,30 +32,6 @@ RSpec.describe WasteExemptionsEngine::Address, type: :model do
 
     it "does not return others" do
       expect(scope).not_to include(non_matching_address)
-    end
-  end
-
-  describe "#nccc" do
-    let(:scope) { WasteExemptionsEngine::Address.nccc }
-
-    it "returns NCCC addresses" do
-      expect(scope).to include(nccc_address)
-    end
-
-    it "does not return non-NCCC addresses" do
-      expect(scope).not_to include(non_nccc_address)
-    end
-  end
-
-  describe "#not_nccc" do
-    let(:scope) { WasteExemptionsEngine::Address.not_nccc }
-
-    it "returns non-NCCC addresses" do
-      expect(scope).to include(non_nccc_address)
-    end
-
-    it "does not return NCCC addresses" do
-      expect(scope).not_to include(nccc_address)
     end
   end
 end
