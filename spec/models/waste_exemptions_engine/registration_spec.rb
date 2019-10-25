@@ -19,6 +19,26 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     end
   end
 
+  describe ".contact_email_is_not_nccc" do
+    let(:registration) { create(:registration) }
+
+    it "returns registrations that don't have the NCCC contact email" do
+      registration.update_attributes(contact_email: "test@example.com")
+
+      result = described_class.contact_email_is_not_nccc
+
+      expect(result).to include(registration)
+    end
+
+    it "does not return registrations that do have the NCCC contact email" do
+      registration.update_attributes(contact_email: "waste-exemptions@environment-agency.gov.uk")
+
+      result = described_class.contact_email_is_not_nccc
+
+      expect(result).to_not include(registration)
+    end
+  end
+
   describe ".site_address_is_not_nccc" do
     let(:registration) { create(:registration, :site_uses_address) }
 
