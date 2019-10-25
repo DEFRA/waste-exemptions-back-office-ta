@@ -16,6 +16,10 @@ module WasteExemptionsEngine
 
     scope :renewals, -> { where.not(referring_registration_id: nil) }
 
+    scope :site_address_is_not_nccc, lambda {
+      joins(:addresses).merge(Address.site.not_nccc)
+    }
+
     def active?
       state == "active"
     end
