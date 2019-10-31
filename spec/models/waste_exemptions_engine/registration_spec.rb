@@ -19,6 +19,46 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     end
   end
 
+  describe ".contact_email_is_not_nccc" do
+    let(:registration) { create(:registration) }
+
+    it "returns registrations that don't have the NCCC contact email" do
+      registration.update_attributes(contact_email: "test@example.com")
+
+      result = described_class.contact_email_is_not_nccc
+
+      expect(result).to include(registration)
+    end
+
+    it "does not return registrations that do have the NCCC contact email" do
+      registration.update_attributes(contact_email: "waste-exemptions@environment-agency.gov.uk")
+
+      result = described_class.contact_email_is_not_nccc
+
+      expect(result).to_not include(registration)
+    end
+  end
+
+  describe ".site_address_is_not_nccc" do
+    let(:registration) { create(:registration, :site_uses_address) }
+
+    it "returns registrations that don't have the NCCC postcode in the site address" do
+      registration.site_address.update_attributes(postcode: "AA1 1AA")
+
+      result = described_class.site_address_is_not_nccc
+
+      expect(result).to include(registration)
+    end
+
+    it "does not return registrations that do have the NCCC postcode in the site address" do
+      registration.site_address.update_attributes(postcode: "S9 4WF")
+
+      result = described_class.site_address_is_not_nccc
+
+      expect(result).to_not include(registration)
+    end
+  end
+
   describe "#renewable?" do
 
     context "when the registration is in a renewal window and renewal state" do
