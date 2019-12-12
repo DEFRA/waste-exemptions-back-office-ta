@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: bede82cd93b9cbc0fc8c7e7ade0c97cdbe7850a3
+  revision: b5da681223202109f6af53c2e31b41212eef471f
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -85,7 +85,7 @@ GEM
     bcrypt (3.1.13)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    builder (3.2.3)
+    builder (3.2.4)
     bullet (5.9.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
