@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: b67ac0f70fa23d870432963c4907c9896478478f
+  revision: a866f74465eae21cdc7c9bea488c6034ac111ef0
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -333,7 +333,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    thor (1.0.0)
+    thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.9)
     timecop (0.9.1)
