@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 46eeeeb1728b5d639c40b9a0f27be0c565f50582
+  revision: e0e4a7d07c4e786b70f3b56e930b8e72fb510d8a
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -96,7 +96,7 @@ GEM
     concurrent-ruby (1.1.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    crass (1.0.5)
+    crass (1.0.6)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
     defra_ruby_area (2.0.0)
@@ -201,7 +201,7 @@ GEM
     mime-types-data (3.2019.1009)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.13.0)
+    minitest (5.14.0)
     multi_json (1.14.1)
     multipart-post (2.1.1)
     netrc (0.11.0)
