@@ -12,6 +12,10 @@ module Reports
       def records_scope
         WasteExemptionsEngine::Person.all
       end
+
+      def parse_person_type
+        person_type.presence || 0
+      end
     end
   end
 end
