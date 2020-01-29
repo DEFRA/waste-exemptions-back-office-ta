@@ -106,7 +106,7 @@ group :test do
   gem "faker"
   # Generates a test coverage report on every `bundle exec rspec` call. We use
   # the output to feed CodeClimate's stats and analysis
-  gem "simplecov", require: false
+  gem "simplecov", "~> 0.17.1", require: false
   # A gem providing "time travel" and "time freezing" capabilities, making it
   # dead simple to test time-dependent code.
   gem "timecop"
