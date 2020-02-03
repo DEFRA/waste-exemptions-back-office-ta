@@ -9,8 +9,8 @@ WasteExemptionsEngine.configure do |configuration|
   configuration.companies_house_host = ENV["COMPANIES_HOUSE_URL"] || "https://api.companieshouse.gov.uk/company/"
   configuration.companies_house_api_key = ENV["COMPANIES_HOUSE_API_KEY"]
 
-  # Addressbase facade config
-  configuration.addressbase_url = ENV["ADDRESSBASE_URL"] || "http://localhost:3002"
+  # Address lookup config
+  configuration.address_host = ENV["ADDRESSBASE_URL"] || "http://localhost:3002"
 
   # Email config
   configuration.service_name = ENV["EMAIL_SERVICE_NAME"] || "Waste Exemptions Service"
