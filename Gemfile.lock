@@ -1,12 +1,12 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 5c52bb0a980429b07f6692d45705b665a997275f
+  revision: 49f5ec7ba03702681e409806114508d175a5f659
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
-      airbrake (= 5.8.1)
       defra_ruby_address
+      defra_ruby_alert (~> 1.0.0)
       defra_ruby_area
       defra_ruby_validators (~> 2.2.0)
       has_secure_token
@@ -102,6 +102,8 @@ GEM
     debug_inspector (0.0.3)
     defra_ruby_address (0.1.0)
       rest-client (~> 2.0)
+    defra_ruby_alert (1.0.0)
+      airbrake (~> 5.8.1)
     defra_ruby_area (2.0.0)
       nokogiri (~> 1.10.4)
       rest-client (~> 2.0)
@@ -379,7 +381,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake (= 5.8.1)
   bullet (~> 5.9)
   cancancan (~> 2.0)
   database_cleaner

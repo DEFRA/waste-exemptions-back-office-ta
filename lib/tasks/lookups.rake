@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../close_airbrake"
 require_relative "../timed_service_runner"
 
 namespace :lookups do
@@ -15,8 +14,6 @@ namespace :lookups do
         run_for: run_for,
         service: WasteExemptionsEngine::AssignSiteDetailsService
       )
-
-      CloseAirbrake.now
     end
 
     desc "Populate EA Area information in all WasteExemptionsEngine::Address objects missing it."
@@ -29,8 +26,6 @@ namespace :lookups do
         run_for: run_for,
         service: WasteExemptionsEngine::AssignSiteDetailsService
       )
-
-      CloseAirbrake.now
     end
   end
 end

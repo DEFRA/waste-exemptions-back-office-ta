@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../close_airbrake"
-
 namespace :letters do
   namespace :export do
     desc "Generate a bulk export PDF file of AD renewal letters expiring soon"
@@ -15,8 +13,6 @@ namespace :letters do
       older_than = WasteExemptionsBackOffice::Application.config.ad_letters_delete_records_in.to_i.days.ago
 
       AdRenewalLettersExportCleanerService.run(older_than)
-
-      CloseAirbrake.now
     end
   end
 end

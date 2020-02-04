@@ -35,4 +35,11 @@ WasteExemptionsEngine.configure do |configuration|
   # Renewing config
   configuration.renewal_window_before_expiry_in_days = ENV["RENEWAL_WINDOW_BEFORE_EXPIRY_IN_DAYS"] || 28
   configuration.renewal_window_after_expiry_in_days = ENV["RENEWAL_WINDOW_AFTER_EXPIRY_IN_DAYS"] || 30
+
+  # Configure airbrake, which is done via the engine using defra_ruby_alert
+  configuration.airbrake_enabled = ENV["USE_AIRBRAKE"]
+  configuration.airbrake_host = ENV["AIRBRAKE_HOST"]
+  configuration.airbrake_project_key = ENV["AIRBRAKE_BO_PROJECT_KEY"]
+  configuration.airbrake_blacklist = [/password/i, /authorization/i]
 end
+WasteExemptionsEngine.start_airbrake
