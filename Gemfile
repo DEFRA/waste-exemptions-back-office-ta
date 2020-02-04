@@ -55,7 +55,7 @@ gem "paper_trail", "~> 10.2.0"
 # Use the waste exemptions engine for the user journey
 gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
-    branch: "master"
+    branch: "implement-defra-ruby-alert"
 
 # Use the Defra Ruby Aws gem for loading files to AWS buckets
 gem "defra_ruby_aws", "~> 0.2.0"
