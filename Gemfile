@@ -3,9 +3,6 @@
 source "https://rubygems.org"
 ruby "2.4.2"
 
-# Use Airbrake for error reporting to Errbit
-# Version 6 and above cause errors with Errbit, so use 5.8.1 for now
-gem "airbrake", "5.8.1"
 # Allows us to automatically generate the change log from the tags, issues,
 # labels and pull requests on GitHub. Added as a dependency so all dev's have
 # access to it to generate a log, and so they are using the same version.

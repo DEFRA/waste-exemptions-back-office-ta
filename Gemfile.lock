@@ -379,7 +379,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake (= 5.8.1)
   bullet (~> 5.9)
   cancancan (~> 2.0)
   database_cleaner
