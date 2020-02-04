@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 9d9540e47f8f4c09260a87ddf34f61c4e1041aaa
-  branch: implement-defra-ruby-alert
+  revision: 49f5ec7ba03702681e409806114508d175a5f659
+  branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
