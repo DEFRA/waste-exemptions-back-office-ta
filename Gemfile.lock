@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: c9dfc992be8bcfdb3247e210655580e4d4a9b21a
+  revision: 58a0528b9244d65f73c06f5a094428d1728aea03
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -94,7 +94,7 @@ GEM
     cancancan (2.3.0)
     chronic (0.10.2)
     coderay (1.1.2)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
@@ -210,7 +210,7 @@ GEM
     multi_json (1.14.1)
     multipart-post (2.1.1)
     netrc (0.11.0)
-    nokogiri (1.10.7)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     octokit (4.14.0)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -235,7 +235,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.10)
     public_suffix (4.0.3)
-    rack (1.6.12)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.11.1)
