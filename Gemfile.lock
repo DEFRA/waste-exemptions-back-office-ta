@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 542a9a9b2a935e8eaa90a1565bef56385a467a02
+  revision: 5920cc90312c5f5c6e4b5e8eacaafebbb66300bc
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -110,7 +110,7 @@ GEM
       rest-client (~> 2.0)
     defra_ruby_aws (0.2.0)
       aws-sdk-s3
-    defra_ruby_email (0.1.0)
+    defra_ruby_email (0.2.0)
       rails (~> 4.2.11.1)
     defra_ruby_style (0.1.4)
       rubocop (~> 0.79)
