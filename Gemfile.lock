@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: af6969f5db0a88d4e257e4ab7c7c960f17404e9e
+  revision: dbcf25fcbdbb14f3e1cec81d6d1be25bff98efca
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -213,7 +213,7 @@ GEM
     multi_json (1.14.1)
     multipart-post (2.1.1)
     netrc (0.11.0)
-    nokogiri (1.10.8)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     octokit (4.14.0)
       sawyer (~> 0.8.0, >= 0.5.3)
