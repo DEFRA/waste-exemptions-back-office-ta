@@ -61,7 +61,7 @@ gem "waste_exemptions_engine",
 gem "defra_ruby_aws", "~> 0.2.0"
 
 # bundle exec rake doc:rails generates the API under doc/api.
-gem "sdoc", "~> 0.4.0", group: :doc
+gem "sdoc", "~> 1.1.0", group: :doc
 
 # Manage, create and open zip files https://github.com/rubyzip/rubyzip
 gem "rubyzip"
@@ -103,7 +103,7 @@ group :test do
   gem "faker"
   # Generates a test coverage report on every `bundle exec rspec` call. We use
   # the output to feed CodeClimate's stats and analysis
-  gem "simplecov", "~> 0.17.1", require: false
+  gem "simplecov", require: false
   # A gem providing "time travel" and "time freezing" capabilities, making it
   # dead simple to test time-dependent code.
   gem "timecop"
