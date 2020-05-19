@@ -64,6 +64,13 @@ h2 {
   margin-bottom: 4pt;
   page-break-after: avoid;
 }
+
+#page_wrapper {
+  margin: 0;
+  margin-bottom: 20mm;
+  page-break-after: always;
+}
+
 p {
   margin-bottom: 2pt;
 }

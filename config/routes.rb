@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   # Letters
   get "/letters", to: "letters#index", as: :letters
   resources :ad_renewal_letters_exports, only: %i[index update], path: "/ad-renewal-letters"
+  resources :ad_confirmation_letters_exports, only: %i[index update], path: "/ad-confirmation-letters"
 
   # Deregister Exemptions
   get "/registration-exemptions/deregister/:id", to: "deregister_exemptions#new", as: :deregister_exemptions_form
