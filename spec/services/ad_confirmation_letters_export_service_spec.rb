@@ -29,7 +29,7 @@ RSpec.describe AdConfirmationLettersExportService do
 
       context "when one registration is in an invalid state and a PDF cannot be generated for it" do
         it "raises an error on Airbrake but continues generation for the other letters" do
-          registration = create(:registration, :ad_registration, addresses: [])
+          create(:registration, :ad_registration, addresses: [])
 
           expect(Airbrake).to receive(:notify)
 

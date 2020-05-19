@@ -42,6 +42,9 @@ class AdConfirmationLettersExportService < ::WasteExemptionsEngine::BaseService
 
   def ad_registrations
     @_ad_registrations ||= lambda do
+      from = @ad_confirmation_letters_export.created_on.beginning_of_day
+      to = @ad_confirmation_letters_export.created_on.end_of_day
+
       WasteExemptionsEngine::Registration
         .order(:reference)
         .where(contact_email: "waste-exemptions@environment-agency.gov.uk")
@@ -50,7 +53,7 @@ class AdConfirmationLettersExportService < ::WasteExemptionsEngine::BaseService
                 .all_active_exemptions
                 .select(:registration_id)
         )
-        .where(created_at: @ad_confirmation_letters_export.created_on.beginning_of_day..@ad_confirmation_letters_export.created_on.end_of_day)
+        .where(created_at: from..to)
     end.call
   end
 
