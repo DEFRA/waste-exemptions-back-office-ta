@@ -55,7 +55,6 @@ every :day, at: (ENV["EXPORT_SERVICE_AD_CONFIRMATION_LETTERS_TIME"] || "00:55"),
   rake "letters:export:ad_confirmations"
 end
 
-
 # This is the area update job. When run it will update the area field for all
 # site addresses where it is nil, as long as they have a populated x & y
 # (easting and northing)
