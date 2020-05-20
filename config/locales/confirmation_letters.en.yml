@@ -83,3 +83,85 @@ en:
       signature:
         sign_off: Yours sincerely,
         sender: Waste Exemptions Team
+    confirmation_letter_content:
+      print_warning:
+        header: "When you print, remember to:"
+        item1: set all print headers and footers to empty
+        item2: set print margins to 10mm all round
+      title: Confirmation of waste exemption registration
+      your_reference: "Your reference: %{reference}"
+      read_both_sides: Check on the back of this sheet as this may print on more than one page.
+      your_responsibilities:
+        title: Your responsibilities
+        para1:
+          text: "The business or organisation responsible for carrying out the exempt waste operations agrees to:"
+          item1: comply with all conditions governing how waste must be stored, handled and treated
+          item2: carry out the operations without endangering human health or harming the environment
+        para2:
+          text: "For the operations to remain exempt they must be carried out without:"
+          item1: causing risk to water, air, soil, plants or animals
+          item2: causing a nuisance through noise and odours
+          item3: negatively affecting the countryside or places of special interest
+        para3:
+          text: In sensitive locations extra controls may be needed over and above those set out in the exemptions to make sure this happens.
+      registration_details:
+        title: Registration details
+        reference_number: "Reference number:"
+        activation_date: "Activation date:"
+      registration_completed_by:
+        title: Registration completed by
+        name: "Name:"
+        telephone: "Business telephone number:"
+        email: "Business email:"
+      business_details:
+        title: Business details
+        type: "Business or organisation type:"
+        partner_enumerator: "Accountable partner %{count}:"
+        name:
+          soleTrader: "Business or organisation name:"
+          limitedCompany: "Registered name of the company:"
+          partnership: "Business or organisation name:"
+          limitedLiabilityPartnership: "Registered name of the partnership:"
+          localAuthority: "Business or organisation name:"
+          charity: "Business or organisation name:"
+        number:
+          soleTrader: "Registration number of the business or organisation:"
+          limitedCompany: "Registration number of the company:"
+          partnership: "Registration number of the business or organisation:"
+          limitedLiabilityPartnership: "Registration number of the partnership:"
+          localAuthority: "Registration number of the business or organisation:"
+          charity: "Registration number of the business or organisation:"
+        address:
+          soleTrader: "Business or organisation address:"
+          limitedCompany: "Registered address of the company:"
+          partnership: "Partnership address:"
+          limitedLiabilityPartnership: "Registered address of the partnership:"
+          localAuthority: "Business or organisation address:"
+          charity: "Business or organisation address:"
+      waste_operation_contact:
+        title: Waste operation contact
+        name: "Name:"
+        position: "Position:"
+        telephone: "Telephone:"
+        email: "Email:"
+      waste_operation_location:
+        title: Waste operation location or site
+        address: "Waste operation location:"
+        ngr: "Grid reference:"
+        details: "Site details:"
+      waste_exemptions:
+        title: Waste exemptions
+        status:
+          active: "Expires on %{display_date}"
+          ceased: "Ceased on %{display_date}"
+          revoked: "Revoked on %{display_date}"
+          expired: "Expired on %{display_date}"
+      deregistered_exemptions:
+        title: De-registered exemptions
+      contact_us:
+        title: If you need to contact us
+        para1: "If you need help or advice call the Environment Agency helpline: 03708 506506"
+        para2: It's open Monday to Friday, between 8am and 6pm.
+      signature:
+        sign_off: Yours sincerely,
+        sender: Waste Exemptions Team
