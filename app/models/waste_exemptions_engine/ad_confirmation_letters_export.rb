@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptions_engine", "application_record")
+
 module WasteExemptionsEngine
-  class AdConfirmationLettersExport < ActiveRecord::Base
+  class AdConfirmationLettersExport < ::WasteExemptionsEngine::ApplicationRecord
     self.table_name = "ad_confirmation_letters_exports"
 
     validates :created_on, uniqueness: true

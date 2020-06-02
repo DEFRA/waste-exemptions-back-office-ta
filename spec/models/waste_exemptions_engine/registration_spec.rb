@@ -23,7 +23,7 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     let(:registration) { create(:registration) }
 
     it "returns registrations that don't have the NCCC contact email" do
-      registration.update_attributes(contact_email: "test@example.com")
+      registration.update(contact_email: "test@example.com")
 
       result = described_class.contact_email_is_not_nccc
 
@@ -31,7 +31,7 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     end
 
     it "does not return registrations that do have the NCCC contact email" do
-      registration.update_attributes(contact_email: "waste-exemptions@environment-agency.gov.uk")
+      registration.update(contact_email: "waste-exemptions@environment-agency.gov.uk")
 
       result = described_class.contact_email_is_not_nccc
 
@@ -43,7 +43,7 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     let(:registration) { create(:registration, :site_uses_address) }
 
     it "returns registrations that don't have the NCCC postcode in the site address" do
-      registration.site_address.update_attributes(postcode: "AA1 1AA")
+      registration.site_address.update(postcode: "AA1 1AA")
 
       result = described_class.site_address_is_not_nccc
 
@@ -51,7 +51,7 @@ RSpec.describe WasteExemptionsEngine::Registration, type: :model do
     end
 
     it "does not return registrations that do have the NCCC postcode in the site address" do
-      registration.site_address.update_attributes(postcode: "S9 4WF")
+      registration.site_address.update(postcode: "S9 4WF")
 
       result = described_class.site_address_is_not_nccc
 

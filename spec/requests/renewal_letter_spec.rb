@@ -12,6 +12,7 @@ RSpec.describe "Renewal Letter", type: :request do
   describe "GET /renewal-letter/:id" do
     it "responds with a PDF with a filename that includes the registration reference" do
       get renewal_letter_path(registration.id)
+
       expect(response.content_type).to eq("application/pdf")
       expected_content_disposition = "inline; filename=\"#{registration.reference}.pdf\""
       expect(response.headers["Content-Disposition"]).to eq(expected_content_disposition)
@@ -22,6 +23,7 @@ RSpec.describe "Renewal Letter", type: :request do
 
       it "returns a 200 status code" do
         get renewal_letter_path(registration.id)
+
         expect(response.code).to eq("200")
       end
     end
@@ -31,6 +33,7 @@ RSpec.describe "Renewal Letter", type: :request do
 
       it "returns a 200 status code" do
         get renewal_letter_path(registration.id)
+
         expect(response.code).to eq("200")
       end
     end
@@ -40,6 +43,7 @@ RSpec.describe "Renewal Letter", type: :request do
 
       it "returns a 200 status code" do
         get renewal_letter_path(registration.id)
+
         expect(response.code).to eq("200")
       end
     end
@@ -49,6 +53,7 @@ RSpec.describe "Renewal Letter", type: :request do
 
       it "returns a 200 status code" do
         get renewal_letter_path(registration.id)
+
         expect(response.code).to eq("200")
       end
     end
@@ -58,6 +63,7 @@ RSpec.describe "Renewal Letter", type: :request do
 
       it "returns a 200 status code" do
         get renewal_letter_path(registration.id)
+
         expect(response.code).to eq("200")
       end
     end
@@ -67,6 +73,7 @@ RSpec.describe "Renewal Letter", type: :request do
 
       it "returns a 200 status code" do
         get renewal_letter_path(registration.id)
+
         expect(response.code).to eq("200")
       end
     end
@@ -75,7 +82,8 @@ RSpec.describe "Renewal Letter", type: :request do
       context "and the value is 'true'" do
         it "responds with HTML" do
           get "#{renewal_letter_path(registration.id)}?show_as_html=true"
-          expect(response.content_type).to eq("text/html")
+
+          expect(response.content_type).to eq("text/html; charset=utf-8")
         end
       end
 
@@ -83,6 +91,7 @@ RSpec.describe "Renewal Letter", type: :request do
         context "and the value is '#{bad_value}'" do
           it "responds with a PDF" do
             get "#{renewal_letter_path(registration.id)}?show_as_html=#{bad_value}"
+
             expect(response.content_type).to eq("application/pdf")
           end
         end

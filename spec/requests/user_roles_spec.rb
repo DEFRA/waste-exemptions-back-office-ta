@@ -14,6 +14,7 @@ RSpec.describe "User Roles", type: :request do
 
       it "renders the edit template" do
         get "/users/role/#{role_change_user.id}"
+
         expect(response).to render_template(:edit)
       end
     end
@@ -26,6 +27,7 @@ RSpec.describe "User Roles", type: :request do
 
       it "redirects to the permissions error page" do
         get "/users/role/#{role_change_user.id}"
+
         expect(response).to redirect_to("/pages/permission")
       end
     end
@@ -39,43 +41,30 @@ RSpec.describe "User Roles", type: :request do
         sign_in(system_user)
       end
 
-      it "updates the user role" do
-        post "/users/role/#{role_change_user.id}", user: params
+      it "updates the user role, redirects to the user list and assigns the correct whodunnit to the version", versioning: true do
+        post "/users/role/#{role_change_user.id}", params: { user: params }
+
         expect(role_change_user.reload.role).to eq(params[:role])
-      end
-
-      it "redirects to the user list" do
-        post "/users/role/#{role_change_user.id}", user: params
         expect(response).to redirect_to(users_path)
-      end
-
-      it "assigns the correct whodunnit to the version", versioning: true do
-        post "/users/role/#{role_change_user.id}", user: params
         expect(role_change_user.reload.versions.last.whodunnit).to eq(system_user.id.to_s)
       end
 
       context "when the params are invalid" do
         let(:params) { { role: "foo" } }
 
-        it "does not update the user role" do
-          post "/users/role/#{role_change_user.id}", user: params
-          expect(role_change_user.reload.role).to eq("data_agent")
-        end
+        it "does not update the user role and renders the edit template" do
+          post "/users/role/#{role_change_user.id}", params: { user: params }
 
-        it "renders the edit template" do
-          post "/users/role/#{role_change_user.id}", user: params
+          expect(role_change_user.reload.role).to eq("data_agent")
           expect(response).to render_template(:edit)
         end
       end
 
       context "when the params are blank" do
-        it "does not update the user role" do
+        it "does not update the user role and renders the edit template" do
           post "/users/role/#{role_change_user.id}"
-          expect(role_change_user.reload.role).to eq("data_agent")
-        end
 
-        it "renders the edit template" do
-          post "/users/role/#{role_change_user.id}"
+          expect(role_change_user.reload.role).to eq("data_agent")
           expect(response).to render_template(:edit)
         end
       end
@@ -88,7 +77,8 @@ RSpec.describe "User Roles", type: :request do
       end
 
       it "redirects to the permissions error page" do
-        post "/users/role/#{role_change_user.id}", user: params
+        post "/users/role/#{role_change_user.id}", params: { user: params }
+
         expect(response).to redirect_to("/pages/permission")
       end
     end

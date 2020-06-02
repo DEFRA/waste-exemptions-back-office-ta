@@ -8,7 +8,7 @@ require WasteExemptionsEngine::Engine.root.join(
 )
 
 module WasteExemptionsEngine
-  class TransientRegistrationExemption < ActiveRecord::Base
+  class TransientRegistrationExemption < ::WasteExemptionsEngine::ApplicationRecord
     include CanBeOrderedByStateAndExemptionId
   end
 end

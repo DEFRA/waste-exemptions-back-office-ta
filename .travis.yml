@@ -22,7 +22,7 @@ env:
     - AWS_BOXI_EXPORT_BUCKET=boxi-exports
 
 language: ruby
-rvm: 2.4.2
+rvm: 2.7.1
 cache: bundler
 
 # Travis CI uses shallow clone to speed up build times, but a truncated SCM
@@ -33,7 +33,7 @@ git:
 
 before_install:
   - export TZ=Europe/London
-  - gem install -v 1.17.3 bundler
+  - gem install bundler --no-ducument
   - sudo apt-get install xvfb -y
   - sudo apt-get install ttf-liberation -y
   - sudo apt-get install wkhtmltopdf -y
@@ -43,8 +43,8 @@ before_script:
   # database.yml). database.travis.yml is the config needed for Travis, and it
   # needs to be in place before we run the migrations.
   - cp config/database.travis.yml config/database.yml
-  - RAILS_ENV=test bundle exec rake db:create --trace
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - RAILS_ENV=test bundle exec bin/rails db:create --trace
+  - RAILS_ENV=test bundle exec bin/rails db:migrate --trace
 
 script:
   - bundle exec rubocop --format progress --format json --out rubocop-result.json

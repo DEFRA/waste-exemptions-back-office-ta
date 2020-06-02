@@ -87,7 +87,7 @@ RSpec.describe SecondRenewalReminderService do
           build(:registration_exemption, :active, expires_on: 4.weeks.from_now.to_date)
         ]
       )
-      registration.site_address.update_attributes(postcode: "S9 4WF")
+      registration.site_address.update(postcode: "S9 4WF")
 
       expect { described_class.run }.to_not change { ActionMailer::Base.deliveries.count }
     end

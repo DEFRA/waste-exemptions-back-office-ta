@@ -10,7 +10,7 @@ class AdRenewalLettersExportsController < ApplicationController
   def update
     ad_renewal_letters_export = WasteExemptionsEngine::AdRenewalLettersExport.find(params[:id])
 
-    ad_renewal_letters_export.update_attributes(ad_renewal_letters_export_attributes)
+    ad_renewal_letters_export.update(ad_renewal_letters_export_attributes)
 
     redirect_to ad_renewal_letters_exports_path
   end

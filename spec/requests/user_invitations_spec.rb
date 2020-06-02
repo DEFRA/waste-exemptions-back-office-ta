@@ -12,6 +12,7 @@ RSpec.describe "User Invitations", type: :request do
 
       it "renders the new template" do
         get "/users/invitation/new"
+
         expect(response).to render_template(:new)
       end
     end
@@ -24,6 +25,7 @@ RSpec.describe "User Invitations", type: :request do
 
       it "redirects to the permissions error page" do
         get "/users/invitation/new"
+
         expect(response).to redirect_to("/pages/permission")
       end
     end
@@ -42,20 +44,13 @@ RSpec.describe "User Invitations", type: :request do
         sign_in(user)
       end
 
-      it "redirects to the users path" do
-        post "/users/invitation", params
-        expect(response).to redirect_to(users_path)
-      end
-
-      it "creates a new user" do
+      it "redirects to the users path, creates a new user and assigns the correct role to the user" do
         old_user_count = User.count
 
-        post "/users/invitation", params
-        expect(User.count).to eq(old_user_count + 1)
-      end
+        post "/users/invitation", params: params
 
-      it "assigns the correct role to the user" do
-        post "/users/invitation", params
+        expect(response).to redirect_to(users_path)
+        expect(User.count).to eq(old_user_count + 1)
         expect(User.find_by(email: email).role).to eq(role)
       end
     end
@@ -67,7 +62,8 @@ RSpec.describe "User Invitations", type: :request do
       end
 
       it "redirects to the permissions error page" do
-        post "/users/invitation", params
+        post "/users/invitation", params: params
+
         expect(response).to redirect_to("/pages/permission")
       end
     end

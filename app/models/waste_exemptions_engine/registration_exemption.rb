@@ -3,7 +3,7 @@
 require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptions_engine", "registration_exemption")
 
 module WasteExemptionsEngine
-  class RegistrationExemption < ActiveRecord::Base
+  class RegistrationExemption < ::WasteExemptionsEngine::ApplicationRecord
     self.table_name = "registration_exemptions"
 
     include CanDeactivateExemption

@@ -20,7 +20,7 @@ class ResendRenewalEmailController < ApplicationController
       flash_error(message, description)
     end
 
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   private

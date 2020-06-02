@@ -11,13 +11,10 @@ RSpec.describe "Registrations", type: :request do
         sign_in(create(:user))
       end
 
-      it "renders the show template" do
+      it "renders the show template and includes the correct reference" do
         get "/registrations/#{registration.reference}"
-        expect(response).to render_template(:show)
-      end
 
-      it "includes the correct reference" do
-        get "/registrations/#{registration.reference}"
+        expect(response).to render_template(:show)
         expect(response.body).to include(registration.reference)
       end
     end
@@ -27,6 +24,7 @@ RSpec.describe "Registrations", type: :request do
 
       it "redirects to the sign-in page" do
         get "/registrations/#{registration.id}"
+
         expect(response).to redirect_to(new_user_session_path)
       end
     end
