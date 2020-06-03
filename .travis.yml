@@ -33,7 +33,7 @@ git:
 
 before_install:
   - export TZ=Europe/London
-  - gem install bundler --no-ducument
+  - gem install bundler --no-document
   - sudo apt-get install xvfb -y
   - sudo apt-get install ttf-liberation -y
   - sudo apt-get install wkhtmltopdf -y
