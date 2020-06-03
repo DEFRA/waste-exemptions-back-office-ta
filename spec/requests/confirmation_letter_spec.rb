@@ -26,7 +26,7 @@ RSpec.describe "Confirmation Letter", type: :request do
       get confirmation_letter_path(registration.id)
 
       expect(response.content_type).to eq("application/pdf")
-      expected_content_disposition = "inline; filename=\"#{registration.reference}.pdf\""
+      expected_content_disposition = "inline; filename=\"#{registration.reference}.pdf\"; filename*=UTF-8''#{registration.reference}.pdf"
       expect(response.headers["Content-Disposition"]).to eq(expected_content_disposition)
       expect(response.code).to eq("200")
     end

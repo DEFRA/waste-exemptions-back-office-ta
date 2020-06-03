@@ -30,7 +30,10 @@ RSpec.describe "Renews", type: :request do
         get request_path
 
         expect(response.code).to eq("303")
-        expect(response).to redirect_to("renewal_start_forms")
+
+        renewing_registration = WasteExemptionsEngine::RenewingRegistration.last
+        path = WasteExemptionsEngine::Engine.routes.url_helpers.new_renewal_start_form_path(token: renewing_registration.token)
+        expect(response).to redirect_to(path)
       end
 
       context "when the renewal was already started" do
