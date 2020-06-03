@@ -43,13 +43,13 @@ module Reports
     end
 
     def stub_successful_request
-      stub_request(:put, %r{https:\/\/.*\.s3\.eu-west-1\.amazonaws\.com\/20190601-20190630\.csv.*})
+      stub_request(:put, %r{https://.*\.s3\.eu-west-1\.amazonaws\.com/20190601-20190630\.csv.*})
     end
 
     def stub_failing_request
       stub_request(
         :put,
-        %r{https:\/\/.*\.s3\.eu-west-1\.amazonaws\.com\/20190601-20190630\.csv.*}
+        %r{https://.*\.s3\.eu-west-1\.amazonaws\.com/20190601-20190630\.csv.*}
       ).to_return(
         status: 403
       )

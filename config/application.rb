@@ -11,8 +11,8 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
-require 'rails/all'
-require 'active_record/connection_adapters/postgresql_adapter'
+require "rails/all"
+require "active_record/connection_adapters/postgresql_adapter"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems

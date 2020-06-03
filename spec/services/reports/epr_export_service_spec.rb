@@ -10,7 +10,7 @@ module Reports
           create_list(:registration_exemption, 2, :with_registration, :active)
           file_name = "waste_exemptions_epr_daily_full"
 
-          stub_request(:put, %r{https:\/\/.*\.s3\.eu-west-1\.amazonaws\.com\/#{file_name}\.csv.*})
+          stub_request(:put, %r{https://.*\.s3\.eu-west-1\.amazonaws\.com/#{file_name}\.csv.*})
 
           # Expect no error gets notified
           expect(Airbrake).to_not receive(:notify)
@@ -27,7 +27,7 @@ module Reports
 
           stub_request(
             :put,
-            %r{https:\/\/.*\.s3\.eu-west-1\.amazonaws\.com\/#{file_name}\.csv.*}
+            %r{https://.*\.s3\.eu-west-1\.amazonaws\.com/#{file_name}\.csv.*}
           ).to_return(status: 403)
 
           # Expect an error to get notified

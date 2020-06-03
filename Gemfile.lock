@@ -1,18 +1,24 @@
-PATH
-  remote: /Users/cintamanipuddu/projects/defra-ruby-alert
+GIT
+  remote: https://github.com/DEFRA/defra-ruby-alert
+  revision: 8a1ab195a9fa4991d76e183385d9c356253b4a98
+  branch: update-airbrake-version
   specs:
     defra_ruby_alert (1.0.0)
       airbrake
 
-PATH
-  remote: /Users/cintamanipuddu/projects/defra-ruby-email
+GIT
+  remote: https://github.com/DEFRA/defra-ruby-email
+  revision: 4fc72aee2f684ec9fd0147041f5e2d7c7055515b
+  branch: rails-upgrade
   specs:
     defra_ruby_email (0.2.0)
       rails (~> 6.0.3.1)
       sprockets (~> 3.7.2)
 
-PATH
-  remote: /Users/cintamanipuddu/projects/waste-exemptions-engine
+GIT
+  remote: https://github.com/DEFRA/waste-exemptions-engine
+  revision: 120951555c4501f0153c84c5406b9f7076a487b4
+  branch: rails-upgrade
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
@@ -27,7 +33,6 @@ PATH
       phonelib
       rails (~> 6.0.3.1)
       rest-client (~> 2.0)
-      sassc-rails
       sprockets
       uk_postcode
       validates_email_format_of

@@ -18,7 +18,7 @@ RSpec.describe "Sessions", type: :request do
         let(:user) { create(:user) }
 
         it "signs the user in, returns a 302 response and redirects to the root path" do
-          post user_session_path, params: { user: { email: user.email, password: user.password }}
+          post user_session_path, params: { user: { email: user.email, password: user.password } }
 
           expect(controller.current_user).to eq(user)
           expect(response).to have_http_status(302)
