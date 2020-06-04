@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/defra-ruby-alert
-  revision: 8a1ab195a9fa4991d76e183385d9c356253b4a98
+  revision: 0094be7827f64cbf2fd2f25499bb93341141b3fd
   branch: update-airbrake-version
   specs:
     defra_ruby_alert (1.0.0)
@@ -106,7 +106,7 @@ GEM
       rbtree3 (~> 0.5)
     ast (2.4.0)
     aws-eventstream (1.1.0)
-    aws-partitions (1.323.0)
+    aws-partitions (1.324.0)
     aws-sdk-core (3.97.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
