@@ -35,11 +35,11 @@ gem "rails", "~> 6.0.3.1"
 # TODO: Remove once engine has tagged versions
 gem "defra_ruby_email",
     git: "https://github.com/DEFRA/defra-ruby-email",
-    branch: "rails-upgrade"
+    branch: "master"
 
 gem "defra_ruby_alert",
     git: "https://github.com/DEFRA/defra-ruby-alert",
-    branch: "update-airbrake-version"
+    branch: "master"
 
 # Automatically apply http headers that are related to security
 gem "secure_headers", "~> 5.0"

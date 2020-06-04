@@ -1,17 +1,17 @@
 GIT
   remote: https://github.com/DEFRA/defra-ruby-alert
-  revision: 0094be7827f64cbf2fd2f25499bb93341141b3fd
-  branch: update-airbrake-version
+  revision: f96bc951114c6165a5c7b15e6b7c05fd2442402e
+  branch: master
   specs:
-    defra_ruby_alert (1.0.0)
+    defra_ruby_alert (2.0.0)
       airbrake
 
 GIT
   remote: https://github.com/DEFRA/defra-ruby-email
-  revision: 4fc72aee2f684ec9fd0147041f5e2d7c7055515b
-  branch: rails-upgrade
+  revision: 23a401d3b65625346c7fd35f6eb8a5db78fd84bc
+  branch: master
   specs:
-    defra_ruby_email (0.2.0)
+    defra_ruby_email (1.0.0)
       rails (~> 6.0.3.1)
       sprockets (~> 3.7.2)
 
