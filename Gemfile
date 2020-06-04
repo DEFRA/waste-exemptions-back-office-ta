@@ -32,15 +32,6 @@ gem "rails", "~> 6.0.3.1"
 # Use SCSS for stylesheets
 # gem "sass-rails", "~> 5.0"
 
-# TODO: Remove once engine has tagged versions
-gem "defra_ruby_email",
-    git: "https://github.com/DEFRA/defra-ruby-email",
-    branch: "master"
-
-gem "defra_ruby_alert",
-    git: "https://github.com/DEFRA/defra-ruby-alert",
-    branch: "master"
-
 # Automatically apply http headers that are related to security
 gem "secure_headers", "~> 5.0"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
