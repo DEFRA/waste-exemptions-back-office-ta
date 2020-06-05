@@ -37,7 +37,7 @@ class AdConfirmationLettersExportPresenter < BasePresenter
   end
 
   def printed_by_label
-    printed_by.scan(/(\A.*)[\.|_](.*)@/).flatten.map(&:capitalize).join(" ").presence || printed_by
+    printed_by.scan(/(\A.*)[.|_](.*)@/).flatten.map(&:capitalize).join(" ").presence || printed_by
   end
 
   def none_to_print_label

@@ -86,25 +86,25 @@ RSpec.describe RenewalLetterPresenter do
     end
 
     it "includes the active exemptions from the registration" do
-      registration.registration_exemptions.first.update_attributes(state: :active)
+      registration.registration_exemptions.first.update(state: :active)
 
       expect(subject.listable_exemptions).to include(registration.exemptions.first)
     end
 
     it "includes the expired exemptions from the registration" do
-      registration.registration_exemptions.first.update_attributes(state: :expired)
+      registration.registration_exemptions.first.update(state: :expired)
 
       expect(subject.listable_exemptions).to include(registration.exemptions.first)
     end
 
     it "does not include revoked exemptions from the registration" do
-      registration.registration_exemptions.first.update_attributes(state: :revoked)
+      registration.registration_exemptions.first.update(state: :revoked)
 
       expect(subject.listable_exemptions).to_not include(registration.exemptions.first)
     end
 
     it "does not include ceased exemptions from the registration" do
-      registration.registration_exemptions.first.update_attributes(state: :ceased)
+      registration.registration_exemptions.first.update(state: :ceased)
 
       expect(subject.listable_exemptions).to_not include(registration.exemptions.first)
     end
@@ -130,7 +130,7 @@ RSpec.describe RenewalLetterPresenter do
     context "when there are exemptions in unrenewable states" do
       before do
         registration.exemptions = build_list(:exemption, 21)
-        registration.registration_exemptions.last(2).each { |re| re.update_attributes(state: :ceased) }
+        registration.registration_exemptions.last(2).each { |re| re.update(state: :ceased) }
       end
 
       it "returns the count minus 18 minus the unrenewable exemptions" do

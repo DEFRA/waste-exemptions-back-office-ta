@@ -11,6 +11,7 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
 
       it "returns a 200 response" do
         get request_path
+
         expect(response).to have_http_status(200)
       end
     end
@@ -20,6 +21,7 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
 
       it "redirects to the permissions error page" do
         get request_path
+
         expect(response).to redirect_to("/pages/permission")
       end
     end
@@ -29,6 +31,7 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
 
       it "redirects to the deactivated page" do
         get request_path
+
         expect(response).to redirect_to("/pages/deactivated")
       end
     end
@@ -38,6 +41,7 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
 
       it "redirects to the sign-in page" do
         get request_path
+
         expect(response).to redirect_to(new_user_session_path)
       end
     end
@@ -52,6 +56,7 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
 
       it "returns a 200 response" do
         get request_path
+
         expect(response).to have_http_status(200)
       end
     end
@@ -61,6 +66,7 @@ RSpec.describe "Waste Exemptions Engine", type: :request do
 
       it "redirects to the permissions error page" do
         get request_path
+
         expect(response).to redirect_to("/pages/permission")
       end
     end

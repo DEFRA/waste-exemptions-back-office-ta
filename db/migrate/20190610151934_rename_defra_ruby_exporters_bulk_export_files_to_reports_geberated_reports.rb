@@ -1,4 +1,4 @@
-class RenameDefraRubyExportersBulkExportFilesToReportsGeberatedReports < ActiveRecord::Migration
+class RenameDefraRubyExportersBulkExportFilesToReportsGeberatedReports < ActiveRecord::Migration[4.2]
   def self.up
     rename_table :defra_ruby_exporters_bulk_export_files, :reports_generated_reports
   end

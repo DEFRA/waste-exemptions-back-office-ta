@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptions_engine", "application_record")
+
 module WasteExemptionsEngine
-  class AdRenewalLettersExport < ActiveRecord::Base
+  class AdRenewalLettersExport < ::WasteExemptionsEngine::ApplicationRecord
     self.table_name = "ad_renewal_letters_exports"
 
     validates :expires_on, uniqueness: true

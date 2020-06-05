@@ -13,6 +13,7 @@ RSpec.describe "NewRegistrations", type: :request do
 
       it "renders the show template" do
         get "/new-registrations/#{new_registration.id}"
+
         expect(response).to render_template(:show)
       end
     end
@@ -22,6 +23,7 @@ RSpec.describe "NewRegistrations", type: :request do
 
       it "redirects to the sign-in page" do
         get "/new-registrations/#{new_registration.id}"
+
         expect(response).to redirect_to(new_user_session_path)
       end
     end

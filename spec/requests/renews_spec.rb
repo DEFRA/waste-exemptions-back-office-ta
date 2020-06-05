@@ -26,17 +26,14 @@ RSpec.describe "Renews", type: :request do
     context "when an admin agent user is signed in" do
       let(:user) { create(:user, :admin_agent) }
 
-      it "return a 303 redirect code" do
+      it "return a 303 redirect code and redirect to the renewal start form" do
         get request_path
 
         expect(response.code).to eq("303")
-      end
 
-      it "redirect to the renewal start form" do
-        get request_path
-        follow_redirect!
-
-        expect(response).to render_template("waste_exemptions_engine/renewal_start_forms/new")
+        renewing_registration = WasteExemptionsEngine::RenewingRegistration.last
+        path = WasteExemptionsEngine::Engine.routes.url_helpers.new_renewal_start_form_path(token: renewing_registration.token)
+        expect(response).to redirect_to(path)
       end
 
       context "when the renewal was already started" do
@@ -57,6 +54,7 @@ RSpec.describe "Renews", type: :request do
 
       it "redirects to the sign-in page" do
         get request_path
+
         expect(response).to redirect_to(new_user_session_path)
       end
     end

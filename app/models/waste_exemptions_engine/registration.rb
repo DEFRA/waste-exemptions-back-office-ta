@@ -3,7 +3,7 @@
 require WasteExemptionsEngine::Engine.root.join("app", "models", "waste_exemptions_engine", "registration")
 
 module WasteExemptionsEngine
-  class Registration < ActiveRecord::Base
+  class Registration < ::WasteExemptionsEngine::ApplicationRecord
     include CanBeSearchedLikeRegistration
 
     NCCC_EMAIL = "waste-exemptions@environment-agency.gov.uk"

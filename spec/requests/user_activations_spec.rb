@@ -16,6 +16,7 @@ RSpec.describe "User Activations", type: :request do
       context "when the user to be activated is inactive" do
         it "renders the activate_form template" do
           get "/users/activate/#{inactive_user.id}"
+
           expect(response).to render_template(:activate_form)
         end
       end
@@ -23,6 +24,7 @@ RSpec.describe "User Activations", type: :request do
       context "when the user to be activated is already active" do
         it "redirects to the user list" do
           get "/users/activate/#{active_user.id}"
+
           expect(response).to redirect_to(users_path)
         end
       end
@@ -36,6 +38,7 @@ RSpec.describe "User Activations", type: :request do
 
       it "redirects to the permissions error page" do
         get "/users/activate/#{inactive_user.id}"
+
         expect(response).to redirect_to("/pages/permission")
       end
     end
@@ -51,6 +54,7 @@ RSpec.describe "User Activations", type: :request do
       context "when the user to be deactivated is active" do
         it "renders the deactivate_form template" do
           get "/users/deactivate/#{active_user.id}"
+
           expect(response).to render_template(:deactivate_form)
         end
       end
@@ -58,6 +62,7 @@ RSpec.describe "User Activations", type: :request do
       context "when the user to be deactivated is already inactive" do
         it "redirects to the user list" do
           get "/users/deactivate/#{inactive_user.id}"
+
           expect(response).to redirect_to(users_path)
         end
       end
@@ -72,13 +77,10 @@ RSpec.describe "User Activations", type: :request do
       end
 
       context "when the user to be activated is inactive" do
-        it "redirects to the user list" do
+        it "redirects to the user list and activates the user" do
           post "/users/activate/#{inactive_user.id}"
-          expect(response).to redirect_to(users_path)
-        end
 
-        it "activates the user" do
-          post "/users/activate/#{inactive_user.id}"
+          expect(response).to redirect_to(users_path)
           expect(inactive_user.reload.active?).to eq(true)
         end
       end
@@ -86,6 +88,7 @@ RSpec.describe "User Activations", type: :request do
       context "when the user to be activated is already active" do
         it "redirects to the user list" do
           post "/users/activate/#{active_user.id}"
+
           expect(response).to redirect_to(users_path)
         end
       end
@@ -100,13 +103,10 @@ RSpec.describe "User Activations", type: :request do
       end
 
       context "when the user to be deactivated is active" do
-        it "redirects to the user list" do
+        it "redirects to the user list and deactivates the user" do
           post "/users/deactivate/#{active_user.id}"
-          expect(response).to redirect_to(users_path)
-        end
 
-        it "deactivates the user" do
-          post "/users/deactivate/#{active_user.id}"
+          expect(response).to redirect_to(users_path)
           expect(active_user.reload.active?).to eq(false)
         end
       end
@@ -114,6 +114,7 @@ RSpec.describe "User Activations", type: :request do
       context "when the user to be deactivated is already inactive" do
         it "redirects to the user list" do
           post "/users/deactivate/#{inactive_user.id}"
+
           expect(response).to redirect_to(users_path)
         end
       end

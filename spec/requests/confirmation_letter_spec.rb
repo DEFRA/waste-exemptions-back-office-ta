@@ -14,26 +14,20 @@ RSpec.describe "Confirmation Letter", type: :request do
 
     # The presenter has branching logic for partnerships so this needs to be tested explicitly
     context "when the registration is for a partnership" do
-      it "responds with a PDF" do
-        get confirmation_letter_path(registration.id)
-        expect(response.content_type).to eq("application/pdf")
-      end
-
-      it "returns a 200 status code" do
+      it "responds with a PDF and returns a 200 status code" do
         get confirmation_letter_path(partnership_registration.id)
+
+        expect(response.content_type).to eq("application/pdf")
         expect(response.code).to eq("200")
       end
     end
 
-    it "responds with a PDF with a filename that includes the registration reference" do
+    it "responds with a PDF with a filename that includes the registration reference and returns a 200 status code" do
       get confirmation_letter_path(registration.id)
-      expect(response.content_type).to eq("application/pdf")
-      expected_content_disposition = "inline; filename=\"#{registration.reference}.pdf\""
-      expect(response.headers["Content-Disposition"]).to eq(expected_content_disposition)
-    end
 
-    it "returns a 200 status code" do
-      get confirmation_letter_path(registration.id)
+      expect(response.content_type).to eq("application/pdf")
+      expected_content_disposition = "inline; filename=\"#{registration.reference}.pdf\"; filename*=UTF-8''#{registration.reference}.pdf"
+      expect(response.headers["Content-Disposition"]).to eq(expected_content_disposition)
       expect(response.code).to eq("200")
     end
 
@@ -41,7 +35,7 @@ RSpec.describe "Confirmation Letter", type: :request do
       context "and the value is 'true'" do
         it "responds with HTML" do
           get "#{confirmation_letter_path(registration.id)}?show_as_html=true"
-          expect(response.content_type).to eq("text/html")
+          expect(response.content_type).to eq("text/html; charset=utf-8")
         end
       end
 

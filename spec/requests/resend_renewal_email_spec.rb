@@ -14,7 +14,7 @@ RSpec.describe "ResendRenewalEmail", type: :request do
       let(:user) { create(:user, :data_agent) }
 
       it "redirects to permission page" do
-        get request_path, {}, "HTTP_REFERER" => "/"
+        get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
         follow_redirect!
 
         expect(response).to render_template("pages/permission")
@@ -25,7 +25,7 @@ RSpec.describe "ResendRenewalEmail", type: :request do
       let(:user) { create(:user, :admin_agent) }
 
       it "return a 302 redirect code" do
-        get request_path, {}, "HTTP_REFERER" => "/"
+        get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
 
         expect(response.code).to eq("302")
       end
@@ -33,7 +33,7 @@ RSpec.describe "ResendRenewalEmail", type: :request do
       it "return a success message" do
         success_message = I18n.t("resend_renewal_email.messages.success", email: registration.contact_email)
 
-        get request_path, {}, "HTTP_REFERER" => "/"
+        get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
         follow_redirect!
 
         expect(response.body).to include(success_message)
@@ -55,7 +55,7 @@ RSpec.describe "ResendRenewalEmail", type: :request do
         end
 
         it "return a 302 redirect code" do
-          get request_path, {}, "HTTP_REFERER" => "/"
+          get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
 
           expect(response.code).to eq("302")
         end
@@ -63,7 +63,7 @@ RSpec.describe "ResendRenewalEmail", type: :request do
         it "return an error message" do
           error_message = I18n.t("resend_renewal_email.messages.failure_details")
 
-          get request_path, {}, "HTTP_REFERER" => "/"
+          get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
           follow_redirect!
 
           expect(response.body).to include(error_message)
@@ -75,7 +75,7 @@ RSpec.describe "ResendRenewalEmail", type: :request do
       before { sign_out(create(:user)) }
 
       it "redirects to the sign-in page" do
-        get request_path, {}, "HTTP_REFERER" => "/"
+        get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
 
         expect(response).to redirect_to(new_user_session_path)
       end

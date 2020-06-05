@@ -11,7 +11,7 @@ module Reports
         create(:registration)
 
         expect(GeneratedReport).to receive(:delete_all)
-        stub_request(:put, %r{https:\/\/.*\.s3\.eu-west-1\.amazonaws\.com.*})
+        stub_request(:put, %r{https://.*\.s3\.eu-west-1\.amazonaws\.com.*})
 
         BulkExportService.run
       end

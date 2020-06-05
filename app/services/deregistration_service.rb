@@ -19,7 +19,7 @@ class DeregistrationService
     else
       # Apply the new state via the AASM helper method.
       @resource.public_send("#{state_transition}!")
-      @resource.update_attributes(deregistration_message: deregistration_message)
+      @resource.update(deregistration_message: deregistration_message)
     end
   end
 end

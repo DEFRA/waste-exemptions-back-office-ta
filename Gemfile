@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-ruby "2.4.2"
+ruby "2.7.1"
 
 # Allows us to automatically generate the change log from the tags, issues,
 # labels and pull requests on GitHub. Added as a dependency so all dev's have
@@ -25,10 +25,13 @@ gem "pg", "~> 0.18.4"
 # involve a database drop. Stops the error
 # PG::ObjectInUse: ERROR:  database "wex_db" is being accessed by other users
 gem "pgreset"
+# See: https://github.com/sass/sassc-rails/issues/114
+gem "sassc-rails"
 # Bundle edge Rails instead: gem "rails', github: 'rails/rails'
-gem "rails", "~> 4.2.11"
+gem "rails", "~> 6.0.3.1"
 # Use SCSS for stylesheets
-gem "sass-rails", "~> 5.0"
+# gem "sass-rails", "~> 5.0"
+
 # Automatically apply http headers that are related to security
 gem "secure_headers", "~> 5.0"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -40,8 +43,8 @@ gem "uglifier", ">= 1.3.0"
 gem "cancancan", "~> 2.0"
 
 # Use Devise for user authentication
-gem "devise", ">= 4.4.3"
-gem "devise_invitable", "~> 1.7.0"
+gem "devise"
+gem "devise_invitable"
 
 # Use Kaminari for pagination
 gem "kaminari", "~> 1.1"
@@ -78,13 +81,16 @@ end
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem "pry-byebug"
+
+  gem "rails-controller-testing"
+
   # Manages our rubocop style rules for all defra ruby projects
   gem "defra_ruby_style"
   # Shim to load environment variables from a .env file into ENV in development
   # and test
   gem "dotenv-rails"
   # Project uses RSpec as its test framework
-  gem "rspec-rails", "~> 3.8"
+  gem "rspec-rails"
 end
 
 group :development do
@@ -115,5 +121,5 @@ group :test do
   gem "whenever-test", "~> 1.0"
 
   # Use Bullet to find unoptimised querries
-  gem "bullet", "~> 5.9"
+  gem "bullet"
 end

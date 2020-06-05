@@ -10,7 +10,7 @@ class AdConfirmationLettersExportsController < ApplicationController
   def update
     ad_confirmation_letters_export = WasteExemptionsEngine::AdConfirmationLettersExport.find(params[:id])
 
-    ad_confirmation_letters_export.update_attributes(ad_confirmation_letters_export_attributes)
+    ad_confirmation_letters_export.update(ad_confirmation_letters_export_attributes)
 
     redirect_to ad_confirmation_letters_exports_path
   end

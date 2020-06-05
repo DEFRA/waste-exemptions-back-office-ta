@@ -10,15 +10,10 @@ RSpec.describe "AD Confirmation letters export", type: :request do
   end
 
   describe "GET /ad-confirmation-letters" do
-    it "renders the correct template" do
+    it "renders the correct template and responds with a 200 status code" do
       get ad_confirmation_letters_exports_path
 
       expect(response).to render_template("ad_confirmation_letters_exports/index")
-    end
-
-    it "responds with a 200 status code" do
-      get ad_confirmation_letters_exports_path
-
       expect(response.code).to eq("200")
     end
   end
@@ -34,18 +29,13 @@ RSpec.describe "AD Confirmation letters export", type: :request do
       }
     end
 
-    it "update the record" do
-      put ad_confirmation_letters_export_path(ad_confirmation_letters_export), params
+    it "update the record and redirects to the index path" do
+      put ad_confirmation_letters_export_path(ad_confirmation_letters_export), params: params
 
       ad_confirmation_letters_export.reload
 
       expect(ad_confirmation_letters_export.printed_on).to eq(Date.today)
       expect(ad_confirmation_letters_export.printed_by).to eq(user.email)
-    end
-
-    it "redirect to the index path" do
-      put ad_confirmation_letters_export_path(ad_confirmation_letters_export), params
-
       expect(response).to redirect_to(ad_confirmation_letters_exports_path)
     end
   end

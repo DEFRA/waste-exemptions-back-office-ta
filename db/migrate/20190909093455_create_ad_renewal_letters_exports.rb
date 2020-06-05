@@ -1,4 +1,4 @@
-class CreateAdRenewalLettersExports < ActiveRecord::Migration
+class CreateAdRenewalLettersExports < ActiveRecord::Migration[4.2]
   def change
     create_table :ad_renewal_letters_exports do |t|
       t.date :expires_on
