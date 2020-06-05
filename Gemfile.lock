@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: e75f6f838a76bd321473ce9652eee1163a189ed9
-  branch: rails-upgrade
+  revision: 9e4fd13cbd808148c4005ea0d86c53a24e11a387
+  branch: master
   specs:
     waste_exemptions_engine (0.0.1)
       aasm (~> 4.12)
