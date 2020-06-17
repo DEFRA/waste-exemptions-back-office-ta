@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: d57062b3ed5dd43319d9ea0fa7bc9d92b896004f
+  revision: 4742c37180b97e4b043b7fe579da60e6afde8ca5
   branch: master
   specs:
     waste_exemptions_engine (0.0.1)
@@ -220,7 +220,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    loofah (2.5.0)
+    loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
