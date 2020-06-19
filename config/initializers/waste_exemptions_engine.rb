@@ -40,6 +40,6 @@ WasteExemptionsEngine.configure do |configuration|
   configuration.airbrake_enabled = ENV["USE_AIRBRAKE"]
   configuration.airbrake_host = ENV["AIRBRAKE_HOST"]
   configuration.airbrake_project_key = ENV["AIRBRAKE_BO_PROJECT_KEY"]
-  configuration.airbrake_blacklist = [/password/i, /authorization/i]
+  configuration.airbrake_blocklist = [/password/i, /authorization/i]
 end
 WasteExemptionsEngine.start_airbrake
