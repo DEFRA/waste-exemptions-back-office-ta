@@ -2,10 +2,89 @@
 
 ## [Unreleased](https://github.com/defra/waste-exemptions-back-office/tree/HEAD)
 
-[Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v1.3.1...HEAD)
+[Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v2.0.0...HEAD)
 
 **Merged pull requests:**
 
+- Bump waste\_exemptions\_engine from `b1f1a3d` to `ee5841d` [\#572](https://github.com/DEFRA/waste-exemptions-back-office/pull/572) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rails-controller-testing from 1.0.4 to 1.0.5 [\#571](https://github.com/DEFRA/waste-exemptions-back-office/pull/571) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump faker from 2.12.0 to 2.13.0 [\#570](https://github.com/DEFRA/waste-exemptions-back-office/pull/570) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+## [v2.0.0](https://github.com/defra/waste-exemptions-back-office/tree/v2.0.0) (2020-06-23)
+
+[Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v1.3.1...v2.0.0)
+
+**Implemented enhancements:**
+
+- Update defra-ruby-aws to AWS:KMS version [\#569](https://github.com/DEFRA/waste-exemptions-back-office/pull/569) ([Cruikshanks](https://github.com/Cruikshanks))
+- Update ruby and rails [\#558](https://github.com/DEFRA/waste-exemptions-back-office/pull/558) ([cintamani](https://github.com/cintamani))
+- Schedule run of ad confirmation letter task [\#554](https://github.com/DEFRA/waste-exemptions-back-office/pull/554) ([cintamani](https://github.com/cintamani))
+- Generate bulk export letters and view [\#553](https://github.com/DEFRA/waste-exemptions-back-office/pull/553) ([cintamani](https://github.com/cintamani))
+
+**Fixed bugs:**
+
+- Update .travis.yml [\#551](https://github.com/DEFRA/waste-exemptions-back-office/pull/551) ([cintamani](https://github.com/cintamani))
+- Fix SonarCloud code coverage reporting [\#538](https://github.com/DEFRA/waste-exemptions-back-office/pull/538) ([Cruikshanks](https://github.com/Cruikshanks))
+
+**Security fixes:**
+
+- Fix json dependency security issue [\#535](https://github.com/DEFRA/waste-exemptions-back-office/pull/535) ([Cruikshanks](https://github.com/Cruikshanks))
+
+**Merged pull requests:**
+
+- Bump waste\_exemptions\_engine from `a6828ff` to `b1f1a3d` [\#568](https://github.com/DEFRA/waste-exemptions-back-office/pull/568) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `4742c37` to `a6828ff` [\#567](https://github.com/DEFRA/waste-exemptions-back-office/pull/567) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump factory\_bot\_rails from 5.2.0 to 6.0.0 [\#566](https://github.com/DEFRA/waste-exemptions-back-office/pull/566) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rails from 6.0.3.1 to 6.0.3.2 [\#565](https://github.com/DEFRA/waste-exemptions-back-office/pull/565) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `d57062b` to `4742c37` [\#564](https://github.com/DEFRA/waste-exemptions-back-office/pull/564) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `f40ca17` to `d57062b` [\#563](https://github.com/DEFRA/waste-exemptions-back-office/pull/563) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump defra\_ruby\_style from 0.2.1 to 0.2.2 [\#561](https://github.com/DEFRA/waste-exemptions-back-office/pull/561) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `9e4fd13` to `f40ca17` [\#560](https://github.com/DEFRA/waste-exemptions-back-office/pull/560) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump devise from 4.7.1 to 4.7.2 [\#559](https://github.com/DEFRA/waste-exemptions-back-office/pull/559) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `456aee6` to `e134b99` [\#557](https://github.com/DEFRA/waste-exemptions-back-office/pull/557) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump vcr from 5.1.0 to 6.0.0 [\#556](https://github.com/DEFRA/waste-exemptions-back-office/pull/556) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump kaminari from 1.2.0 to 1.2.1 [\#555](https://github.com/DEFRA/waste-exemptions-back-office/pull/555) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `de55f16` to `456aee6` [\#552](https://github.com/DEFRA/waste-exemptions-back-office/pull/552) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rails from 4.2.11.1 to 4.2.11.3 [\#550](https://github.com/DEFRA/waste-exemptions-back-office/pull/550) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `adc4d6d` to `de55f16` [\#549](https://github.com/DEFRA/waste-exemptions-back-office/pull/549) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump jquery-rails from 4.3.5 to 4.4.0 [\#548](https://github.com/DEFRA/waste-exemptions-back-office/pull/548) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `3c79bb3` to `adc4d6d` [\#547](https://github.com/DEFRA/waste-exemptions-back-office/pull/547) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump database\_cleaner from 1.8.4 to 1.8.5 [\#546](https://github.com/DEFRA/waste-exemptions-back-office/pull/546) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `71488f4` to `3c79bb3` [\#545](https://github.com/DEFRA/waste-exemptions-back-office/pull/545) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Don't expire VCR cassettes [\#544](https://github.com/DEFRA/waste-exemptions-back-office/pull/544) ([irisfaraway](https://github.com/irisfaraway))
+- Bump waste\_exemptions\_engine from `a9cde03` to `71488f4` [\#543](https://github.com/DEFRA/waste-exemptions-back-office/pull/543) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump factory\_bot\_rails from 5.1.1 to 5.2.0 [\#542](https://github.com/DEFRA/waste-exemptions-back-office/pull/542) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `2c75ba0` to `a9cde03` [\#541](https://github.com/DEFRA/waste-exemptions-back-office/pull/541) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Use multiple rubocop formats in Travis build [\#540](https://github.com/DEFRA/waste-exemptions-back-office/pull/540) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump defra\_ruby\_style from 0.1.4 to 0.2.1 [\#539](https://github.com/DEFRA/waste-exemptions-back-office/pull/539) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `6677f93` to `2c75ba0` [\#537](https://github.com/DEFRA/waste-exemptions-back-office/pull/537) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Refresh VCR cassettes [\#536](https://github.com/DEFRA/waste-exemptions-back-office/pull/536) ([irisfaraway](https://github.com/irisfaraway))
+- Bump waste\_exemptions\_engine from `0b1aad4` to `6677f93` [\#534](https://github.com/DEFRA/waste-exemptions-back-office/pull/534) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump github\_changelog\_generator from 1.15.1 to 1.15.2 [\#533](https://github.com/DEFRA/waste-exemptions-back-office/pull/533) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `374e9df` to `0b1aad4` [\#532](https://github.com/DEFRA/waste-exemptions-back-office/pull/532) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Update VCR cassettes [\#531](https://github.com/DEFRA/waste-exemptions-back-office/pull/531) ([irisfaraway](https://github.com/irisfaraway))
+- Bump database\_cleaner from 1.8.3 to 1.8.4 [\#530](https://github.com/DEFRA/waste-exemptions-back-office/pull/530) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump github\_changelog\_generator from 1.15.0 to 1.15.1 [\#529](https://github.com/DEFRA/waste-exemptions-back-office/pull/529) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `f84d7cd` to `374e9df` [\#528](https://github.com/DEFRA/waste-exemptions-back-office/pull/528) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump pry-byebug from 3.8.0 to 3.9.0 [\#527](https://github.com/DEFRA/waste-exemptions-back-office/pull/527) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `d40c8a2` to `f84d7cd` [\#526](https://github.com/DEFRA/waste-exemptions-back-office/pull/526) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `5ccf5d9` to `d40c8a2` [\#525](https://github.com/DEFRA/waste-exemptions-back-office/pull/525) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubyzip from 2.2.0 to 2.3.0 [\#524](https://github.com/DEFRA/waste-exemptions-back-office/pull/524) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `4a2aaad` to `5ccf5d9` [\#523](https://github.com/DEFRA/waste-exemptions-back-office/pull/523) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump webmock from 3.8.2 to 3.8.3 [\#522](https://github.com/DEFRA/waste-exemptions-back-office/pull/522) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `f5c7986` to `4a2aaad` [\#521](https://github.com/DEFRA/waste-exemptions-back-office/pull/521) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Update VCR cassettes [\#520](https://github.com/DEFRA/waste-exemptions-back-office/pull/520) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump rspec-rails from 3.9.0 to 3.9.1 [\#519](https://github.com/DEFRA/waste-exemptions-back-office/pull/519) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `dbcf25f` to `f5c7986` [\#518](https://github.com/DEFRA/waste-exemptions-back-office/pull/518) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `af6969f` to `dbcf25f` [\#517](https://github.com/DEFRA/waste-exemptions-back-office/pull/517) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Switch to SonarCloud from CodeClimate [\#516](https://github.com/DEFRA/waste-exemptions-back-office/pull/516) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump waste\_exemptions\_engine from `870ee40` to `af6969f` [\#515](https://github.com/DEFRA/waste-exemptions-back-office/pull/515) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Update VCR cassettes [\#514](https://github.com/DEFRA/waste-exemptions-back-office/pull/514) ([irisfaraway](https://github.com/irisfaraway))
+- Bump waste\_exemptions\_engine from `63ccd82` to `870ee40` [\#513](https://github.com/DEFRA/waste-exemptions-back-office/pull/513) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `5920cc9` to `63ccd82` [\#512](https://github.com/DEFRA/waste-exemptions-back-office/pull/512) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `542a9a9` to `5920cc9` [\#511](https://github.com/DEFRA/waste-exemptions-back-office/pull/511) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `b6d67c0` to `542a9a9` [\#510](https://github.com/DEFRA/waste-exemptions-back-office/pull/510) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump database\_cleaner from 1.8.2 to 1.8.3 [\#509](https://github.com/DEFRA/waste-exemptions-back-office/pull/509) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `9b0861a` to `b6d67c0` [\#508](https://github.com/DEFRA/waste-exemptions-back-office/pull/508) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v1.3.1](https://github.com/defra/waste-exemptions-back-office/tree/v1.3.1) (2020-02-13)
@@ -422,14 +501,6 @@
 
 - \[Security\] Bump nokogiri from 1.10.2 to 1.10.3 [\#138](https://github.com/DEFRA/waste-exemptions-back-office/pull/138) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - \[Security\] Bump rails from 4.2.11 to 4.2.11.1 [\#81](https://github.com/DEFRA/waste-exemptions-back-office/pull/81) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-
-**Closed issues:**
-
-- Dependabot can't resolve your Ruby dependency files [\#237](https://github.com/DEFRA/waste-exemptions-back-office/issues/237)
-- Dependabot can't resolve your Ruby dependency files [\#232](https://github.com/DEFRA/waste-exemptions-back-office/issues/232)
-- Dependabot can't resolve your Ruby dependency files [\#230](https://github.com/DEFRA/waste-exemptions-back-office/issues/230)
-- Dependabot can't resolve your Ruby dependency files [\#227](https://github.com/DEFRA/waste-exemptions-back-office/issues/227)
-- Avoid using the `WasteExemptionsEngine` namespace unless the code is defined in that project [\#108](https://github.com/DEFRA/waste-exemptions-back-office/issues/108)
 
 **Merged pull requests:**
 
