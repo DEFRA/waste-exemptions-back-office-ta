@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: d85034121a7375b6a0c7013d73fe4373f897d646
+  revision: e2fca92d0b5157feaee27dc83274d404bc6e40f7
   branch: main
   specs:
     waste_exemptions_engine (0.0.1)
@@ -9,7 +9,7 @@ GIT
       defra_ruby_alert
       defra_ruby_area
       defra_ruby_email
-      defra_ruby_validators (~> 2.2.0)
+      defra_ruby_validators
       has_secure_token
       high_voltage (~> 3.1)
       os_map_ref (~> 0.5)
@@ -137,7 +137,7 @@ GEM
       sprockets (~> 3.7.2)
     defra_ruby_style (0.2.2)
       rubocop (~> 0.82)
-    defra_ruby_validators (2.2.0)
+    defra_ruby_validators (2.4.1)
       activemodel
       os_map_ref
       phonelib
@@ -257,7 +257,7 @@ GEM
       rake (>= 0.8.1)
     pg (0.18.4)
     pgreset (0.1.1)
-    phonelib (0.6.43)
+    phonelib (0.6.44)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
