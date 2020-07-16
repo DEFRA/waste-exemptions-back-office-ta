@@ -2,10 +2,30 @@
 
 ## [Unreleased](https://github.com/defra/waste-exemptions-back-office/tree/HEAD)
 
-[Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v2.0.0...HEAD)
+[Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v2.0.1...HEAD)
 
 **Merged pull requests:**
 
+- Bump waste\_exemptions\_engine from `3f10b80` to `fe020be` [\#584](https://github.com/DEFRA/waste-exemptions-back-office/pull/584) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump dotenv-rails from 2.7.5 to 2.7.6 [\#583](https://github.com/DEFRA/waste-exemptions-back-office/pull/583) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+## [v2.0.1](https://github.com/defra/waste-exemptions-back-office/tree/v2.0.1) (2020-07-10)
+
+[Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v2.0.0...v2.0.1)
+
+**Implemented enhancements:**
+
+- Update defra-ruby-aws to encryption configurable [\#579](https://github.com/DEFRA/waste-exemptions-back-office/pull/579) ([Cruikshanks](https://github.com/Cruikshanks))
+
+**Merged pull requests:**
+
+- Bump waste\_exemptions\_engine from `6f694c9` to `3f10b80` [\#582](https://github.com/DEFRA/waste-exemptions-back-office/pull/582) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Revert "Update defra-ruby-alert" [\#581](https://github.com/DEFRA/waste-exemptions-back-office/pull/581) ([Cruikshanks](https://github.com/Cruikshanks))
+- Update defra-ruby-alert [\#580](https://github.com/DEFRA/waste-exemptions-back-office/pull/580) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump waste\_exemptions\_engine from `d850341` to `6f694c9` [\#578](https://github.com/DEFRA/waste-exemptions-back-office/pull/578) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump factory\_bot\_rails from 6.0.0 to 6.1.0 [\#577](https://github.com/DEFRA/waste-exemptions-back-office/pull/577) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `083079e` to `d850341` [\#575](https://github.com/DEFRA/waste-exemptions-back-office/pull/575) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Changes need to support switch to 'main' branch [\#574](https://github.com/DEFRA/waste-exemptions-back-office/pull/574) ([Cruikshanks](https://github.com/Cruikshanks))
 - Bump waste\_exemptions\_engine from `b1f1a3d` to `ee5841d` [\#572](https://github.com/DEFRA/waste-exemptions-back-office/pull/572) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump rails-controller-testing from 1.0.4 to 1.0.5 [\#571](https://github.com/DEFRA/waste-exemptions-back-office/pull/571) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump faker from 2.12.0 to 2.13.0 [\#570](https://github.com/DEFRA/waste-exemptions-back-office/pull/570) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
