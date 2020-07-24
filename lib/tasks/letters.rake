@@ -21,7 +21,7 @@ namespace :letters do
 
       older_than = WasteExemptionsBackOffice::Application.config.ad_letters_delete_records_in.to_i.days.ago
 
-      AdRenewalLettersExportCleanerService.run(older_than)
+      AdConfirmationLettersExportCleanerService.run(older_than)
     end
   end
 end
