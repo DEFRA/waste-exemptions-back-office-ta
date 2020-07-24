@@ -88,7 +88,7 @@ RSpec.describe "Whenever schedule" do
     job_details = schedule.jobs[:rake].find { |h| h[:task] == "letters:export:ad_confirmations" }
 
     expect(job_details[:every][0]).to eq(:day)
-    expect(job_details[:every][1][:at]).to eq("00:55")
+    expect(job_details[:every][1][:at]).to eq("22:35")
   end
 
   it "picks up the boxi export generation run frequency and time" do
