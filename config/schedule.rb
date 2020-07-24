@@ -51,7 +51,7 @@ end
 
 # This is the AD confirmation letters export job. When run it will generate a single
 # PDF containing confirmation letters for all AD registrations created today
-every :day, at: (ENV["EXPORT_SERVICE_AD_CONFIRMATION_LETTERS_TIME"] || "00:55"), roles: [:db] do
+every :day, at: (ENV["EXPORT_SERVICE_AD_CONFIRMATION_LETTERS_TIME"] || "22:35"), roles: [:db] do
   rake "letters:export:ad_confirmations"
 end
 
