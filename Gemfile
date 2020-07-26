@@ -50,7 +50,7 @@ gem "devise_invitable"
 gem "kaminari", "~> 1.1"
 
 # Use Whenever to manage cron tasks
-gem "whenever", "~> 0.10.0"
+gem "whenever", "~> 1.0"
 
 # Used for auditing and version control
 gem "paper_trail", "~> 10.2.0"
