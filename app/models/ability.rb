@@ -16,6 +16,7 @@ class Ability
     permissions_for_super_agent if user.role_is?(:super_agent)
     permissions_for_admin_agent if user.role_is?(:admin_agent)
     permissions_for_data_agent if user.role_is?(:data_agent)
+    permissions_for_developer if user.role_is?(:developer)
   end
 
   def permissions_for_system_user
@@ -51,5 +52,13 @@ class Ability
     can :read, WasteExemptionsEngine::Registration
     can :read, WasteExemptionsEngine::NewRegistration
     can :read, Reports::GeneratedReport
+  end
+
+  # Developer users should just be those on the current delivery team and/or
+  # those providing system support. We allow the same permissions as an admin
+  # agent as they will often need to interact with the service including
+  # creating exemptions in order to test and debug.
+  def permissions_for_developer
+    permissions_for_admin_agent
   end
 end
