@@ -62,6 +62,6 @@ Rails.application.routes.draw do
   mount WasteExemptionsEngine::Engine => "/"
 
   # Defra ruby features engine
-  mount DefraRubyFeatures::Engine => "/features"
+  mount DefraRubyFeatures::Engine => "/features", as: "features_engine"
 end
 # rubocop:enable Metrics/BlockLength
