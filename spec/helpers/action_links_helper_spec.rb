@@ -2,13 +2,6 @@
 
 require "rails_helper"
 
-# Add #can? to the module so it can be stubbed in the tests
-module ActionLinksHelper
-  def can?(_action, _resource)
-    false
-  end
-end
-
 RSpec.describe ActionLinksHelper, type: :helper do
   include Devise::Test::ControllerHelpers
 
@@ -110,8 +103,10 @@ RSpec.describe ActionLinksHelper, type: :helper do
     context "when the resource is a registration" do
       let(:resource) { create(:registration) }
 
+      before(:each) { allow(helper).to receive(:can?).with(:update, resource).and_return(can) }
+
       context "when the user has permission to update a registration" do
-        before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:update, resource).and_return(true) }
+        let(:can) { true }
 
         it "returns true" do
           expect(helper.display_edit_link_for?(resource)).to eq(true)
@@ -119,7 +114,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
       end
 
       context "when the user does not have permission to update a registration" do
-        before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:update, resource).and_return(false) }
+        let(:can) { false }
 
         it "returns false" do
           expect(helper.display_edit_link_for?(resource)).to eq(false)
@@ -147,8 +142,10 @@ RSpec.describe ActionLinksHelper, type: :helper do
         registration
       end
 
+      before(:each) { allow(helper).to receive(:can?).with(:deregister, resource).and_return(can) }
+
       context "when the user has permission to deregister a registration" do
-        before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:deregister, resource).and_return(true) }
+        let(:can) { true }
 
         it "returns true" do
           expect(helper.display_deregister_link_for?(resource)).to eq(true)
@@ -156,7 +153,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
       end
 
       context "when the user does not have permission to deregister a registration" do
-        before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:deregister, resource).and_return(false) }
+        let(:can) { false }
 
         it "returns false" do
           expect(helper.display_deregister_link_for?(resource)).to eq(false)
@@ -211,7 +208,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
         before(:each) { allow(resource).to receive(:in_renewal_window?).and_return(true) }
 
         context "when the user has permission to renew" do
-          before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:renew, resource).and_return(true) }
+          before(:each) { allow(helper).to receive(:can?).with(:renew, resource).and_return(can) }
 
           context "when the resource has active exemptions" do
             before do
@@ -220,6 +217,8 @@ RSpec.describe ActionLinksHelper, type: :helper do
                 re.save!
               end
             end
+
+            let(:can) { true }
 
             it "returns true" do
               expect(helper.display_renew_links_for?(resource)).to eq(true)
@@ -234,6 +233,8 @@ RSpec.describe ActionLinksHelper, type: :helper do
               end
             end
 
+            let(:can) { true }
+
             it "returns true" do
               expect(helper.display_renew_links_for?(resource)).to eq(true)
             end
@@ -247,6 +248,8 @@ RSpec.describe ActionLinksHelper, type: :helper do
               end
             end
 
+            let(:can) { true }
+
             it "returns false" do
               expect(helper.display_renew_links_for?(resource)).to eq(false)
             end
@@ -254,7 +257,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
         end
 
         context "when the user does not have permission to renew" do
-          before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:renew, resource).and_return(false) }
+          let(:can) { false }
 
           it "returns false" do
             expect(helper.display_renew_links_for?(resource)).to eq(false)
@@ -288,7 +291,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
         before(:each) { allow(resource).to receive(:past_renewal_window?).and_return(true) }
 
         context "when the user has permission to renew" do
-          before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:renew, resource).and_return(true) }
+          before(:each) { allow(helper).to receive(:can?).with(:renew, resource).and_return(can) }
 
           context "when the resource has active exemptions" do
             before do
@@ -297,6 +300,8 @@ RSpec.describe ActionLinksHelper, type: :helper do
                 re.save!
               end
             end
+
+            let(:can) { true }
 
             it "returns true" do
               expect(helper.display_renew_window_closed_text_for?(resource)).to eq(true)
@@ -311,6 +316,8 @@ RSpec.describe ActionLinksHelper, type: :helper do
               end
             end
 
+            let(:can) { true }
+
             it "returns true" do
               expect(helper.display_renew_window_closed_text_for?(resource)).to eq(true)
             end
@@ -324,6 +331,8 @@ RSpec.describe ActionLinksHelper, type: :helper do
               end
             end
 
+            let(:can) { true }
+
             it "returns false" do
               expect(helper.display_renew_window_closed_text_for?(resource)).to eq(false)
             end
@@ -331,7 +340,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
         end
 
         context "when the user does not have permission to renew" do
-          before(:each) { allow_any_instance_of(described_class).to receive(:can?).with(:renew, resource).and_return(false) }
+          let(:can) { false }
 
           it "returns false" do
             expect(helper.display_renew_window_closed_text_for?(resource)).to eq(false)
@@ -361,12 +370,10 @@ RSpec.describe ActionLinksHelper, type: :helper do
     context "when the resource is a registration" do
       let(:resource) { create(:registration) }
 
-      before do
-        allow_any_instance_of(described_class).to receive(:can?).with(:renew, resource).and_return(user_can_renew)
-      end
+      before(:each) { allow(helper).to receive(:can?).with(:renew, resource).and_return(can) }
 
       context "when the user has permission to renew" do
-        let(:user_can_renew) { true }
+        let(:can) { true }
 
         before do
           allow(resource).to receive(:in_renewal_window?).and_return(in_renewal_window)
@@ -406,7 +413,7 @@ RSpec.describe ActionLinksHelper, type: :helper do
       end
 
       context "when the user has no permission to renew" do
-        let(:user_can_renew) { false }
+        let(:can) { false }
 
         it "returns false" do
           expect(helper.display_already_renewed_text_for?(resource)).to eq(false)
