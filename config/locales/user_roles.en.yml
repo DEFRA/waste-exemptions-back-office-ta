@@ -8,4 +8,5 @@ en:
         super_agent: "%{email} is currently a super agent."
         admin_agent: "%{email} is currently an admin agent."
         data_agent: "%{email} is currently a data agent."
+        developer: "%{email} is currently a developer."
       submit_button: "Change role"

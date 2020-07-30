@@ -15,6 +15,7 @@ en:
           super_agent: "super agent"
           admin_agent: "admin agent"
           data_agent: "data agent"
+          developer: "developer"
         statuses:
           active: "active"
           deactivated: "deactivated"

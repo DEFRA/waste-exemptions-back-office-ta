@@ -25,6 +25,10 @@ FactoryBot.define do
       role { "data_agent" }
     end
 
+    trait :developer do
+      role { "developer" }
+    end
+
     trait :inactive do
       active { false }
     end

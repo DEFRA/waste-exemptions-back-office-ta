@@ -8,7 +8,8 @@ class User < ::WasteExemptionsEngine::ApplicationRecord
   ROLES = %w[system
              super_agent
              admin_agent
-             data_agent].freeze
+             data_agent
+             developer].freeze
 
   def role_is?(target_role)
     role == target_role.to_s

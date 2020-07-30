@@ -49,6 +49,16 @@ RSpec.describe Ability, type: :model do
     include_examples "data_agent examples"
   end
 
+  context "when the user role is developer" do
+    let(:user) { build(:user, :developer) }
+
+    include_examples "below system examples"
+    include_examples "below super_agent examples"
+
+    include_examples "admin_agent examples"
+    include_examples "data_agent examples"
+  end
+
   context "when the user account is inactive" do
     let(:user) { build(:user, :data_agent, :inactive) }
 
