@@ -60,5 +60,7 @@ class Ability
   # creating exemptions in order to test and debug.
   def permissions_for_developer
     permissions_for_admin_agent
+
+    can :manage, WasteExemptionsEngine::FeatureToggle
   end
 end

@@ -60,6 +60,10 @@ gem "waste_exemptions_engine",
     git: "https://github.com/DEFRA/waste-exemptions-engine",
     branch: "main"
 
+# Use the Defra Ruby Features gem to allow users with the correct permissions to
+# manage feature toggle (create / update / delete) from the back-office.
+gem "defra_ruby_features", "~> 0.1"
+
 # Use the Defra Ruby Aws gem for loading files to AWS buckets
 gem "defra_ruby_aws", "~> 0.3.0"
 

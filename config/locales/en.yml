@@ -8,6 +8,7 @@ en:
         letters: "Download letters"
         users: "Manage users"
         exports: "Data exports"
+        feature_toggles: "Toggle features"
   shared:
     select_role:
       roles:

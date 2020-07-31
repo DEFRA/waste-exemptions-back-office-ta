@@ -56,6 +56,7 @@ RSpec.describe Ability, type: :model do
     include_examples "below super_agent examples"
 
     include_examples "admin_agent examples"
+    include_examples "developer examples"
     include_examples "data_agent examples"
   end
 
