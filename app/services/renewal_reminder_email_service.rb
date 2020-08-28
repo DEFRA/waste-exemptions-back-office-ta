@@ -48,7 +48,8 @@ class RenewalReminderEmailService < ::WasteExemptionsEngine::BaseService
   end
 
   def magic_link_url
-    Rails.configuration.front_office_url + WasteExemptionsEngine::Engine.routes.url_helpers.renew_path(token: magic_link_token)
+    Rails.configuration.front_office_url +
+      WasteExemptionsEngine::Engine.routes.url_helpers.renew_path(token: magic_link_token)
   end
 
   def magic_link_token
