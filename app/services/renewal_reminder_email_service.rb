@@ -6,13 +6,12 @@ class RenewalReminderEmailService < ::WasteExemptionsEngine::BaseService
   # So we can use displayable_address()
   include ::WasteExemptionsEngine::ApplicationHelper
 
-  def run(registration:, recipient:)
+  def run(registration:)
     @registration = registration
-    @recipient = recipient
 
     client = Notifications::Client.new(WasteExemptionsEngine.configuration.notify_api_key)
 
-    client.send_email(email_address: recipient,
+    client.send_email(email_address: @registration.contact_email,
                       template_id: template,
                       personalisation: personalisation)
   end

@@ -5,10 +5,8 @@ require "rails_helper"
 RSpec.describe FirstRenewalReminderEmailService do
   describe "run" do
     let(:registration) { create(:registration) }
-    let(:recipient) { registration.contact_email }
     let(:service) do
-      FirstRenewalReminderEmailService.run(registration: registration,
-                                           recipient: recipient)
+      FirstRenewalReminderEmailService.run(registration: registration)
     end
 
     it "sends an email" do
