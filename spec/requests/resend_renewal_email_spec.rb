@@ -25,23 +25,27 @@ RSpec.describe "ResendRenewalEmail", type: :request do
       let(:user) { create(:user, :admin_agent) }
 
       it "return a 302 redirect code" do
-        get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
+        VCR.use_cassette("first_renewal_reminder_email") do
+          get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
 
-        expect(response.code).to eq("302")
+          expect(response.code).to eq("302")
+        end
       end
 
       it "return a success message" do
-        success_message = I18n.t("resend_renewal_email.messages.success", email: registration.contact_email)
+        VCR.use_cassette("first_renewal_reminder_email") do
+          success_message = I18n.t("resend_renewal_email.messages.success", email: registration.contact_email)
 
-        get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
-        follow_redirect!
+          get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
+          follow_redirect!
 
-        expect(response.body).to include(success_message)
+          expect(response.body).to include(success_message)
+        end
       end
 
       context "when an error happens", disable_bullet: true do
         before do
-          expect(RenewalReminderMailer).to receive(:first_reminder_email).and_raise(StandardError)
+          expect(FirstRenewalReminderEmailService).to receive(:run).and_raise(StandardError)
         end
 
         around do |example|
