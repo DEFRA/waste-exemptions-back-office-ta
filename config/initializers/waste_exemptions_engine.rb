@@ -41,5 +41,8 @@ WasteExemptionsEngine.configure do |configuration|
   configuration.airbrake_host = ENV["AIRBRAKE_HOST"]
   configuration.airbrake_project_key = ENV["AIRBRAKE_BO_PROJECT_KEY"]
   configuration.airbrake_blocklist = [/password/i, /authorization/i]
+
+  # Notify config
+  configuration.notify_api_key = ENV["NOTIFY_API_KEY"]
 end
 WasteExemptionsEngine.start_airbrake
