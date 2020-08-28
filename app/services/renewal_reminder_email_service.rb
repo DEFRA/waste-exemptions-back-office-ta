@@ -3,6 +3,9 @@
 require "notifications/client"
 
 class RenewalReminderEmailService < ::WasteExemptionsEngine::BaseService
+  # So we can use displayable_address()
+  include ::WasteExemptionsEngine::ApplicationHelper
+
   def run(registration:, recipient:)
     @registration = registration
     @recipient = recipient

@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.notifications.service.gov.uk/v2/notifications/email
+    body:
+      encoding: UTF-8
+      string: '{"email_address":"contact1@example.com","template_id":"80585fc6-9c65-4909-8cb4-6888fa4427c8","personalisation":{"contact_name":"Firstcontact1
+        Lastcontact1","exemptions":["F1 Use of spam in cooking","F2 Use of spam in
+        cooking","F3 Use of spam in cooking"],"expiry_date":"28 August 2023","magic_link_url":"http://localhost:3000/renew/JmYcxkA7ndKpjxBfZRb3NpyA","reference":"WEX000001","site_location":"premises_3,
+        street_address_3, locality_3, city_3, BS3AA"}}'
+    headers:
+      User-Agent:
+      - NOTIFY-API-RUBY-CLIENT/5.3.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic <API_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Authorization
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 28 Aug 2020 16:14:35 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-B3-Spanid:
+      - 047e895954b36989
+      X-B3-Traceid:
+      - 047e895954b36989
+      X-Vcap-Request-Id:
+      - 35c59d21-12ca-4472-4b71-2df58a1947c0
+      Content-Length:
+      - '1607'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"content":{"body":"Dear Firstcontact1 Lastcontact1,\r\n\r\n# Renew
+        your waste exemptions by 28 August 2023\r\n\r\nIf you\u2019ve already renewed
+        your exemptions, you can ignore this reminder.\r\n\r\nYou can renew online
+        in a few minutes. Renewal is free.\r\n\r\nRenew online at:\r\n\r\nhttp://localhost:3000/renew/JmYcxkA7ndKpjxBfZRb3NpyA\r\n\r\nSite
+        location: premises_3, street_address_3, locality_3, city_3, BS3AA\r\nRegistration
+        number: WEX000001\r\n\r\nThese waste exemptions will expire on 28 August 2023:\r\n\r\n\n\n*
+        F1 Use of spam in cooking\n* F2 Use of spam in cooking\n* F3 Use of spam in
+        cooking\r\n\r\nWaste exemption rules and guidance:\r\nhttps://www.gov.uk/guidance/register-your-waste-exemptions-environmental-permits\r\n\r\nIf
+        you no longer carry out these waste operations, you can ignore any reminders.
+        Your waste exemptions will be removed from the public register when they expire.\r\n\r\nEnvironment
+        Agency Helpline\r\n03708 506 506 (Monday to Friday, 8am to 6pm)\r\nenquiries@environment-agency.gov.uk\r\n\r\n----\r\n\r\nThis
+        is an automated email, please do not reply.","from_email":"waste.exemptions@notifications.service.gov.uk","subject":"Renew
+        your waste exemptions online now"},"id":"fd746446-1061-4bba-8209-b7a6f45ef7fc","reference":null,"scheduled_for":null,"template":{"id":"80585fc6-9c65-4909-8cb4-6888fa4427c8","uri":"https://api.notifications.service.gov.uk/services/367ec8d8-ae34-4e85-bb3e-870659f93c43/templates/80585fc6-9c65-4909-8cb4-6888fa4427c8","version":1},"uri":"https://api.notifications.service.gov.uk/v2/notifications/fd746446-1061-4bba-8209-b7a6f45ef7fc"}
+
+'
+  recorded_at: Fri, 28 Aug 2020 16:14:35 GMT
+recorded_with: VCR 6.0.0

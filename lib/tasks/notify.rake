@@ -9,5 +9,13 @@ namespace :notify do
 
       FirstRenewalReminderEmailService.run(registration: registration, recipient: recipient)
     end
+
+    desc "Send a test second renewal reminder email to the newest registration in the DB"
+    task second_renewal_reminder: :environment do
+      registration = WasteExemptionsEngine::Registration.last
+      recipient = registration.contact_email
+
+      SecondRenewalReminderEmailService.run(registration: registration, recipient: recipient)
+    end
   end
 end
