@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: 5c4c5ff02e7e2a306c4df5f595a4f7707b99185f
+  revision: 4e396d3944aa6f3bd2b57b3ca98223154e6a9234
   branch: main
   specs:
     waste_exemptions_engine (0.0.1)
@@ -86,9 +86,9 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    airbrake (10.0.5)
-      airbrake-ruby (~> 4.13)
-    airbrake-ruby (4.15.0)
+    airbrake (11.0.0)
+      airbrake-ruby (~> 5.0)
+    airbrake-ruby (5.0.2)
       rbtree3 (~> 0.5)
     ast (2.4.1)
     aws-eventstream (1.1.0)
@@ -213,7 +213,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.3.0)
-    jwt (2.2.1)
+    jwt (2.2.2)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -226,7 +226,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    loofah (2.6.0)
+    loofah (2.7.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -401,7 +401,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    uk_postcode (2.1.5)
+    uk_postcode (2.1.6)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
