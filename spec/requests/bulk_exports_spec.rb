@@ -15,7 +15,8 @@ RSpec.describe "Bulk Exports", type: :request do
     end
 
     it "renders the correct template, the timestamp in an accessible format and responds with a 200 status code" do
-      export_at_regex = /These files were created at 12:00pm on 1 June 2019\./m
+      # The 2 in "12:00pm" is optional to allow for changes in daylight savings - 12:00pm or 1:00pm is valid
+      export_at_regex = /These files were created at 12?:00pm on 1 June 2019\./m
 
       get bulk_exports_path
 
