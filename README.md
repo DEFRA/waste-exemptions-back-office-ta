@@ -1,6 +1,6 @@
 # Waste Exemptions Back Office
 
-[![Build Status](https://travis-ci.com/DEFRA/waste-exemptions-back-office.svg?branch=main)](https://travis-ci.com/DEFRA/waste-exemptions-back-office)
+![Build Status](https://github.com/DEFRA/waste-exemptions-back-office/workflows/CI/badge.svg?branch=main)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_waste-exemptions-back-office&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_waste-exemptions-back-office)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_waste-exemptions-back-office&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_waste-exemptions-back-office)
 [![security](https://hakiri.io/github/DEFRA/waste-exemptions-back-office/main.svg)](https://hakiri.io/github/DEFRA/waste-exemptions-back-office/main)
