@@ -1,6 +1,6 @@
 # Waste Exemptions Back Office
 
-[![Build Status](https://travis-ci.com/DEFRA/waste-exemptions-back-office.svg?branch=main)](https://travis-ci.com/DEFRA/waste-exemptions-back-office)
+![Build Status](https://github.com/DEFRA/waste-exemptions-back-office/workflows/CI/badge.svg?branch=main)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_waste-exemptions-back-office&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_waste-exemptions-back-office)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_waste-exemptions-back-office&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_waste-exemptions-back-office)
 [![security](https://hakiri.io/github/DEFRA/waste-exemptions-back-office/main.svg)](https://hakiri.io/github/DEFRA/waste-exemptions-back-office/main)
@@ -12,7 +12,7 @@ The waste exemptions service is used by organisations to apply for an exemption.
 
 This service is currently beta public and has been developed in accordance with the [Digital by Default service standard](https://www.gov.uk/service-manual/digital-by-default), putting user needs first and delivered iteratively.
 
-This project is the back office application which internal staff use to register an exemption via the assisted digital route. It uses the [waste-exemptions-engine](https://github.com/DEFRA/waste-exemptions-engine).
+This project is the back office application which internal staff use to register and manage exemptions via the assisted digital route. It uses the [waste-exemptions-engine](https://github.com/DEFRA/waste-exemptions-engine).
 
 ## Prequisites
 
