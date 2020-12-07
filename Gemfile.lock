@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/DEFRA/defra-ruby-aws
-  revision: 22d88810c6ec4814366a1230aa78ff475ece2376
-  branch: feature/filename
-  specs:
-    defra_ruby_aws (0.3.1)
-      aws-sdk-s3
-
-GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
   revision: 8b6eefdd097eab9e486050dfee7136d5f4d875e0
   branch: main
@@ -138,6 +130,8 @@ GEM
     defra_ruby_area (2.0.0)
       nokogiri (~> 1.10.4)
       rest-client (~> 2.0)
+    defra_ruby_aws (0.4.1)
+      aws-sdk-s3
     defra_ruby_email (1.1.0)
       notifications-ruby-client
       rails (~> 6.0.3.1)
@@ -445,7 +439,7 @@ DEPENDENCIES
   bullet
   cancancan (~> 2.0)
   database_cleaner
-  defra_ruby_aws!
+  defra_ruby_aws (~> 0.4)
   defra_ruby_features (~> 0.1)
   defra_ruby_style
   devise
