@@ -62,19 +62,23 @@ FactoryBot.define do
 
     trait :local_authority do
       business_type { "localAuthority" }
+      company_no { nil }
     end
 
     trait :charity do
       business_type { "charity" }
+      company_no { nil }
     end
 
     trait :partnership do
       business_type { "partnership" }
       people { build_list(:person, 2) }
+      company_no { nil }
     end
 
     trait :sole_trader do
       business_type { "soleTrader" }
+      company_no { nil }
     end
 
     trait :site_uses_address do
