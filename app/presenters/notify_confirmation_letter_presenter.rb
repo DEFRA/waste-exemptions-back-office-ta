@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/ClassLength
 class NotifyConfirmationLetterPresenter < BasePresenter
   def business_details_section
     items = []
@@ -111,13 +112,13 @@ class NotifyConfirmationLetterPresenter < BasePresenter
   def contact_email_text
     label_and_value("waste_operation_contact.email", contact_email)
   end
-  
+
   # Location
 
   def grid_reference_text
     label_and_value("waste_operation_location.ngr", site_address.grid_reference)
   end
-  
+
   def site_details_text
     label_and_value("waste_operation_location.details", site_address.description)
   end
@@ -174,3 +175,4 @@ class NotifyConfirmationLetterPresenter < BasePresenter
     registration_exemptions.includes(:exemption)
   end
 end
+# rubocop:enable Metrics/ClassLength

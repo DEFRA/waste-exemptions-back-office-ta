@@ -35,8 +35,8 @@ RSpec.describe NotifyConfirmationLetterPresenter do
       let(:registration) { create(:registration, :partnership, :with_active_exemptions) }
 
       it "returns an array with the correct data and labels" do
-        partner_1 = "#{registration.people.first.first_name} #{registration.people.first.last_name}"
-        partner_2 = "#{registration.people.last.first_name} #{registration.people.last.last_name}"
+        first_partner = "#{registration.people.first.first_name} #{registration.people.first.last_name}"
+        second_partner = "#{registration.people.last.first_name} #{registration.people.last.last_name}"
         address = registration.operator_address
         address_text = [
           address.organisation,
@@ -49,8 +49,8 @@ RSpec.describe NotifyConfirmationLetterPresenter do
 
         expected_array = [
           "Business or organisation type: Partnership",
-          "Accountable partner 1: #{partner_1}",
-          "Accountable partner 2: #{partner_2}",
+          "Accountable partner 1: #{first_partner}",
+          "Accountable partner 2: #{second_partner}",
           "Partnership address: #{address_text}"
         ]
 
@@ -177,7 +177,7 @@ RSpec.describe NotifyConfirmationLetterPresenter do
         expected_array = [
           "#{active_exemption.code}: #{active_exemption.summary} – Expires on 1 January 2099"
         ]
-  
+
         expect(subject.exemptions_section).to eq(expected_array)
       end
     end
