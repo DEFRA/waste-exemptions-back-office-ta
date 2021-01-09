@@ -6,6 +6,25 @@ RSpec.describe NotifyConfirmationLetterPresenter do
   let(:registration) { create(:registration, :with_active_exemptions) }
   subject { described_class.new(registration) }
 
+  describe "#date_registered" do
+    it "returns the correct value" do
+      expect(registration.registration_exemptions.first).to receive(:registered_on).and_return(Date.new(2020, 1, 1))
+      expect(subject.date_registered).to eq("1 January 2020")
+    end
+  end
+
+  describe "#applicant_name" do
+    it "returns the correct value" do
+      expect(subject.applicant_name).to eq("#{registration.applicant_first_name} #{registration.applicant_last_name}")
+    end
+  end
+
+  describe "#contact_name" do
+    it "returns the correct value" do
+      expect(subject.contact_name).to eq("#{registration.contact_first_name} #{registration.contact_last_name}")
+    end
+  end
+
   describe "#business_details_section" do
     context "when the registration is a sole trader" do
       let(:registration) { create(:registration, :sole_trader, :with_active_exemptions) }

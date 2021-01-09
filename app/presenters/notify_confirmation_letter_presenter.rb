@@ -2,6 +2,19 @@
 
 # rubocop:disable Metrics/ClassLength
 class NotifyConfirmationLetterPresenter < BasePresenter
+  def date_registered
+    # Currently you can only add exemptions when you register, so we can assume they expire at the same time
+    registration_exemptions.first.registered_on.to_formatted_s(:day_month_year)
+  end
+
+  def applicant_name
+    "#{applicant_first_name} #{applicant_last_name}"
+  end
+
+  def contact_name
+    "#{contact_first_name} #{contact_last_name}"
+  end
+
   def business_details_section
     items = []
 
@@ -97,8 +110,7 @@ class NotifyConfirmationLetterPresenter < BasePresenter
   # Contact details
 
   def contact_name_text
-    name = "#{contact_first_name} #{contact_last_name}"
-    label_and_value("waste_operation_contact.name", name)
+    label_and_value("waste_operation_contact.name", contact_name)
   end
 
   def contact_position_text
