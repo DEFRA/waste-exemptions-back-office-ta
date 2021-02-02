@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :address, class: WasteExemptionsEngine::Address do
     sequence :postcode do |n|
-      "BS#{n}AA"
+      "BS#{n}#{n}AA"
     end
 
     sequence :uprn do |n|
