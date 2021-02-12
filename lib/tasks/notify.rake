@@ -22,5 +22,12 @@ namespace :notify do
 
       NotifyConfirmationLetterService.run(registration: registration)
     end
+
+    desc "Send a test renewal letter to the newest registration in the DB"
+    task ad_renewal_letter: :environment do
+      registration = WasteExemptionsEngine::Registration.last
+
+      NotifyRenewalLetterService.run(registration: registration)
+    end
   end
 end

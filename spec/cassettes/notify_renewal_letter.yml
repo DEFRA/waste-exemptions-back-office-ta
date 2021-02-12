@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.notifications.service.gov.uk/v2/notifications/letter
+    body:
+      encoding: UTF-8
+      string: '{"template_id":"8251a044-bdbe-4568-a82a-7b499dfe3775","personalisation":{"expiry_date":"12
+        February 2024","contact_name":"Firstcontact1 Lastcontact1","reference":"WEX000001","exemptions":["F1
+        Use of spam in cooking","F2 Use of spam in cooking","F3 Use of spam in cooking"],"business_details":["Type
+        of business: Limited company","Company name: Operator 1","Company registration
+        number: 09360070","Location of waste operation: ST 58337 72855","The waste
+        is stored in an out-building next to the barn."],"address_line_1":"Firstcontact1
+        Lastcontact1","address_line_2":"premises_2","address_line_3":"street_address_2","address_line_4":"locality_2","address_line_5":"city_2","address_line_6":"BS1
+        1AA"}}'
+    headers:
+      User-Agent:
+      - NOTIFY-API-RUBY-CLIENT/5.3.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic <API_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Authorization
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 12 Feb 2021 09:29:32 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-B3-Spanid:
+      - 2f945795b3188fb2
+      X-B3-Traceid:
+      - 2f945795b3188fb2
+      X-Vcap-Request-Id:
+      - 73c81451-16a2-4b54-592c-69d3a6603364
+      Content-Length:
+      - '1718'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"content":{"body":"Dear Firstcontact1 Lastcontact1\r\n\r\n# Renew
+        online \u2013 you''ll need an email address to use the service\r\n\r\n1. Go
+        to the website: www.gov.uk/renew-waste-exemption\r\n2. Click the \u2018Register
+        or renew\u2019 button, then choose \u2018Renew\u2019.\r\n3. Fill in the form
+        - the details you\u2019ll need are below, you can change them if you need
+        to.\r\n\r\n# Need help to renew?\r\n\r\nCall us on 03708 506 506 (Monday to
+        Friday, 8am to 6pm). Your waste exemptions registration number is WEX000001.\r\n\r\nIf
+        you no longer carry out these waste operations, you can ignore this reminder.\r\n\r\n#
+        Registration details for registration number WEX000001\r\n\r\nYour current
+        waste exemptions:\r\n\r\n\n\n* F1 Use of spam in cooking\n* F2 Use of spam
+        in cooking\n* F3 Use of spam in cooking\r\n\r\n\n\n* Type of business: Limited
+        company\n* Company name: Operator 1\n* Company registration number: 09360070\n*
+        Location of waste operation: ST 58337 72855\n* The waste is stored in an out-building
+        next to the barn.\r\n\r\nRead the guidance to check that you still meet the
+        exemption rules and limits: www.gov.uk/register-waste-exemption.\r\n\r\nYours
+        sincerely\r\nWaste Exemptions Team","subject":"Renew your waste exemptions
+        by 12 February 2024. Renewal is free, and should take about 10 minutes."},"id":"c2ce11e2-025a-4013-86ea-d294e2030589","reference":null,"scheduled_for":null,"template":{"id":"8251a044-bdbe-4568-a82a-7b499dfe3775","uri":"https://api.notifications.service.gov.uk/services/367ec8d8-ae34-4e85-bb3e-870659f93c43/templates/8251a044-bdbe-4568-a82a-7b499dfe3775","version":7},"uri":"https://api.notifications.service.gov.uk/v2/notifications/c2ce11e2-025a-4013-86ea-d294e2030589"}
+
+'
+  recorded_at: Fri, 12 Feb 2021 09:29:32 GMT
+recorded_with: VCR 6.0.0
