@@ -153,7 +153,7 @@ RSpec.describe NotifyRenewalLetterPresenter do
             "Type of business: Individual or sole trader",
             "Carrying out the waste operation: #{registration.operator_name}",
             "Location of waste operation: #{registration.site_address.grid_reference}",
-            "#{registration.site_address.description}"
+            registration.site_address.description
           ]
 
           expect(subject.business_details_section).to eq(expected_array)
@@ -170,7 +170,7 @@ RSpec.describe NotifyRenewalLetterPresenter do
             "Type of business: Individual or sole trader",
             "Carrying out the waste operation: #{registration.operator_name}",
             "Location of waste operation: #{registration.site_address.grid_reference}",
-            "#{truncated_site_description}",
+            truncated_site_description,
             "Check your registration document for the full site description."
           ]
 
