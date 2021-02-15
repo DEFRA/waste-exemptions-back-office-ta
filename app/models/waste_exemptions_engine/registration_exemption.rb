@@ -7,7 +7,6 @@ module WasteExemptionsEngine
     self.table_name = "registration_exemptions"
 
     include CanDeactivateExemption
-    include CanBeOrderedByStateAndExemptionId
 
     scope :data_for_month, lambda { |first_day_of_the_month|
       registered_on_range = (first_day_of_the_month..first_day_of_the_month.end_of_month)
