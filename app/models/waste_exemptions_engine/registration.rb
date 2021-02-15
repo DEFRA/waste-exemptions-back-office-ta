@@ -6,7 +6,7 @@ module WasteExemptionsEngine
   class Registration < ::WasteExemptionsEngine::ApplicationRecord
     include CanBeSearchedLikeRegistration
 
-    NCCC_EMAIL = "waste-exemptions@environment-agency.gov.uk"
+    NCCC_EMAIL = WasteExemptionsEngine.configuration.assisted_digital_email
 
     scope :search_for_site_address_postcode, lambda { |term|
       joins(:addresses).merge(Address.search_for_postcode(term).site)

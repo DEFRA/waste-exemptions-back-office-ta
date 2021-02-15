@@ -47,7 +47,7 @@ class AdConfirmationLettersExportService < ::WasteExemptionsEngine::BaseService
 
       WasteExemptionsEngine::Registration
         .order(:reference)
-        .where(contact_email: "waste-exemptions@environment-agency.gov.uk")
+        .where(contact_email: WasteExemptionsEngine.configuration.assisted_digital_email)
         .where(
           id: WasteExemptionsEngine::RegistrationExemption
                 .all_active_exemptions
