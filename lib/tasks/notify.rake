@@ -10,9 +10,9 @@ namespace :notify do
       registrations = BulkNotifyRenewalLettersService.run(expires_on)
 
       if registrations.any?
-        puts registrations
+        Rails.logger.info "Notify AD renewal letters sent for #{registrations.map(&:reference).join(', ')}"
       else
-        puts "No matching registrations"
+        Rails.logger.info "No matching registrations for Notify AD renewal letters"
       end
     end
   end
