@@ -42,6 +42,12 @@ every :day, at: (ENV["CLEANUP_TRANSIENT_REGISTRATIONS_RUN_TIME"] || "00:35"), ro
   rake "cleanup:transient_registrations"
 end
 
+# This is the Notify AD renewal letters job. When run it will send out Notify
+# renewal letters for all AD registrations expiring in 35 days' time
+every :day, at: (ENV["NOTIFY_AD_RENEWAL_LETTERS_TIME"] || "02:35"), roles: [:db] do
+  rake "notify:letters:ad_renewals"
+end
+
 # This is the AD renewal letters export job. When run it will generate a single
 # PDF containing renewal reminder letters for all AD registrations expirying
 # in 35 days time
