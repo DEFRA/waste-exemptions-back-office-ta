@@ -29,5 +29,10 @@ FactoryBot.define do
     trait :with_registration do
       registration
     end
+
+    trait :expires_tomorrow do
+      expires_on { Date.today + 1.day }
+      registered_on { (Date.today + 1.day) - 3.years }
+    end
   end
 end

@@ -99,6 +99,14 @@ FactoryBot.define do
       end
     end
 
+    trait :with_ceased_exemptions do
+      registration_exemptions { build_list(:registration_exemption, 3, :ceased) }
+    end
+
+    trait :expires_tomorrow do
+      registration_exemptions { build_list(:registration_exemption, 3, :expires_tomorrow) }
+    end
+
     trait :with_short_site_description do
       addresses do
         [build(:address, :operator),

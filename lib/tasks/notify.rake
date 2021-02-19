@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 namespace :notify do
+  namespace :letters do
+    desc "List all registrations which will receive the renewal letter"
+    task ad_renewals: :environment do
+      expires_on = WasteExemptionsBackOffice::Application.config.ad_letters_exports_expires_in.to_i.days.from_now
+
+      registrations = BulkNotifyRenewalLettersService.run(expires_on)
+
+      if registrations.any?
+        puts registrations
+      else
+        puts "No matching registrations"
+      end
+    end
+  end
+
   namespace :test do
     desc "Send a test first renewal reminder email to the newest registration in the DB"
     task first_renewal_reminder: :environment do
@@ -31,3 +47,4 @@ namespace :notify do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
