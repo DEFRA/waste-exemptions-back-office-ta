@@ -7,7 +7,7 @@ RSpec.describe "Notify task", type: :rake do
 
   describe "notify:letters:ad_renewals" do
     it "runs without error" do
-      expect(BulkNotifyRenewalLettersService).to receive(:run).and_return([])
+      expect(BulkNotifyRenewalLettersService).to receive(:run).and_return([build(:registration)])
       expect { subject.invoke }.not_to raise_error
     end
   end
