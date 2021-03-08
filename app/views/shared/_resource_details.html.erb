@@ -156,6 +156,9 @@
             <% end %>
           </li>
           <li>
+            <%= link_to t(".actions.resend_renewal_letter"), resend_renewal_letter_path(resource.reference) %>
+          </li>
+          <li>
             <%= link_to t(".actions.renewal_letter"), renewal_letter_path(resource), id: "renewal_letter_#{resource.reference}", target: "_blank" %>
           </li>
         <% elsif display_renew_window_closed_text_for?(resource) %>
