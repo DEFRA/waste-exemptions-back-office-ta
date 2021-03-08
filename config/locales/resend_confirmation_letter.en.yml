@@ -1,0 +1,12 @@
+en:
+  resend_confirmation_letter:
+    new:
+      heading: "Are you sure you want to resend this confirmation letter?"
+      paragraph_1: "The confirmation letter for %{reference} will be posted to:"
+      paragraph_2: "If you confirm that you want to send this letter, it will automatically be posted by the GOV.UK Notify service."
+      send_link: "Confirm and send letter"
+      do_not_send_link: "Don't send a letter"
+    messages:
+      success: Confirmation letter sent to %{reference}
+      failure: We could not send a confirmation letter to %{reference}
+      failure_details: The error has been logged. Try again later or contact an administrator.

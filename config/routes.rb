@@ -58,6 +58,14 @@ Rails.application.routes.draw do
       to: "resend_renewal_email#new",
       as: "resend_renewal_email"
 
+  get "/resend-confirmation-letter/:reference",
+      to: "resend_confirmation_letter#new",
+      as: "confirm_resend_confirmation_letter"
+
+  post "/resend-confirmation-letter/:reference",
+       to: "resend_confirmation_letter#create",
+       as: "resend_confirmation_letter"
+
   # Engine
   mount WasteExemptionsEngine::Engine => "/"
 
