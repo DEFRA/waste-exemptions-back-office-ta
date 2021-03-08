@@ -127,6 +127,9 @@
 
         <% if display_confirmation_letter_link_for?(resource) %>
           <li>
+            <%= link_to t(".actions.resend_confirmation_letter"), resend_confirmation_letter_path(resource.reference) %>
+          </li>
+          <li>
             <%= link_to t(".actions.confirmation_letter"), confirmation_letter_path(resource), target: "_blank" %>
           </li>
         <% end %>
