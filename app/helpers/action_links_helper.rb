@@ -40,7 +40,7 @@ module ActionLinksHelper
   end
 
   def display_confirmation_letter_link_for?(resource)
-    resource.is_a?(WasteExemptionsEngine::Registration)
+    resource.is_a?(WasteExemptionsEngine::Registration) && resource.active?
   end
 
   def display_renew_links_for?(resource)

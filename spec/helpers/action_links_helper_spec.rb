@@ -186,8 +186,22 @@ RSpec.describe ActionLinksHelper, type: :helper do
     context "when the resource is a registration" do
       let(:resource) { create(:registration) }
 
-      it "returns true" do
-        expect(helper.display_confirmation_letter_link_for?(resource)).to eq(true)
+      context "when the registration is active" do
+        it "returns true" do
+          expect(helper.display_confirmation_letter_link_for?(resource)).to eq(true)
+        end
+      end
+
+      context "when the resource is an inactive registration" do
+        let(:resource) do
+          registration = create(:registration)
+          registration.registration_exemptions.each(&:revoke!)
+          registration
+        end
+
+        it "returns false" do
+          expect(helper.display_confirmation_letter_link_for?(resource)).to eq(false)
+        end
       end
     end
 
