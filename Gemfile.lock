@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: f50675f5b97847ef06835022737e995936152f3d
+  revision: f10cd261a715a2e5daf7b67eb25b4f1f96d72c57
   branch: main
   specs:
     waste_exemptions_engine (0.0.1)
@@ -272,7 +272,7 @@ GEM
       rake (>= 0.8.1)
     pg (0.18.4)
     pgreset (0.3)
-    phonelib (0.6.48)
+    phonelib (0.6.49)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
