@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DEFRA/waste-exemptions-engine
-  revision: af55bc7694234da500efc491091a423e0230c069
+  revision: b54d0a57dea7d3cbf1d010cc11d6e13d8de44285
   branch: housekeeping/letter-export-tables
   specs:
     waste_exemptions_engine (0.0.1)
