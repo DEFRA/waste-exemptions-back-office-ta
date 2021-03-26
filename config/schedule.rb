@@ -48,19 +48,6 @@ every :day, at: (ENV["NOTIFY_AD_RENEWAL_LETTERS_TIME"] || "02:35"), roles: [:db]
   rake "notify:letters:ad_renewals"
 end
 
-# This is the AD renewal letters export job. When run it will generate a single
-# PDF containing renewal reminder letters for all AD registrations expirying
-# in 35 days time
-every :day, at: (ENV["EXPORT_SERVICE_AD_RENEWAL_LETTERS_TIME"] || "00:45"), roles: [:db] do
-  rake "letters:export:ad_renewals"
-end
-
-# This is the AD confirmation letters export job. When run it will generate a single
-# PDF containing confirmation letters for all AD registrations created today
-every :day, at: (ENV["EXPORT_SERVICE_AD_CONFIRMATION_LETTERS_TIME"] || "22:35"), roles: [:db] do
-  rake "letters:export:ad_confirmations"
-end
-
 # This is the area update job. When run it will update the area field for all
 # site addresses where it is nil, as long as they have a populated x & y
 # (easting and northing)

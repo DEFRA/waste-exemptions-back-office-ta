@@ -60,7 +60,6 @@ en:
         deregister: "Deregister"
         resume: "Resume"
         resend_confirmation_letter: "Resend confirmation letter"
-        confirmation_letter: "View confirmation letter"
         renew:
           link_text: "Start renewal"
           visually_hidden_text: "of %{name}"
@@ -70,7 +69,6 @@ en:
           link_text: "Resend renewal email"
           visually_hidden_text: "of %{name}"
         resend_renewal_letter: "Resend renewal letter"
-        renewal_letter: "View renewal letter"
       no_applicant_data: "No applicant details"
       no_contact_data: "No contact details"
       no_exemptions: "No exemptions"

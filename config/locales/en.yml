@@ -5,7 +5,6 @@ en:
       feedback_url: https://www.gov.uk/done/register-waste-exemption
       menu:
         dashboard: "Dashboard"
-        letters: "Download letters"
         users: "Manage users"
         exports: "Data exports"
         feature_toggles: "Toggle features"

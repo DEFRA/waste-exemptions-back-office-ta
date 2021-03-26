@@ -37,8 +37,6 @@ class Ability
   end
 
   def permissions_for_admin_agent
-    can :read, WasteExemptionsEngine::AdRenewalLettersExport
-    can :read, WasteExemptionsEngine::AdConfirmationLettersExport
     can :renew, WasteExemptionsEngine::Registration
     can :create, WasteExemptionsEngine::Registration
     can :create, WasteExemptionsEngine::NewRegistration
