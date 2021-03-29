@@ -40,11 +40,6 @@ Rails.application.routes.draw do
   # Privacy policy
   get "/ad-privacy-policy", to: "ad_privacy_policy#show", as: :ad_privacy_policy
 
-  # Letters
-  get "/letters", to: "letters#index", as: :letters
-  resources :ad_renewal_letters_exports, only: %i[index update], path: "/ad-renewal-letters"
-  resources :ad_confirmation_letters_exports, only: %i[index update], path: "/ad-confirmation-letters"
-
   # Deregister Exemptions
   get "/registration-exemptions/deregister/:id", to: "deregister_exemptions#new", as: :deregister_exemptions_form
   post "/registration-exemptions/deregister/:id", to: "deregister_exemptions#update", as: :deregister_exemptions

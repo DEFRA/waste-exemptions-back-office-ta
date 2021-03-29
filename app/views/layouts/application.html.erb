@@ -19,12 +19,6 @@
               <%= link_to t("layouts.application.menu.dashboard"),
                           main_app.root_path %>
             </li>
-            <% if can?(:read, WasteExemptionsEngine::AdRenewalLettersExport) %>
-              <li>
-                <%= link_to t("layouts.application.menu.letters"),
-                            main_app.letters_path %>
-              </li>
-            <% end %>
             <% if can?(:read, current_user) %>
               <li>
                 <%= link_to t("layouts.application.menu.users"),
@@ -60,4 +54,4 @@
   </main>
 <% end %>
 
-<%= render file: "layouts/govuk_template" %>
+<%= render template: "layouts/govuk_template" %>

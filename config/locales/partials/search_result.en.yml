@@ -30,9 +30,6 @@ en:
         resume:
           link_text: "Resume"
           visually_hidden_text: "registering %{name}"
-        confirmation_letter:
-          link_text: "View confirmation letter"
-          visually_hidden_text: "for %{name}"
         renew:
           link_text: "Start renewal"
           visually_hidden_text: "of %{name}"
@@ -41,6 +38,3 @@ en:
         resend_renew_email:
           link_text: "Resend renewal email"
           visually_hidden_text: "of %{name}"
-        renewal_letter:
-          link_text: "View renewal letter"
-          visually_hidden_text: "for %{name}"

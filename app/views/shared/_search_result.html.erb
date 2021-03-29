@@ -114,18 +114,6 @@
             </li>
           <% end %>
 
-          <% if display_confirmation_letter_link_for?(result) %>
-            <li>
-              <%= link_to confirmation_letter_path(result), id: "confirmation_letter_#{result.reference}", target: "_blank" do %>
-                <%= t(".actions.confirmation_letter.link_text") %>
-                <span class="visually-hidden">
-                 <%= t(".actions.confirmation_letter.visually_hidden_text",
-                       name: result_name_for_visually_hidden_text(result)) %>
-                </span>
-              <% end %>
-            </li>
-          <% end %>
-
           <% if display_already_renewed_text_for?(result) %>
             <li><%= t(".actions.renew.already_renewed") %></li>
           <% elsif display_renew_links_for?(result) %>
@@ -143,15 +131,6 @@
                 <%= t(".actions.resend_renew_email.link_text") %>
                 <span class="visually-hidden">
                  <%= t(".actions.resend_renew_email.visually_hidden_text",
-                       name: result_name_for_visually_hidden_text(result)) %>
-                </span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to renewal_letter_path(result), id: "renewal_letter_#{result.reference}", target: "_blank" do %>
-                <%= t(".actions.renewal_letter.link_text") %>
-                <span class="visually-hidden">
-                 <%= t(".actions.renewal_letter.visually_hidden_text",
                        name: result_name_for_visually_hidden_text(result)) %>
                 </span>
               <% end %>
