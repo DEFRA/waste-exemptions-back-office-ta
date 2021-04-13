@@ -36,29 +36,133 @@ RSpec.describe "ResendConfirmationEmail", type: :request do
         Bullet.unused_eager_loading_enable = true
       end
 
-      it "returns a success message" do
-        VCR.use_cassette("first_confirmation_reminder_email") do
-          success_message = I18n.t("resend_confirmation_email.messages.success", email: registration.contact_email)
+      context "when the recipients are the same" do
+        before do
+          registration.update(applicant_email: registration.contact_email)
+        end
+
+        it "returns a success message" do
+          VCR.use_cassette("first_confirmation_reminder_email") do
+            success_message = I18n.t("resend_confirmation_email.messages.success.one",
+                                     default_email: registration.contact_email)
+
+            get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
+            follow_redirect!
+
+            expect(response.body).to include(success_message)
+          end
+        end
+
+        context "when an error happens" do
+          before do
+            expect(WasteExemptionsEngine::ConfirmationEmailService).to receive(:run).and_raise(StandardError)
+          end
+
+          it "returns an error message" do
+            error_message = I18n.t("resend_confirmation_email.messages.failure_details")
+
+            get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
+            follow_redirect!
+
+            expect(response.body).to include(error_message)
+          end
+        end
+      end
+
+      context "when there is one valid recipient and one AD recipient" do
+        before do
+          registration.update(contact_email: "waste-exemptions@environment-agency.gov.uk")
+        end
+
+        it "returns a success message" do
+          success_message = I18n.t("resend_confirmation_email.messages.success.one",
+                                   default_email: registration.applicant_email)
+
+          # Chose to stub this rather than have to deal with VCR and multiple requests
+          expect(WasteExemptionsEngine::ConfirmationEmailService).to receive(:run).with(
+            registration: registration,
+            recipient: registration.applicant_email
+          )
+          expect(WasteExemptionsEngine::ConfirmationEmailService).to_not receive(:run).with(
+            registration: registration,
+            recipient: registration.contact_email
+          )
 
           get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
           follow_redirect!
 
           expect(response.body).to include(success_message)
         end
+
+        context "when an error happens" do
+          before do
+            expect(WasteExemptionsEngine::ConfirmationEmailService).to receive(:run).and_raise(StandardError)
+          end
+
+          it "returns an error message" do
+            error_message = I18n.t("resend_confirmation_email.messages.failure_details")
+
+            get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
+            follow_redirect!
+
+            expect(response.body).to include(error_message)
+          end
+        end
       end
 
-      context "when an error happens" do
-        before do
-          expect(WasteExemptionsEngine::ConfirmationEmailService).to receive(:run).and_raise(StandardError)
-        end
+      context "when there are multiple recipients" do
+        it "returns a success message" do
+          success_message = I18n.t("resend_confirmation_email.messages.success.other",
+                                   applicant_email: registration.applicant_email,
+                                   contact_email: registration.contact_email)
 
-        it "returns an error message" do
-          error_message = I18n.t("resend_confirmation_email.messages.failure_details")
+          # Chose to stub this rather than have to deal with VCR and multiple requests
+          expect(WasteExemptionsEngine::ConfirmationEmailService).to receive(:run).with(
+            registration: registration,
+            recipient: registration.applicant_email
+          )
+          expect(WasteExemptionsEngine::ConfirmationEmailService).to receive(:run).with(
+            registration: registration,
+            recipient: registration.contact_email
+          )
 
           get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
           follow_redirect!
 
-          expect(response.body).to include(error_message)
+          expect(response.body).to include(success_message)
+        end
+
+        context "when an error happens" do
+          before do
+            expect(WasteExemptionsEngine::ConfirmationEmailService).to receive(:run).and_raise(StandardError)
+          end
+
+          it "returns an error message" do
+            error_message = I18n.t("resend_confirmation_email.messages.failure_details")
+
+            get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
+            follow_redirect!
+
+            expect(response.body).to include(error_message)
+          end
+        end
+      end
+
+      context "when there are no recipients" do
+        before do
+          registration.update(applicant_email: "waste-exemptions@environment-agency.gov.uk",
+                              contact_email: "waste-exemptions@environment-agency.gov.uk")
+        end
+
+        it "returns a success message" do
+          expect(WasteExemptionsEngine::ConfirmationEmailService).to_not receive(:run)
+
+          success_message = I18n.t("resend_confirmation_email.messages.success.zero")
+
+          get request_path, params: {}, headers: { "HTTP_REFERER" => "/" }
+          follow_redirect!
+
+          expect(response.body).to include(success_message)
         end
       end
     end

@@ -7,18 +7,14 @@ class ResendConfirmationEmailController < ApplicationController
     authorize
 
     begin
-      WasteExemptionsEngine::ConfirmationEmailService.run(registration: registration,
-                                                          recipient: registration.contact_email)
+      send_emails
 
-      flash_success I18n.t("resend_confirmation_email.messages.success", email: registration.contact_email)
+      flash_success(success_message)
     rescue StandardError => e
       Airbrake.notify e, registration: registration.reference
       Rails.logger.error "Failed to send confirmation email for registration #{registration.reference}"
 
-      message = I18n.t("resend_confirmation_email.messages.failure", email: registration.contact_email)
-      description = I18n.t("resend_confirmation_email.messages.failure_details")
-
-      flash_error(message, description)
+      flash_error(failure_message, failure_description)
     end
 
     redirect_back(fallback_location: root_path)
@@ -34,5 +30,38 @@ class ResendConfirmationEmailController < ApplicationController
 
   def authorize
     authorize! :renew, WasteExemptionsEngine::Registration
+  end
+
+  def send_emails
+    emails_to_contact.each do |email|
+      WasteExemptionsEngine::ConfirmationEmailService.run(registration: registration,
+                                                          recipient: email)
+    end
+  end
+
+  def emails_to_contact
+    emails = [registration.applicant_email, registration.contact_email]
+    emails.delete(WasteExemptionsEngine.configuration.assisted_digital_email)
+    emails.uniq
+  end
+
+  def success_message
+    I18n.t("resend_confirmation_email.messages.success",
+           applicant_email: registration.applicant_email,
+           contact_email: registration.contact_email,
+           default_email: emails_to_contact.first,
+           count: emails_to_contact.length)
+  end
+
+  def failure_message
+    I18n.t("resend_confirmation_email.messages.failure",
+           applicant_email: registration.applicant_email,
+           contact_email: registration.contact_email,
+           default_email: emails_to_contact.first,
+           count: emails_to_contact.length)
+  end
+
+  def failure_description
+    I18n.t("resend_confirmation_email.messages.failure_details")
   end
 end
