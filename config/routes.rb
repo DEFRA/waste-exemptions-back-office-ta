@@ -49,6 +49,10 @@ Rails.application.routes.draw do
       to: "renews#new",
       as: "renew"
 
+  get "/resend-confirmation-email/:reference",
+      to: "resend_confirmation_email#new",
+      as: "resend_confirmation_email"
+
   get "/resend-renewal-email/:reference",
       to: "resend_renewal_email#new",
       as: "resend_renewal_email"

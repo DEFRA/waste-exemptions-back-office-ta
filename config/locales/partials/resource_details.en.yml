@@ -59,6 +59,7 @@ en:
         edit: "Edit"
         deregister: "Deregister"
         resume: "Resume"
+        resend_confirmation_email: "Resend confirmation email"
         resend_confirmation_letter: "Resend confirmation letter"
         renew:
           link_text: "Start renewal"

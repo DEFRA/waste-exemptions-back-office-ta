@@ -1,0 +1,11 @@
+en:
+  resend_confirmation_email:
+    messages:
+      success:
+        zero: "This registration only has an assisted digital email, so no confirmation emails were sent"
+        one: Confirmation email sent to %{default_email}
+        other: Confirmation email sent to %{contact_email} and %{applicant_email}
+      failure:
+        one: We could not send an email to %{default_email}
+        other: We could not send an email to %{contact_email} and %{applicant_email}
+      failure_details: The error has been logged. Try again later or contact an administrator.
