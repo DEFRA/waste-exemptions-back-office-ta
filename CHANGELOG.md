@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2.3.0](https://github.com/defra/waste-exemptions-back-office/tree/v2.3.0) (2021-04-15)
+
+[Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v2.2.0...v2.3.0)
+
+**Implemented enhancements:**
+
+- Resend confirmation email on demand [\#698](https://github.com/DEFRA/waste-exemptions-back-office/pull/698) ([irisfaraway](https://github.com/irisfaraway))
+
+**Merged pull requests:**
+
+- Bump waste\_exemptions\_engine from `9664fb3` to `c85e669` [\#700](https://github.com/DEFRA/waste-exemptions-back-office/pull/700) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump devise\_invitable from 2.0.3 to 2.0.4 [\#699](https://github.com/DEFRA/waste-exemptions-back-office/pull/699) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump waste\_exemptions\_engine from `bceb28d` to `ee10f25` [\#697](https://github.com/DEFRA/waste-exemptions-back-office/pull/697) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rails from 6.0.3.5 to 6.0.3.6 [\#696](https://github.com/DEFRA/waste-exemptions-back-office/pull/696) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump webmock from 3.12.1 to 3.12.2 [\#695](https://github.com/DEFRA/waste-exemptions-back-office/pull/695) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Remove old PDF letter export functionality [\#694](https://github.com/DEFRA/waste-exemptions-back-office/pull/694) ([irisfaraway](https://github.com/irisfaraway))
+- Bump waste\_exemptions\_engine from `f10cd26` to `bceb28d` [\#693](https://github.com/DEFRA/waste-exemptions-back-office/pull/693) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Update to mimemagic 0.3.7 [\#692](https://github.com/DEFRA/waste-exemptions-back-office/pull/692) ([irisfaraway](https://github.com/irisfaraway))
+- Bump waste\_exemptions\_engine from `f50675f` to `f10cd26` [\#691](https://github.com/DEFRA/waste-exemptions-back-office/pull/691) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump github\_changelog\_generator from 1.15.2 to 1.16.1 [\#690](https://github.com/DEFRA/waste-exemptions-back-office/pull/690) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rspec-rails from 5.0.0 to 5.0.1 [\#688](https://github.com/DEFRA/waste-exemptions-back-office/pull/688) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v2.2.0](https://github.com/defra/waste-exemptions-back-office/tree/v2.2.0) (2021-03-15)
 
 [Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v2.1.0...v2.2.0)
@@ -231,6 +253,7 @@
 
 - \[Security\] Bump secure\_headers from 5.1.0 to 5.2.0 [\#483](https://github.com/DEFRA/waste-exemptions-back-office/pull/483) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - \[Security\] Bump rack from 1.6.11 to 1.6.12 [\#472](https://github.com/DEFRA/waste-exemptions-back-office/pull/472) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- \[Security\] Bump loofah from 2.3.0 to 2.3.1 [\#453](https://github.com/DEFRA/waste-exemptions-back-office/pull/453) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 **Merged pull requests:**
 
@@ -306,10 +329,6 @@
 - Various fixes to AD letters [\#407](https://github.com/DEFRA/waste-exemptions-back-office/pull/407) ([cintamani](https://github.com/cintamani))
 - Fix bug on Cleaning AD renewal letters [\#405](https://github.com/DEFRA/waste-exemptions-back-office/pull/405) ([cintamani](https://github.com/cintamani))
 - Cast string to integer [\#397](https://github.com/DEFRA/waste-exemptions-back-office/pull/397) ([cintamani](https://github.com/cintamani))
-
-**Security fixes:**
-
-- \[Security\] Bump loofah from 2.3.0 to 2.3.1 [\#453](https://github.com/DEFRA/waste-exemptions-back-office/pull/453) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 **Merged pull requests:**
 
@@ -453,6 +472,7 @@
 - Update schema - Drop reference index on transient registrations [\#300](https://github.com/DEFRA/waste-exemptions-back-office/pull/300) ([cintamani](https://github.com/cintamani))
 - Add schema changes [\#298](https://github.com/DEFRA/waste-exemptions-back-office/pull/298) ([cintamani](https://github.com/cintamani))
 - Add configs for generating and decoding a renew JWT token [\#293](https://github.com/DEFRA/waste-exemptions-back-office/pull/293) ([cintamani](https://github.com/cintamani))
+- Activate first email reminder feature [\#281](https://github.com/DEFRA/waste-exemptions-back-office/pull/281) ([cintamani](https://github.com/cintamani))
 
 **Fixed bugs:**
 
@@ -495,7 +515,6 @@
 - Update renewal email to use magic link [\#290](https://github.com/DEFRA/waste-exemptions-back-office/pull/290) ([irisfaraway](https://github.com/irisfaraway))
 - Move BOXI export to reports namespace [\#287](https://github.com/DEFRA/waste-exemptions-back-office/pull/287) ([Cruikshanks](https://github.com/Cruikshanks))
 - Bump waste\_exemptions\_engine from `4ed93c0` to `754e010` [\#285](https://github.com/DEFRA/waste-exemptions-back-office/pull/285) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump waste\_exemptions\_engine from `bb44a8d` to `b2b3d37` [\#278](https://github.com/DEFRA/waste-exemptions-back-office/pull/278) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v1.0.2](https://github.com/defra/waste-exemptions-back-office/tree/v1.0.2) (2019-07-26)
 
@@ -504,7 +523,6 @@
 **Implemented enhancements:**
 
 - Add feature toggle on Boxi export [\#283](https://github.com/DEFRA/waste-exemptions-back-office/pull/283) ([cintamani](https://github.com/cintamani))
-- Activate first email reminder feature [\#281](https://github.com/DEFRA/waste-exemptions-back-office/pull/281) ([cintamani](https://github.com/cintamani))
 - Prevent exports to fail if a required address is missing [\#280](https://github.com/DEFRA/waste-exemptions-back-office/pull/280) ([cintamani](https://github.com/cintamani))
 - Schedule boxi generation service job [\#277](https://github.com/DEFRA/waste-exemptions-back-office/pull/277) ([cintamani](https://github.com/cintamani))
 - Generate Boxi report CSV files for AWS export [\#276](https://github.com/DEFRA/waste-exemptions-back-office/pull/276) ([cintamani](https://github.com/cintamani))
@@ -514,6 +532,7 @@
 - Bump waste\_exemptions\_engine from `d1b939d` to `4ed93c0` [\#284](https://github.com/DEFRA/waste-exemptions-back-office/pull/284) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `b2b3d37` to `d1b939d` [\#282](https://github.com/DEFRA/waste-exemptions-back-office/pull/282) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump rubyzip from 1.2.2 to 1.2.3 [\#279](https://github.com/DEFRA/waste-exemptions-back-office/pull/279) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump waste\_exemptions\_engine from `bb44a8d` to `b2b3d37` [\#278](https://github.com/DEFRA/waste-exemptions-back-office/pull/278) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump waste\_exemptions\_engine from `7bdc763` to `bb44a8d` [\#275](https://github.com/DEFRA/waste-exemptions-back-office/pull/275) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [hotfix/v1.0.1](https://github.com/defra/waste-exemptions-back-office/tree/hotfix/v1.0.1) (2019-07-22)
