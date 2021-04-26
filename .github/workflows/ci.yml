@@ -5,7 +5,7 @@ on: push
 jobs:
   build:
     # You must use a Linux environment when using service containers or container jobs
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
     env:
       AWS_DAILY_EXPORT_ACCESS_KEY_ID: keyid
       AWS_DAILY_EXPORT_SECRET_ACCESS_KEY: secretkey
