@@ -28,7 +28,7 @@ gem "pgreset"
 # See: https://github.com/sass/sassc-rails/issues/114
 gem "sassc-rails"
 # Bundle edge Rails instead: gem "rails', github: 'rails/rails'
-gem "rails", "~> 6.0.3.1"
+gem "rails", "~> 6.0.3.7"
 # Use SCSS for stylesheets
 # gem "sass-rails", "~> 5.0"
 
