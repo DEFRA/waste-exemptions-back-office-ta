@@ -16,4 +16,7 @@ VCR.configure do |c|
     auth = interaction.request.headers["Authorization"]
     auth.first unless auth.nil? || auth.empty?
   end
+
+  c.filter_sensitive_data("<CLIENT_ID>") { ENV["ADDRESS_FACADE_CLIENT_ID"] }
+  c.filter_sensitive_data("<CLIENT_KEY>") { ENV["ADDRESS_FACADE_CLIENT_KEY"] }
 end
