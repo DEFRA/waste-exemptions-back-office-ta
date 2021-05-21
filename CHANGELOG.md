@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2.4.0](https://github.com/defra/waste-exemptions-back-office/tree/v2.4.0) (2021-05-20)
+
+[Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v2.3.0...v2.4.0)
+
+**Merged pull requests:**
+
+- Bump waste\_exemptions\_engine from `e23fbe8` to `2b02b9e` [\#719](https://github.com/DEFRA/waste-exemptions-back-office/pull/719) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump waste\_exemptions\_engine from `d084933` to `e23fbe8` [\#718](https://github.com/DEFRA/waste-exemptions-back-office/pull/718) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump faker from 2.17.0 to 2.18.0 [\#717](https://github.com/DEFRA/waste-exemptions-back-office/pull/717) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump github\_changelog\_generator from 1.16.2 to 1.16.3 [\#716](https://github.com/DEFRA/waste-exemptions-back-office/pull/716) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump webmock from 3.12.2 to 3.13.0 [\#715](https://github.com/DEFRA/waste-exemptions-back-office/pull/715) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump waste\_exemptions\_engine from `062cb10` to `d084933` [\#714](https://github.com/DEFRA/waste-exemptions-back-office/pull/714) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump waste\_exemptions\_engine from `72d4834` to `062cb10` [\#713](https://github.com/DEFRA/waste-exemptions-back-office/pull/713) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Update minimum Rails version [\#712](https://github.com/DEFRA/waste-exemptions-back-office/pull/712) ([irisfaraway](https://github.com/irisfaraway))
+- Bump factory\_bot\_rails from 6.1.0 to 6.2.0 [\#711](https://github.com/DEFRA/waste-exemptions-back-office/pull/711) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump waste\_exemptions\_engine from `c13b551` to `72d4834` [\#710](https://github.com/DEFRA/waste-exemptions-back-office/pull/710) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rails from 6.0.3.6 to 6.0.3.7 [\#709](https://github.com/DEFRA/waste-exemptions-back-office/pull/709) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rexml from 3.2.4 to 3.2.5 [\#708](https://github.com/DEFRA/waste-exemptions-back-office/pull/708) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump devise from 4.7.3 to 4.8.0 [\#707](https://github.com/DEFRA/waste-exemptions-back-office/pull/707) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump waste\_exemptions\_engine from `1574734` to `c13b551` [\#706](https://github.com/DEFRA/waste-exemptions-back-office/pull/706) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump github\_changelog\_generator from 1.16.1 to 1.16.2 [\#705](https://github.com/DEFRA/waste-exemptions-back-office/pull/705) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump waste\_exemptions\_engine from `c85e669` to `1574734` [\#704](https://github.com/DEFRA/waste-exemptions-back-office/pull/704) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Update Ubuntu version in CI [\#703](https://github.com/DEFRA/waste-exemptions-back-office/pull/703) ([irisfaraway](https://github.com/irisfaraway))
+- Remove config for AWS letters bucket [\#702](https://github.com/DEFRA/waste-exemptions-back-office/pull/702) ([irisfaraway](https://github.com/irisfaraway))
+- Bump devise\_invitable from 2.0.4 to 2.0.5 [\#701](https://github.com/DEFRA/waste-exemptions-back-office/pull/701) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v2.3.0](https://github.com/defra/waste-exemptions-back-office/tree/v2.3.0) (2021-04-15)
 
 [Full Changelog](https://github.com/defra/waste-exemptions-back-office/compare/v2.2.0...v2.3.0)
